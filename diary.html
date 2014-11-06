@@ -114,5 +114,43 @@
     :- wl_prefix(wb_rdfs, 'http://www.wouterbeek.com/weblife/rdfs/').
     :- initialization(wb_rdfs:rdfs_class(rdfs:'Class')).
     </pre>
+    
+    
+    
+    <h1>2014/10/27</h1>
+    
+    <h3><code>open_any</code> and <code>rdf_load_any</code></h3>
+    Dependencies:
+    <pre>
+      rdf_guess_format -> rdf_file_db -> ...
+    </pre>
+    <ul>
+      <li>
+        Module <code>rdf_load_any</code> replaces ClioPatria module
+        <code>rdf_file_type</code>.
+      </li>
+    </ul>
+    
+    <h3>ClioPatria cleanup</h3>
+    <ul>
+      <li>
+        Module <code>http_cors</code> is already part of SWI-Prolog's
+        HTTP package.
+      </li>
+    </ul>
+    
+    <h1>TODO</h1>
+    <ul>
+      <li>Cleanup: PLC, plDcg, plHtml, plLattice, plRdf, plSet, plTabular, Server</li>
+      <li>URI</li>
+      <li>HTTP 1.1</li>
+      <li>JSON-LD</li>
+      <li>JSON</li>
+      <li>RDFa</li>
+      <li>plRest</li>
+      <li>open_any</li>
+      <li>rdf_load_any</li>
+      <li></li>
+    </ul>
   </body>
 </html>
