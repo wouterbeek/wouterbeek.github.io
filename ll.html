@@ -64,7 +64,7 @@
               <li>Socket errors</li>
               <li>Protocol errors</li>
               <li>Corrupted archives</li>
-              <li>Authenticaion problems</li>
+              <li>Authentication problems</li>
               <li>Syntax errors</li>
               <li>Wrong metadata</li>
             </ul>
@@ -76,10 +76,14 @@
             data quality is still not as high as it should be.
           </p>
           <p class="fragment">
+            ... therefore the SW is not generally machine-processable today.
+          </p>
+          <p class="fragment">
             Data preparation / data cleaning tasks take 10-40% of research time.
           </p>
           <p class="fragment">
-            Existing solutions for cleaning data (standards, guidelines, tools)
+            Existing solutions for cleaning data
+            (standards, guidelines, best practices, tools)
             are targeted towards human data creators, who can (and do)
             choose not to use them.
           </p>
@@ -90,7 +94,7 @@
             <li class="fragment">Automate the data preprocessing phase</li>
             <li class="fragment">
               Disseminate <i>all</i> LOD in a standards-compliant
-              / machine-processable way, <i>right now</i>
+              / machine-processable way, <i>right now</i>:
               <ul>
                 <li>Scale: billions of triples</li>
                 <li>Days not decades</li>
@@ -130,9 +134,13 @@
           </a>
 -->
           <br/>
-          <small>
-            Open source: <a href="https://github.com/LODLaundry">https://github.com/LODLaundry</a>
-          </small>
+          <h3>
+            Web Service:
+            <a href="https://lodlaundromat.org">
+              https://lodlaundromat.org
+            </a>
+          </h3>
+          <p>Open source (of course)</p>
         </section>
         <section>
           <h1>Metadata</h1>
@@ -155,7 +163,9 @@
             <li class="fragment">
               Automated load balancing:
               <ul>
-                <li>Use <i>reliable</i> metadata for determining sizes/skews.</li>
+                <li>
+                  Use <i>reliable</i> metadata for determining sizes/skews
+                </li>
                 <li>Multi-node computing cluster
               </ul>
             </li>
@@ -163,7 +173,7 @@
               Streamed data processing:
               <ul>
                 <li>Streaming window: 1 triple</li>
-                <li>10B triples can be processed with very low memory cost</li>
+                <li>10B+ triples processed on discount hardware</li>
                 <li><a href="http://preflabel.org/">PrefLabel</a></li>
               </ul>
             </li>
@@ -172,7 +182,6 @@
               <ul>
                 <li>"We tested our algorithm on the English version of DBpedia"</li>
                 <li>We are currently optimizing all our algorithms for <5 datasets!</li>
-                <li>Skip the data preparation phase</li>
                 <li>
                   Evaluate an algorithm against 15,000 datasets
                   in 10-40 lines of code.
