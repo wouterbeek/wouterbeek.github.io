@@ -45,8 +45,13 @@
           <h2>Structural Properties as Proxy for Semantic Relevance</h2>
           <!-- <img class="stretch" src="imgs/large-scale-projects.jpg"/> -->
           <h4>Laurens Rietveld</h4>
+          <small>Presented by: Wouter Beek</small>
           <!-- <h5>laurens.rietveld@vu.nl</h5> -->
-          <h4><a href="http://presentations.laurensrietveld.nl/now" target="_blank">http://presentations.laurensrietveld.nl/now</a></h4>
+          <h4>
+            <a href="http://wouterbeek.github.io/sampld.html" target="_blank">
+              http://wouterbeek.github.io/sampld.html
+            </a>
+          </h4>
       </section>
       <section>
         <h2>Take-home message</h2>
@@ -250,7 +255,13 @@
                 15 sampling methods (<i>methods<sub>s</sub></i>):
                 5 graph rewrite methods; 3 network metrics
               </li>
-              <li>11 baseline methods (<i>methods<sub>b</sub></i>)</li>
+              <li>
+                11 baseline methods (<i>methods<sub>b</sub></i>):
+                <ul>
+                  <li>10 random samples</li>
+                  <li>1 sample based on resource frequencies</li>
+                </ul>
+              </li>
               <li>x datasets of max. 459M propositions</li>
             </ul>
           </li>
@@ -261,13 +272,10 @@
       <section>
         <h2>Scalable Approach</h2>
         <ul>
-          <li>Retrieve which triples are used by a query</li>
+          <li>Retrieve which triples are used by a query (query grounding)</li>
           <li>Use a hadoop cluster to find the weights of these triples</li>
 <!--         <li>Determine whether the weight of these triples is high enough to have been included in the sample</li> -->
-          <li>
-            Analyze whether these triples <i>would have been</i> included
-            in the sample
-          </li>
+          <li>Analyze whether these (ground) triples are included in samples</li>
           <li>Scalable since we execute every query <i>once</i></li>
         </ul>
       </section>
@@ -298,6 +306,21 @@ SELECT ?person ?country WHERE {
         </div>
       </section>
       <section>
+        <h2>Incomplete results</h2>
+        <div id="datasetExampleSample_wrapper" class="dataTables_wrapper dualColElement" role="grid"><table class="dataTable" style="display:inline-block;left: -80px;margin-top: -15px;" id="datasetExampleSample">
+        <thead><tr role="row"><td rowspan="1" style="text-align: center; font-weight:bold;" colspan="4">Dataset</td></tr><tr role="row"><th aria-label="Subject: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Subject</th><th aria-label="Predicate: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Predicate</th><th aria-label="Object: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Object</th><th aria-label="Weight: activate to sort column ascending" aria-sort="descending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting_desc">Weight</th></tr></thead>
+        <tbody aria-relevant="all" aria-live="polite" role="alert"><tr class="odd" style="background-color: rgb(22, 105, 35);"><td class=" ">:Laurens</td><td class=" ">:bornIn</td><td class=" ">:Amsterdam</td><td class="  sorting_1">0.6</td></tr><tr class="even" style="background-color: rgb(22, 105, 35);"><td class=" ">:Stefan</td><td class=" ">:bornIn</td><td class=" ">:Berlin</td><td class="  sorting_1">0.5</td></tr><tr class="odd" style="background-color: rgb(22, 105, 35);"><td class=" ">:Berlin</td><td class=" ">:capitalOf</td><td class=" ">:Germany</td><td class="  sorting_1">0.5</td></tr><tr class="even"><td class=" ">:Amsterdam</td><td class=" ">:capitalOf</td><td class=" ">:NL</td><td class="  sorting_1">0.1</td></tr><tr class="odd"><td class=" ">:Rinke</td><td class=" ">:bornIn</td><td class=" ">:Heerenveen</td><td class="  sorting_1">0.1</td></tr></tbody></table></div>
+        <table class="dualColElement" id="resultSetSelection" style="display:inline-block;">
+          <thead><tr><td colspan="3" style="text-align: center; font-weight:bold;">Triples used in query resultsets</td></tr><tr><th>Subject</th><th>Predicate</th><th>Object</th></tr></thead>
+          <tbody>
+            <tr style="background-color: rgb(235, 67, 67);border-top: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Laurens</td><td class="">:bornIn</td><td class="">:Amsterdam</td></tr>
+            <tr class="strikeout" style="background-color: rgb(235, 67, 67);border-bottom: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Amsterdam</td><td class="">:capitalOf</td><td class="">:NL</td></tr>
+            <tr style="background-color: rgb(22, 105, 35);border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Stefan</td><td class="">:bornIn</td><td class="">:Berlin</td></tr>
+            <tr style="background-color: rgb(22, 105, 35);border-bottom: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Berlin</td><td class="">:capitalOf</td><td class="">:Germany</td></tr>
+          </tbody>
+        </table>
+      </section>
+<!--
         <section class="future" style="top: -20px; display: none;" hidden="">
           <h2>Query rewriting: 'Ground queries'</h2>
           <div style="float:left; width:100%;">
@@ -327,19 +350,26 @@ SELECT DISTINCT * WHERE {
               </tbody>
             </table>
           </section>
+-->
           <section>
-            <h2>Not all propositions are needed for ground queries</h2>
-            <pre>
+            <h2>Nifty optimizations</h2>
+            <p>E.g., not all propositions are needed for answering ground queries</p>
+            <div style="float:left; width: 50%;">
+              <pre>
 SELECT DISTINCT ?city WHERE {
   ?university :inCity ?city ;
               :rating ?high .
 }</pre>
-            <pre>
+            </div>
+            <div style="float:right; width: 50%;">
+              <pre>
 :university1 :inCity :london .
 :university1 :rating :high .
 :university2 :inCity :london .
 :university2 :inCity :high .</pre>
+            </div>
           </section>
+<!--
           <section style="top: -20px; display: none;" class="future">
             <h2>Special case: UNIONS</h2>
             <div style="float:left; width:100%">
@@ -369,22 +399,7 @@ SELECT DISTINCT ?city WHERE {
               </table>
             </div>
           </section>
-        </section>
-        <section>
-        <h2>Incomplete results</h2>
-         <div id="datasetExampleSample_wrapper" class="dataTables_wrapper dualColElement" role="grid"><table class="dataTable" style="display:inline-block;left: -80px;margin-top: -15px;" id="datasetExampleSample">
-           <thead><tr role="row"><td rowspan="1" style="text-align: center; font-weight:bold;" colspan="4">Dataset</td></tr><tr role="row"><th aria-label="Subject: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Subject</th><th aria-label="Predicate: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Predicate</th><th aria-label="Object: activate to sort column ascending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting">Object</th><th aria-label="Weight: activate to sort column ascending" aria-sort="descending" style="width: 0px;" colspan="1" rowspan="1" aria-controls="datasetExampleSample" tabindex="0" role="columnheader" class="sorting_desc">Weight</th></tr></thead>
-           <tbody aria-relevant="all" aria-live="polite" role="alert"><tr class="odd" style="background-color: rgb(22, 105, 35);"><td class=" ">:Laurens</td><td class=" ">:bornIn</td><td class=" ">:Amsterdam</td><td class="  sorting_1">0.6</td></tr><tr class="even" style="background-color: rgb(22, 105, 35);"><td class=" ">:Stefan</td><td class=" ">:bornIn</td><td class=" ">:Berlin</td><td class="  sorting_1">0.5</td></tr><tr class="odd" style="background-color: rgb(22, 105, 35);"><td class=" ">:Berlin</td><td class=" ">:capitalOf</td><td class=" ">:Germany</td><td class="  sorting_1">0.5</td></tr><tr class="even"><td class=" ">:Amsterdam</td><td class=" ">:capitalOf</td><td class=" ">:NL</td><td class="  sorting_1">0.1</td></tr><tr class="odd"><td class=" ">:Rinke</td><td class=" ">:bornIn</td><td class=" ">:Heerenveen</td><td class="  sorting_1">0.1</td></tr></tbody></table></div>
-        <table class="dualColElement" id="resultSetSelection" style="display:inline-block;">
-           <thead><tr><td colspan="3" style="text-align: center; font-weight:bold;">Triples used in query resultsets</td></tr><tr><th>Subject</th><th>Predicate</th><th>Object</th></tr></thead>
-           <tbody>
-           <tr style="background-color: rgb(235, 67, 67);border-top: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Laurens</td><td class="">:bornIn</td><td class="">:Amsterdam</td></tr>
-           <tr class="strikeout" style="background-color: rgb(235, 67, 67);border-bottom: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Amsterdam</td><td class="">:capitalOf</td><td class="">:NL</td></tr>
-           <tr style="background-color: rgb(22, 105, 35);border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Stefan</td><td class="">:bornIn</td><td class="">:Berlin</td></tr>
-           <tr style="background-color: rgb(22, 105, 35);border-bottom: 4px dashed #eeeeee;border-right: 4px dashed #eeeeee;border-left: 4px dashed #eeeeee;"><td class="">:Berlin</td><td class="">:capitalOf</td><td class="">:Germany</td></tr>
-           </tbody>
-           </table>
-        </section>
+-->
       <section class="future" style="top: -20px; display: none;" hidden="">
         <h2>Evaluation Datasets</h2>
         <div id="datasetTable2_wrapper" class="dataTables_wrapper" role="grid"><table class="dataTable" id="datasetTable2" style="font-size:80%;margin: 0px auto;">
@@ -416,22 +431,20 @@ SELECT DISTINCT ?city WHERE {
         <section class="future" style="top: -257px; display: block;" hidden="">
           <h2>Observations</h2>
           <ul>
-<!--            <li>The influence of a single triple</li> -->
-<!--                 <li>Long vs. Short queries</li> -->
             <li>
-              DBpedia:
+              'Plateaux': some triple are required for answering
+              a large number of queries
+            </li>
+            <li>
+              E.g., DBpedia:
               <ul>
                 <li>Good: Path + PageRank</li>
                 <li>Bad: Path + Out Degree</li>
-                <li>Queries: 2/3 require literals</li>
+                <li>2/3 queries require literals (out-degree 0)</li>
               </ul>
             </li>
-            <li>Other Observations:
-              <ul>
-                <li># properties vs 'Context Literals' rewrite method</li>
-                <li># query triple patterns</li>
-              </ul>
-            </li>
+            <li># properties vs 'Context Literals' rewrite method</li>
+            <li># query triple patterns</li>
           </ul>
         </section>
         <section class="future" style="top: -330.5px; display: block;" hidden="">
@@ -442,9 +455,7 @@ SELECT DISTINCT ?city WHERE {
             <li>Number of query sets too limited to learn significant correlations<br><br></li>
             <li>Topology of the graphs <i>can</i> be used to determine <i>good</i> samples</li>
             <li>Mimic <i>semantic</i> relevance through <i>structural</i> properties, <i>without</i> an a-priori notion of relevance</li>
-            
           </ul>
-        <div><small><br><br><br>Special thanks to Semantic Web Science Association (SWSA)</small></div>
         </section>
       </div>
 
