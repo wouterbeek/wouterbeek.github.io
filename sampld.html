@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
 
@@ -64,10 +63,10 @@
           <h2>Problem statement</h2>
           <ul>
             <li>
-              Datasets are too big to run on commodity hardware
+              Contemporary linked datasets (RDF) are too big to run on commodity hardware
             </li>
             <li class="fragment">
-              Client-server paradighm
+              Client-server paradigm
               <a href="http://sparqles.okfn.org/">does not work</a>
               for Semantic Web
             </li>
@@ -144,7 +143,7 @@
         <section>
           <h2>Solution: Relevance-Based Sampling</h2>
           <p>
-            Find the smallest possible RDF subgraph,
+            Find the smallest possible RDF subgraph
             that covers the maximum number of potential queries
           </p>
           <br><br>
@@ -166,7 +165,7 @@
         </section>
       </section>
       <section>
-        <h2>Statement relevancy</h2>
+        <h2>2 sampling approaches</h2>
         <div style="float:left; width:50%">
           <h3>Informed Sampling</h3>
           <ul>
@@ -190,7 +189,7 @@
         </div>
       </section>
       <section>
-        <h2>Approach</h2>
+        <h2>Uninformed Sampling Approach</h2>
         <ul>
           <li>
             Relevance determined through Network Analysis:
@@ -201,7 +200,7 @@
             <li>In Degree</li>
             <li>Out Degree</li>
           </ol>
-          <li>Relevance evaluated against known queries</li>
+          <li class="fragment">Relevance evaluated against known queries</li>
           <!--<li>Is network structure a good predictor for query answerability?</li>-->
         </ul>
       </section>
@@ -211,15 +210,16 @@
           <li>
             Graph rewrite:
             <img style="width:1200px;" src="img/rewrite.png">
+            <!--We neglect statements about properties.-->
           </li>
-          <li>Apply Network Analysis</li>
-          <li>
-            Node weights → Proposition weights
+          <li class="fragment">Apply Network Analysis</li>
+          <li class="fragment">
+            Node weights → Triple weights
             <br>
-            <pre>W(proposition) = max(W(subject-term),W(object-term))</pre>
+            <pre>W(triple) = max(W(subject-term),W(object-term))</pre>
           </li>
-          <li>Order propositions by weight</li>
-          <li>Extract sample</li>
+          <li class="fragment">Order triples by weight</li>
+          <li class="fragment">Extract sample</li>
         </ul>
       </section>
       <section>
@@ -250,33 +250,34 @@
           <li>
             Numbers:
             <ul>
-              <li>100 samples
+              <!--t_e zijn de triples die nodig zijn voor de evaluatie
+              t_d zijn de triples die in de dataset zitten-->
+              <li>100 samples (<i>i</i>)
               <li>
                 15 sampling methods (<i>methods<sub>s</sub></i>):
                 5 graph rewrite methods; 3 network metrics
               </li>
               <li>
                 11 baseline methods (<i>methods<sub>b</sub></i>):
-                <ul>
-                  <li>10 random samples</li>
-                  <li>1 sample based on resource frequencies</li>
-                </ul>
+                10 random samples; 1 resource frequency-sample
               </li>
-              <li>x datasets of max. 459M propositions</li>
+              <li>6 datasets of max. 459M triples</li>
+              <li>Total: 1.4 trillion triples</li>
             </ul>
           </li>
-          <li>Total: 1.4 <strong>trillion</strong> propositions</li>
-          <li>We cannot use contemporary Semantic Web tooling / triples stores for this!</li>
+          <li>
+            We cannot use contemporary Semantic Web tooling / triple stores
+            for this!
+          </li>
         </ul>
       </section>
       <section>
         <h2>Scalable Approach</h2>
         <ul>
           <li>Retrieve which triples are used by a query (query grounding)</li>
-          <li>Use a hadoop cluster to find the weights of these triples</li>
-<!--         <li>Determine whether the weight of these triples is high enough to have been included in the sample</li> -->
+          <li>Use a hadoop cluster to assign weights to all triples</li>
           <li>Analyze whether these (ground) triples are included in samples</li>
-          <li>Scalable since we execute every query <i>once</i></li>
+          <li>Scalable since queries are performed <i>once</i></li>
         </ul>
       </section>
       <section class="future" style="top: -20px; display: none;" hidden="">
@@ -353,20 +354,20 @@ SELECT DISTINCT * WHERE {
 -->
           <section>
             <h2>Nifty optimizations</h2>
-            <p>E.g., not all propositions are needed for answering ground queries</p>
+            <p>E.g., not all triples are needed for answering ground queries</p>
             <div style="float:left; width: 50%;">
-              <pre>
+              <strong><pre>
 SELECT DISTINCT ?city WHERE {
   ?university :inCity ?city ;
               :rating ?high .
-}</pre>
+}</pre></strong>
             </div>
             <div style="float:right; width: 50%;">
-              <pre>
+              <strong><pre>
 :university1 :inCity :london .
 :university1 :rating :high .
 :university2 :inCity :london .
-:university2 :inCity :high .</pre>
+:university2 :inCity :high .</pre></strong>
             </div>
           </section>
 <!--
@@ -421,21 +422,22 @@ SELECT DISTINCT ?city WHERE {
                 </script>
         </section>
         <section class="future" style="top: -345px; display: block;" hidden="">
-          <h2 style="margin-left: 100px;display:inline;">Results</h2>
-          <small style="vertical-align: bottom; margin-bottom: 10px;">
+          <h2>
             <a href="http://presentations.laurensrietveld.nl/now/d3jsResults.html" target="_blank">
-              ...
+              Results
             </a>
+          </h2>
           </small>
         </section>
         <section class="future" style="top: -257px; display: block;" hidden="">
           <h2>Observations</h2>
           <ul>
             <li>
-              'Plateaux': some triple are required for answering
+              'Plateaux': some triples are required for answering
               a large number of queries
             </li>
-            <li>
+            <li class="fragment">Network metrics can often identify those triples</li>
+            <li class="fragment">
               E.g., DBpedia:
               <ul>
                 <li>Good: Path + PageRank</li>
@@ -443,16 +445,18 @@ SELECT DISTINCT ?city WHERE {
                 <li>2/3 queries require literals (out-degree 0)</li>
               </ul>
             </li>
-            <li># properties vs 'Context Literals' rewrite method</li>
-            <li># query triple patterns</li>
+            <li class="fragment"># properties vs 'Context Literals' rewrite method</li>
+            <li class="fragment"># query triple patterns (query complexity)</li>
           </ul>
         </section>
         <section class="future" style="top: -330.5px; display: block;" hidden="">
           <h2>Conclusion</h2>
           <ul>
-            <li>Scalable pipeline: network analysis algorithms + rewrite methods</li>
-            <li>Able to eval over 15,000 datasets, and 1,4 trillion triples</li>
-            <li>Number of query sets too limited to learn significant correlations<br><br></li>
+            <li>
+              Scalable pipeline for network analysis + rewrite methods
+              (1,4 trillion triples)
+            </li>
+            <li>Query logs are too small to distill significant correlations<br><br></li>
             <li>Topology of the graphs <i>can</i> be used to determine <i>good</i> samples</li>
             <li>Mimic <i>semantic</i> relevance through <i>structural</i> properties, <i>without</i> an a-priori notion of relevance</li>
           </ul>
