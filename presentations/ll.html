@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <section>
+          <h1>LOD-Laundromat</h1>
+          <h3>Publishing Other People's Dirty Data</h3>
+          <p>
+            <a href="http://www.wouterbeek.com">Wouter Beek</a>,
+            Laurens Rietveld,
+            Hamid Bazoobandi,
+            Jan Wielemaker,
+            Stefan Schlobach
+          </p>
+          <small>VU University Amsterdam</small>
+          <p>
+            <a href="http://wouterbeek.github.io/ll.html" target="_blank">
+              http://wouterbeek.github.io/ll.html
+            </a>
+          </p>
+        </section>
+        <section>
+          <a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a>
+          <small>(< 10% syntactically correct)</small>
+          <img src="img/screen.png" style="width:1300px;">
+          LinkedBrainz
+        </section>
+        <section>
+          <h2>Dirty data</h2>
+            <ul>
+              <li>Character encoding issues</li>
+              <li>Socket errors</li>
+              <li>Protocol errors</li>
+              <li>Corrupted archives</li>
+              <li>Authentication problems</li>
+              <li>Syntax errors</li>
+              <li>Wrong metadata</li>
+            </ul>
+        </section>
+        <section>
+          <h2>Problem statement</h2>
+          <p class="fragment">
+            After 10+ years of SW evangelization
+            data quality is still not as high as it should be.
+          </p>
+          <p class="fragment">
+            ... therefore the SW is not generally machine-processable today.
+          </p>
+          <p class="fragment">
+            Data preparation / data cleaning tasks take 10-40% of research time.
+          </p>
+          <p class="fragment">
+            Existing solutions for cleaning data
+            (standards, guidelines, best practices, tools)
+            are targeted towards human data creators, who can (and do)
+            choose not to use them.
+          </p>
+        </section>
+        <section>
+          <h2>Goals</h2>
+          <ul>
+            <li class="fragment">Automate the data preprocessing phase</li>
+            <li class="fragment">
+              Disseminate <i>all</i> LOD in a standards-compliant
+              / machine-processable way, <i>right now</i>:
+              <ul>
+                <li>Scale: billions of triples</li>
+                <li>Days not decades</li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Support common uses cases:
+              <ul>
+                <li>Splitting/combining data</li>
+                <li>Streamed processing</li>
+                <li>Non-SW tooling: reges, GNU tools (e.g., grep), Pig, etc.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>LOD Laundromat</h1>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="http://lodlaundromat.org/imgs/basket.png" width="240">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="http://lodlaundromat.org/imgs/laundry.png" width="240">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="240">
+          </a>
+          <br/>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="http://lodlaundromat.org/imgs/analysis.png" width="240">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/">
+            <img src="http://lodlaundromat.org/imgs/labels.png" width="240">
+          </a>
+<!--
+          <a href="http://lodlaundromat.org/about/">
+            <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="240">
+          </a>
+-->
+          <br/>
+          <h3>
+            Web Service:
+            <a href="https://lodlaundromat.org">
+              https://lodlaundromat.org
+            </a>
+          </h3>
+          <p>Open source (of course)</p>
+        </section>
+        <section>
+          <h1>Metadata</h1>
+          <ul>
+            <li>
+              <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+                Duplicate triples
+              </a>
+            </li>
+            <li>
+              <a href="http://lodlaundromat.org/sparql/?query=PREFIX+httpo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fhttp%2Fontology%2F%3E%0APREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0ASELECT+(COUNT(%3Fdataset)+AS+%3Fnumber)+%3Fexception%0AWHERE+%7B%0A++%7B%0A++++%3Fdataset+llo%3Aexception+%3Fexception+.%0A%09FILTER+isIRI(%3Fexception)%0A++%7D+UNION+%7B%0A++++%3Fdataset+llo%3Awarning+%3Fx+.%0A++++%3Fx+rdf%3Atype+%3Fexception+.%0A++%7D%0A++%3Fdataset+llo%3Aurl+%3Furl+.%0A%7D%0AORDER+BY+DESC(%3Fnumber)%0A">
+                Most occurring errors
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Current use cases</h2>
+          <ul>
+            <li class="fragment">
+              Automated load balancing:
+              <ul>
+                <li>
+                  Use <i>reliable</i> metadata for determining sizes/skews
+                </li>
+                <li>Multi-node computing cluster
+              </ul>
+            </li>
+            <li class="fragment">
+              Streamed data processing:
+              <ul>
+                <li>Streaming window: 1 triple</li>
+                <li>10B+ triples processed on discount hardware</li>
+                <li><a href="http://preflabel.org/">PrefLabel</a></li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Improve evaluations:
+              <ul>
+                <li>"We tested our algorithm on the English version of DBpedia"</li>
+                <li>We are currently optimizing all our algorithms for <5 datasets!</li>
+                <li>
+                  Evaluate an algorithm against 15,000 datasets
+                  in 10-40 lines of code.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Future use cases</h2>
+          <p>
+            <ul>
+              <li class="fragment">LOD Observatory</li>
+              <li class="fragment">Feedback to dataset publishers</li>
+              <li class="fragment">Meta-data dataset</li>
+              <li class="fragment">Algorithm heuristics</li>
+            </ul>
+          </p>
+          <aside class="notes">
+            Evangelization after all...
+            Skewness of data (max. in-/outdegree)
+          </aside>
+        </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
