@@ -46,7 +46,10 @@ html.img-right {
   margin: 0% 20% 0% 20%;
   max-height: 900px;
   max-width: 900px;
-} 
+}
+sup {
+  font-size: 40pt !important;
+}
 </style>
   </head>
 
@@ -76,43 +79,10 @@ html.img-right {
 
 
 
-<!-- People -->
-<section>
-  <center>
-  <h2>LOD Laundromat 'team'</h2>
-  <figure>
-    <img class="person-image" src="img/frank_van_harmelen.jpg"/>
-    <figcaption>Frank van Harmelen</figcaption>
-  </figure>
-  <figure>
-    <img class="person-image" src="img/jan_wielemaker.jpg"/>
-    <figcaption>Jan Wielemaker</figcaption>
-  </figure>
-  <figure>
-    <img class="person-image" src="img/laurens_rietveld.jpg"/>
-    <figcaption>Laurens Rietveld</figcaption>
-  </figure>
-  <figure>
-    <img class="person-image" src="img/ruben_verborgh.jpg" height="150px"/>
-    <figcaption>Ruben Verborgh</figcaption>
-  </figure>
-  <figure>
-    <img class="person-image" src="img/stefan_schlobach.jpg"/>
-    <figcaption>Stefan Schlobach</figcaption>
-  </figure>
-  <figure>
-    <img class="person-image" src="img/wouter_beek.jpg"/>
-    <figcaption>Wouter Beek</figcaption>
-  </figure>
-  </center>
-</section>
-
-
-
 <!-- Problem statement: The Semantic Web has failed. -->
 <section>
   <section data-background="#4d7e65" data-background-transition="zoom">
-    <h1>The Semantic Web has failed</h1>
+    <h1>The 1<sup>st</sup> Deployment of the Semantic Web has failed</h1>
   </section>
   <section>
     <h2>After 15 years of deployment there are approximately 200 live queriable endpoints.</h2>
@@ -132,7 +102,7 @@ html.img-right {
   <section data-background="#4d7e65">
     <p>Freebase's <a href="monkey.html">Monkey</a> resource</p>
     <center>
-      <img src="img/freebase.jpg" style="width:700px;">
+      <img src="img/freebase.jpg" style="width:950px;">
     </center>
     <p>Less than 10% of the triples are syntactically correct.</p>
     <!--<p>Even trivial problems are <a href="https://groups.google.com/forum/#!searchin/freebase-discuss/How$20to$20solve/freebase-discuss/PrDIxAB8OrY/9L0dedcCSY8J">not resolved</a>.</p>-->
@@ -166,6 +136,36 @@ html.img-right {
   <section data-background="#dddddd">
     <h1>LOD Laundromat</h1>
   </section>
+  <!-- People -->
+  <section data-background="#dddddd">
+    <center>
+    <h2>LOD Laundromat 'team'</h2>
+    <figure>
+      <img class="person-image" src="img/frank_van_harmelen.jpg"/>
+      <figcaption>Frank van Harmelen</figcaption>
+    </figure>
+    <figure>
+      <img class="person-image" src="img/jan_wielemaker.jpg"/>
+      <figcaption>Jan Wielemaker</figcaption>
+    </figure>
+    <figure>
+      <img class="person-image" src="img/laurens_rietveld.jpg"/>
+      <figcaption>Laurens Rietveld</figcaption>
+    </figure>
+    <figure>
+      <img class="person-image" src="img/ruben_verborgh.jpg" height="150px"/>
+      <figcaption>Ruben Verborgh</figcaption>
+    </figure>
+    <figure>
+      <img class="person-image" src="img/stefan_schlobach.jpg"/>
+      <figcaption>Stefan Schlobach</figcaption>
+    </figure>
+    <figure>
+      <img class="person-image" src="img/wouter_beek.jpg"/>
+      <figcaption>Wouter Beek</figcaption>
+    </figure>
+    </center>
+  </section>
   <section data-background="#dddddd">
     <h1>Approach</h1>
     <ol>
@@ -177,7 +177,7 @@ html.img-right {
   <section data-background="#dddddd">
     <h2>Large-scale service<br/>/ low hardware footprint</h2>
     <ul>
-      <li>Hundreds of thousands of documents</li>
+      <li>Hundreds of thousands of datasets</li>
       <li>Tens of billions of triples</li>
     </ul>
   </section>
@@ -355,7 +355,10 @@ html.img-right {
       <hr/>
       <p>Email: <a href="email:me@wouterbeek.com">me@wouterbeek.com</a></p>
       <hr/>
-      <p><code>@WGJBeek</code> on Twitter</p>
+      <p style="color: red; font-size: 35pt; font-weight: bold;">"Van USB naar query endpoint"<br/>
+      LOD Laundromat Workshop, 8 Mei, ...</p> 
+      <!--<p><code>@WGJBeek</code> on Twitter</p>
+      <hr/>-->
     </center>
   </section>
 </section>
