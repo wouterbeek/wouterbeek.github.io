@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOD Laundromat Workshop</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+<style>
+figure {
+  float: left;
+  height: 150px;
+  margin: 55px !important;
+  width: 150px;
+}
+figure figcaption {
+  font-size: 20px !important;
+}
+html.img-right {
+  position: relative;
+  margin: 0% 20% 0% 20%;
+  max-height: 900px;
+  max-width: 900px;
+}
+sup {
+  font-size: 40pt !important;
+}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+
+
+<section>
+  <h1>LOD Laundromat Workshop</h1>
+  <h3>Van USB stick naar query endpoint</h3>
+  <p>
+    <a href="http://www.wouterbeek.com">Wouter Beek</a>,
+    <a href="">Laurens Rietveld</a>
+  </p>
+  <img src="img/lod_washing_machine.png" width="300px"/>
+  <p>
+    Slides at
+    <a href="http://wouterbeek.github.io/pilod.html" target="_blank">
+      http://wouterbeek.github.io/pilod.html
+    </a>
+  </p>
+</section>
+
+
+
+<section>
+  <h1>Programma</h1>
+  <ol>
+    <li>Data uploaden</li>
+    <li>Data downloaden</li>
+    <li>Metadata gebruiken</li>
+    <li>Data gebruiken</li>
+    <li>Data vinden</li>
+    <li>Data applicaties bouwen</li>
+  </ol>
+</section>
+<!--
+<section>
+  <h1>Programma</h1>
+  <ol>
+    <li>
+      Data uploaden
+      <ul>
+        <li><a href="http://lodlaundromat.org/basket/">LOD Basket</a></li>
+      </ul>
+    </li>
+    <li>
+      Data downloaden
+      <ul>
+        <li><a href="http://lodlaundromat.org/wardrobe/">LOD Wardrobe</a></li>
+        <li><code>http://download.lodlaundromat.org/MD5</code></li>
+      </ul>
+    </li>
+    <li>
+      Metadata gebruiken
+      <ul>
+        <li><a href="http://lodlaundromat.org/sparql/">Endpoint</a></li>
+      </ul>
+    </li>
+    <li>
+      Data gebruiken
+      <ul>
+        <li><code>http://ldf.lodlaundromat.org/MD5</code></li>
+      </ul>
+    </li>
+    <li>
+      Data vinden
+      <ul>
+        <li><a href="http://index.lodlaundromat.org/">Resource index</a></li>
+        <li><a href="http://index.lodlaundromat.org/">Namespace index</a></li>
+      </ul>
+    </li>
+    <li>
+      Data applicaties bouwen
+      <ul>
+        <li><a href="https://github.com/LODLaundry/Frank">Frank</a></li>
+        <li><a href="https://github.com/LODLaundry/GettingStartedJava">Java library</a></li>
+      </ul>
+    </li>
+  </ol>
+</section>
+-->
+
+
+
+<section>
+  <h1>[1] Data uploaden</h1>
+  <center>
+  <a href="http://lodlaundromat.org/basket/">
+    <img src="http://lodlaundromat.org/imgs/basket.png" width="300">
+  </a>
+  <br/>
+  <h3>LOD Basket</h3>
+  </center>
+</section>
+
+
+
+<section>
+  <section>
+    <h2>[2.1] Data downloaden: Web site</h2>
+    <center>
+      <a href="http://lodlaundromat.org/wardrobe/">
+        <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="300">
+      </a>
+      <br/>
+      <h3>LOD Wardrobe</h3>
+    </center>
+  </section>
+  <section>
+    <h2>[2.2] Data downloaden: Web Service</h2>
+    <code>http://download.lodlaundromat.org/MD5</code>
+  </section>
+  <section>
+    <h2>[2.3] Data downloaden: Frank</h2>
+    <code>$ frank documents</code>
+    <hr/>
+    <code>$ frank statements</code>
+  </section>
+</section>
+
+
+
+<section>
+  <section>
+    <h2>[3.1] Metadata gebruiken</h2>
+    <center>
+      <a href="http://lodlaundromat.org/visualizations/">
+        <img src="http://lodlaundromat.org/imgs/analysis.png" width="300">
+      </a>
+      <br/>
+      <h3>Widgets</h3>
+      <hr/>
+      <code>http://lodlaundromat.org/visualizations/</code>
+    </center>
+  </section>
+  <section>
+    <h2>[3.2] Metadata: dereference</h2>
+    <code>http://lodlaundromat.org/resource/MD5</code>
+  </section>
+  <section>
+    <h2>[3.3] Metadata: endpoint</h2>
+    <center>
+      <a href="http://lodlaundromat.org/sparql/">
+        <img src="http://lodlaundromat.org/imgs/labels.png" width="300">
+      </a>
+      <br/>
+      <h3>Endpoint</h3>
+    </center>
+  </section>
+  <section>
+    <h2>[3.3] Metadata: endpoint</h2>
+    <pre>
+  PREFIX llo: <http://lodlaundromat.org/ontology/>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+  SELECT DISTINCT ((?dups / xsd:double(?dups + ?triples))
+                  AS ?relDups) ?url
+  WHERE {
+    ?dataset llo:duplicates ?dups ;
+      llo:triples ?triples ;
+      llo:url ?url .
+    FILTER(?triples > 0)
+  }
+  ORDER BY DESC(?relDups) LIMIT 50
+    </pre>
+    <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+      Query
+    </a>
+  </section>
+  <section>
+    <h2>[3.4] Metadata: frank</h2>
+    <code>$ ./frank documents --minTriples=1000 --maxTriples=10000</code>
+  </section>
+</section>
+
+
+
+<section>
+  <section>
+    <h1>[4] Data gebruiken</h2>
+  </section>
+  <section data-background="#dddddd">
+    <h1>Linked Data Fragments</h1>
+    <h2>(Gent collaboration)</h2>
+  </section>
+  <section data-background="#dddddd">
+    <center>
+    <img src="img/sparql.svg" style="width: 100%;"/>
+    </center>
+  </section>
+  <section data-background="#dddddd">
+    <center>
+    <img src="img/ldf.svg" style="width: 100%;"/>
+    </center>
+  </section>
+  <section data-background="#dddddd">
+    <h3>LOD Laundromat + LDF</h3>
+    <img src="img/ll_ldf.jpg"/>
+  </section>
+  <section>
+    <h2>[4.1] Data gebruiken: Web site</h2>
+    <code>http://ldf.lodlaundromat.org/MD5</code></li>
+  </section>
+  <section>
+    <h2>[4.2] Data gebruiken: Web service</h2>
+    <code>http://ldf.lodlaundromat.org/MD5</code></li>
+    <p>Parameters:</p>
+    <ul>
+      <li><code>subject</code></li>
+      <li><code>predicaat</code></li>
+      <li><code>object</code></li>
+    </ul>
+  </section>
+</section>
+
+
+
+<section>
+  <section>
+    <h2>[5.1] Data vinden: namespace</h2>
+    <a href="http://index.lodlaundromat.org/">Namespace index</a>
+  </section>
+  <section>
+    <h2>[5.2] Data vinden: resource</h2>
+    <a href="http://index.lodlaundromat.org/">Resource index</a>
+  </section>
+</section>
+
+
+
+<section>
+  <h2>[6] Data-intensieve applicaties bouwen</h2>
+  <ul>
+    <li><a href="https://github.com/LODLaundry/Frank">Frank</a></li>
+    <li><a href="https://github.com/LODLaundry/GettingStartedJava">Java library</a></li>
+  </ul>
+</section>
+
+
+
+</div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true }
+  ]
+});
+</script>
+<script>
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+  t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+</body>
+</html>
