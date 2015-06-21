@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>RITS Progress Report 2015-06-21</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+<style>
+figure {
+  float: left;
+  height: 150px;
+  margin: 55px !important;
+  width: 150px;
+}
+figure figcaption {
+  font-size: 20px !important;
+}
+html.img-right {
+  position: relative;
+  margin: 0% 20% 0% 20%;
+  max-height: 900px;
+  max-width: 900px;
+}
+sup {
+  font-size: 40pt !important;
+}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+
+
+<section>
+  <h1>RITS</h1>
+  <h2>Progress Report</h2>
+  <h3>June 21st, 2015</h3>
+  <p>
+    Slides at
+    <a href="http://wouterbeek.github.io/rits/rits.html" target="_blank">
+      http://wouterbeek.github.io/rits/rits.html
+    </a>
+  </p>
+</section>
+
+<section>
+  <p>New homepage</p>
+  <img src="img/2015_06_21/home_en.png" width="600">
+  <p>Login was moved to the main page [1].</p>
+  <p>I'm still working on [2] for alternative login options.</p>
+  <p>Language option added [3] based on Abel's feedback.</p>
+</section>
+
+<section>
+  <p>New homepage in Portuguese</p>
+  <img src="img/2015_06_21/home_pt.png" width="900">
+</section>
+
+<section>
+  <p>Signup page in Portuguese</p>
+  <img src="img/2015_06_21/signup_pt.png" width="900">
+</section>
+
+<section>
+  <p>Added a user profile [1,2] with changeable password [3].</p>
+  <img src="img/2015_06_21/profile_en.png" width="800">
+</section>
+
+<section>
+  <p>User profile in Portuguese.</p>
+  <img src="img/2015_06_21/profile_pt.png" width="800">
+</section>
+
+<section>
+  <p>Home page after being logged in.</p>
+  <img src="img/2015_06_21/home_loggedin.png" width="700">
+  <p>Loads exercises for the user to solve.</p>
+</section>
+
+<section>
+  <h1>TODO</h1>
+  <ul>
+    <li>Translate exercises (use Markus' code)</li>
+    <li>The following are easy to implement and test once RITS runs on a proper server:
+    <ul>
+      <li>Request new password through email</li>
+      <li>Login through Google</li>
+      <li>Login through Facebook</li>
+      <li>Login through Twitter</li>
+    </ul>
+  </ul>
+</section>
+
+</div>
+</div>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+    { src: '../reveal.js/plugin/notes/notes.js', async: true }
+  ]
+});
+</script>
+<script>
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function(f) {
+  t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+</body>
+</html>
