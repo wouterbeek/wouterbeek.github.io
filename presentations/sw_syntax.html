@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redeploying the Semantic Web</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <style>
+      code {
+        font-family: 'Lucida Console', monospace;
+      }
+    </style>
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h1>How syntax is killing the SW</h1>
+	  <h3>And what we can do to stop it</h3>
+	  <p>Wouter Beek</p>
+	  <p><a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+	  <p>Knowledge Representation & Reasoning Group</br>VU University Amsterdam</p>
+	  <p>Slides at
+	    <a href="http://wouterbeek.github.io" target="_blank">
+	      http://wouterbeek.github.io
+	    </a>
+	  </p>
+	</section>
+	  
+	<section>
+	  <section>
+	    <h1>The (bad) syntax obsession</h1>
+	  </section>
+	  
+	  <section>
+	    <h2>The (bad) syntax obsession</h2>
+	    <p class="fragment">The SW community is obsessed with syntax formats:
+	      <div style="float: left;">
+		<ul>
+		  <li class="fragment">JSON-LD</li>
+		  <li class="fragment">N3</li>
+		  <li class="fragment">N-Quads</li>
+		  <li class="fragment">N-Triples</li>
+		  <li class="fragment">RDF/XML</li>
+		</ul>
+	      </div>
+	      <div style="float: right;">
+		<ul>
+		  <li class="fragment">RDFa</li>
+		  <li class="fragment">Trig</li>
+		  <li class="fragment">Trix</li>
+		  <li class="fragment">Turtle</li>
+		</ul>
+	      </div>
+	    </p>
+	  </section>
+
+	  <section>
+	    <h2>The (bad) syntax obsession</h2>
+	    <p>The SW community believes that the lack of SW uptake is mainly due to others using the wrong syntax:</p>
+	      <ul>
+		<li class="fragment">"SW failed due to RDF/XML"</li>
+		<li class="fragment">"JSON-LD will save the SW!"</li>
+		<li class="fragment">"We used to be bogged down in XML and XSLT but now we have JSON-LD and JSON-LD Fragments!"</li>
+		<li class="fragment">"We need to update the syllabus for the SW course to use Turtle i.o. XML/RDF.  Students will love it!"</li>
+	      </ul>
+	      <blockquote class="fragment">
+		JSON-LD as a Recommendation has helped lower the defenses of many who used to get their hackles up and say 'RDF is too hard'.
+	      </blockquote>
+	  </section>
+
+	  <section>
+	    <h2>The (bad) syntax obsession</h2>
+	    <p class="fragment">SW researcher: "I build this really cool algorithm that performs querying|reasoning quite well."</p>
+	    <p class="fragment">Other SW researcher: "Does it read|write JSON-LD|N3|N-Quads|N-Triples|RDF/XML|RDFa|Trig|Trix|Turtle?"</p>
+	  </section>
+	  
+	  <section>
+	    <h2>The (bad) syntax obsession</h2>
+	    <p>Despite the obsession with syntax, the SW community does not care whether <i>data</i> is syntactically well-formed</p>
+	    <p class="fragment">High-impact projects <i>choose to publish</i> ill-formed data</p>
+	    <p class="fragment">Freebase (now Wikidata) publishes:
+	      <ul>
+		<!-- Idiosyncratic escape codes -->
+		<li class="fragment"><tt>\xe9</tt> → <tt>\u00e9</tt></li>
+		<!-- Unescaped quotes inside literals -->
+                <li class="fragment"><tt>"..."..."..."</tt></li>
+		<!-- Illegal characters inside IRI local names -->
+                <li class="fragment"><tt>ns:wikipedia.ja.$30B5$30EB</tt></li>
+              </ul>
+	      <span class="fragment"><i>... and does not care</i></span>
+	    </p>
+	    <blockquote class="fragment">
+	      [...] the information is there and available today for those who wish to exploit it -- or you can wait for a "grammar" to be made available.
+	    </blockquote>
+	  </section>
+
+	  <section>
+	    <h1>The SW community is burning man months with syntax</h1>
+	    <p>Programmers burn months on implementing support in all SW tools and in all the programming languages.</p>
+	    <p>PhD's burn months on learning these formats</p>
+	    <p>SW courses are completely centered around syntax.</p>
+	  </section>
+	</section>
+	
+	<section>
+	  <section>
+	    <h1>RDF syntax according to Wouter Beek</h1>
+	  </section>
+	  <section>
+	    <h3>The difference between RDF/XML and JSON-LD according to Wouter Beek</h3>
+	    <div>
+	      <div style="float: left;">
+		<code>&lt;rdf:RDF&gt;<br/>...<br/>&lt;/rdf:RDF&gt;</code>
+	      </div>
+	      <div style="float: right;">
+	        <code>{<br/>...<br/>}</code>
+	      </div>
+	    </div>
+	    <div>
+	      <p class="fragment">The similarity:
+		<ul>
+		  <li class="fragment"><b>Tree/graph</b>: tree-based formats that need arcane constructs to represent graph data</li>
+		  <li class="fragment"><b>Streaming 1</b>: required start and end tags/symbols make sure most substreams of the datastream are ill-formed</li>
+		  <li class="fragment"><b>Streaming 2</b>: prefix declarations make sure all substreams without the header are ill-formed.</li>
+		</ul>
+	      </p>
+	    </div>
+	  </section>
+	  
+	  <section>
+	    <h2>RDF syntax according to Wouter Beek</h2>
+	    <ul>
+	      <li class="fragment">Don't use tree-based format for graph-data (exit RDF/XML|JSON-LD).</li>
+	      <li class="fragment">End-of-triple should be one unique character (exit Turtle).</li>
+	      <li class="fragment">Allow RDF statement to be split into its 3|4 RDF terms with a simple RE.</li>
+	      <li class="fragment">Every substream must be fully interpretable except for (possibly) the first and last statement.</li>
+	      <li class="fragment">Named graphs must be supported.</li>
+	    </ul>
+	    <p class="fragment">The existing format that scores best on these criteria: Canonical N-Quads.</p>
+	  </section>
+
+	  <section>
+	    <h3>When you know you've met<br/>the syntax nut</h3>
+	    <p class="fragment">"But N-Triples does not provide that beautiful idiosyncratic abbreviation feature that Turtle has that allows one to write <tt>a</tt> instead of one specific IRI."</p>
+	  </section>
+
+	  <section>
+	    <h3>Canned responses<br/>(learn these by hard!)</h3>
+	    <p class="fragment">Naive SW researcher: "But RDF prefixes result in less verbosity!"</p>
+	    <p class="fragment">You: "gzip"</p>
+	  </section>
+	  
+	  <section>
+	    <h3>Canned responses<br/>(learn these by hard!)</h3>
+	    <p class="fragment">Naive SW researcher: "But people can't read N-Triples!</p>
+	    <p class="fragment">You: "JPEG"</p>
+	  </section>
+
+	  <section>
+	    <h3>Heuristics for RDF parsing are difficult</h3>
+	    <pre class="fragment">
+	      ex:s1 ex:p1 $"" ex:s2 ex:p2 ex:o2 .
+              ex:s3 ex:p3 ex:o3 .
+              ...
+              ex:sN ex:pN ex:oN .
+              """ .
+	    </pre><!-- " -->
+	    <div class="fragment">
+	      <p>Two heuristics:
+		<ul>
+		  <li><b>Minimum Edit Distance</b>: 1 error and 1 triple</li>
+		  <li><b>Skip until end-of-statement</b>: 2 errors and <i>N</i> triples</li>
+		</ul>
+	      </p>
+	    </div>
+	  </section>
+
+	  <section>
+	    <h2><strike>Advice</strike> Pleas from a SW PhD</h2>
+	    <ul>
+	      <li class="fragment">Do not spend the next 15 years on 8 new formats.</li>
+	      <li class="fragment">Talk about semantics and pragmatics and only talk about syntax to the extend that it impacts talk about semantics and pragmatics.</li>
+	      <li class="fragment">Use software tools in order to look at data.</li>
+	      <li class="fragment">Do not consider raw data files for bedtime reading.</li>
+	      <li class="fragment">Publish your data in only one syntactic format but do it well.</li>
+	      <li class="fragment">Use the LOD Laundromat to do this for you.</li>
+	      <li class="fragment">Spend the time you save on jugling syntax with your family or by reading poetry.</li>
+	    </ul>
+	  </section>
+	</section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
