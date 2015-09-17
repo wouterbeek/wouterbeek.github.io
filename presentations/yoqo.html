@@ -117,11 +117,11 @@
 	    <h2>Problem 4</h2>
 	    <h3>Most data cannot be <i>reasoned over</i></h3>
 	    <ul>
-	      <li>No standardized way of selecting the entailment regime</li>
-	      <li>Some entailment results cannot be expressed in RDF.</li>
-	      <li>Most triple stores only implement subsets of RDF(S) and OWL entailment.</li>
-	      <li>Different triple stores implement different subsets of different version of RDF(S) and OWL.</li>
-	      <li>Web-scale reasoning has only been performed in the lab.</li>
+	      <li class="fragment">No standardized way of selecting the entailment regime</li>
+	      <li class="fragment">Some entailment results cannot be expressed in RDF.</li>
+	      <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment.</li>
+	      <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL.</li>
+	      <li class="fragment">Web-scale reasoning has only been performed in the lab.</li>
 	    </ul>
 	  </section>
 
@@ -138,50 +138,117 @@
 	  -->
 	</section>
 	
-,	<section data-background="#dddddd">
+	<section data-background="#dddddd">
 	  <h1>How to redeploy the Semantic Web?</h1>
 	  <ol>
-	    <li>Data collection</li>
-	    <li>Data cleaning</li>
-	    <li>Triple pattern API</li>
-	    <li>Identity closure</li>
-	    <li>Natural language index</li>
-	    <li>Streamed BGP matching</li>
-	    <li>Streamed backward chaining</li>
+	    <li class="fragment">Data collection</li>
+	    <li class="fragment">Data cleaning</li>
+	    <li class="fragment">Data publishing</li>
+	    <li class="fragment">Streamed triple pattern matching</li>
+	    <li class="fragment">Identity closure</li>
+	    <li class="fragment">Natural language index</li>
+	    <li class="fragment">Streamed BGP matching</li>
+	    <li class="fragment">Streamed backward chaining</li>
 	  </ol>
 	</section>
 	
 	<section data-background="#dddddd">
-          <h2>LOD Laundromat</h2>
-	  <h4>The Clean Linked Data programming platform</h4>
-	  <a href="http://lodlaundromat.org/basket/">
-	    <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/">
-	    <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/wardrobe/">
-	    <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
-	  </a>
-	  <br/>
-	  <a href="http://lodlaundromat.org/visualizations/">
-	    <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-	    <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/about/">
-	    <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
-	  </a>
-	  <br/>
-	  <h4><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h4>
-	  <!-- <p>Open source (of course)</p> -->
+	  <h2>[1] Data collection</h2>
+	  <ul>
+	    <li>Scrape catalogues</li>
+	    <ul>
+	      <li>Custom API (CKAN)</li>
+	      <li>HTML (VoID Store, LOV)</li>
+	    </ul>
+	    <li>Interpret metadata vocabularies (VoID,DCAT)</li>
+	    <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+	    <li>Dereferenceable IRIs</li>
+	    <li>Hard-crafted seed list</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <section data-background="#dddddd">
+            <h1>[2] Data cleaning</h1>
+	  </section>
+          <section>
+	    <h2>Why data cleaning?</h2>
+            <a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a>
+            <small>(&lt; 10% syntactically correct)</small>
+	    <img src="img/screen.png" style="width:1300px;">
+	    LinkedBrainz
+          </section>
+          <section>
+            <h2>Why is data dirty?</h2>
+	    <div style="float: left;">
+              <ul>
+		<li>Character encoding issues</li>
+		<li>Socket errors</li>
+		<li>Protocol errors</li>
+		<li>Corrupted archives</li>
+		<li>Authentication problems</li>
+		<li>Syntax errors</li>
+		<li>Wrong metadata</li>
+		<li>Lexical form ↛ value</li>
+              </ul>
+	    </div>
+	    <div style="float: right;">
+	      <ul>
+		<li>Logically inconsistent</li>
+		<li>...</li>
+	      </ul>
+	    </div>
+          </section>
+	  <section>
+	    <h2>Previous solutions for data cleaning</h2>
+	    <ul>
+              <li>Standads</li>
+	      <li>Guidelines</li>
+	      <li>Best practices</li>
+	      <li>Tools</li>
+	    </ul>
+	    <p class="fragment">Targeted towards human data publishers.</p>
+	    <p class="fragment">Mixed results after the first 15 years of deployment.</p>
+	    <!-- Who can (and do) choose not to use them. -->
+	    <p class="fragment">What was needed:</p>
+	    <ul>
+	      <li>Web Service</li>
+	      <!-- as with email -->
+	      <li>Automatization</li>
+	    </ul>
+	  </section>
+	
+	  <section data-background="#dddddd">
+            <h2>LOD Laundromat</h2>
+	    <h4>The Clean Linked Data programming platform</h4>
+	    <a href="http://lodlaundromat.org/basket/">
+	      <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
+	    </a>
+	    <a href="http://lodlaundromat.org/">
+	      <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
+	    </a>
+	    <a href="http://lodlaundromat.org/wardrobe/">
+	      <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
+	    </a>
+	    <br/>
+	    <a href="http://lodlaundromat.org/visualizations/">
+	      <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
+	    </a>
+	    <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	      <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
+	    </a>
+	    <a href="http://lodlaundromat.org/about/">
+	      <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
+	    </a>
+	    <br/>
+	    <h4><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h4>
+	    <!-- <p>Open source (of course)</p> -->
+	  </section>
 	</section>
 
 	<section>
 	  <h1>Live query access</h1>
-          
-	</section>
+       	</section>
 
 	<section>
 	  <h1>Applications</h1>
