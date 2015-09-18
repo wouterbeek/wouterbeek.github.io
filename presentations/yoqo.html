@@ -56,7 +56,12 @@
 		  <li class="fragment">reasoned over</li>
 		</ul>
 	      </li>
-	      <li class="fragment">Clash between the theory of identity and the practice of linking</li>
+	      <li class="fragment">Clash between semantics and pragmatics</li>
+	      <ul>
+		<li class="fragment">Theory of identity vs practice of linking</li>
+		<li class="fragment">Formal meaning vs social meaning</li>
+		<li class="fragment">Universal statements vs trivia</li>
+	      </ul>
 	    </ul>
 	  </section>
 	  
@@ -64,7 +69,7 @@
 	    <h2>Problem 1</h2>
 	    <h3>Most data cannot be <i>found</i></h3>
 	    <ul>
-	      <li class="fragment">SotA comparable to Yahoo! index anno 1995 (CKAN, LOV, VoID-store)</li>
+	      <li class="fragment">SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
 	      <li class="fragment">Most SW datasets are not available online.</li>
 	      <li class="fragment">Most online datasets are not registered in any catalogue.</li>
 	    </ul>
@@ -103,7 +108,7 @@
 	  
 	  <section>
 	    <h2>Problem 3</h2>
-	    <h3>Most data cannot be <i>queried</i></h3>
+	    <h3>Most data will not be <i>queried</i></h3>
 	    <p class="fragment">There are at least millions of data documents but only hundreds of live query endpoints with reasonable availability.</p>
 	    <p class="fragment">Existing deployment techniques are unable to close the gap between downloadable data dumps and live queryable data: data is growing faster than SPARQL deployment uptake</p>
 	  </section>
@@ -117,11 +122,11 @@
 	    <h2>Problem 4</h2>
 	    <h3>Most data cannot be <i>reasoned over</i></h3>
 	    <ul>
-	      <li class="fragment">No standardized way of selecting the entailment regime</li>
-	      <li class="fragment">Some entailment results cannot be expressed in RDF.</li>
-	      <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment.</li>
-	      <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL.</li>
-	      <li class="fragment">Web-scale reasoning has only been performed in the lab.</li>
+	      <li class="fragment">No standardized way of selecting the entailment regime in SPARQL</li>
+	      <li class="fragment">Some entailment results cannot be expressed in RDF</li>
+	      <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment</li>
+	      <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL</li>
+	      <li class="fragment">Web-scale reasoning has only been performed in the lab</li>
 	    </ul>
 	  </section>
 
@@ -144,26 +149,24 @@
 	    <li class="fragment">Data collection</li>
 	    <li class="fragment">Data cleaning</li>
 	    <li class="fragment">Data publishing</li>
-	    <li class="fragment">Streamed triple pattern matching</li>
-	    <li class="fragment">Identity closure</li>
-	    <li class="fragment">Natural language index</li>
-	    <li class="fragment">Streamed BGP matching</li>
-	    <li class="fragment">Streamed backward chaining</li>
+	    <li class="fragment">Web-scale BGP answering</li>	    
+	    <li class="fragment">Web-scale backwards chaining</li>
 	  </ol>
 	</section>
 	
 	<section data-background="#dddddd">
 	  <h2>[1] Data collection</h2>
 	  <ul>
-	    <li>Scrape catalogues</li>
+	    <li class="fragment">Scrape catalogues
 	    <ul>
 	      <li>Custom API (CKAN)</li>
 	      <li>HTML (VoID Store, LOV)</li>
-	    </ul>
-	    <li>Interpret metadata vocabularies (VoID,DCAT)</li>
-	    <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
-	    <li>Dereferenceable IRIs</li>
-	    <li>Hard-crafted seed list</li>
+	    </ul></li>
+	    <li class="fragment">Interpret metadata vocabularies (VoID,DCAT)</li>
+	    <li class="fragment">Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+	    <li class="fragment">Craw dereferenceable IRIs</li>
+	    <li class="fragment">Hard-craft a seed list</li>
+	    <li class="fragment">Crowd-source the seed list</li>
 	  </ul>
 	</section>
 
@@ -172,9 +175,12 @@
             <h1>[2] Data cleaning</h1>
 	  </section>
           <section>
-	    <h2>Why data cleaning?</h2>
-            <a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a>
-            <small>(&lt; 10% syntactically correct)</small>
+	    <!--<h2>Why data cleaning?</h2>-->
+            <small>
+	      <a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a> &amp; Linked Musicbrainz labels
+              <br/>
+	      &lt; 10% syntactically correct
+	    </small>
 	    <img src="img/screen.png" style="width:1300px;">
 	    LinkedBrainz
           </section>
@@ -189,11 +195,11 @@
 		<li>Authentication problems</li>
 		<li>Syntax errors</li>
 		<li>Wrong metadata</li>
-		<li>Lexical form ↛ value</li>
               </ul>
 	    </div>
 	    <div style="float: right;">
 	      <ul>
+		<li>Lexical form ↛ value</li>
 		<li>Logically inconsistent</li>
 		<li>...</li>
 	      </ul>
@@ -207,17 +213,26 @@
 	      <li>Best practices</li>
 	      <li>Tools</li>
 	    </ul>
-	    <p class="fragment">Targeted towards human data publishers.</p>
+	    <p class="fragment">Targeted towards human data publishers</p>
+	    <p class="fragment">Inherently slow approaches</p>
 	    <p class="fragment">Mixed results after the first 15 years of deployment.</p>
 	    <!-- Who can (and do) choose not to use them. -->
-	    <p class="fragment">What was needed:</p>
-	    <ul>
-	      <li>Web Service</li>
-	      <!-- as with email -->
-	      <li>Automatization</li>
-	    </ul>
 	  </section>
-	
+
+	  <section data-background="#dddddd">
+	    <h2>New solution for data cleaning</h2>
+	    <div class="fragment">
+	      <p>(1) Automate conformity to standards</p>
+	      <p>"Days not decades"</p>
+	    </div>
+	    <br/>
+	    <br/>
+	    <div class="fragment">
+	      <p>(2) Tools → Web Service</p>
+	      <p>Look at email</p>
+	    </div>
+	  </section>
+	  
 	  <section data-background="#dddddd">
             <h2>LOD Laundromat</h2>
 	    <h4>The Clean Linked Data programming platform</h4>
@@ -247,173 +262,223 @@
 	</section>
 
 	<section>
-	  <h1>Live query access</h1>
-       	</section>
+	  <section>
+	    <h1>[3] Data publishing</h1>
+	    <p class="fragment">The cost/benefit model of SW data publishing is broken</p>
+	    <div>
+	      <p class="fragment">The incentive model for data publishing is the wrong way around:</p>
+	      <ul>
+		<li class="fragment">Publishing large volumes of high-quality data is penalized.</li>
+		<li class="fragment">Consuming large volumes of data / asking DDOS-like queries is free.</li>
+	      </ul>
+	    </div>
+       	  </section>
+	  
+	  <section data-background="#dddddd">
+	    <h2>Fix the cost/benefit model of SW pubishing</h2>
+	    <p>(1) Publishing data should be (near) free</p>
+	    <p>(2a) Asking more questions should cost more (CPU)</p>
+	    <p>(2b) Asking complexer questions should cost more (CPU)</p>
+	  </section>
+
+	  <section data-background="#dddddd">
+	    <h2>HDT + SSD + LDF</h2>
+	    <br/>
+	    <p><b>HDT</b>: Disk-based, efficient yet queryable storage</p>
+	    <br/>
+	    <br/>
+	    <p><b>SSD</b>: Disks become faster and cheaper</p>
+	    <!-- 6TB SSD in the new LOD Laundromat. -->
+	    <br/>
+	    <br/>
+	    <p><b>LDF</b>: BGP queries require client-side joins</p>
+	  </section>
+	</section>
 
 	<section>
-	  <h1>Applications</h1>
-	  <h2>Linked Data Journalism</h2>
-	  <ol>
-	    <li class="fragment"><b>Big Data</b> platform</li>
-	    <li class="fragment"><b>Entity Detection</b>: the automatic identification of concepts, people, places, ...</li>
-	    <li class="fragment"><b>Linking</b>: between concepts/people/places/etc. and data about them</li>
-	    <li class="fragment"><b>Aggregation</b>: Data → Information</li>
-	    <li class="fragment"><b>Contextualization</b>: Information → Knowledge</li>
-	  </ol>
+	  <section>
+	    <h1>[4] Streamed BGP answering</h1>
+	  </section>
+	  <section>
+	    <ul>
+	      <li class="fragment">LOD Cloud-wide triple pattern selectivity estimates</li>
+	      <li class="fragment">Client-side query reordering</li>
+	      <li class="fragment">Client-side symmetric hash joins</li>
+	      <li class="fragment">Culprit 1: Identity closure (800M)</li>
+	      <li class="fragment">Culprit 2: Natural language index (1.5-2B)</li>
+	    </ul>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>LOTUS</h2><h3>Linked Open Text Unleashed</h3>
+	    <img src="img/lotus.png"/>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>LOTUS in numbers</h2>
+	    <table>
+	      <thead>
+		<tr><th>Metric</th><th>Number</th></tr>
+	      </thead>
+	      <tbody>
+		<tr><td># literals encountered</td><td>12,018,939,378</td></tr>
+		<tr><td># integers and dates</td><td>6,699,148,542</td></tr>
+		<tr><td># indexed lexical strings</td><td>5,319,790,836</td></tr>
+		<tr><td># distinct sources</td><td>508,244</td></tr>
+		<tr><td># distinct language tags</td><td>713</td></tr>
+		<tr><td># hours to create index</td><td>56</td></tr>
+		<tr><td>disk space use</td><td>484.77 GB</td></tr>
+	      </tbody>
+	    </table>
+	  </section>
 	</section>
 	
+	
+	
 	<section>
-	  <h1>Existing paradigms</h1>
-	  <table>
-	    <thead>
-	      <tr>
-		<th><!--Paradigm--></th>
-		<th>Methodology</th>
-		<th>Purpose</th>
-		<th>Professional ethic</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-		<td><b>Computer-Assisted Reporting</b></td>
-		<!-- Hypothesis-driven -->
-		<td>Social-science empiricism</td>
-		<!-- Narrative -->
-		<td>Story creation</td>
-		<td>Investigative Journalism</td>
-	      </tr>
-	      <tr>
-		<td><b>Data Journalism</b></td>
-		<!-- Serendipity -->
-		<td>Explorative search</td>
-		<td>Information overview /</br>Participatory transparency</td>
-		<!-- Audience -->
-		<td>Open Source</td>
-	      </tr>
-	      <!-- Computational Journalism -->
-	    </tbody>
-	  </table>
+	  <section>
+	    <h1>[5] Streamed backwards chaining</h1>
+	  </section>
 	</section>
+
+
+
 	<section>
-	  <h1>Problems with existing paradigms</h1>
-	  <ul>
-	    <li class="fragment">Computer-Assisted Reporting
-	    <ul>
-	      <li>Labor-intensive</li>
-              <li>Applicability of empirical approach</li>
-	      <!-- The empirical approach is not always applicable.
-		   E.g., in cases where you do have *some* information,
-		   but not enough to perform hypothesis validation. -->
-	      <!--<li>Reactive audience</li>-->
-	    </ul></li>
-	    <li class="fragment">Data Journalism
-	    <ul>
-	      <li>Focus on numeric data</li>
-	      <li>Visualization-centric</li>
-	      <li>Distant from a traditional (narrative) journalistic product</li>
-	    </ul></li>
+	  <section>
+	    <h1>Redeploying the SW opens up a new research agenda</h1>
+	    <h2>[I] Redefinition of incentive model</h2>
+	  </section>
 	</section>
+
 	<section>
-	  <h2>Data ≠ digitally stored numbers</h2>
-	  <blockquote>
-	    As more information has become ones and zeroes at its most elemental level, more journalism has involved gathering, analyzing, and computing that information as quantitative data as well.
+	  <section>
+	    <h1>Redeploying the SW opens up a new research agenda</h1>
+	    <h2>[II] Better evaluations</h2>
+	  </section>
+	  <section>
+	    <h2>
+	      Semantic Web research
+	      <br/>
+	      =
+	      <br/>
+	      optimizing algorithms for DBpedia
+	    </h2>
+	  </section>
+	  <section>
+	    <p>Datasets used in ISWC 2014 research track papers</p>
+	    <img src="img/lodlab.png"/>
+	    <!-- Only includes papers that evaluate Linked Datasets.
+		 Excluded datasets that evaluate algorithms on relatively small ontologies, non-RDF datasets or streamed data.
+	      -->
+	    <small>
+	      <p class="fragment">17 datasets are used in total</p>
+	      <p class="fragment">1-6 datasets per article</p>
+	      <p class="fragment">2 datasets per article on average</p>
+	    </small>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>Rerunning RDF Vault (1/2)</h2>
+	    <img src="img/vault_original.png" width="100%"/>	
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>Rerunning RDF Vault (2/2)</h2>
+	    <img src="img/vault_lodlab.png" width="100%"/>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>Rerunning Fernandez 2013 (1/2)</h2>
+	    <!-- Original evaluation: Geonames, Wikipedia, DBTune, Uniprot, DBpedia-en, 400 BTC datasets
+		 Reproduce Uniprot experiment: HDT compression ration for 1M, 5M, 10M, 20M, 30M, 40M statements
+	      -->
+	    <table>
+	      <thead>
+		<tr><th></th><th colspan="3">Original</th><th colspan="3">Rerun</th></tr>
+		<tr><th>Triples (M)</th><th>Docs</th><th>Size (MB)</th><th>Compr. rate</th><th>Docs</th><th>Size (MB)</th><th>Compr. rate</th></tr>
+	      </thead>
+	      <tbody>
+		<tr><td>1</td><td>1</td><td>89.07</td><td>3.73%</td><td>179</td><td>183.31</td><td>11.23%</tr>
+		<tr><td>5</td><td>1</td><td>444.71</td><td>3.48%</td><td>74</td><td>799.98</td><td>4.99%</tr>
+		<tr><td>10</td><td>1</td><td>893.39</td><td>3.27%</td><td>50</td><td>1,642.60</td><td>5.43%</tr>
+		<tr><td>20</td><td>1</td><td>1,790.41</td><td>3.31%</td><td>17</td><td>3,328.57</td><td>4.15%</tr>
+		<tr><td>30</td><td>1</td><td>2,680.51</td><td>3.27%</td><td>19</td><td>4,880.26</td><td>5.09%</tr>
+		<tr><td>40</td><td>1</td><td>3,574.59</td><td>3.26%</td><td>8</td><td>6,586.95</td><td>7.25%</tr>
+	      </tbody>
+	    </table>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h2>Rerunning Fernandez 2013 (2/2)</h2>
+	    <p>Relate HDT compression rate to average degree</p>
+	    <table>
+	      <thead>
+		<tr><th>Avg. Degree</th><th>Docs</th><th>Compr rate</th></tr>
+	      </thead>
+	      <tbody>
+		<tr><td>1-5</td><td>92</td><td>21.68%</td></tr>
+		<tr><td>5-10</td><td>80</td><td>6.67%</td></tr>
+		<tr><td>10-∞</td><td>99</td><td>4.85%</td></tr>
+	      </tbody>
+	    </table>
+	  </section>
+	</section>
+	
+
+	<section>
+	  <section>
+	    <h1>Redeploying the SW opens up a new research agenda</h1>
+	    <h2>[III] Study the SW as a complex system</h2>
+	  </section>
+	  <section data-background="#dddddd">
+	    <img src="img/triples_vs_uris.png"/>
+	  </section>
+	  <section>
+	    <h2>Formal meaning vs social meaning</h2>
+	    <pre>
+	      <code>
+		abox:item1024 rdf:type       tbox:Tent    .
+		abox:item1024 tbox:soldAt    abox:shop72  .
+		abox:shop72   rdf:type       tbox:Store   .
+	      </code>
+	    </pre>
+	    <pre>
+	      <code>
+		fy:jufn1024   pe:ko9sap_     fyufnt:Ufou  .
+		fy:jufn1024   fyufnt:tmffqt  fy:aHup      .
+		fy:aHup       pe:ko9sap_     fyufnt:70342 .
+	      </code>
+	    </pre>
+	    <p class="fragment">These graphs denote the same models.</p>
+	  </section>
+	  <section>
+	    <p>According to model theory, IRIs are individual constants or predicate letters whose names are chosen arbitrarily and thus carry no meaning.</p>
 	    <br/>
-	    (Coddington 2015)
-	  </blockquote>
-	  <!-- The fact that technicians have chosen to store data inside
-               a computer by using binary electronic current in no way
-               implies that the data that is stored in that way should also 
-               be processed quantitatively by every computer user. -->
-	  <!-- The fact that data is commonly stored in binary electronic
-               current is not an essential property of computing. -->
-	  <!-- Quantitative turn -->
-	  <p class="fragment">Data can be:</p>
-	  <ul>
-	    <li class="fragment">Facts (some facts are numeric)</li>
-	    <!-- E.g., motivation for policy change. -->
-	    <li class="fragment">Arguments</li>
-	    <!-- Hierarchical subdivision of a domain. -->
-	    <li class="fragment">Taxonomies</li>
-	    <!-- Conceptualization -->
-	    <!-- E.g., if you want to understand how the political decision
-		 process in the EU works.  You need to know that there is a
-		 EC, a EP, that is involvement from the governments of
-		 participating nation states, etc. -->
-	    <li class="fragment">Ontologies</li>
-	  </ul>
+	    <p>Try to refute the hypothesis that names and meanings are independent.</p>
+	  </section>
+	  <section data-background="#dddddd">
+	    <h3>Hypothesis testing over 544K datasets</h3>
+	    <img src="img/histogram.png"/>
+	  </section>
+	  <section data-background="#dddddd">
+	    <img src="img/hypothesis.png"/>
+	  </section>
 	</section>
+
+
+	
 	<section>
-	  <h2>Let's <i>integrate</i> data into journalism</h2>
-	  <ul>
-	    <li>"A new type of reporter is needed."</li>
-	    <li>Data Journalism will lead to "[l]ess guessing, less looking for quotes — instead, a journalist can build a strong position supported by data" (Gray2012)</li>
-	  </ul>
+	  <section>
+	    <h1>Applications</h1>
+	  </section>
+	  <section>
+	    <h2>Linked Data Journalism</h2>
+	    <ol>
+	      <li class="fragment"><b>Big Data</b> platform</li>
+	      <li class="fragment"><b>Entity Detection</b>: the automatic identification of concepts, people, places, ...</li>
+	      <li class="fragment"><b>Linking</b>: between concepts/people/places/etc. and data about them</li>
+	      <li class="fragment"><b>Aggregation</b>: Data → Information</li>
+	      <li class="fragment"><b>Contextualization</b>: Information → Knowledge</li>
+	    </ol>
+	  </section>
 	</section>
-	<section data-background="#dddddd">
-	  <!-- Empty space between CAR and DJ. -->
-	  <h2>Let's integrate data into the journalist's workflow</h2>
-	  <p>Better integraton between journalistic product (natural language text) and data.</p>
-	  <ol>
-	    <li class="fragment"><b>Big Data</b> platform</li>
-	    <li class="fragment"><b>Entity Detection</b>: the automatic identification of concepts, people, places, ...</li>
-	    <li class="fragment"><b>Linking</b>: between concepts/people/places/etc. and data about them</li>
-	    <li class="fragment"><b>Aggregation</b>: Data → Information</li>
-	    <li class="fragment"><b>Contextualization</b>: Information → Knowledge</li>
-	  </ol>
-	</section>
-<!--
-	<section data-background="#dddddd">
-	  <h1>Linked Open Data</h1>
-	  <ol>
-	    <li>Openness</li>Transparency
-	    <li>The Internet</li>
-	    <li>Knowledge Representation: information processing on a <i>conceptual</i> level</li>
-	  </ol>
-	</section>
--->
-	<section data-background="#dddddd">
-	  <h2>[1] Big Data platform:</h2>
-          <h2>LOD Laundromat</h2>
-	  <a href="http://lodlaundromat.org/basket/">
-	    <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/">
-	    <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/wardrobe/">
-	    <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
-	  </a>
-	  <br/>
-	  <a href="http://lodlaundromat.org/visualizations/">
-	    <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-	    <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
-	  </a>
-	  <a href="http://lodlaundromat.org/about/">
-	    <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
-	  </a>
-	  <br/>
-	  <h3><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h3>
-	  <!-- <p>Open source (of course)</p> -->
-	</section>
-	<section data-background="#dddddd">
-	  <h1>[2] Entity Detection</h1>
-	  <p>For a natural language text, find the objects denoted by names and the relations denoted by adjectives, nouns and verbs.</p>
-	  <p>E.g., <a href="http://dbpedia-spotlight.github.io/demo/">DBpedia Spotlight</a></p>
-	</section>
-	<section data-background="#dddddd">
-	  <h1>[3] Linking</h1>
-	  <p>Given a logical model of the natural language text, pull in data about the entities described in that text.</p>
-	</section>
-	<section data-background="#dddddd">
-	  <h1>TODO</h1>
-	  <ul>
-	    <li class="fragment">[4] Aggregation</li>
-	    <li class="fragment">[5] Contextualization</li>
-	    <li class="fragment">Domain expert involvement & field testing</li>
-	  </ul>
-	</section>
+
+
+	
       </div>
     </div>
     <script src="lib/js/head.min.js"></script>
