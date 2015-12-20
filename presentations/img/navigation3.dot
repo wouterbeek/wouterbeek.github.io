@@ -6,10 +6,9 @@ digraph navigation {
   txt [label="Natural language text"];
 
   bno -> bno [color="green",style="solid"];
-  bno -> doc [color="green",style="solid"];
-  bno -> iri [color="green",style="solid"];
-  bno -> lit [color="green",style="solid"];
-  doc -> bno [style="solid"];
+  bno -> doc [color="green",dir="both",style="solid"];
+  bno -> iri [color="green",dir="both",style="solid"];
+  bno -> lit [color="green",dir="both",style="solid"];
   doc -> iri [style="solid"];
   doc -> lit [style="solid"];
   iri -> bno [style="dotted"];
