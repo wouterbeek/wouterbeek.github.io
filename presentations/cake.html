@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="css/triply.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>LOD Laundromat Stack</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/triply.css"/>
-    <link rel="shortcut icon" href="img/triply.svg">
   </head>
   <body>
     <div class="container-fluid">
       <div class="row">
-	      <div class="col-xs-8 col-md-6">
+	      <div>
           <h1>LOD Laundromat Layer Cake</h1>
-	        <table border="1">
+	        <table border="1" class="cake">
+            <caption></caption>
 	          <tbody>
               <!-- Yellow -->
               <tr>
-		            <td class="yellow-dark" colspan="3" width="500px">
-                  <h2><a href="https://github.com/LODLaundromat/Frank">Frank</a></h2>
-                </td>
-		            <td class="yellow-dark" rowspan="2" width="250px">
-                  <h2><a href="http://lotus.lodlaundromat.org">LOTUS</a></h2>
+                <td class="col1" rowspan="3"></td>
+                <td class="col2"></td>
+		            <td class="blue nonempty" colspan="3">
+                  <h3>LOD Laundromat APIs</h3>
+                  <p>Command-Line Interface and programming libraries for Web-scale data processing</p>
                 </td>
               </tr>
               <!-- Green -->
               <tr>
-		            <td class="yellow-light">
-                  <h2><a href="http://lodlaundromat.org/sparql">SPARQL endpoint</a></h2>
+		            <td class="col1 green nonempty">
+                  <h3>Linked Data Fragments</h3>
+                  <p>Triple pattern API</p>
                 </td>
-		            <td class="yellow-light">
-                  <h2><a href="https://github.com/LinkedDataFragments/Server.js">Linked Data Fragments</a></h2>
+		            <td class="col2 green nonempty">
+                  <h3>LOD Laundromat index</h3>
+                  <p>Dataset lookup</p>
                 </td>
-                <td class="yellow-light">
-                  <h2><a href="http://index.lodlaundromat.org">LOD Laundromat index</a></h2>
+		            <td class="col4 green nonempty">
+                  <h3>LOTUS</h3>
+                  <p>Full-text index</p>
+                </td>
+		            <td class="col5 gray nonempty" rowspan="3">
+                  <div class="vertical-text">
+                    <h3>Metadata</h3>
+                    <!--<p>RDF descriptions for every crawled &amp; cleaned dataset</p>-->
+                  </div>
                 </td>
               </tr>
               <!-- Red -->
               <tr>
-		            <td class="green-light"><h2>Triple store</h2></td>
-                <td class="green-light">
-                  <h2><a href="http://www.rdfhdt.org/">Header Dictionary Triples</a></h2>
+		            <td class="nonempty yellow">
+                  <h3>Header Dictionary Triples</h3>
+                  <p>Queryable RDF compression format</p>
                 </td>
-                <td class="green-light"><h2>Rocks DB</h2></td>
-                <td class="green-light"><h2>Elastic Search</h2></td>
+                <td class="nonempty yellow">
+                  <h3>Rocks DB</h3>
+                  <p>Key-value store</p>
+                </td>
+                <td class="nonempty yellow">
+                  <h3>Elastic Search</h3>
+                  <p>Search server</p>
+                </td>
               </tr>
               <!-- Blue -->
               <tr>
-		            <td class="blue-light" colspan="3">
-                  <h2><a href="https://github.com/LOD-Laundromat/LOD-Laundromat">LOD Washing Machine</a></h2>
-                </td>
-		            <td class="gray" rowspan="2">
-                  <h2><a href="http://download.lodlaundromat.org/dump.nt.gz">Metadata</a></h2>
+		            <td class="nonempty orange" colspan="4">
+                  <h3>LOD Washing Machine</h3>
+                  <p>Cleaning other people's dirty data</p>
                 </td>
               </tr>
               <tr>
-		            <td class="blue-light" colspan="3">
-                  <h2>LOD Cloud Crawlers</h2>
+		            <td class="nonempty red" colspan="5">
+                  <h3>LOD Cloud Crawlers</h3>
                 </td>
               </tr>
 	          </tbody>
