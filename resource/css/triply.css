@@ -1,0 +1,63 @@
+h2 {
+  font-size: 28pt;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+table, tbody, tr, td, a {
+  height: 100%;
+}
+
+td a, td a:active, td a:hover, td a:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-style: solid;
+}
+
+.twitter-tweet {
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.blue-light {background-color: #3498db;}
+.blue-dark {background-color: #2980b9;}
+.gray {background-color: #95a5a6;}
+.green-light {background-color: #1abc9c;}
+.green-dark {background-color: #16a085;}
+.orange {background-color: #e67e22;}
+.purple-dark {background-color: #aa5585;}
+.purple-light {background-color: #cd88af;}
+.yellow-light {background-color: #f1c40f;}
+.yellow-dark {background-color: #f39c12;}
+
+table td {
+  border: 2px solid #E7EFE0;
+  text-align: center;
+}
+
+table td a {
+  padding: 10px;
+}
+
+table td a h3 {
+  margin: 10px;
+}
+
+table th {
+  color: #666;
+}
+
+.vertical-text {
+  transform: rotate(-90deg);
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Triply MVP - Layer 2 - Data Versioning</title>
+    <meta name="author" content="Wouter Beek"/>
+    <meta name="description" content="The Data Versioning layer of the Triply MVP"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/bootstrap-3.3.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/triply.css"/>
+    <link rel="shortcut icon" href="resource/img/triply.svg">
+  </head>
+  <body style="background-color: black;">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="triply.html">
+            <img height="20px" src="resource/img/triply.svg"/>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="triply.html">Triply</a>
+            <li><a href="l1.html">L1</a></li>
+            <li class="active"><a href="l2.html">L2</a></li>
+            <li><a href="l3.html">L3</a></li>
+            <li><a href="l4.html">L4</a></li>
+            <li><a href="l5.html">L5</a></li>
+            <li><a href="l6.html">L6</a></li>
+            <li><a href="l7.html">L7</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="why_triply.html">Why Triply?</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Layer 2: Data Versioning</h1>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-8">
+	        <svg height="250" xml:space="preserve" viewBox="0 0 50 50" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="git-lfs-logo-svg" version="1.0">
+	          <polygon points="24.51,28.18 24.59,48.07 49.02,33.96 49.02,14.2" fill="#AC3025"/>
+	          <polygon points="39.56,8.73 15.13,22.84 15.13,30.77 9.46,27.5 9.46,19.57 33.9,5.46 24.44,0 0,14.11 0,33.88 24.59,48.07 24.59,28.31 49.02,14.2 " fill="#F64935"/>
+	        </svg>
+        </div>
+        <div class="col-md-8">
+          <h2>Git Large File Storage</h2>
+        </div>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+	        <h2>Versioning ↔ provenance tracking</h2>
+	        <img src="resource/img/git2prov.png"/>
+          <p>Versioning information is stored as queryable metadata</p>
+        </div>
+      </div>
+    </div>
+    <p style="color: white; margin: 0 25%;">Every dataset that is upload and each subsequent edit that is made to it is stored in the Version Management software Git.  All versioning metadata (author, time, version(s) derived from) is stored as RDF metadata.  This means that the customer can query the entire provenance trail of her data warehouse.</p>
+  </body>
+</html>
