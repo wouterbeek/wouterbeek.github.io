@@ -8,8 +8,11 @@ ul {
   list-style-type: none;
 }
 
-table, tbody, tr, td, a {
-  height: 100%;
+.seethrough-header {
+  color: white;
+  font-size: 38pt;
+  margin: 50px;
+  text-align: center;
 }
 
 td a, td a:active, td a:hover, td a:visited {
@@ -21,9 +24,14 @@ td a, td a:active, td a:hover, td a:visited {
   text-align: center;
 }
 
-table {
+table.cake {
+  <!-- @tbd Border color does not work. -->
+  border: 1px solid black;
   border-collapse: collapse;
-  border-style: solid;
+}
+
+table, tbody, tr, td, a {
+  height: 100%;
 }
 
 .twitter-tweet {
