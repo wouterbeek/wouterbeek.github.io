@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="resource/css/triply.css"/>
     <link rel="shortcut icon" href="resource/img/triply.svg">
   </head>
-  <body style='background-color: black;'>
+  <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -41,41 +41,43 @@
         </div>
       </div>
     </nav>
+    <div class="jumbotron seethrough-header">
+      <h1>Layer 1: Data Cleaning</h1>
+    </div>
     <div class="jumbotron">
       <div class="container">
-        <h1>Layer 1: Data Cleaning</h1>
         <p>This layer ensures that all your data is standards-compliant and meets the latest quality criteria.</p>
       </div>
     </div>
     <div class="jumbotron">
       <div class="container">
-	      <h2>Based on LOD Laundromat</h2>
-	      <a href="http://lodlaundromat.org/basket/">
-	        <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
-	      </a>
-	      <a href="http://lodlaundromat.org/">
-	        <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
-	      </a>
-	      <a href="http://lodlaundromat.org/wardrobe/">
-	        <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
-	      </a>
-	      <br/>
-	      <a href="http://lodlaundromat.org/visualizations/">
-	        <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
-	      </a>
-	      <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-	        <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
-	      </a>
-	      <a href="http://lodlaundromat.org/about/">
-	        <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
-	      </a>
+	<h2>Based on LOD Laundromat</h2>
+	<a href="http://lodlaundromat.org/basket/">
+	  <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/">
+	  <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/wardrobe/">
+	  <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
+	</a>
+	<br/>
+	<a href="http://lodlaundromat.org/visualizations/">
+	  <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	  <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/about/">
+	  <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
+	</a>
       </div>
     </div>
     <div class="jumbotron">
       <div class="container">
-	      <h2>Winner of the “Best LOD Application” Award 2015</h2>
+	<h2>Winner of the “Best LOD Application” Award 2015</h2>
         <center>
-	        <iframe width="750" height="475" src="https://www.youtube.com/embed/nU2Yh8RXeow" frameborder="0" allowfullscreen>
+	  <iframe width="750" height="475" src="https://www.youtube.com/embed/nU2Yh8RXeow" frameborder="0" allowfullscreen>
           </iframe>
         </center>
       </div>
@@ -92,26 +94,26 @@
     </div>
     <div class="jumbotron">
       <div class="container">
-	      <h2>LOD Laundromat in numbers</h2>
-	      <p>4,343 unique users</p>
-	      <p>12,696,797 questions</p>
-	      <p>7,909,738 downloads</p>
-	      <p>38,606,408,774 triples</p>
-	      <p>650,000+ datasets</p>
+	<h2>LOD Laundromat in numbers</h2>
+	<p>4,343 unique users</p>
+	<p>12,696,797 questions</p>
+	<p>7,909,738 downloads</p>
+	<p>38,606,408,774 triples</p>
+	<p>650,000+ datasets</p>
       </div>
     </div>
     <script>
       window.twttr = (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-        t._e = [];
-        t.ready = function(f) { t._e.push(f); };
-        return t;
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) { t._e.push(f); };
+      return t;
       }(document, "script", "twitter-wjs"));
     </script>
   </body>

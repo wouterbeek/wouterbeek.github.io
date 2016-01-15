@@ -9,7 +9,8 @@ ul {
 }
 
 .seethrough-header {
-  color: white;
+  background-color: transparent;
+  color: black;
   font-size: 38pt;
   margin: 50px;
   text-align: center;
@@ -24,10 +25,20 @@ td a, td a:active, td a:hover, td a:visited {
   text-align: center;
 }
 
+.jumbotron ul {
+  font-size: 20pt;
+  list-style-type: square;
+}
+
 table.cake {
-  <!-- @tbd Border color does not work. -->
-  border: 1px solid black;
   border-collapse: collapse;
+  border-color: white;
+  border-style: solid;
+  border-width: 3px;
+}
+
+table tbody tr td {
+  border-color: white;
 }
 
 table, tbody, tr, td, a {
@@ -38,16 +49,13 @@ table, tbody, tr, td, a {
   box-shadow: 10px 10px 5px #888888;
 }
 
-.blue-light {background-color: #3498db;}
-.blue-dark {background-color: #2980b9;}
+.blue {background-color: #3498db;}
 .gray {background-color: #95a5a6;}
-.green-light {background-color: #1abc9c;}
-.green-dark {background-color: #16a085;}
-.orange {background-color: #e67e22;}
-.purple-dark {background-color: #aa5585;}
-.purple-light {background-color: #cd88af;}
-.yellow-light {background-color: #f1c40f;}
-.yellow-dark {background-color: #f39c12;}
+.green {background-color: #1abc9c;}
+.lightblue {background-color: #99ccff;}
+.orange {background-color: #f39c12;}
+.purple {background-color: #cd88af;}
+.yellow {background-color: #f1c40f;}
 
 table td {
   border: 2px solid #E7EFE0;
@@ -55,11 +63,11 @@ table td {
 }
 
 table td a {
-  padding: 10px;
+  padding: 8px;
 }
 
 table td a h3 {
-  margin: 10px;
+  margin: 8px;
 }
 
 table th {
