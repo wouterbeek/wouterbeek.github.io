@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Redeploying the Semantic Web</title>
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Overview of work conducted within the LOD Laundromat research line."/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css" id="theme">
     <!-- Code syntax highlighting -->
@@ -58,13 +58,13 @@
 		</ul>
 	      </li>
 	      <!--
-	      <li class="fragment">Clash between semantics and pragmatics</li>
-	      <ul>
-		<li class="fragment">Theory of identity vs practice of linking</li>
-		<li class="fragment">Formal meaning vs social meaning</li>
-		<li class="fragment">Universal statements vs trivia</li>
-	      </ul>
-              -->
+		  <li class="fragment">Clash between semantics and pragmatics</li>
+		  <ul>
+		    <li class="fragment">Theory of identity vs practice of linking</li>
+		    <li class="fragment">Formal meaning vs social meaning</li>
+		    <li class="fragment">Universal statements vs trivia</li>
+		  </ul>
+		  -->
 	    </ul>
 	  </section>
 	  
@@ -82,42 +82,42 @@
 	    <h2>Problem 2</h2>
 	    <h3>Most data cannot be <i>read</i></h3>
             <p><a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a> (< 10% syntactically correct)</p>
-		      <img src="img/screen.png" style="width:1300px;">
+										      <img src="img/screen.png" style="width:1300px;">
           </section>
 	  <!--
-	  <section>
-	    <h3>The WWW is not standards-compliant either</h3>
-	    <ul>
-              <li class="fragment">WWW tools optimized for common errors</li>
-              <li class="fragment">WWW consumers have human-level intelligence</li>
-	    </ul>
-	  </section>
-          -->
+	      <section>
+		<h3>The WWW is not standards-compliant either</h3>
+		<ul>
+		  <li class="fragment">WWW tools optimized for common errors</li>
+		  <li class="fragment">WWW consumers have human-level intelligence</li>
+		</ul>
+	      </section>
+              -->
 	  <!--
-          <section>
-            <h2>Why is data dirty?</h2>
-	    <div style="float: left;">
-              <ul>
-		<li>Character encoding issues</li>
-		<li>Socket errors</li>
-		<li>Protocol errors</li>
-		<li>Corrupted archives</li>
-		<li>Authentication problems</li>
-		<li>Syntax errors</li>
-		<li>Wrong metadata</li>
-              </ul>
-	    </div>
-	    <div style="float: right;">
-	      <ul>
-		<li>Lexical form ↛ value</li>
-		<li>Non-canonical lexical form</li>
-		<li>Logically inconsistent</li>
-		<li>...</li>
-	      </ul>
-	    </div>
-          </section>
-          -->
-	  	  
+              <section>
+		<h2>Why is data dirty?</h2>
+		<div style="float: left;">
+		  <ul>
+		    <li>Character encoding issues</li>
+		    <li>Socket errors</li>
+		    <li>Protocol errors</li>
+		    <li>Corrupted archives</li>
+		    <li>Authentication problems</li>
+		    <li>Syntax errors</li>
+		    <li>Wrong metadata</li>
+		  </ul>
+		</div>
+		<div style="float: right;">
+		  <ul>
+		    <li>Lexical form ↛ value</li>
+		    <li>Non-canonical lexical form</li>
+		    <li>Logically inconsistent</li>
+		    <li>...</li>
+		  </ul>
+		</div>
+              </section>
+              -->
+	  
 	  <section>
 	    <h2>Problem 3</h2>
 	    <h3>Most data cannot be <i>queried</i></h3>
@@ -134,11 +134,11 @@
 	  </section>
 	  
 	  <!--
-          <section data-background="#dddddd">
-	    <h4>Query endpoint availablility according to LODStats</h4>
-	    <img src="img/availability2013.png" style="max-height: 625px;"/>
-	  </section>
-          -->
+              <section data-background="#dddddd">
+		<h4>Query endpoint availablility according to LODStats</h4>
+		<img src="img/availability2013.png" style="max-height: 625px;"/>
+	      </section>
+              -->
 	  <section data-background="#dddddd">
 	    <h4>Query endpoint availablility according to LODStats</h4>
 	    <img src="img/availability2015.png" style="max-height: 625px;"/>
@@ -152,30 +152,30 @@
 	  </section>
 
 	  <!--
-	  <section>
-	    <h2>Problem 4</h2>
-	    <h3>Most data cannot be <i>reasoned over</i></h3>
-	    <ul>
-	      <li class="fragment">No standardized way of selecting the entailment regime in SPARQL</li>
-	      <li class="fragment">Some entailment results cannot be expressed in RDF</li>
-	      <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment</li>
-	      <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL</li>
-	      <li class="fragment">Web-scale reasoning has only been performed in the lab</li>
-	    </ul>
-	  </section>
-          -->
+	      <section>
+		<h2>Problem 4</h2>
+		<h3>Most data cannot be <i>reasoned over</i></h3>
+		<ul>
+		  <li class="fragment">No standardized way of selecting the entailment regime in SPARQL</li>
+		  <li class="fragment">Some entailment results cannot be expressed in RDF</li>
+		  <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment</li>
+		  <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL</li>
+		  <li class="fragment">Web-scale reasoning has only been performed in the lab</li>
+		</ul>
+	      </section>
+              -->
 
 	  <!--
-	  <section>
-	    <h2>Service level</h2>
-	    <p>Even though a technology stack for publishing Semantic Web data exists today, there is currently no simplified Web Service that does the same thing on a Web-scale.</p>
-	    <p>Compare this to email.</p>
-	  </section>
-	  <section>
-	    <h2>Federation</h2>
-	    <p>Tthere are no LOD Cloud-wide guarantees as to whether, and if so how, sub-queries will be evaluated by different endpoints.
-	  </section>
-	  -->
+	      <section>
+		<h2>Service level</h2>
+		<p>Even though a technology stack for publishing Semantic Web data exists today, there is currently no simplified Web Service that does the same thing on a Web-scale.</p>
+		<p>Compare this to email.</p>
+	      </section>
+	      <section>
+		<h2>Federation</h2>
+		<p>Tthere are no LOD Cloud-wide guarantees as to whether, and if so how, sub-queries will be evaluated by different endpoints.
+	      </section>
+	      -->
 	</section>
 
 	<section data-background="#dddddd">
@@ -214,36 +214,36 @@
 	</section>
 
 	<!--
-	<section>
-	  <section>
-	    <h2>Linked Data principles</h2>
-	    <ul>
-	      <li>Machine-processable</li>
-	      <li>Agents traverse interconnected LOD Cloud</li>
-	      <li>Combine information from many different sources</li>
-	      <li>"Everyone can say anything about everything"</li>
-	    </ul>
-	    <h2>Linked Data practice</h2>
-	    <ul>
-	      <li>Most data is not machine-processable</li>
-	      <li>The LOD Cloud cannot be traversed</li>
-	      <li>Information from different sources cannot be combined</li>
-	      <li>Even though "everyone can say anything about anything" very few people are heard</li>
-	    </ul>
-	  </section>
-	  <section>
-	    <h2>LOD Laundromat approach</h2>
-	    <dl>
-	      <dt>Distribution</dt>
-	      <dd>Centralises the gathering, cleaning, querying and (re)publishing of Linked Open Data</dd>
-	      <dt>Re-use</dt>
-	      <dd>Does not use SPARQL for disseminating data</dd>
-	      <dt>Navigation</dt>
-              <dd>Drop the dereferenceability requirement for IRIs</dd>
-	    </dl>
-	  </section>
-	</section>
-	-->
+	    <section>
+	      <section>
+		<h2>Linked Data principles</h2>
+		<ul>
+		  <li>Machine-processable</li>
+		  <li>Agents traverse interconnected LOD Cloud</li>
+		  <li>Combine information from many different sources</li>
+		  <li>"Everyone can say anything about everything"</li>
+		</ul>
+		<h2>Linked Data practice</h2>
+		<ul>
+		  <li>Most data is not machine-processable</li>
+		  <li>The LOD Cloud cannot be traversed</li>
+		  <li>Information from different sources cannot be combined</li>
+		  <li>Even though "everyone can say anything about anything" very few people are heard</li>
+		</ul>
+	      </section>
+	      <section>
+		<h2>LOD Laundromat approach</h2>
+		<dl>
+		  <dt>Distribution</dt>
+		  <dd>Centralises the gathering, cleaning, querying and (re)publishing of Linked Open Data</dd>
+		  <dt>Re-use</dt>
+		  <dd>Does not use SPARQL for disseminating data</dd>
+		  <dt>Navigation</dt>
+		  <dd>Drop the dereferenceability requirement for IRIs</dd>
+		</dl>
+	      </section>
+	    </section>
+	    -->
 	
 	<section data-background="#dddddd">
 	  <h1>How to redeploy the Semantic Web?</h1>
@@ -263,21 +263,21 @@
 	    <h1>[1] Data collection</h1>
 	  </section>
 	  <!--
-	  <section>
-	    <ul>
-	      <li>Scrape catalogues
+	      <section>
 		<ul>
-		  <li>Custom API (CKAN)</li>
-		  <li>HTML (VoID Store, LOV)</li>
-	      </ul></li>
-	      <li class="fragment">Interpret metadata vocabularies (VoID,DCAT)</li>
-	      <li class="fragment">Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
-	      <li class="fragment">Craw dereferenceable IRIs</li>
-	      <li class="fragment">Hard-craft a seed list</li>
-	      <li class="fragment">Crowd-source the seed list</li>
-	    </ul>
-	  </section>
-          -->
+		  <li>Scrape catalogues
+		    <ul>
+		      <li>Custom API (CKAN)</li>
+		      <li>HTML (VoID Store, LOV)</li>
+		  </ul></li>
+		  <li class="fragment">Interpret metadata vocabularies (VoID,DCAT)</li>
+		  <li class="fragment">Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+		  <li class="fragment">Craw dereferenceable IRIs</li>
+		  <li class="fragment">Hard-craft a seed list</li>
+		  <li class="fragment">Crowd-source the seed list</li>
+		</ul>
+	      </section>
+              -->
 	</section>
 
 	<section>
@@ -302,32 +302,31 @@
             <h2>LOD Laundromat</h2>
 	    <h4>The Clean Linked Data programming platform</h4>
 	    <a href="http://lodlaundromat.org/basket/">
-	      <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
+	      <img src="img/basket.png" width="200">
 	    </a>
 	    <a href="http://lodlaundromat.org/">
-	      <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
+	      <img src="img/laundry.png" width="200">
 	    </a>
 	    <a href="http://lodlaundromat.org/wardrobe/">
-	      <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
+	      <img src="img/wardrobe.png" width="200">
 	    </a>
 	    <br/>
 	    <a href="http://lodlaundromat.org/visualizations/">
-	      <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
+	      <img src="img/analysis.png" width="200">
 	    </a>
 	    <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-	      <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
+	      <img src="img/labels.png" width="200">
 	    </a>
 	    <a href="http://lodlaundromat.org/about/">
-	      <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
+	      <img src="img/laundryLine.png" width="200">
 	    </a>
 	    <br/>
 	    <h4><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h4>
-	    <!-- <p>Open source (of course)</p> -->
 	  </section>
 	  <section>
 	    <h2>Triply</h2>
 	    <p>Linked Closed Data deployment</p>
-	    <img src="img/logo.svg" height="400"/>
+	    <img src="img/triply.svg" height="400"/>
 	  </section>
 	</section>
 
@@ -371,18 +370,18 @@
 	  <section>
 	    <h2><i>Frank</i></h2>
 	    <p>Federated Resource Architecture for Networked Knowledge</p>
-	    <img src="iswc2015/imgs/openDoor.png" class="blank" height="350"/>
+	    <img src="img/openDoor.png" class="blank" height="350"/>
 	    <p><a href="https://github.com/LODLaundry/Frank" target='_blank'>https://github.com/LODLaundry/Frank</a></p>
 	    <!--<p>Beek, W. &amp; Rietveld, L.: Frank: The LOD Cloud at your Fingertips. Extended Semantic Web Conference: Dev Workshop (2015).</p>-->
 	  </section>
 	  <section><!--vertical2-->
 	    <h2>Frank</h2>
 	    <pre style="zoom:137%"><code>$ ./frank statements --predicate foaf:name | head -n 5
-eurostat:void.rdf#Eurostat foaf:name "Eurostat".
-author:5ff33...1c4 foaf:name "Dong-Mei Shi".
-author:d873s...19b foaf:name "Feng-Xia Ma".
-author:fbbcf...54c foaf:name "Ya-Guang Chen".
-author:1ec76...f4b foaf:name; "Jian Yu".</code></pre>
+		eurostat:void.rdf#Eurostat foaf:name "Eurostat".
+		author:5ff33...1c4 foaf:name "Dong-Mei Shi".
+		author:d873s...19b foaf:name "Feng-Xia Ma".
+		author:fbbcf...54c foaf:name "Ya-Guang Chen".
+		author:1ec76...f4b foaf:name; "Jian Yu".</code></pre>
 	  </section>
 	</section>
 
@@ -416,38 +415,38 @@ author:1ec76...f4b foaf:name; "Jian Yu".</code></pre>
 	</section>
 	
 	<!--
-	<section>
-	  <section>
-	    <h1>[6] Streamed BGP answering</h1>
-	  </section>
-	  <section>
-	    <ul>
-	      <li class="fragment">LOD Cloud-wide triple pattern selectivity estimates</li>
-	      <li class="fragment">Client-side query reordering</li>
-	      <li class="fragment">Client-side symmetric hash joins</li>
-	      <li class="fragment">Culprit 1: Identity closure (800M)</li>
-	      <li class="fragment">Culprit 2: Natural language index (1.5-2B)</li>
-	    </ul>
-	  </section>
-        </section>
-        -->
+	    <section>
+	      <section>
+		<h1>[6] Streamed BGP answering</h1>
+	      </section>
+	      <section>
+		<ul>
+		  <li class="fragment">LOD Cloud-wide triple pattern selectivity estimates</li>
+		  <li class="fragment">Client-side query reordering</li>
+		  <li class="fragment">Client-side symmetric hash joins</li>
+		  <li class="fragment">Culprit 1: Identity closure (800M)</li>
+		  <li class="fragment">Culprit 2: Natural language index (1.5-2B)</li>
+		</ul>
+	      </section>
+            </section>
+            -->
 	
         <!--
-	<section>
-	  <section>
-	    <h1>[7] Streamed backwards chaining</h1>
-	  </section>
-	</section>
-        -->
+	    <section>
+	      <section>
+		<h1>[7] Streamed backwards chaining</h1>
+	      </section>
+	    </section>
+            -->
 
 	<section>
 	  <section>
-	    <img style="width: 90%" class="blank" src="iswc2015/imgs/lodLabSub.png"/>
+	    <img style="width: 90%" class="blank" src="img/lodLabSub.png"/>
 	    <p>
 	  </section>
 	  <section>
 	    <h2>How generalizable is SW research?</h2>
-	    <img src="iswc2015/imgs/articlesPerDataset.png"/>
+	    <img src="img/articlesPerDataset.png"/>
 	  </section>
 	  <section>
 	    <p>17 datasets are used in total</p>
