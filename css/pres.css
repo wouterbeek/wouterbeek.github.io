@@ -1,0 +1,68 @@
+html {
+  background-image: url("../assets/black-paper.png");
+}
+#reveal h1 {
+  text-shadow: 0 1px 0 #333, 0 2px 0 #333333, 0 3px 0 #333, 0 4px 0 #333333, 0 5px 0 #333, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+.python-yellow {
+  color: #ffcb3c;
+}
+.r-blue {
+  color: #8597be;
+}
+.blue {
+  color: #38c0fa;
+}
+.others-green {
+  color: rgba(50, 200, 90, 0.85);
+}
+.hor_row {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hor_row li {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.hor_row li a img {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  max-height: 90px !important;
+}
+.hor_row li a h1 {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  max-height: 90px !important;
+}
+.lv_content_iframe {
+  background-color: white !important;
+}
+.python .state-background {
+  background: url("../assets/python-bg.png") no-repeat scroll left bottom, rgba(255, 203, 60, 0.3) none repeat scroll 0 0;
+}
+.r .state-background {
+  background: url("../assets/r-logo.png") no-repeat scroll left bottom, rgba(133, 151, 190, 0.2) none repeat scroll 0 0;
+}
+.soothe .state-background {
+  background: rgba(50, 200, 90, 0.2) none repeat scroll 0 0 !important;
+}
+blockquote, q {
+  quotes: none !important;
+}
+blockquote::before, blockquote::after, q::before, q::after {
+  content: none !important;
+}
+code {
+  overflow-x: auto;
+}
+pre {
+  background: #272822 none repeat scroll 0 0;
+  max-height: 400px !important;
+  min-height: 400px !important;
+  overflow: auto !important;
+  position: relative !important;
+}
+code {
+  position: absolute !important;
+}

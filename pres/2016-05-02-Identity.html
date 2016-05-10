@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Web of Data: Open or Closed?</title>
+    <script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="Presentation on the benefits of open versus closed WRT 4 properties of the Web of Data.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Identity on the Web @ KR on the Web</h1>
+          <h3>April 2<sup>nd</sup>, 2016</h3>
+	  <h4>Wouter Beek (<a href="mailto:wbeek@vu.nl">wbeek@vu.nl</a>)</h4>
+	  <img src="img/vu-krr-logo-print-600dpi.png" height="100"/>
+        </section>
+
+        <section>
+          <section>
+            <h3>
+              Open World Assumption (OWA)
+              <br>
+              Closed World Assumption (CWA)
+            </h3>
+            <div style="text-align: left;">
+              <span class="fragment">Database: “Some apples are green.”</span>
+              <br>
+              <span class="fragment">Question: “Are some apples delicious?”</span>
+              <br>
+              <span class="fragment">CWA answer: “No.”</span>
+              <br>
+              <span class="fragment">OWA answer: “I don't known.”</span>
+            </div>
+            <br>
+            <p class="fragment">
+              Why does the SW use OWA and not CWA?
+            </p>
+          </section>
+          <section>
+            <h1>Domain & range</h1>
+            <pre>
+              <code>
+                〈foaf:knows, rdfs:domain, foaf:Person〉
+                〈ex:john, foaf:knows, ex:mary〉
+                ⊨ 〈ex:john, rdf:type, foaf:Person〉
+              </code>
+            </pre>
+            <pre>
+              <code>
+                〈foaf:knows, rdfs:range, foaf:Person〉
+                〈ex:john, foaf:knows, ex:mary〉
+                ⊨ 〈ex:mary, rdf:type, foaf:Person〉
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h1>What's wrong here?</h1>
+            <p>Example drawn from BioPortal.</p>
+            <pre>
+              <code>
+                〈bpo:has_event, rdfs:domain, bpo:person〉
+                〈bpo:has_event, rdfs:domain, bpo:event〉
+                〈bpo:has_event, rdfs:domain, bpo:disease〉
+              </code>
+            </pre>
+            <p class="fragment">What is the formal meaning?</p>
+            <p class="fragment">What is the intended meaning?</p>
+            <p class="fragment">How is this related to the OWA?</p>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>Semantics of identity</h1>
+          </section>
+          <section>
+            <h3>Indiscernibility of identicals (Leibniz's Law)</h3>
+	    <p style="font-size: 200%;">$$a = b \rightarrow (\forall \phi \in \Psi)(\phi(a) = \phi(b))$$</p>
+          </section>
+          <section>
+            <h3>Identity of indiscernibles</h3>
+            <p style="font-size: 200%;">$$(\forall \phi \in \Psi)(\phi(a) = \phi(b)) \rightarrow a = b$$</p>
+            <br>
+            <br>
+            <p class="fragment">Why is this formula trivial?</p>
+          </section>
+          <!--
+              <section>
+                <h2>Identity is the smallest equivalence relation</h2>
+              </section>
+              -->
+        </section>
+        
+	<section>
+          <section>
+            <h1>The SW<br>‘identity crisis’</h1>
+          </section>
+          <section>
+            <h2>Semantics of owl:sameAs</h2>
+            <p style="font-size: 200%;">$$a = b \leftrightarrow (\forall \phi \in \Psi)(\phi(a) = \phi(b))$$</p>
+          </section>
+          <section>
+            <h2>Pragmatics of owl:sameAs</h2>
+            <p>Linked Data:</p>
+            <ol>
+              <li>Use URIs as names for things</li>
+              <li>Use HTTP URIs so that people can look up those names</li>
+              <li>When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL)</li>
+              <li><b>Include links to other URIs. so that they can discover more things</b></li>
+            </ol>
+            <br>
+            <br>
+            <small>Tim Berners-Lee, <em>Linked Data</em>, 2016</small>
+          </section>
+          <section>
+            <img src="img/mug.jpg" height=500>
+          </section>
+          <section>
+	    <h1>AAA</h1>
+	    <h2>Anyone can say anything about anything</h2>
+          </section>
+	  <section>
+	    <h1>AAA<sup>⋆</sup></h1>
+	    <h2>Anyone can say that anything is identical to anything else<br/>(and they do)</h2>
+	  </section>
+	  <section>
+	    <h2>Relatedness cannot replace identity</h2>
+	    <blockquote>SKOS exactMatch indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications</blockquote>
+	    <small>From the SKOS standard</small>
+	  </section>
+	  <section>
+	    <h3>bbc:sameAs</h3>
+	    <h3>bbc:sameAs</h3>
+	    <h3>owl:sameAs</h3>
+	    <h3>?</h3>
+	  </section>          
+	</section>
+
+        
+        <section>
+	  <section data-background="#ffffff">
+            <h1>Problems of identity</h1>
+          </section>
+          <section data-background="#ffffff">
+            <h3>[1] Identity does not hold across modal contexts</h3>
+            <div style="text-align: left;">
+              Lois Lane was rescued by Superman
+              <br>
+              Superman is Clark Kent
+              <hr>
+              ⊨ Lois Lane was rescued by Clark Kent
+            </div>
+            <br>
+            <div class="fragment" style="text-align: left;">
+              Lois Lane believes that she was rescued by Superman
+              <br>
+              Superman is Clark Kent
+              <hr>
+              ⊭ Lois Lane believes that she was rescued by Clark Kent
+            </div>
+          </section>
+          <section data-background="#ffffff">
+            <h3>[2] Indentity is context-dependent</h3>
+            <img src="img/identity_graph.png">
+            <p>Baspirin™ is the same as Caspirin™</p>
+            <p>Baspirin™ is <em>not</em> the same as Caspirin™</p>
+          </section>
+          <section data-background="#ffffff">
+            <h3>[3] Identity over time</h3>
+            <img src="img/ship_of_theseus.png">
+          </section>
+          <section data-background="#ffffff">
+            <h3>[4] Identity under counterfactual assertion</h3>
+            <p><em>Any</em> property ascribed can be negated in a counterfactual</p>
+            <br>
+            <p class="fragment">Example: “If my parents would not have met then I would not have been born.”</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Formal Concept Analysis (FCA)</h2>
+            <p>Context: instances (X), properties (Y), mapping (m)</p>
+            <p>$$X' \,:=\, \{ y \in Y \,\vert\, (\forall x \in X)(m(x,y)) \}$$</p>
+            <p>$$Y' \,:=\, \{ x \in X \,\vert\, (\forall y \in Y)(m(x,y)) \}$$</p>
+            <p>Formal concept 〈X,Y〉: X'=Y and Y'=X</p>
+          </section>
+          <section>
+            <img src="img/identity_graph.png">
+            <p>+ 
+            <img src="img/lattice.png">
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
