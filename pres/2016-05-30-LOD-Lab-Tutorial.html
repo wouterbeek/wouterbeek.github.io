@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOD Lab - ESWC 2016 Tutorial</title>
+    <script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="A presentation on the Emprirical Turn in KR.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>LOD Lab Tutorial</h1>
+          <h3>May 30<sup>th</sup>, 2016</h3>
+	  <h4>Wouter Beek &amp; Javier Fernández &amp; Michael Lauruhn &amp; Filip Ilievski</h4>
+        </section>
+
+        <section>
+          <h1>Program</h1>
+          <ul>
+            <li>14:00-14:10 Introduction round</li>
+            <li>14:10-14:30 <em>LOD Lab</em> (presentation)</li>
+            <li>14:30-14:50 Find IRIs with <em>LOTUS</em> (hands-on)</li>
+            <li>14:50-15:00 break</li>
+            <li>15:00-15:20 Scalable storage with <em>HDT</em> (presentation)</li>
+            <li>15:20-15:40 Find statements with <em>LDF</em> and <em>Frank</em></li>
+            <li>15:40-15:50 break</li>
+            <li>15:50-16:10 Reproducibility (presentation)</li>
+            <li>16:10-16:40 Find docs with <em>LOD Laundromat</em> (hands-on)</li>
+            <li>16:40-17:00 Future infra for LOD evaluations (discussion)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Introduction round</h2>
+          <div>Javier Fernández</div>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="75"/>
+          <hr>
+          <div>Michael TODO</div>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="75"/>
+          <hr>
+          <div>Wouter Beek &amp; Filip Ilievski</div>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="75"/>
+        </section>
+        
+	<section>
+	  <section data-background="#dddddd">
+	    <h1>Find IRIs with <em>LOTUS</em></h1>
+	    <center>
+              <img src="../img/lotus.svg"/ height=300>
+	    </center>
+            <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
+          </section>
+          <section>
+            <p>Filters &amp; rankers</p>
+            <p><a href="http://lotus.lodlaundromat.org/docs">lotus.lodlaundromat.org/docs</a></p>
+          </section>
+        </section>
+
+	<section>
+	  <section data-background="#dddddd">
+	    <h1>Find statements with <em>HDT</em>, <em>LDT</em> and <em>Frank</em></h1>
+	  </section>
+          
+          <section data-background="#dddddd">
+            <h3>Sustainable querying with <em>HDT</em> &amp; <em>LDF</em></h3>
+            <img src="../img/sparql.svg" height="280"/>
+            <img src="../img/ldf.svg" height="280"/>
+            <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande &amp; Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed” ESWC 2015</small>
+          </section>
+          
+	  <section data-background="#dddddd">
+            <h1>Authority</h1>
+	    <h4>AAA: Anyone can say anything about anything</h4>
+            <small>Beek &amp; Rietveld &amp; Schlobach &amp; Van Harmelen “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)” <em>IEEE Internet Computing</em> 20 (2) p.78-81, 2016</small>
+          </section>
+          
+	  <section data-background="#dddddd">
+	    <h2><em>Frank</em></h2>
+	    <p>Federated Resource Architecture for Networked Knowledge</p>
+	    <img src="../img/openDoor.png" class="blank" height="350"/>
+	    <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+	    <small>W. Beek &amp; L. Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+          </section>
+          
+	  <section data-background="#dddddd">
+	    <p style="font-family: monospace; font-size: 110%;">./frank statements -s http://dbpedia.org/resource/Monkey -g</p>
+	  </section>
+        </section>
+
+	<section>
+	  <section data-background="#dddddd">
+	    <h1>Find documents</h1>
+	    <h3><a href="http://index.lodlaundromat.org">index.lodlaundromat.org</a></h3>
+	  </section>
+          
+	  <section data-background="#dddddd">
+	    <p style="font-family: monospace; font-size: 110%;">./frank documents --namespace http://www.w3.org/2006/vcard/ns# | ./frank statements</p>
+	    <br/>
+	    <p style="font-family: monospace; font-size: 110%;">./frank documents --minTriples 880 --maxTriples 900 -d</p>
+          </section>
+
+          <section>
+            <pre style="font-size: 90%; width: 1300px;">
+              <code>$ ./frank documents --namespace void --minTriples 1000 \
+| ./frank statements --predicate foaf:name \
+| head -n 5</code>
+            </pre>
+            <pre style="font-size: 90%; width: 1300px;">
+              <code>europa:Eurostat foaf:name "Eurostat".
+tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.
+sw:gianluca-demartini foaf:name "Gianluca Demartini".
+sw:mohammad-mannan foaf:name "Mohammad Mannan".
+sw:tom-minka foaf:name "Tom Minka".</code>
+            </pre>
+	  </section>
+
+	  <section data-background="#dddddd">
+	    <p style="font-family: monospace; font-size: 110%;">./frank statements -p foaf:knows | grep last-fm > last-fm.nt</p>
+          </section>
+
+          <section>
+	    <h2>Find data documents</h2>
+	    <img src="../img/washingMachineGlass.png" class="blank"/>
+	    <br><a href="http://lodlaundromat.org/sparql" target='_blank'>lodlaundromat.org/sparql</a>
+	    <br><a href="http://index.lodlaundromat.org" target='_blank'>index.lodlaundromat.org</a>
+	  </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
