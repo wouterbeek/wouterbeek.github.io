@@ -214,7 +214,7 @@
             <h2>Find documents by degree</h2>
             <h3>SPARQL</h3>
             <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-              SELECT ?doc WHERE {<br>
+              SELECT ?doc ?x WHERE {<br>
               &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
               &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
               }
