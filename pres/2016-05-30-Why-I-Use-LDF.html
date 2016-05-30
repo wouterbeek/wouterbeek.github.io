@@ -2,20 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Why I Use (and Love!) LDF - ESWC 2016 Tutorial</title>
-    <script type="text/javascript" async
-	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <meta name="description" content="A presentation on the Emprirical Turn in KR.">
+    <title>Why I Use LDF (&amp; Why You Should Do So Too!)</title>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="A presentation in which I explain what I see as the main benefits of using Linked Data Fragments (LDF).">
     <meta name="author" content="Wouter Beek">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css" id="theme">
-    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
     <link rel="stylesheet" href="lib/css/zenburn.css">
-    <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
@@ -59,7 +55,7 @@
 	  <a href="#">http://wouterbeek.github.io</a>
 	</section>
 
-        <section data-background="#dddddd">
+        <section>
           <h2>LOD Laundromat</h2>
           <a href="http://lodlaundromat.org/basket/">
             <img src="../img/basket.png" width="200">
@@ -96,11 +92,11 @@
         </section>
         
         <section>
-          <section data-background="#dddddd">
+          <section>
             <h2>SW layer cake</h2>
             <img height="500px" src="../img/swcake.gif">
           </section>
-          <section data-background="#dddddd">
+          <section>
             <h2>SW layer cake</h2>
             <img height="500px" src="../img/llcake.png">
             <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
@@ -134,17 +130,17 @@
           <section>
             <h1>Findability</h1>
             <p>LDF ≠ dereferencing</p>
-            <p>LDF decouples name from location</p>
+            <p>LDF decouples naming from locating (like SPARQL)</p>
           </section>
           <section>
             <h1>Federation</h1>
             Will federation scale to millions of endpoints?
           </section>
-          <section data-background="#dddddd">
+          <section>
             <h1>Hydra</h1>
             <ul>
               <li>More complicated than a ‘dumb’ API</li>
-              <li>Benefit rises when more endpoints are queried</li>
+              <li>But... benefit rises when more endpoints are queried</li>
             </ul>
             <img class="fragment" height="450px" src="../img/hydra_benefit_curve.svg">
           </section>
