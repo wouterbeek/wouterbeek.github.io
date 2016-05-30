@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>LOD Lab - ESWC 2016 Tutorial</title>
+    <title>LOD Lab Overview - ESWC 2016 Tutorial</title>
     <script type="text/javascript" async
 	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
@@ -66,11 +66,11 @@
 	  <aside class="notes">
 	    <ul>
 	      <li>17 datasets used in total</li>
-	      <li>1-6 datasets used per article</li>
-	      <li>2 datasets used per article on average</li>
+	      <li>1-6 datasets used per paper</li>
+	      <li>2 datasets used per paper on average</li>
 	      <li>The true variety of LOD is not taken into account</li>
 	      <li>Excluded papers on vocabularies, stream reasoning</li>
-	      <li>Excluded papers requiring gold standard or benchmark<li>
+	      <li>Excluded papers requiring gold standard or benchmark</li>
             </ul>
 	  </aside>
         </section>
@@ -135,11 +135,16 @@
           <h5><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h5>
           <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker &amp; Schlobach “LOD laundromat: A Uniform Way of Publishing Other People’s Dirty Data” <em>ISWC 2014</em></small>
         </section>
-        
-        <section data-background="#dddddd">
-          <h2>SW layer cake</h2>
-          <img src="../img/swcake.gif">
-          <p class="fragment">SW publishers have to set this up locally</p>
+
+        <section>
+          <section data-background="#dddddd">
+            <h2>SW layer cake</h2>
+            <img height="500px" src="../img/swcake.gif">
+          </section>
+          <section data-background="#dddddd">
+            <h2>SW layer cake</h2>
+            <img height="500px" src="../img/llcake.png">
+          </section>
         </section>
 
         <section>
@@ -154,10 +159,10 @@
             <tbody>
 	      <tr>
 	        <td>
-                  <img src="../img/vault_original.png" style="width:100%;"/>
+                  <img src="../img/vault_original.png" style="height:100%;"/>
                 </td>
 	        <td>
-                  <img src="../img/vault_lodlab.png" style="width:100%;"/>
+                  <img src="../img/vault_lodlab.png" style="height:100%;"/>
                 </td>
 	      </tr>
             </tbody>
@@ -165,9 +170,9 @@
         </section>
         <section>
           <pre style="font-size: 90%; width: 1300px;">
-            <code>$ ./frank documents --downloadUri \
-              --minTriples 1000 --maxTriples 100000 \
-              | ./runVaultExperimentForFile</code>
+            <code>frank documents --downloadUri \
+--minTriples 1000 --maxTriples 100000 |
+./runVaultExperimentForFile</code>
           </pre>
 	  <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
         </section>
@@ -236,14 +241,15 @@
         
         <section>
           <pre style="font-size: 90%; width: 1300px;">
-            <code>$ ./frank documents --downloadUri
-| ./countNamespacesForDocument</code>
+            <code>frank documents --downloadUri |
+./countNamespacesForDocument</code>
           </pre>
 	  <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
         </section>
         
-        <section data-background="#dddddd">
+        <section>
           <h1>LOTUS</h1>
+          TODO
 	  <p>NatLang entry point to LOD Laundromat</p>
 	  <p><b>Large-scale</b>: 4.33 billion NatLang literals</p>
 	  <p><b>Configurable</b>: Filtering based on original language, auto-detected language, subject, predicate (32 retrieval options)</p>
