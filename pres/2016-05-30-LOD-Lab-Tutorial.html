@@ -108,13 +108,24 @@
             <h3>Find ‘monkey’</h3>
             <p><a href="http://lotus.lodlaundromat.org/retrieve?string=monkey">http://lotus.lodlaundromat.org/retrieve?string=monkey</a></p>
           </section>
+          
           <section data-background="#dddddd">
-            <h1>Many options</h1>
-            <h3>E.g., leave out the blank nodes</h3>
+            <h2>“Exclude blank nodes”</h2>
             <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
             <br>
-            <hr>
+            <h2>Filter by subject: “Only OpenCyc subjects”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
+          </section>
+          
+          <section>
+            <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
             <br>
+            <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
+          </section>
+
+          <section>
             <h3>Overview of all options</h3>
             <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
           </section>
