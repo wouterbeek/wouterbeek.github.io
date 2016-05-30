@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>LOD Lab Overview - ESWC 2016 Tutorial</title>
     <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <meta name="description" content="A presentation on the Emprirical Turn in KR.">
     <meta name="author" content="Wouter Beek">
@@ -108,7 +108,7 @@
             <li class="fragment">Data cleaning is performed on local copy</li>
             <li class="fragment">Results of data cleaning are removed with the local copy</li>
           </ul>
-  </section>
+        </section>
         
         <section data-background="#dddddd">
           <h2>LOD Laundromat</h2>
@@ -148,105 +148,125 @@
         </section>
 
         <section>
-          <h3>Reproducing “RDF Vault”<br>(Bazoobandi 2015)</h3>
-          <table class="comparisonTable" style="width: 1150px;">
-            <thead>
-              <tr>
-                <th>RDF Vault</th>
-                <th>LOD Lab</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <img src="../img/vault_original.png" style="height:100%;">
-                </td>
-                <td>
-                  <img src="../img/vault_lodlab.png" style="height:100%;">
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <pre style="font-size: 90%; width: 1300px;">
-            <code>frank documents --downloadUri \
---minTriples 1000 --maxTriples 100000 |
-./runVaultExperimentForFile</code>
-          </pre>
-    <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
+          <section>
+            <h3>Reproducing “RDF Vault”<br>(Bazoobandi 2015)</h3>
+            <table class="comparisonTable" style="width: 1150px;">
+              <thead>
+                <tr>
+                  <th>RDF Vault</th>
+                  <th>LOD Lab</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="../img/vault_original.png" style="height:100%;">
+                  </td>
+                  <td>
+                    <img src="../img/vault_lodlab.png" style="height:100%;">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <pre style="font-size: 90%; width: 1300px;">
+              <code>frank documents --downloadUri \
+                --minTriples 1000 --maxTriples 100000 |
+                ./runVaultExperimentForFile</code>
+            </pre>
+            <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
+          </section>
         </section>
 
         <section>
-          <h4>Reproducing “Linked Data Best Practices”<br>(Schmachtenberg 2014)</h4>
-          <table class="bestPractices" style="font-size: 80%">
-            <thead>
-        <tr>
-          <th style="text-align: center; border-bottom: 0px solid;border-right: 1px solid;" colspan="3" >Original</th>
-          <th style="text-align: center; border-bottom: 0px solid;" colspan="3" >LOD Lab</th>
-        </tr>
-        <tr >
-          <th>Prefix</th>
-          <th >#datasets</th>
-          <th style="border-right: 1px solid;">%datasets</th>
-          <th>Prefix</th>
-          <th>#documents</th>
-          <th>%documents</th>
-        </tr>
-            </thead>
-            <tbody>
-        <tr>
-          <td>rdf</td>
-          <td>996</td>
-          <td>98.22%</td>
-          <td>rdf</td>
-          <td>639,575</td>
-          <td>98.40%</td>
-        </tr>
-        <tr>
-          <td>rdfs</td>
-          <td>736</td>
-          <td>72.58%</td>
-          <td>time</td>
-          <td>443,222</td>
-          <td>68.19%</td>
-        </tr>
-        <tr>
-          <td>foaf</td>
-          <td>701</td>
-          <td>69.13%</td>
-          <td>cube</td>
-          <td>155,460</td>
-          <td>23.92%</td>
-        </tr>
-        <tr>
-          <td>dcterm</td>
-          <td>568</td>
-          <td>56.01%</td>
-          <td>sdmxdim</td>
-          <td>154,940</td>
-          <td>23.84%</td>
-        </tr>
-        <tr>
-          <td>owl</td>
-          <td>370</td>
-          <td>36.49%</td>
-          <td>worldbank</td>
-          <td>147,362</td>
-          <td>22.67%</td>
-        </tr>
-            </tbody>
-          </table>
+          <section>
+            <h4>Reproducing “Linked Data Best Practices”<br>(Schmachtenberg 2014)</h4>
+            <table class="bestPractices" style="font-size: 80%">
+              <thead>
+                <tr>
+                  <th style="text-align: center; border-bottom: 0px solid;border-right: 1px solid;" colspan="3" >Original</th>
+                  <th style="text-align: center; border-bottom: 0px solid;" colspan="3" >LOD Lab</th>
+                </tr>
+                <tr >
+                  <th>Prefix</th>
+                  <th >#datasets</th>
+                  <th style="border-right: 1px solid;">%datasets</th>
+                  <th>Prefix</th>
+                  <th>#documents</th>
+                  <th>%documents</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>rdf</td>
+                  <td>996</td>
+                  <td>98.22%</td>
+                  <td>rdf</td>
+                  <td>639,575</td>
+                  <td>98.40%</td>
+                </tr>
+                <tr>
+                  <td>rdfs</td>
+                  <td>736</td>
+                  <td>72.58%</td>
+                  <td>time</td>
+                  <td>443,222</td>
+                  <td>68.19%</td>
+                </tr>
+                <tr>
+                  <td>foaf</td>
+                  <td>701</td>
+                  <td>69.13%</td>
+                  <td>cube</td>
+                  <td>155,460</td>
+                  <td>23.92%</td>
+                </tr>
+                <tr>
+                  <td>dcterm</td>
+                  <td>568</td>
+                  <td>56.01%</td>
+                  <td>sdmxdim</td>
+                  <td>154,940</td>
+                  <td>23.84%</td>
+                </tr>
+                <tr>
+                  <td>owl</td>
+                  <td>370</td>
+                  <td>36.49%</td>
+                  <td>worldbank</td>
+                  <td>147,362</td>
+                  <td>22.67%</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          
+          <section>
+            <pre style="font-size: 90%; width: 1300px;">
+              <code>frank documents --downloadUri |
+                ./countNamespacesForDocument</code>
+            </pre>
+            <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
+          </section>
         </section>
         
         <section>
-          <pre style="font-size: 90%; width: 1300px;">
-            <code>frank documents --downloadUri |
-./countNamespacesForDocument</code>
-          </pre>
-          <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab: Experiments at LOD Scale”, <em>International Semantic Web Conference</em>, 2015 (Best Paper Award)</small>
+          <section>
+            <h1>Large-scale Data Quality Improvement</h1>
+          </section>
+          
+          <section data-background="#dddddd">
+	    <h3>Datatypes</h3>
+            <img src="img/dhier.png"/>
+          </section>
+
+          <section data-background="#dddddd">
+	    <h3>Language tags</h3>
+            <img src="img/ltag.png" style="width: 100%;"/>
+          </section>
         </section>
-        
+
         <section>
           <section>
             <h1>LOTUS</h1>
@@ -256,6 +276,7 @@
             <br>
             <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp; L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text Search for Big Linked Data”, <em>ESWC 2016</em></small>
           </section>
+          
           <section>
             <img src="../img/lotus_architecture.png">
             <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp; L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text Search for Big Linked Data”, <em>ESWC 2016</em></small>
