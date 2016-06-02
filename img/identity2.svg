@@ -78,6 +78,18 @@
 <ellipse fill="lightblue" stroke="red" cx="59.8977" cy="-207" rx="43.7956" ry="18"/>
 <text text-anchor="start" x="31.3977" y="-204.2" font-family="Times,serif" font-size="11.00">ns1:Nicotine</text>
 </g>
+<!-- nicotine2 -->
+<g id="node7" class="node"><title>nicotine2</title>
+<ellipse fill="orange" stroke="red" cx="239.693" cy="-70" rx="43.7956" ry="18"/>
+<text text-anchor="start" x="211.193" y="-67.2" font-family="Times,serif" font-size="11.00">ns2:Nicotine</text>
+</g>
+<!-- nicotine1&#45;&gt;nicotine2 -->
+<g id="edge9" class="edge"><title>nicotine1&#45;&gt;nicotine2</title>
+<path fill="none" stroke="red" d="M84.741,-182.889C109.144,-159.075 148.9,-122.603 187.795,-97 192.174,-94.1178 196.893,-91.2841 201.629,-88.5999"/>
+<polygon fill="red" stroke="red" points="82.0433,-180.633 77.378,-190.146 86.957,-185.619 82.0433,-180.633"/>
+<polygon fill="red" stroke="red" points="203.583,-91.5206 210.674,-83.6488 200.221,-85.3804 203.583,-91.5206"/>
+<text text-anchor="start" x="121.795" y="-151.2" font-family="Times,serif" font-size="11.00">owl:sameAs</text>
+</g>
 <!-- c10h14n2 -->
 <g id="node8" class="node"><title>c10h14n2</title>
 <ellipse fill="lightgrey" stroke="red" cx="441.88" cy="-18" rx="40.0804" ry="18"/>
@@ -90,8 +102,8 @@
 </g>
 <!-- nicotine1&#45;&gt;c10h14n2 -->
 <g id="edge7" class="edge"><title>nicotine1&#45;&gt;c10h14n2</title>
-<path fill="none" stroke="red" d="M67.2766,-189.135C81.8391,-151.368 121.488,-63.9485 187.795,-28 253.029,7.36655 342.231,0.452459 395.458,-8.3686"/>
-<polygon fill="red" stroke="red" points="395.151,-11.8682 405.605,-10.1463 396.359,-4.97319 395.151,-11.8682"/>
+<path fill="none" stroke="red" d="M66.7573,-189.107C80.5395,-150.468 119.133,-60.1242 187.795,-28 254.26,3.09598 341.614,-2.09906 394.381,-9.48528"/>
+<polygon fill="red" stroke="red" points="394.052,-12.9746 404.457,-10.9816 395.08,-6.05055 394.052,-12.9746"/>
 <text text-anchor="start" x="219.193" y="-31.2" font-family="Times,serif" font-size="11.00">chemical</text>
 </g>
 <!-- ns2&#45;&gt;c9h8o4 -->
@@ -105,11 +117,6 @@
 <path fill="none" stroke="black" d="M280.723,-124C316.811,-124 369.429,-124 404.383,-124"/>
 <polygon fill="black" stroke="black" points="404.627,-127.5 414.627,-124 404.626,-120.5 404.627,-127.5"/>
 <text text-anchor="start" x="326.591" y="-127.2" font-family="Times,serif" font-size="11.00">sold by</text>
-</g>
-<!-- nicotine2 -->
-<g id="node7" class="node"><title>nicotine2</title>
-<ellipse fill="orange" stroke="red" cx="239.693" cy="-70" rx="43.7956" ry="18"/>
-<text text-anchor="start" x="211.193" y="-67.2" font-family="Times,serif" font-size="11.00">ns2:Nicotine</text>
 </g>
 <!-- nicotine2&#45;&gt;c10h14n2 -->
 <g id="edge8" class="edge"><title>nicotine2&#45;&gt;c10h14n2</title>

@@ -32,4 +32,5 @@ digraph identity2 {
   ainc -> binc [dir="both",label=<owl:differentFrom>];
   nicotine1 -> c10h14n2 [color=red,label=<chemical>];
   nicotine2 -> c10h14n2 [color=red,label=<chemical>];
+  nicotine1 -> nicotine2 [color=red,dir="both",label=<owl:sameAs>];
 }
