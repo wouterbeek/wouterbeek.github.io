@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>A Contextualized Semantics for owl:sameAs</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <meta name="description" content="Presentation of our ESWC 2016 paper on a new semantics for the owl:sameAs relation that takes the context of assertion into account.">
     <meta name="author" content="Wouter Beek">
@@ -67,14 +75,14 @@
           </section>
           <section>
             <h2>Two types of meaning</h2>
-            <div style="float: left; width: 50%;">
+            <div style="float: left; width: 45%;">
               <h3>Formal meaning</h3>
-              <img src="../img/barad_dur.jpg">
+              <img height="400px" src="../img/barad_dur.jpg">
               <p>DL, OWL, Model Theory</p>
             </div>
-            <div style="float: right; width: 50%;">
+            <div style="float: right; width: 55%;">
               <h3>Social meaning</h3>
-              <img src="../img/babel.jpg">
+              <img height="400px" src="../img/babel.png">
               <p>Linked Data, SKOS, Schema.org</p>
             </div>
           </section>
@@ -127,15 +135,15 @@
             <h1>Existing solutions</h1>
           </section>
           <!--
-          <section>
-            <h2>Extend <code>owl:sameAs</code> with...</h2>
-            <ul>
-              <li>fuzzyness metric</li>
-              <li>confidence metric</li>
-              <li>a distinction between use and mention</li>
-            </ul>
-          </section>
-          -->
+              <section>
+                <h2>Extend <code>owl:sameAs</code> with...</h2>
+                <ul>
+                  <li>fuzzyness metric</li>
+                  <li>confidence metric</li>
+                  <li>a distinction between use and mention</li>
+                </ul>
+              </section>
+              -->
           <section>
             <h2>Use custom/domain-specific identity relations</h2>
             <p>“the same chemical”</p>
@@ -162,24 +170,85 @@
         
         <section>
           <section>
+            <h2>A contextualized semantics of <code>owl:sameAs</code></h2>
+          </section>
+          <section>
+            <h2>Preserve equivalence properties</h2>
+            <p class="fragment">The identity relation is the smallest equivalence relation.</p>
+            <p class="fragment">Every equivalence relation is also an identity relation, but w.r.t. a subset of the properties.</p>
+            <p class="fragment">Subrelations of the identity relation that are equivalence relations can, in some contexts, be used as an identity relation.</p>
+            <p class="fragment">If A and B have the same <b>income</b>, I cannot infer identity.</p>
+            <p class="fragment">But if I am reasoning about <b>income groups</b>, then they are identical.</p>
+          </section>
+          <section>
+            <h3>The same chemical compound ($=_{\{\text{chemical}\}}$)</h3>
+            <img width="850px" src="../img/identity.svg">
+          </section>
+          <section>
+            <h3>Also the same chenical compound ($=_{\{\text{chemical}\}}$)</h3>
+            <img width="800px" src="../img/identity2.svg">
+          </section>
+          <section>
+            <h2>Lattice of identity subrelations</h2>
+            <img width="950px" src="../img/lattice.svg">
+            <p><b>Identity context</b>: A consistent collection of identity subrelations from the identity lattice</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Implementation</h1>
+          </section>
+          <section>
             <h2>Formal Concept Analysis (FCA)</h2>
             <p>Context: instances (X), properties (Y), mapping (m)</p>
-            <p>The properties that are shared by all instances in $$X$$.</p>
-            <p>$$X' \,:=\, \{ y \in Y \,\vert\, (\forall x \in X)(m(x,y)) \}$$</p>
-            <p>The instances that share all properties in $$Y$$.</p>
-            <p>$$Y' \,:=\, \{ x \in X \,\vert\, (\forall y \in Y)(m(x,y)) \}$$</p>
-            <p>Formal concept 〈X,Y〉: X'=Y and Y'=X</p>
+            <div class="fragment">
+              <p>The properties that are shared by all instances in X.</p>
+              <p>$$X' \,:=\, \{ y \in Y \,\vert\, (\forall x \in X)(m(x,y)) \}$$</p>
+            </div>
+            <div class="fragment">
+              <p>The instances that share all properties in Y.</p>
+              <p>$$Y' \,:=\, \{ x \in X \,\vert\, (\forall y \in Y)(m(x,y)) \}$$</p>
+            </div>
+            <p class="fragment">Formal concept 〈X,Y〉if X'=Y and Y'=X</p>
           </section>
           <section>
             <p>Coconuts are tropical fruits.</p>
-            <p>What other things are tropical and fruit?</p>
-            <p>Bananas!</p>
-            <p>So 〈{coconuts, bananas}, {tropical, fruit}〉 is a concept.</p>
+            <p class="fragment">What other things are tropical and fruits?</p>
+            <p class="fragment">Bananas!</p>
+            <p class="fragment">So 〈{coconuts, bananas}, {tropical, fruit}〉 is a concept.</p>
           </section>
-          <section>
-            <img src="../img/identity_graph.png">
-            <img src="../img/lattice.png">
-          </section>
+        </section>
+        
+        <section data-background-image="../img/iimb_16_2.svg" data-background-size="1250px">
+        </section>
+
+        <section>
+          <h1>Pros &amp; cons</h1>
+          <ul>
+            <li class="fragment">Nothing changes to the schema</li>
+            <li class="fragment">Nothing changes to the data</li>
+            <li class="fragment">We did not lose equivalence</li>
+            <li class="fragment">Consistently reason over inconsistent data</li>
+            <li class="fragment">Very few things are the same <em>sui generis</em></li>
+            <li class="fragment">Highly non-monotonic: identity subrelations change when statements are added/removed</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h1>Questions?</h1>
+          <br>
+          <br>
+          <div style="float: left; width: 45%;">
+            <h3>Formal meaning</h3>
+            <br>
+            <br>
+            <p>$$a = b \,\longleftrightarrow\, (\forall P)(Pa = Pb)$$</p>
+          </div>
+          <div style="float: right; width: 55%;">
+            <h3>Social meaning</h3>
+            <img width="300px" src="../img/mug.jpg">
+          </div>
         </section>
         
       </div>

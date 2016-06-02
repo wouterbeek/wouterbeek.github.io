@@ -10,7 +10,7 @@ digraph identity_crisis {
     ns1 [label=<ns1:Aspirin>];
     headache [label=<headache>];
 
-    ns1 -> c9h8o4 [label=<compound>];
+    ns1 -> c9h8o4 [label=<chemical>];
     ns1 -> headache [label=<cures>];
   }
   

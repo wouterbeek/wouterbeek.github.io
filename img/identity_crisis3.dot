@@ -10,7 +10,7 @@ digraph identity_crisis3 {
     ns1 [label=<ns1:Aspirin>];
     headache [label=<headache>];
 
-    ns1 -> c9h8o4 [label=<compound>];
+    ns1 -> c9h8o4 [label=<chemical>];
     ns1 -> headache [label=<cures>];
   }
   
@@ -31,7 +31,7 @@ digraph identity_crisis3 {
   {
     edge [color="red",style="dotted"];
     
-    ns2 -> c9h8o4 [label=<compound>];
+    ns2 -> c9h8o4 [label=<chemical>];
     ns2 -> headache [label=<cures>];
   }
 }

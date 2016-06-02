@@ -12,7 +12,7 @@ digraph identity_crisis4 {
     ainc [label=<A Inc.>];
     aprice [label=<€5,->];
 
-    ns1 -> c9h8o4 [label=<compound>];
+    ns1 -> c9h8o4 [label=<chemical>];
     ns1 -> headache [label=<cures>];
     ns1 -> ainc [color="red",label=<sold by>];
     ns1 -> aprice [color="red",label=<price>];
@@ -35,7 +35,7 @@ digraph identity_crisis4 {
   {
     edge [style="dotted"];
     
-    ns2 -> c9h8o4 [label=<compound>];
+    ns2 -> c9h8o4 [label=<chemical>];
     ns2 -> headache [label=<cures>];
     ns2 -> ainc [color="red",label=<sold by>];
     ns2 -> aprice [color="red",label=<price>];   

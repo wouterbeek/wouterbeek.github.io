@@ -1,13 +1,13 @@
 digraph example {
   edge [arrowhead="none"];
 
-  xyz  [label=<{∈,tbox:chem,tbox:prod} ⊥>];
-  xy   [label="{∈,tbox:chem}"];
-  xz   [label="{∈,tbox:prod}"];
-  yz   [label=<{tbox:chem,tbox:prod} ⊥>];
-  x    [label="{∈}"];
-  y    [label="{tbox:chem}"];
-  z    [label="{tbox:prod}"];
+  xyz  [color=red,label=<{cures,chemical,sold by} ⊥>];
+  xy   [label="{cures,chemical}"];
+  xz   [label="{cures,sold by}"];
+  yz   [color=red,label=<{chemical,sold by} ⊥>];
+  x    [label="{cures}"];
+  y    [label="{chemical}"];
+  z    [label="{sold by}"];
   zero [label="∅"];
 
   {rank=same; r1 xyz}

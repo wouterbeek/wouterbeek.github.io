@@ -34,9 +34,9 @@
 </g>
 <!-- ns1&#45;&gt;c9h8o4 -->
 <g id="edge1" class="edge"><title>ns1&#45;&gt;c9h8o4</title>
-<path fill="none" stroke="black" d="M108.722,-207.836C100.533,-202.081 91.7091,-194.917 85,-187 74.6022,-174.731 66.2085,-158.849 60.25,-145.52"/>
-<polygon fill="black" stroke="black" points="63.3063,-143.762 56.1754,-135.926 56.8634,-146.499 63.3063,-143.762"/>
-<text text-anchor="start" x="85" y="-178.2" font-family="Times,serif" font-size="11.00">compound</text>
+<path fill="none" stroke="black" d="M111.492,-207.254C104.206,-201.436 96.2657,-194.38 90,-187 79.1579,-174.229 69.5451,-158.139 62.4619,-144.816"/>
+<polygon fill="black" stroke="black" points="65.4555,-142.984 57.7699,-135.692 59.2303,-146.185 65.4555,-142.984"/>
+<text text-anchor="start" x="90" y="-178.2" font-family="Times,serif" font-size="11.00">chemical</text>
 </g>
 <!-- headache -->
 <g id="node3" class="node"><title>headache</title>
