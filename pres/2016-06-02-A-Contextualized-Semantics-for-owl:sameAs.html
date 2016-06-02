@@ -57,10 +57,12 @@
         
 	<section>
           <h2>A Contextualized Semantics for <code>owl:sameAs</code></h2>
+          <br>
           <h5>June 2nd, 2016, ESWC</h5>
 	  <h5>Wouter Beek (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>), Stefan Schlobach, Frank van Harmelen</h5>
-	  <img src="../img/vu-krr-logo-print-600dpi.png" height="100"/>
-	  <a href="https://wouterbeek.github.io">https://wouterbeek.github.io</a>
+          <br>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="100">
+	  <div><a href="https://wouterbeek.github.io">wouterbeek.github.io</a></div>
 	</section>
 
         <section>
@@ -69,10 +71,12 @@
         </section>
         
 	<section>
+          <!--
           <section>
-            <h1>Who am Iri?</h1>
+            <h1>“Who am Iri?”</h1>
             <h3>The SW identity crisis</h3>
           </section>
+          -->
           <section>
             <h2>Two types of meaning</h2>
             <div style="float: left; width: 45%;">
@@ -87,7 +91,8 @@
             </div>
           </section>
           <section>
-            <h3>owl:sameAs is ‘torn between’ formal and social meaning</h3>
+            <h3><code>owl:sameAs</code> is ‘torn between’<br>formal and social meaning</h3>
+            <br>
             <p><em>Stringently</em> defined in model theory,<br>but <em>casually</em> used in practice.</p>
           </section>
           <section>
@@ -100,10 +105,11 @@
             <div style="float: right; width: 50%;">
               <h3>Social meaning</h3>
               <p>“Include links to other URIs, to discover more things.”</p>
-              <small>Tim Berners-Lee, 4th Linked Data principle, 2016</small>
+              <small>Tim Berners-Lee, 4th Linked Data principle, 2006</small>
               <img class="fragment" width="300px" src="../img/mug.jpg">
             </div>
           </section>
+          <!--
           <section>
             <h1>AAA</h1>
             <h2>Anyone can say anything about anything</h2>
@@ -113,12 +119,13 @@
             <h2>Anyone can say that anything is identical to anything</h2>
             <h4 class="fragment">(and they do)</h4>
           </section>
+          -->
         </section>
 
         <section>
           <section>
-            <h1>SW identity crisis example</h1>
-            <h3>How formal meaning and social meaning collide<br>in practice</h3>
+            <h1>Example</h1>
+            <h4>How formal meaning and social meaning collide</h4>
           </section>
           <section data-background-image="../img/identity_crisis1.svg" data-background-size="800px">
           </section>
@@ -145,9 +152,18 @@
               </section>
               -->
           <section>
-            <h2>Use custom/domain-specific identity relations</h2>
-            <p>“the same chemical”</p>
-            <p>“the same product”</p>
+            <h2>Use weaker alternatives<br>(e.g. relatedness)</h2>
+            <p class="fragment">Everything is related to everything.</p>
+            <br>
+            <div class="fragment">
+              <blockquote>SKOS exactMatch indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications</blockquote>
+              <small>SKOS specification, 2009</small>
+            </div>
+          </section>
+          <section>
+            <h2>Use domain-specific identity relations</h2>
+            <p>“the same chemical” (<code>ex:sameChemical</code>)</p>
+            <p>“the same product” (<code>ex:sameProduct</code>)</p>
           </section>
           <section>
             <h3>bbc:sameAs</h3>
@@ -156,45 +172,45 @@
             <h3>?</h3>
           </section>
           <section>
-            <h2>Use relatedness i.o. identity</h2>
-            <div class="fragment">
-              <blockquote>SKOS exactMatch indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications</blockquote>
-              <small>SKOS specification, 2???</small>
-            </div>
-          </section>
-          <section>
             <h2>Change modeling practice</h2>
-            <p>Adding an <code>owl:sameAs</code> link requires approvement from the authority that is being linked to</p>
+            <p>Adding an <code>owl:sameAs</code> link requires approval from the authority that is being linked to.</p>
           </section>
         </section>
         
         <section>
           <section>
-            <h2>A contextualized semantics of <code>owl:sameAs</code></h2>
+            <h1>Our solution</h1>
+            <h3>(See the paper for details)</h3>
           </section>
           <section>
             <h2>Preserve equivalence properties</h2>
             <p class="fragment">The identity relation is the smallest equivalence relation.</p>
             <p class="fragment">Every equivalence relation is also an identity relation, but w.r.t. a subset of the properties.</p>
-            <p class="fragment">Subrelations of the identity relation that are equivalence relations can, in some contexts, be used as an identity relation.</p>
             <p class="fragment">If A and B have the same <b>income</b>, I cannot infer identity.</p>
             <p class="fragment">But if I am reasoning about <b>income groups</b>, then they are identical.</p>
+            <p class="fragment">Subrelations of the identity relation that are equivalence relations can, in some contexts, be used as an identity relation.</p>
           </section>
+          <section>
+            <h3>Not the same <em>sui generis</em></h3>
+             <img width="850px" src="../img/identity.svg">
+             <h3 class="fragment">But... the same chemical compound ($=_{\{\text{chemical}\}}$)</h3>
+         </section>
           <section>
             <h3>The same chemical compound ($=_{\{\text{chemical}\}}$)</h3>
-            <img width="850px" src="../img/identity.svg">
+            <img width="800px" src="../img/identity2.svg">
           </section>
           <section>
-            <h3>Also the same chenical compound ($=_{\{\text{chemical}\}}$)</h3>
-            <img width="800px" src="../img/identity2.svg">
+            <p>〈<code>ns1:Aspirin</code>,<code>ns2:Aspirin</code>〉and 〈<code>ns1:Nicotine</code>,<code>ns2:Nicotine</code>〉 are the same according to the same criteria.</p>
+            <img width="750px" src="../img/identity2.svg">
           </section>
           <section>
             <h2>Lattice of identity subrelations</h2>
             <img width="950px" src="../img/lattice.svg">
-            <p><b>Identity context</b>: A consistent collection of identity subrelations from the identity lattice</p>
+            <p class="fragment"><b>Identity context</b>: A consistent collection of identity subrelations from the identity lattice</p>
           </section>
         </section>
 
+        <!--
         <section>
           <section>
             <h1>Implementation</h1>
@@ -219,6 +235,7 @@
             <p class="fragment">So 〈{coconuts, bananas}, {tropical, fruit}〉 is a concept.</p>
           </section>
         </section>
+        -->
         
         <section data-background-image="../img/iimb_16_2.svg" data-background-size="1250px">
         </section>
@@ -226,9 +243,9 @@
         <section>
           <h1>Pros &amp; cons</h1>
           <ul>
-            <li class="fragment">Nothing changes to the schema</li>
-            <li class="fragment">Nothing changes to the data</li>
-            <li class="fragment">We did not lose equivalence</li>
+            <li class="fragment">We do not change the schema</li>
+            <li class="fragment">We do not change the data</li>
+            <li class="fragment">We do not lose equivalence properties</li>
             <li class="fragment">Consistently reason over inconsistent data</li>
             <li class="fragment">Very few things are the same <em>sui generis</em></li>
             <li class="fragment">Highly non-monotonic: identity subrelations change when statements are added/removed</li>
