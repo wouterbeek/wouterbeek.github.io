@@ -30,10 +30,10 @@
           the LOD Laundromat data collection, itself a snapshot of the
           so-called Linked Open Data (LOD) Cloud.  The LOD Laundromat
           is a framework that provides access to a large subset of LOD
-          that can be found, scrape and cleaned at a given moment in
-          time.  LOD documents that are scraped are automatically
-          cleaned (thus the washing machine metaphor) and converted to
-          a standards-compliant format (i.e., gzipped
+          that can be found, scraped and cleaned at a given moment.
+          LOD documents that are scraped are automatically cleaned
+          (thus the washing machine metaphor) and converted to a
+          standards-compliant format (i.e., gzipped
           N-Triples/N-Quads).  The data cleaning process includes
           removing ‘stains’ such as syntax errors, duplicate
           statements, blank nodes and more.</p>
@@ -44,22 +44,23 @@
 
         <h2>Contents of this archive</h2>
 
-        <p>The LOD Laundromat data collection consist of LOD
+        <p>The LOD Laundromat data collection is comprised of LOD
           documents.  Each LOD document has a unique name that
           consists of a 32-character long MD5 hash code.  For each
-          document the LOD Laundromat stores a data file if some data
-          remained after cleaning.  For each LOD document the LOD
+          document, the LOD Laundromat stores a data file if some data
+          remained after cleaning.  For each document, the LOD
           Laundromat stores metadata about the crawling and cleaning
-          process.  If there is any data, then the metadata also
-          contains metrics that are calculated about it.</p>
+          process.  The metadata also contains metrics that are
+          calculated about the data, if any.</p>
 
-        <p>It regularly occurs that a LOD document that is scrape by
+        <p>It regularly occurs that a LOD document that is scraped by
           the LOD Laundromat is completely empty.  It also regularly
-          occurs that the document only contain syntactically
+          occurs that the document only contains syntactically
           malformed data.  In such circumstances there is no data
-          file.  There is always a metadata file though, since that
-          records where the empty or buggy LOD document was downloaded
-          at which date/time and what the encountered errors were.</p>
+          file.  The metadata file is always present, since it
+          describes where the empty/buggy document was downloaded
+          from, which errors were encountered while cleaning it,
+          etc.</p>
 
         <p>The archive is structured as follows:</p>
 
@@ -75,9 +76,9 @@
             reading.</li>
 
           <li>The TAR file contains 256 directories called <tt>00</tt>
-            through <tt>ff</tt>, i.e., all two character long
-            hexadecimal strings.  These are the first two character of
-            the MD5 document names.  Each of these directories
+            through <tt>ff</tt>, i.e., all 2-character long
+            hexadecimal strings.  These are the first two characters
+            of the MD5 document names.  Each of these directories
             contains the following:</li>
 
           <li>The TAR file contains a directory called <tt>img</tt>
@@ -181,8 +182,8 @@
             paper presents the LOD Laundromat, which removes stains
             from data without any human intervention. This fully
             automated approach is able to make very large amounts of
-            LOD more easily available for further processing right
-            now.</p>
+            LOD more easily available for further processing, <i>right
+            away</i>.</p>
 
           <p>The LOD Laundromat is not a new dataset, but rather a
             uniform point of entry to a collection of cleaned siblings
@@ -305,7 +306,7 @@
             hundreds of thousands of datasets the new norm. LOD Lab is
             implemented in terms of the existing LOD Laundromat
             architecture combined with the new open-source programming
-            interface Frank that supports Web-scale evaluations to be
+            interface <i>Frank</i> that supports Web-scale evaluations to be
             run from the command-line. We illustrate the viability of
             the LOD Lab approach by rerunning experiments from three
             recent Semantic Web research publications and expect it
