@@ -72,18 +72,24 @@
             collecting many files into one file.</li>
 
           <li>The TAR file contains a file called <tt>index.html</tt>.
-            This is the readme file that you are currently
-            reading.</li>
+            This file contains a human-readable description of the
+            archival package.  The file is formatted in HTML5.  This
+            is the file that you are currently reading.</li>
+
+          <li>The TAR file contains a file called <tt>VoID.ttl</tt>.
+            This file contains a machine-readable description of the
+            archival package.  The file is formatted in Turtl 1.1, a
+            standardized RDF serialization format.</li>
+
+          <li>The TAR file contains a directory called <tt>img</tt>
+            that contains images linked to within the readme file.
+            These images are in the JPG or JPEG format.</li>
 
           <li>The TAR file contains 256 directories called <tt>00</tt>
             through <tt>ff</tt>, i.e., all 2-character long
             hexadecimal strings.  These are the first two characters
             of the MD5 document names.  Each of these directories
             contains the following:</li>
-
-          <li>The TAR file contains a directory called <tt>img</tt>
-            that contains images linked to within the readme file.
-            These images are in the JPG or JPEG format.</li>
 
           <ul>
 
@@ -183,7 +189,7 @@
             from data without any human intervention. This fully
             automated approach is able to make very large amounts of
             LOD more easily available for further processing, <i>right
-            away</i>.</p>
+              away</i>.</p>
 
           <p>The LOD Laundromat is not a new dataset, but rather a
             uniform point of entry to a collection of cleaned siblings
