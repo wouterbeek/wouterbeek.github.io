@@ -1,0 +1,85 @@
+\RequirePackage{amsmath}
+\documentclass{llncs}
+
+\newcommand{\cardinality}[1]{\lvert#1\rvert}
+\newcommand{\setdef}[2]{\{#1\,\vert\,#2\}}
+\newcommand{\Y}{\mathcal Y}
+
+\title{Appendix to the ISWC 2016 papers ``Are Names Meaningful?''}
+\author{
+  Steven de Rooij \and
+  Wouter Beek \and
+  Peter Bloem \and
+  Frank van Harmelen \and
+  Stefan Schlobach\\
+  \email{\{s.rooij,w.g.j.beek,p.bloem,frank.van.harmelen,k.s.schlobach\}@vu.nl}
+}
+\institute{Dept. of Computer Science, VU University Amsterdam, NL}
+
+\begin{document}
+
+\maketitle
+
+Instead of reporting the usual $p$-value, we use the observed
+likelihood ratio $\lambda$ itself which \emph{bounds the $p$-value
+  from above}\footnote{In this equation we use Jensen's
+  inequality~\cite{CoverThomas} and the last equality is verified by
+  expanding the expectation.}:
+
+\[
+  \begin{split}
+    p
+  &=
+    P_0(\Lambda\le\lambda)
+  =
+      P_0\left(\frac{P_1(Y_{1:n}|X_{1:n})}{P_0(Y_{1:n})}\ge\frac{1}{\lambda}\right)\\
+    &\le\lambda\cdot
+      E_{P_0}\left[\frac{P_1(Y_{1:n}|X_{1:n})}{P_0(Y_{1:n})}\right]
+  =
+    \lambda
+    \end{split}
+\]
+
+While $p$ may be difficult, or impossible to compute, we can compute
+$\Lambda$ easily, and report it as a upper bound on $p$.
+
+In order to use this simple test we need to specify the distributions
+$P_0$ and $P_1$ exactly.  The former should be the true distribution
+in case the null hypothesis is true and $X$ and $Y$ are independent.
+This distribution is unknown, but the probability of the data can be
+\emph{overestimated} by its probability under the empirical
+distribution:
+
+\[
+  \hat P(Y=y) = \frac{\cardinality{\setdef{i}{Y_i=y}}}{n}.
+\]
+
+The following inequality shows why this is an overestimation; here $H$
+denotes Shannon entropy and $D$ the Kullback-Leibler
+divergence~\cite{CoverThomas}.  The inequality uses the nonnegativity
+of $D$:
+
+\[
+  \begin{split}
+      \log P_0(Y_{1:n})&=
+      \sum_{i=1}^n \log P_0(Y_i)=
+      n\sum_{y\in\Y}\hat P(y)\log P_0(Y_i)\\
+    &=
+      -n H(\hat P)-n D(\hat P\|P_0)\\
+      &\le -n H (\hat P)  =
+      \log \hat P(Y_{1:n}).
+  \end{split}
+\]
+
+Let $\hat \Lambda$ denote the likelihood ratio with respect to $\hat
+P$ instead of $P_0$ and let $\hat \lambda$ denote the observed value
+of $\hat \Lambda$.  It is important that, even though our $\hat
+\lambda$ may be inaccurate, it satisfies $\hat\lambda\ge\lambda$ and
+is therefore more conservative when interpreted as a $p$-value than
+$\lambda$ itself.  In conclusion, we will report the value of the test
+statistic $\hat\lambda$, which is a conservative but valid $p$-value.
+
+\bibliographystyle{splncs03}
+\bibliography{main}
+
+\end{document}
