@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IISG Pilot - Tussentijdse Resultaten</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Tussentijdse resultaten van Triply werkzaamheden binnen de IISG pilot.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+	      <section>
+          <h2>Triply</h2>
+	        <img src="../img/triply.svg" height="250">
+          <h3>Product Overview (2016/08)</h3>
+	        <p><a href="http://triply.cc">http://triply.cc</a></p>
+	      </section>
+        
+        <section>
+          <h1>Wat doet Triply?</h1>
+          <ol>
+            <li>Data conversie: 5⋆ Linked Data</li>
+            <li>Data integratie: 200 datasets / 1 API</li>
+            <li>Data hosting: open &amp; gesloten APIs</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>№.1 Data conversie</h1>
+          <img src="../img/5star.png">
+          <p>(<a href="http://triply.cc/presentation/l1">link</a>)</p>
+        </section>
+
+        <section>
+          <h1>№.2 Data integratie</h1>
+          <p>Named entities:</p>
+          <ul>
+            <li>
+              “Abraham Kuyper” in tekst op web site (
+              <a href="http://iisg.triply.cc/article/gansch_het_raderwerk">link</a>
+              )
+            </li>
+            <li class="fragment">“Kuyper, Abraham” in Access DB</li>
+            <li class="fragment">
+              <a href="http://dbpedia.org/resource/Abraham_Kuyper">
+                <code>http://dbpedia.org/resource/Abraham_Kuyper</code>
+              </a>
+              in DBpedia
+            </li>
+            <li class="fragment">
+              <a href="http://wikidata.org/entity/Q320014">
+                <code>http://wikidata.org/entity/Q320014</code>
+              </a>
+              in Wikidata
+            </li>
+          </ul>
+          <div class="fragment">
+            <p>Vocabulair:</p>
+            <ul>
+              <li>“260c” in MARC</li>
+              <li>
+                <a href="http://purl.org/dc/terms/publisher">
+                  <code>http://purl.org/dc/terms/publisher</code>
+                </a>
+                in Dublin Core
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Één vraag over meerdere datasets</h2>
+          <p>“Werd er in de windermaanden minder gestaakt?”</p>
+          <img src="../img/iisg_sparql.jpg">
+        </section>
+        
+        <section>
+          <h2>Graaf + Geo</h2>
+          <p>“De 25 dichtstbijzijnde monumentale gebouwen uit de
+            $19^{de}$ eeuw.”</p>
+        </section>
+
+        <section>
+          <h1>№.3 Data hosting</h1>
+          <ul>
+            <li>On-site of in de cloud</li>
+            <li><a href="http://triply.cc/presentation/l2">Versioning</a></li>
+            <li><a href="http://triply.cc/presentation/l7">Management</a></li>
+          </ul>
+        </section>
+
+        <section>
+	        <img src="../img/triply.svg" height="350">
+        </section>
+        
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
