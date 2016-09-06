@@ -1,0 +1,14 @@
+digraph buurtcode {
+  iBuurt [label="http://…/00030002"];
+  iGemeente [label="http://…/0003"];
+  iWijk [label="http://…/000300"];
+  cBuurt [label="http://…/Buurt"];
+  cGemeente [label="http://…/Gemeente"];
+  cWijk [label="http://…/Wijk"];
+
+  iBuurt -> cBuurt [label="is-een"];
+  iGemeente -> iWijk [label="bevat"];
+  iGemeente -> cGemeente [label="is-een"];
+  iWijk -> iBuurt [label="bevat"];
+  iWijk -> cWijk [label="is-een"];
+}
