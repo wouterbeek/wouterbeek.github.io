@@ -332,208 +332,209 @@
               L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
               Search for Big Linked Data”, <em>ESWC 2016</em></small>
           </section>
+        </section>
 
+        <section>
           <section>
-            <section>
-	            <h1>Find IRIs with <em>LOTUS</em></h1>
-            </section>
-
-            <section>
-	            <center>
-                <img src="../img/lotus.svg"/ height="300px">
-	            </center>
-              <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
-            </section>
-            
-            <section>
-              <h3>Find ‘monkey’</h3>
-              <p><a href="http://lotus.lodlaundromat.org/retrieve?string=monkey">http://lotus.lodlaundromat.org/retrieve?string=monkey</a></p>
-            </section>
-            
-            <section>
-              <h2>“Exclude blank nodes”</h2>
-              <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
-              <br>
-              <h2>Filter by subject: “Only OpenCyc subjects”</h2>
-              <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
-            </section>
-            
-            <section>
-              <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
-              <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
-              <br>
-              <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
-              <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
-            </section>
-
-            <section>
-              <h3>Overview of all options</h3>
-              <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
-            </section>
+	          <h1>Find IRIs with <em>LOTUS</em></h1>
           </section>
 
           <section>
-            <h1>Header Dictionary Triples (HDT)</h1>
-            <h2>Scalable storage &amp; querying</h2>
+	          <center>
+              <img src="../img/lotus.svg"/ height="300px">
+	          </center>
+            <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
+          </section>
+          
+          <section>
+            <h3>Find ‘monkey’</h3>
+            <p><a href="http://lotus.lodlaundromat.org/retrieve?string=monkey">http://lotus.lodlaundromat.org/retrieve?string=monkey</a></p>
+          </section>
+          
+          <section>
+            <h2>“Exclude blank nodes”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
+            <br>
+            <h2>Filter by subject: “Only OpenCyc subjects”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
+          </section>
+          
+          <section>
+            <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
+            <br>
+            <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
           </section>
 
           <section>
-	          <section>
-	            <h1>Find statements with <em>HDT</em>, <em>LDT</em> and <em>Frank</em></h1>
-	          </section>
-            
-            <section>
-              <h3>Sustainable querying with <em>HDT</em> &amp; <em>LDF</em></h3>
-              <div style="width: 1100px;">
-                <div style="float:left;">
-                  <img src="../img/sparql.svg" height="250">
-                </div>
-                <div style="float:right;">
-                  <img src="../img/ldf.svg" height="250">
-                </div>
+            <h3>Overview of all options</h3>
+            <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
+          </section>
+        </section>
+
+        <section>
+          <h1>Header Dictionary Triples (HDT)</h1>
+          <h2>Scalable storage &amp; querying</h2>
+        </section>
+
+        <section>
+	        <section>
+	          <h1>Find statements with <em>HDT</em>, <em>LDT</em> and <em>Frank</em></h1>
+	        </section>
+          
+          <section>
+            <h3>Sustainable querying with <em>HDT</em> &amp; <em>LDF</em></h3>
+            <div style="width: 1100px;">
+              <div style="float:left;">
+                <img src="../img/sparql.svg" height="250">
               </div>
-              <small>L. Rietveld &amp; R. Verborgh &amp; W. Beek &amp; M. Vander Sande &amp; S. Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed”, ESWC 2015</small>
-            </section>
-            
-	          <section>
-              <h1>Authority</h1>
-	            <h4>AAA: Anyone can say anything about anything</h4>
-              <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
-            </section>
-            
-	          <section>
-	            <h2><em>Frank</em></h2>
-	            <p>Federated Resource Architecture for Networked Knowledge</p>
-	            <img src="../img/openDoor.png" class="blank" height="350">
-	            <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
-	            <small>W. Beek &amp; L. Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
-            </section>
-            
-	          <section>
-              <h2><em>LDF</em>: Info about monkeys<br>from this document</h2>
-	            <p>
-                <a href="http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums%2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current%3Dmonkey.gif%26sort%3Dascending">http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f ?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums %2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current %3Dmonkey.gif%26sort%3Dascending</a>
-              </p>
-            </section>
-            
-	          <section>
-              <h2><em>Frank</em>: Info about monkeys<br>from everywhere</h2>
+              <div style="float:right;">
+                <img src="../img/ldf.svg" height="250">
+              </div>
+            </div>
+            <small>L. Rietveld &amp; R. Verborgh &amp; W. Beek &amp; M. Vander Sande &amp; S. Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed”, ESWC 2015</small>
+          </section>
+          
+	        <section>
+            <h1>Authority</h1>
+	          <h4>AAA: Anyone can say anything about anything</h4>
+            <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
+          </section>
+          
+	        <section>
+	          <h2><em>Frank</em></h2>
+	          <p>Federated Resource Architecture for Networked Knowledge</p>
+	          <img src="../img/openDoor.png" class="blank" height="350">
+	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+	          <small>W. Beek &amp; L. Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+          </section>
+          
+	        <section>
+            <h2><em>LDF</em>: Info about monkeys<br>from this document</h2>
+	          <p>
+              <a href="http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums%2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current%3Dmonkey.gif%26sort%3Dascending">http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f ?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums %2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current %3Dmonkey.gif%26sort%3Dascending</a>
+            </p>
+          </section>
+          
+	        <section>
+            <h2><em>Frank</em>: Info about monkeys<br>from everywhere</h2>
+	          <p style="font-family: monospace; font-size: 100%;">
+              frank statements -s dbr:Monkey
+            </p>
+            <br>
+            <div class="fragment">
+              <h3>+ show the document</h3>
 	            <p style="font-family: monospace; font-size: 100%;">
-                frank statements -s dbr:Monkey
+                frank statements -s dbr:Monkey <span style="color: red;">-g</span>
               </p>
-              <br>
-              <div class="fragment">
-                <h3>+ show the document</h3>
-	              <p style="font-family: monospace; font-size: 100%;">
-                  frank statements -s dbr:Monkey <span style="color: red;">-g</span>
-                </p>
-              </div>
-	          </section>
+            </div>
+	        </section>
+        </section>
+
+        <section>
+          <h1>Reproducibility</h1>
+        </section>
+
+        <section>
+	        <section>
+	          <h2>Find documents with<br><em>LOD Laundromat</em></h2>
+            <h3>LOD Laundromat Index</h3>
+            <p><a href="http://index.lodlaundromat.org">http://index.lodlaundromat.org</a></p>
+            <hr>
+            <h3><em>LOD Laundromat SPARQL endpoint</em></h3>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
           </section>
 
           <section>
-            <h1>Reproducibility</h1>
+            <h2>Find documents by size</h2>
+            <h3>SPARQL</h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              SELECT ?doc WHERE {<br>
+              &nbsp;&nbsp;?doc llo:triples ?n<br>
+              &nbsp;&nbsp;FILTER(?n &gt;= 880)<br>
+              &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
+              }
+            </p>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
+            <hr>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --minTriples 880 --maxTriples 900
+            </p>
+	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
           </section>
 
           <section>
-	          <section>
-	            <h2>Find documents with<br><em>LOD Laundromat</em></h2>
-              <h3>LOD Laundromat Index</h3>
-              <p><a href="http://index.lodlaundromat.org">http://index.lodlaundromat.org</a></p>
-              <hr>
-              <h3><em>LOD Laundromat SPARQL endpoint</em></h3>
-              <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
-            </section>
-
-            <section>
-              <h2>Find documents by size</h2>
-              <h3>SPARQL</h3>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                SELECT ?doc WHERE {<br>
-                &nbsp;&nbsp;?doc llo:triples ?n<br>
-                &nbsp;&nbsp;FILTER(?n &gt;= 880)<br>
-                &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
-                }
-              </p>
-              <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
-              <hr>
-              <h3><em>Frank</em></h3>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                frank documents --minTriples 880 --maxTriples 900
-              </p>
-	            <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
-            </section>
-
-            <section>
-              <h2>Find documents by degree</h2>
-              <h3>SPARQL</h3>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                SELECT ?doc ?x WHERE {<br>
-                &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
-                &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
-                }
-              </p>
-              <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
-              <hr>
-              <h3><em>Frank</em></h3>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                frank documents --minAvgInDegree 3
-              </p>
-	            <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
-            </section>
-
-            <section>
-              <h2>Find documents by namespace</h2>
-              <br>
-              <h4><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23</a></h4>
-              <br>
-              <hr>
-              <br>
-              <h3><em>Frank</em></h3>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                frank documents --namespace http://www.w3.org/2006/vcard/ns#
-              </p>
-	            <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
-            </section>
-
-            <section>
-              <h2>Combine multiple <em>Frank</em> calls</h2>
-              <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
-                frank documents --namespace void --minTriples 1000 |<br>
-                frank statements --predicate foaf:name |<br>
-                head -n 5
-              </p>
-              <hr>
-              <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
-                europa:Eurostat foaf:name "Eurostat".<br>
-                tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
-                sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
-                sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
-                sw:tom-minka foaf:name "Tom Minka".
-              </p>
-            </section>
-
-            <section>
-              <h2>Combine <em>Frank</em> with external programs</h2>
-              <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-                frank statements -p foaf:knows |<br>
-                grep last-fm | ./ntriplesToGml &gt; last-fm.gml
-              </p>
-            </section>
+            <h2>Find documents by degree</h2>
+            <h3>SPARQL</h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              SELECT ?doc ?x WHERE {<br>
+              &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
+              &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
+              }
+            </p>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
+            <hr>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --minAvgInDegree 3
+            </p>
+	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
           </section>
 
           <section>
-            <section>
-              <h2>Discussion</h2>
-              <ul>
-                <li class="fragment">Is centralization necessary to make the WoD a reproducibility platform?</li>
-                <li class="fragment">What about complex queries &amp; reasoning?</li>
-                <li class="fragment">Evaluations over real-time (e.g. sensor) data</li>
-                <li class="fragment">Current tooling is optimized for <em>files</em>, but most of the time the file is not the right granularity level</li>
-                <li class="fragment">The WoD is optimized for <em>human</em> interaction patterns</li>
-              </ul>
-            </section>
+            <h2>Find documents by namespace</h2>
+            <br>
+            <h4><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23</a></h4>
+            <br>
+            <hr>
+            <br>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --namespace http://www.w3.org/2006/vcard/ns#
+            </p>
+	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
           </section>
+
+          <section>
+            <h2>Combine multiple <em>Frank</em> calls</h2>
+            <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+              frank documents --namespace void --minTriples 1000 |<br>
+              frank statements --predicate foaf:name |<br>
+              head -n 5
+            </p>
+            <hr>
+            <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+              europa:Eurostat foaf:name "Eurostat".<br>
+              tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
+              sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
+              sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
+              sw:tom-minka foaf:name "Tom Minka".
+            </p>
+          </section>
+
+          <section>
+            <h2>Combine <em>Frank</em> with external programs</h2>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank statements -p foaf:knows |<br>
+              grep last-fm | ./ntriplesToGml &gt; last-fm.gml
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Discussion</h2>
+            <ul>
+              <li class="fragment">Is centralization necessary to make the WoD a reproducibility platform?</li>
+              <li class="fragment">What about complex queries &amp; reasoning?</li>
+              <li class="fragment">Evaluations over real-time (e.g. sensor) data</li>
+              <li class="fragment">Current tooling is optimized for <em>files</em>, but most of the time the file is not the right granularity level</li>
+              <li class="fragment">The WoD is optimized for <em>human</em> interaction patterns</li>
+            </ul>
+          </section>
+        </section>
 
       </div>
     </div>
