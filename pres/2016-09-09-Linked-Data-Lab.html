@@ -163,7 +163,7 @@
             <img src="../img/ldf.svg" height="280">
             <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander
               Sande &amp; Schlobach, “Linked Data-as-a-Service: The
-              Semantic Web Redeployed” <i>ESWC</i> 2015</small>
+              Semantic Web Redeployed” <em>ESWC</em> 2015</small>
           </section>
 
           <section>
@@ -309,7 +309,7 @@
           <section>
             <h3>Evaluation results for ±600,000 datasets (2/2)</h3>
             <img src="../img/histogram.png">
-            <small>de Rooij &amp; Beek &amp; Bloem &amp; van Harmelen &amp; Schlobach, “Are Names Meaningful? Quantifying Social Meaning on the Semantic Web” <i>ISWC</i> 2016 (to appear).</small>
+            <small>de Rooij &amp; Beek &amp; Bloem &amp; van Harmelen &amp; Schlobach, “Are Names Meaningful? Quantifying Social Meaning on the Semantic Web” <em>ISWC</em> 2016 (to appear).</small>
           </section>
 
           <section>
@@ -354,7 +354,8 @@
           <section>
             <h2>“Exclude blank nodes”</h2>
             <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
-            <br>
+          </section>
+          <section>
             <h2>Filter by subject: “Only OpenCyc subjects”</h2>
             <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
           </section>
@@ -362,7 +363,9 @@
           <section>
             <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
             <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
-            <br>
+          </section>
+
+          <section>
             <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
             <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
           </section>
@@ -374,66 +377,36 @@
         </section>
 
         <section>
-          <h1>Header Dictionary Triples (HDT)</h1>
-          <h2>Scalable storage &amp; querying</h2>
-        </section>
-
-        <section>
 	        <section>
-	          <h1>Find statements with <em>HDT</em>, <em>LDT</em> and <em>Frank</em></h1>
-	        </section>
-          
-          <section>
-            <h3>Sustainable querying with <em>HDT</em> &amp; <em>LDF</em></h3>
-            <div style="width: 1100px;">
-              <div style="float:left;">
-                <img src="../img/sparql.svg" height="250">
-              </div>
-              <div style="float:right;">
-                <img src="../img/ldf.svg" height="250">
-              </div>
-            </div>
-            <small>L. Rietveld &amp; R. Verborgh &amp; W. Beek &amp; M. Vander Sande &amp; S. Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed”, ESWC 2015</small>
+	          <h2>Find statements with <em>Frank</em></h2>
+	          <h4>(Federated Resource Architecture for Networked Knowledge)</h4>
+	          <img src="../img/openDoor.png" class="blank" height="350px">
+	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>
+	          <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
           </section>
           
 	        <section>
-            <h1>Authority</h1>
-	          <h4>AAA: Anyone can say anything about anything</h4>
-            <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
-          </section>
-          
-	        <section>
-	          <h2><em>Frank</em></h2>
-	          <p>Federated Resource Architecture for Networked Knowledge</p>
-	          <img src="../img/openDoor.png" class="blank" height="350">
-	          <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
-	          <small>W. Beek &amp; L. Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
-          </section>
-          
-	        <section>
-            <h2><em>LDF</em>: Info about monkeys<br>from this document</h2>
+            <h2>Without <em>Frank</em>:</h2>
+            <h4>Info about monkeys from one document</h4>
 	          <p>
               <a href="http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums%2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current%3Dmonkey.gif%26sort%3Dascending">http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f ?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums %2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current %3Dmonkey.gif%26sort%3Dascending</a>
             </p>
           </section>
           
 	        <section>
-            <h2><em>Frank</em>: Info about monkeys<br>from everywhere</h2>
+            <h2>With <em>Frank</em>:</h2>
+            <h4>Info about monkeys from any document</h4>
 	          <p style="font-family: monospace; font-size: 100%;">
               frank statements -s dbr:Monkey
             </p>
             <br>
             <div class="fragment">
-              <h3>+ show the document</h3>
+              <h4>+ show the document</h4>
 	            <p style="font-family: monospace; font-size: 100%;">
                 frank statements -s dbr:Monkey <span style="color: red;">-g</span>
               </p>
             </div>
 	        </section>
-        </section>
-
-        <section>
-          <h1>Reproducibility</h1>
         </section>
 
         <section>
