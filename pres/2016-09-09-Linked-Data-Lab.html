@@ -384,43 +384,6 @@
           <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
         </section>
 
-      <section id="find-statements-with-frank">
-	        <h2>Find statements with <em>Frank</em></h2>
-	        <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
-	        <img src="../img/openDoor.png" class="blank" height="350px">
-	        <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>
-	        <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
-        </section>
-        
-	      <section>
-          <h2>Without <em>Frank</em></h2>
-          <ol>
-            <li>Find a document in the LOD Wardrobe (<a href="http://lodlaundromat.org/wardrobe/">lodlaundromat.org/wardrobe</a>)</li>
-            <li>Follow the Linked Data Fragments ‘Browse’ link (<img height="20px" src="../img/ldf_logo.svg">)</li>
-            <li>Send a Linked Data Fragments request (subject/predicate/object)</li>
-          </ol>
-          <hr>
-          <p>Example “Info about ‘dbr:Monkey’ from one document”:</p>
-	        <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
-          </p>
-        </section>
-        
-	      <section>
-          <h2>With <em>Frank</em></h2>
-          <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
-	        <p style="font-family: monospace; font-size: 100%;">
-            frank statements -s dbr:Monkey
-          </p>
-          <br>
-          <div class="fragment">
-            <h4>+ show the document</h4>
-	          <p style="font-family: monospace; font-size: 100%;">
-              frank statements -s dbr:Monkey <span style="color: red;">-g</span>
-            </p>
-          </div>
-	      </section>
-
-	  
 	      <section id="find-documents-with-lod-laundromat">
 	        <h2>Find documents with<br><em>LOD Laundromat</em></h2>
         </section>
@@ -482,6 +445,43 @@
           </p>
         </section>
 
+        <section id="find-statements-with-frank">
+	        <h2>Find statements with <em>Frank</em></h2>
+	        <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
+	        <img src="../img/openDoor.png" class="blank" height="350px">
+	        <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>
+	        <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+        </section>
+        
+	      <section>
+          <h2>Without <em>Frank</em></h2>
+          <ol>
+            <li>Find a document in the LOD Wardrobe (<a href="http://lodlaundromat.org/wardrobe/">lodlaundromat.org/wardrobe</a>)</li>
+            <li>Follow the Linked Data Fragments ‘Browse’ link (<img height="20px" src="../img/ldf_logo.svg">)</li>
+            <li>Send a Linked Data Fragments request (subject/predicate/object)</li>
+          </ol>
+          <hr>
+          <p>Example “Info about ‘dbr:Monkey’ from one document”:</p>
+	        <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
+          </p>
+        </section>
+        
+	      <section>
+          <h2>With <em>Frank</em></h2>
+          <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
+	        <p style="font-family: monospace; font-size: 100%;">
+            frank statements -s dbr:Monkey
+          </p>
+          <br>
+          <div class="fragment">
+            <h4>+ show the document</h4>
+	          <p style="font-family: monospace; font-size: 100%;">
+              frank statements -s dbr:Monkey <span style="color: red;">-g</span>
+            </p>
+          </div>
+	      </section>
+
+	  
         <section>
           <h2>Combine multiple <em>Frank</em> calls</h2>
           <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
