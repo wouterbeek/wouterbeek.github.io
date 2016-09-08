@@ -389,19 +389,31 @@
         </section>
 
         <section>
-          <h3>With SPARQL</h3>
-          <p><a href="http://lodlaundromat.org/sparql">lodlaundromat.org/sparql</a></p>
-          <hr>
           <h3>With resource &amp; namespace index</h3>
           <p><a href="http://index.lodlaundromat.org">index.lodlaundromat.org</a></p>
+          <hr>
+          <h3>With SPARQL</h3>
+          <p><a href="http://lodlaundromat.org/sparql">lodlaundromat.org/sparql</a></p>
           <hr>
           <h3>With <em>Frank</em></h3>
 	        <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>          
         </section>
 
         <section>
-          <h2>Example “Find documents of size 880-900”</h2>
-          <h3>With SPARQL</h3>
+          <h2>Find documents by resource (index)</h2>
+          <p>“Documents with resource ‘owl:InverseFunctionalProperty’.”</p>
+          <p><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23InverseFunctionalProperty">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23InverseFunctionalProperty</a></p>
+        </section>
+        
+        <section>
+          <h2>Find documents by namespace (index)</h2>
+          <p>“Documents with namespace ‘owl’.”</p>
+          <p><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23</a></p>
+        </section>
+          
+        <section>
+          <h2>Find documents by metadata (SPARQL)</h2>
+          <p>“Documents of size 880-900.”</p>
           <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
             SELECT ?doc WHERE {<br>
             &nbsp;&nbsp;?doc llo:triples ?n<br>
@@ -409,37 +421,37 @@
             &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
             }
           </p>
-          <hr>
-          <h3>With <em>Frank</em></h3>
+        </section>
+
+        <section>
+          <h2>Find documents by metadata (<em>Frank</em>)</h2>
+          <p>“Documents of size 880-900.”</p>
           <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 110%;">
             frank documents --minTriples 880 --maxTriples 900
           </p>
         </section>
 
         <section>
-          <h2>Find documents by degree</h2>
-          <h3>With SPARQL</h3>
+          <h2>Find documents by degree (SPARQL)</h2>
+          <p>“Documents with average in-degree 3 or higher.”
           <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
             SELECT ?doc ?x WHERE {<br>
             &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
             &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
             }
           </p>
-          <hr>
-          <h3>With <em>Frank</em></h3>
+        </section>
+
+        <section>
+          <h2>Find documents by degree (<em>Frank</em>)</h2>
+          <p>“Documents with average in-degree 3 or higher.”
           <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
             frank documents --minAvgInDegree 3
           </p>
         </section>
 
         <section>
-          <h2>Find documents by namespace</h2>
-          <h3>With namespace index</h3>
-          <p><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23</a></p>
-          <br>
-          <hr>
-          <br>
-          <h3>With <em>Frank</em></h3>
+          <h2>Find documents by namespace (<em>Frank</em>)</h2>
           <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
             frank documents --namespace http://www.w3.org/2006/vcard/ns#
           </p>
@@ -456,7 +468,7 @@
 	      <section>
           <h2>Without <em>Frank</em></h2>
           <ol>
-            <li>Find a document in the LOD Wardrobe (<a href="http://lodlaundromat.org/wardrobe/">lodlaundromat.org/wardrobe</a>)</li>
+            <li>Find a document in the index (<a href="http://index.lodlaundromat.org">index.lodlaundromat.org</a>)</li>
             <li>Follow the Linked Data Fragments ‘Browse’ link (<img height="20px" src="../img/ldf_logo.svg">)</li>
             <li>Send a Linked Data Fragments request (subject/predicate/object)</li>
           </ol>
