@@ -66,15 +66,32 @@
             <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
           </ul>
         </section>
-
         <section>
-          <blockquote>
+
+         <blockquote>
             “As long as there was no data, reasoning was no problem at
             all; when we had a little data, reasoning became a mild
             problem, and now we have Big Data, reasoning has become an
             equally Big Problem.”
           </blockquote>
         </section>
+
+		 <section>
+	        <h3>An old AI dream come true?</h3>
+			  <ul>
+	          <li>Semantic Web = Well curated knowledge (ontologies)</li>
+	          <li>Web of Data = Unlimitted Data</li>
+	        </ul>
+	      </section>
+
+		 <section>
+	        <h3>Publishing Paradigms</h3>
+		  <ul>
+	          <li>Data dumps</li>
+	          <li>Triple stores </li>
+			  <li>The things inbetween (LDF,HDT)</li>
+	        </ul>
+        </section> 
 
         <section id="linked-data-lab">
           <h1><em>Linked Data Lab</em> overview</h1>
@@ -83,17 +100,18 @@
         <section>
 	        <p>After 15 years most data cannot be automatically:</p>
 		      <ul>
-		        <li class="fragment">found</li>
-		        <li class="fragment">read</li>
-		        <li class="fragment">queried</li>
-		        <li class="fragment">reasoned over (not covered in this presentation)</li>
+		        <li>found</li>
+		        <li>read</li>
+		        <li>queried</li>
+		        <li>reasoned over (only implicit in this presentation)</li>
 		      </ul>
+			  <p>Many PhD students' worse nightmare... </p>
 	        <!--
-		          <li class="fragment">Clash between semantics and pragmatics</li>
+		          <li>Clash between semantics and pragmatics</li>
 		          <ul>
-		            <li class="fragment">Theory of identity vs practice of linking</li>
-		            <li class="fragment">Formal meaning vs social meaning</li>
-		            <li class="fragment">Universal statements vs trivia</li>
+		            <li>Theory of identity vs practice of linking</li>
+		            <li>Formal meaning vs social meaning</li>
+		            <li>Universal statements vs trivia</li>
 		          </ul>
 		          -->
 	      </section>
@@ -102,9 +120,9 @@
 	        <h2>Problem 1</h2>
 	        <h3>Most data cannot be <i>found</i></h3>
 	        <ul>
-	          <li class="fragment">SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
-	          <li class="fragment">Most SW datasets are not available online.</li>
-	          <li class="fragment">Most online datasets are not registered in any catalogue.</li>
+	          <li>SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
+	          <li>Most SW datasets are not available online.</li>
+	          <li>Most online datasets are not registered in any catalogue.</li>
 	        </ul>
 	      </section>
 	      
@@ -121,8 +139,8 @@
 	      <section>
 		      <h3>The WWW is not standards-compliant either, but:</h3>
 		      <ul>
-		        <li class="fragment">WWW tools optimized for common errors</li>
-		        <li class="fragment">WWW consumers have human-level intelligence</li>
+		        <li>WWW tools optimized for common errors</li>
+		        <li>WWW consumers have human-level intelligence</li>
 		      </ul>
 	      </section>
         
@@ -141,7 +159,7 @@
 		      </div>
 		      <div style="float: right;">
 		        <ul>
-		          <li>Lexical form ↛ value</li>
+		          <li>Lexical form ? value</li>
 		          <li>Non-canonical lexical form</li>
 		          <li>Logically inconsistent</li>
 		          <li>...</li>
@@ -153,14 +171,14 @@
 	        <h2>Problem 3</h2>
 	        <h3>Most data cannot be <i>queried</i></h3>
 	        <ul>
-	          <li class="fragment">Data dumps are the most popular deployment strategy</li>
-	          <li class="fragment">Many live queriable datasets have a custom API</li>
-	          <li class="fragment">Most custom APIs are not self-describing</li>
-	          <li class="fragment">Many SPARQL endpoints enforce restrictions</li>
-	          <li class="fragment">Most SPARQL endpoints that do not enforce restrictions have low availability</li>
-	          <li class="fragment">Different SPARQL endpoints enforce different restrictions</li>
-	          <li class="fragment">Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
-	          <li class="fragment">Web-scale federated querying has not even been considered</li>
+	          <li>Data dumps are the most popular deployment strategy</li>
+	          <li>Many live queriable datasets have a custom API</li>
+	          <li>Most custom APIs are not self-describing</li>
+	          <li>Many SPARQL endpoints enforce restrictions</li>
+	          <li>Most SPARQL endpoints that do not enforce restrictions have low availability</li>
+	          <li>Different SPARQL endpoints enforce different restrictions</li>
+	          <li>Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
+	          <li>Web-scale federated querying has not even been considered</li>
 	        </ul>
 	      </section>
 	      
@@ -171,13 +189,13 @@
 
 	      <section>
 	        <h3>SPARQL cannot fulfill the role of SW query language</h3>
-	        <p class="fragment">There are millions of data documents but
+	        <p>There are millions of data documents but
 	          only hundreds of live query endpoints with reasonable
 	          availability.</p>
-	        <p class="fragment">Existing deployment techniques are
+	        <p>Existing deployment techniques are
 	          unable to close the gap between downloadable data dumps and
 	          live queryable data.</p>
-	        <p class="fragment">Data is growing faster than SPARQL
+	        <p>Data is growing faster than SPARQL
 	          deployment uptake.</p>
 	      </section>
 
@@ -185,18 +203,18 @@
 		      <h2>Problem 4</h2>
 		      <h3>Most data cannot be <i>reasoned over</i></h3>
 		      <ul>
-		        <li class="fragment">No standardized way of selecting the
+		        <li>No standardized way of selecting the
 		          entailment regime in SPARQL</li>
-		        <li class="fragment">Some entailment results cannot be
+		        <li>Some entailment results cannot be
 		          expressed in RDF</li>
-		        <li class="fragment">Most triple stores only implement
+		        <li>Most triple stores only implement
 		          subsets of RDF(S) and OWL entailment</li>
-		        <li class="fragment">Different triple stores implement
+		        <li>Different triple stores implement
 		          different subsets of different version of RDF(S) and
 		          OWL</li>
-		        <li class="fragment">Web-scale reasoning has only been
+		        <li>Web-scale reasoning has only been
 		          performed in the lab</li>
-            <li class="fragment">Federation does not scale to hundreds
+            <li>Federation does not scale to hundreds
               of thousands of endpoints</li>
 		      </ul>
 	      </section>
@@ -214,9 +232,9 @@
 	          <li>Best practices</li>
 	          <li>Tools</li>
 	        </ul>
-	        <p class="fragment">Targeted towards humans</p>
-	        <p class="fragment">Inherently slow</p>
-	        <p class="fragment">Mixed results after 15 years</p>
+	        <p>Targeted towards humans</p>
+	        <p>Inherently slow</p>
+	        <p>Mixed results after 15 years</p>
 	      </section>
         
 	      <section>
@@ -237,10 +255,18 @@
 	          production is relatively high, the SPARQL paradigm is
 	          inherently far removed from allocative efficiency.</p>
 	        <ul>
-	          <li class="fragment">Publishing large volumes of
+	          <li>Publishing large volumes of
 	            high-quality data is penalized.</li>
-	          <li class="fragment">Consuming large volumes of data /
+	          <li>Consuming large volumes of data /
 	            asking DDOS-like queries is free.</li>
+	        </ul>
+	      </section>
+
+        <section>
+	        <h2>[4] Complex Usefullness/Cost Balance</h2>
+	        <ul>
+	          <li>Useful publishing is expensive</li>
+	          <li>Cheep publishing often not useful</li>
 	        </ul>
 	      </section>
 
@@ -261,13 +287,13 @@
         <section>
 	        <h1>How to redeploy the Semantic Web?</h1>
 	        <ol>
-	          <li class="fragment">Data collection</li>
-	          <li class="fragment">Data cleaning</li>
-	          <li class="fragment">Data publishing</li>
-	          <li class="fragment">Data consumption</li>
-	          <li class="fragment">Text-based search</li>
-	          <li class="fragment">Web-scale BGP answering</li>
-	          <li class="fragment">Web-scale backwards chaining</li>
+	          <li>Data collection</li>
+	          <li>Data cleaning</li>
+	          <li>Data publishing</li>
+	          <li>Data consumption</li>
+	          <li>Text-based search</li>
+	          <li>Web-scale BGP answering</li>
+	          <li>Web-scale backwards chaining</li>
 	        </ol>
         </section>
 
@@ -282,11 +308,11 @@
 		            <li>Custom API (CKAN)</li>
 		            <li>HTML (VoID Store, LOV)</li>
 		        </ul></li>
-		        <li class="fragment">Interpret metadata vocabularies (VoID,DCAT)</li>
-		        <li class="fragment">Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
-		        <li class="fragment">Craw dereferenceable IRIs</li>
-		        <li class="fragment">Hard-craft a seed list</li>
-		        <li class="fragment">Crowd-source the seed list</li>
+		        <li>Interpret metadata vocabularies (VoID,DCAT)</li>
+		        <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+		        <li>Craw dereferenceable IRIs</li>
+		        <li>Hard-craft a seed list</li>
+		        <li>Crowd-source the seed list</li>
 		      </ul>
 	      </section>
 
@@ -296,14 +322,14 @@
         
 	      <section>
 	        <h2>New solution for data cleaning</h2>
-	        <div class="fragment">
+	        <div>
 	          <p>(1) Automate conformity to standards</p>
 	          <p>"Days not decades"</p>
 	        </div>
 	        <br/>
 	        <br/>
-	        <div class="fragment">
-	          <p>(2) Tools → Web Service</p>
+	        <div>
+	          <p>(2) Tools ? Web Service</p>
 	        </div>
 	      </section>
 	      
@@ -346,7 +372,7 @@
 	      <section>
           <h3>How to query &gt;30B statements</h3>
 	        <img src="../img/sparql.svg" height="350"/>
-	        <img class="fragment" src="../img/ldf.svg" height="350"/>
+	        <img src="../img/ldf.svg" height="350"/>
           <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander
             Sande &amp; Schlobach, “Linked Data-as-a-Service: The
             Semantic Web Redeployed” <em>ESWC</em> 2015</small>
@@ -381,6 +407,18 @@
 	        <p><b>LDF</b>: BGP queries require client-side joins</p>
 	      </section>
 
+	      <section>
+	        <h2>Data consumption tools</h2>
+			<ul>
+			<li>From Natural language to Resources (Lotus)</li>
+			<li>From Resources to documents (Index)</li>
+			<li>Resources in the knowledge graph (LDF)</li>
+			<li>Properties of the graphs (Metadata)</li>
+			<li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
+			</ul>
+	      </section>
+
+		  
         <section>
 	        <h1>[4] Data consumption</h1>
 	      </section>
@@ -394,11 +432,26 @@
 	        <h1>[5] Natural language text search</h1>
 	      </section>
         
-	      <section>
-	        <h2>LOTUS</h2>
-	        <h3>Linked Open Text Unleashed</h3>
-	        <img src="../img/navigation3.jpg"/>
-	      </section>
+        <section>
+          <h1>LOTUS</h1>
+          <p>Natural language entry point to LOD Laundromat</p>
+          <p><b>Large-scale</b>: 4,334,672,073 natural language
+            literals</p>
+          <p><b>Configurable</b>: Filtering based on original
+            language, auto-detected language, subject, predicate, 32
+            retrieval options</p>
+          <br>
+          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+            Search for Big Linked Data”, <em>ESWC 2016</em></small>
+        </section>
+
+        <section>
+          <img src="../img/lotus_architecture.png">
+          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+            Search for Big Linked Data”, <em>ESWC 2016</em></small>
+        </section>
 
         <section>
 	        <h2>LOTUS in numbers</h2>
@@ -417,22 +470,24 @@
 	          </tbody>
 	        </table>
 	      </section>
-
+<!-- 
 	      <section>
           <h2>[6] Streamed BGP answering</h2>
 		      <ul>
-		        <li class="fragment">LOD Cloud-wide triple pattern selectivity estimates</li>
-		        <li class="fragment">Client-side query reordering</li>
-		        <li class="fragment">Client-side symmetric hash joins</li>
-		        <li class="fragment">Culprit 1: Identity closure (800M)</li>
-		        <li class="fragment">Culprit 2: Natural language index (1.5-2B)</li>
+		        <li>LOD Cloud-wide triple pattern selectivity estimates</li>
+		        <li>Client-side query reordering</li>
+		        <li>Client-side symmetric hash joins</li>
+		        <li>Culprit 1: Identity closure (800M)</li>
+		        <li>Culprit 2: Natural language index (1.5-2B)</li>
 		      </ul>
 	      </section>
+		  -->
 
-	      <section>
-		      <h2>[7] Streamed backwards chaining</h2>
-          <p>TBD</p>
-	      </section>
+    <section>
+		<h1>Why bother? LOD Lab</h1>	 
+		<h2>Web-scale evaluation (and reasoning)</h2>
+		<b>An example for scaling up to Web Size.</b>
+		</section>
         
         <section>
           <h3>How generalizable is SW research?</h3>
@@ -448,34 +503,34 @@
           <h3>The ‘economics’ of WoD evaluations</h3>
           <br>
           <ul>
-            <li class="fragment">Dataset cleaning is manual and wasteful</li>
-            <li class="fragment">Cleaning the next dataset requires a comparable amount of work</li>
+            <li>Dataset cleaning is manual and wasteful</li>
+            <li>Cleaning the next dataset requires a comparable amount of work</li>
           </ul>
           <br>
           <br>
-          <hr class="fragment">
+          <hr>
           <br>
           <ul>
-            <li class="fragment"><b>High cost per evaluation:</b> Disincentivizes reproducibility</li>
-            <li class="fragment"><b>High cost per dataset:</b> Disinsentivizes generalizability</li>
+            <li><b>High cost per evaluation:</b> Disincentivizes reproducibility</li>
+            <li><b>High cost per dataset:</b> Disinsentivizes generalizability</li>
           </ul>
         </section>
 
         <section>
           <h3>The WoD is a poor evaluation platform</h3>
           <ul>
-            <li class="fragment">Datasets cannot be found</li>
-            <li class="fragment">IRI dereferening is broken</li>
-            <li class="fragment">SPARQL enforces restrictions</li>
-            <li class="fragment">Bulk downloads cannot be queried online</li>
-            <li class="fragment">Bulk downloads are not standards conform</li>
-            <li class="fragment">Corrections cannot be written back to the WoD</li>
+            <li>Datasets cannot be found</li>
+            <li>IRI dereferening is broken</li>
+            <li>SPARQL enforces restrictions</li>
+            <li>Bulk downloads cannot be queried online</li>
+            <li>Bulk downloads are not standards conform</li>
+            <li>Corrections cannot be written back to the WoD</li>
           </ul>
-          <h3 class="fragment">Result</h3>
+          <h3>Result</h3>
           <ul>
-            <li class="fragment">Evaluations are run locally</li>
-            <li class="fragment">Data cleaning is performed on local copy</li>
-            <li class="fragment">Results of data cleaning are removed with the local copy</li>
+            <li>Evaluations are run locally</li>
+            <li>Data cleaning is performed on local copy</li>
+            <li>Results of data cleaning are removed with the local copy</li>
           </ul>
         </section>
 
@@ -627,14 +682,15 @@
             Search for Big Linked Data”, <em>ESWC 2016</em></small>
         </section>
 
-        <section>
-          <img src="../img/lotus_architecture.png">
-          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
-            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
-            Search for Big Linked Data”, <em>ESWC 2016</em></small>
-        </section>
+<section>
+	<h2>Anytime Reasoning based on adding axioms</h2>
+	<img src="../img/graphicsReasoning.png" class="blank" height="450px">
+</section>
+	
+	
+    
 
-        <section>
+  <section>
           <h1>Program</h1>
           <ul>
             <li>09:00-09:10 Introduction round</li>
@@ -789,7 +845,7 @@
     frank statements -s dbr:Monkey
   </p>
   <br>
-  <div class="fragment">
+  <div>
     <h4>+ show the document</h4>
 	  <p style="font-family: monospace; font-size: 100%;">
       frank statements -s dbr:Monkey <span style="color: red;">-g</span>
@@ -823,6 +879,20 @@
   </p>
 </section>
 
+
+  <section>
+          <h1>Program</h1>
+          <ul>
+            <li>09:00-09:10 Introduction round</li>
+            <li>09:10-09:40 <a href="#/linked-data-lab">Linked Data Lab</a> (presentation)</li>
+            <li>09:40-10:00 <a href="#/find-iris-with-lotus">Find IRIs with <em>LOTUS</em></a> (hands-on)</li>
+            <li>10:00-10:30 <a href="#/find-documents-with-lod-laundromat">Find documents</a> (hands-on)</li>
+            <li>10:30-11:00 Coffee break</li>
+            <li>11:00-11:30 <a href="#/find-statements-with-frank">Find statements</a> (hands-on)</li>
+            <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
+          </ul>
+        </section>
+		
 <section id="discussion">
   <h2>Discussion</h2>
   <ul>
