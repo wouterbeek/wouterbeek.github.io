@@ -756,7 +756,7 @@
           <p><a href="http://lodlaundromat.org/sparql">lodlaundromat.org/sparql</a></p>
           <hr>
           <h3>With <em>Frank</em></h3>
-	        <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>          
+	        <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>          
         </section>
 
         <section>
@@ -781,6 +781,7 @@
             &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
             }
           </p>
+          <p>(<a href="http://lodlaundromat.org/sparql/#query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+%3Fdoc+WHERE+%7B%0A++%3Fdoc+llo%3Atriples+%3Fn%0A++FILTER(%3Fn+%3E%3D+880)%0A++FILTER(%3Fn+%3C%3D+900)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fsparql.backend.lodlaundromat.org&requestMethod=POST&tabTitle=&headers=%7B%7D&defaultGraph=http%3A%2F%2Flodlaundromat.org%2312&defaultGraph=http%3A%2F%2Flodlaundromat.org%23seedlist&defaultGraph=http%3A%2F%2Flodlaundromat.org%23metrics-12&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23error&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23http&outputFormat=table">link</a>)</p>
         </section>
 
         <section>
@@ -798,8 +799,9 @@
             SELECT ?doc ?x WHERE {<br>
             &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
             &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
-            }
+            } LIMIT 100
           </p>
+          <p>(<a href="http://lodlaundromat.org/sparql/#query=PREFIX+llm%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fmetrics%2Fontology%2F%3E%0ASELECT+%3Fdoc+%3Fx+WHERE+%7B%0A++%3Fdoc+llm%3Ametrics%2Fllm%3AinDegree%2Fllm%3Amean+%3Fx%0A++FILTER(%3Fx+%3E%3D+3)%0A%7D+LIMIT+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fsparql.backend.lodlaundromat.org&requestMethod=POST&tabTitle=Query&headers=%7B%7D&defaultGraph=http%3A%2F%2Flodlaundromat.org%2312&defaultGraph=http%3A%2F%2Flodlaundromat.org%23seedlist&defaultGraph=http%3A%2F%2Flodlaundromat.org%23metrics-12&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23error&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23http&outputFormat=table">link</a>)</p>
         </section>
 
         <section>
@@ -821,7 +823,7 @@
 	        <h2>Find statements with <em>Frank</em></h2>
 	        <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
 	        <img src="../img/openDoor.png" class="blank" height="350px">
-	        <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">github.com/LOD-Laundromat/Frank</a></p>
+	        <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
 	        <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
         </section>
 
