@@ -68,7 +68,7 @@
         </section>
         <section>
 
-         <blockquote>
+          <blockquote>
             “As long as there was no data, reasoning was no problem at
             all; when we had a little data, reasoning became a mild
             problem, and now we have Big Data, reasoning has become an
@@ -76,20 +76,20 @@
           </blockquote>
         </section>
 
-		 <section>
+		    <section>
 	        <h3>An old AI dream come true?</h3>
-			  <ul>
+			    <ul>
 	          <li>Semantic Web = Well curated knowledge (ontologies)</li>
 	          <li>Web of Data = Unlimitted Data</li>
 	        </ul>
 	      </section>
 
-		 <section>
+		    <section>
 	        <h3>Publishing Paradigms</h3>
-		  <ul>
+		      <ul>
 	          <li>Data dumps</li>
 	          <li>Triple stores </li>
-			  <li>The things inbetween (LDF,HDT)</li>
+			      <li>The things inbetween (LDF,HDT)</li>
 	        </ul>
         </section> 
 
@@ -105,7 +105,7 @@
 		        <li>queried</li>
 		        <li>reasoned over (only implicit in this presentation)</li>
 		      </ul>
-			  <p>Many PhD students' worse nightmare... </p>
+			    <p>Many PhD students' worse nightmare... </p>
 	        <!--
 		          <li>Clash between semantics and pragmatics</li>
 		          <ul>
@@ -409,16 +409,16 @@
 
 	      <section>
 	        <h2>Data consumption tools</h2>
-			<ul>
-			<li>From Natural language to Resources (Lotus)</li>
-			<li>From Resources to documents (Index)</li>
-			<li>Resources in the knowledge graph (LDF)</li>
-			<li>Properties of the graphs (Metadata)</li>
-			<li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
-			</ul>
+			    <ul>
+			      <li>From Natural language to Resources (Lotus)</li>
+			      <li>From Resources to documents (Index)</li>
+			      <li>Resources in the knowledge graph (LDF)</li>
+			      <li>Properties of the graphs (Metadata)</li>
+			      <li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
+			    </ul>
 	      </section>
 
-		  
+		    
         <section>
 	        <h1>[4] Data consumption</h1>
 	      </section>
@@ -470,24 +470,24 @@
 	          </tbody>
 	        </table>
 	      </section>
-<!-- 
-	      <section>
-          <h2>[6] Streamed BGP answering</h2>
-		      <ul>
-		        <li>LOD Cloud-wide triple pattern selectivity estimates</li>
-		        <li>Client-side query reordering</li>
-		        <li>Client-side symmetric hash joins</li>
-		        <li>Culprit 1: Identity closure (800M)</li>
-		        <li>Culprit 2: Natural language index (1.5-2B)</li>
-		      </ul>
-	      </section>
-		  -->
+        <!-- 
+	           <section>
+               <h2>[6] Streamed BGP answering</h2>
+		           <ul>
+		             <li>LOD Cloud-wide triple pattern selectivity estimates</li>
+		             <li>Client-side query reordering</li>
+		             <li>Client-side symmetric hash joins</li>
+		             <li>Culprit 1: Identity closure (800M)</li>
+		             <li>Culprit 2: Natural language index (1.5-2B)</li>
+		           </ul>
+	           </section>
+		         -->
 
-    <section>
-		<h1>Why bother? LOD Lab</h1>	 
-		<h2>Web-scale evaluation (and reasoning)</h2>
-		<b>An example for scaling up to Web Size.</b>
-		</section>
+        <section>
+		      <h1>Why bother? LOD Lab</h1>	 
+		      <h2>Web-scale evaluation (and reasoning)</h2>
+		      <b>An example for scaling up to Web Size.</b>
+		    </section>
         
         <section>
           <h3>How generalizable is SW research?</h3>
@@ -682,15 +682,15 @@
             Search for Big Linked Data”, <em>ESWC 2016</em></small>
         </section>
 
-<section>
-	<h2>Anytime Reasoning based on adding axioms</h2>
-	<img src="../img/graphicsReasoning.png" class="blank" height="450px">
-</section>
-	
-	
-    
+        <section>
+	        <h2>Anytime Reasoning based on adding axioms</h2>
+	        <img src="../img/graphicsReasoning.png" class="blank" height="450px">
+        </section>
+	      
+	      
+        
 
-  <section>
+        <section>
           <h1>Program</h1>
           <ul>
             <li>09:00-09:10 Introduction round</li>
@@ -835,52 +835,51 @@
           <hr>
           <p>Example “Info about ‘dbr:Monkey’ from one document”:</p>
 	        <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
-</p>
-</section>
+        </section>
 
-<section>
-  <h2>With <em>Frank</em></h2>
-  <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
-	<p style="font-family: monospace; font-size: 100%;">
-    frank statements -s dbr:Monkey
-  </p>
-  <br>
-  <div>
-    <h4>+ show the document</h4>
-	  <p style="font-family: monospace; font-size: 100%;">
-      frank statements -s dbr:Monkey <span style="color: red;">-g</span>
-    </p>
-  </div>
-</section>
-
-
-<section>
-  <h2>Combine multiple <em>Frank</em> calls</h2>
-  <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
-    frank documents --namespace void --minTriples 1000 |<br>
-    frank statements --predicate foaf:name |<br>
-    head -n 5
-  </p>
-  <hr>
-  <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
-    europa:Eurostat foaf:name "Eurostat".<br>
-    tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
-    sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
-    sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
-    sw:tom-minka foaf:name "Tom Minka".
-  </p>
-</section>
-
-<section>
-  <h2>Combine <em>Frank</em> with external programs</h2>
-  <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
-    frank statements -p foaf:knows |<br>
-    grep last-fm | ./ntriplesToGml &gt; last-fm.gml
-  </p>
-</section>
+        <section>
+          <h2>With <em>Frank</em></h2>
+          <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
+	        <p style="font-family: monospace; font-size: 100%;">
+            frank statements -s dbr:Monkey
+          </p>
+          <br>
+          <div>
+            <h4>+ show the document</h4>
+	          <p style="font-family: monospace; font-size: 100%;">
+              frank statements -s dbr:Monkey <span style="color: red;">-g</span>
+            </p>
+          </div>
+        </section>
 
 
-  <section>
+        <section>
+          <h2>Combine multiple <em>Frank</em> calls</h2>
+          <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+            frank documents --namespace void --minTriples 1000 |<br>
+            frank statements --predicate foaf:name |<br>
+            head -n 5
+          </p>
+          <hr>
+          <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+            europa:Eurostat foaf:name "Eurostat".<br>
+            tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
+            sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
+            sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
+            sw:tom-minka foaf:name "Tom Minka".
+          </p>
+        </section>
+
+        <section>
+          <h2>Combine <em>Frank</em> with external programs</h2>
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            frank statements -p foaf:knows |<br>
+            grep last-fm | ./ntriplesToGml &gt; last-fm.gml
+          </p>
+        </section>
+
+
+        <section>
           <h1>Program</h1>
           <ul>
             <li>09:00-09:10 Introduction round</li>
@@ -892,53 +891,53 @@
             <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
           </ul>
         </section>
-		
-<section id="discussion">
-  <h2>Discussion</h2>
-  <ul>
-  </ul>
-</section>
 
-</div>
-</div>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
-<script>
-  // Full list of configuration options available at:
-  // https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-  controls: true,
-  progress: true,
-  history: true,
-  center: true,
-  transition: 'slide', // none/fade/slide/convex/concave/zoom
-  // Optional reveal.js plugins
-  dependencies: [
-  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-  { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-  { src: 'plugin/zoom-js/zoom.js', async: true },
-  { src: 'plugin/notes/notes.js', async: true }
-  ]
-  });
-</script>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-  t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-  t._e = [];
-  t.ready = function(f) {
-  t._e.push(f);
-  };
-  return t;
-  }(document, "script", "twitter-wjs"));
-</script>
-</body>
+        <section id="discussion">
+          <h2>Discussion</h2>
+          <ul>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
 </html>
