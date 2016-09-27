@@ -138,9 +138,9 @@
               <code>
                 buurt:00030002 rdf:type        def:Buurt      .
                 gemeente:0003  geof:sfContains wijk:000300    ;
-                rdf:type        def:Gemeente   .
+                               rdf:type        def:Gemeente   .
                 wijk:000300    geof:sfContains buurt:00030002 ;
-                rdf:type        def:Wijk       .
+                               rdf:type        def:Wijk       .
               </code>
             </pre>
           </section>
@@ -151,8 +151,8 @@
 
           <p>Geometries can be stored as floating point arrays.</p>
 
-          <p>Alas… JSON-LD uses arrays in the object position for
-            abbreviation.</p>
+          <p class="fragment">Alas… JSON-LD uses arrays in the object
+            position for abbreviation.</p>
 
         </section>
 
@@ -187,23 +187,15 @@
             door Cuypers.”</p>
         </section>
         
-        <section>
-          <h2>Wat zijn de opties?</h2>
-          <ol>
-            <li>GeoSPARQL in triple store</li>
-            <li>Solr/Lucene + triple store</li>
-            <li>SotA GIS libraries</li>
             <!--
                 <ul>
                   <li class="fragment"><a href="https://github.com/libspatialindex/libspatialindex">libspatialindex</a></li>
                   <li class="fragment"><a href="https://github.com/libgeos/libgeos">libgeos</a></li>
                 </ul>
                 -->
-          </ol>
-        </section>
         
         <section>
-          <h2>GeoSPARQL in triple store</h2>
+          <h2>4a. GeoSPARQL in triple store</h2>
           <ul>
             <li class="fragment">Antwoord tijd &gt;5 sec.</li>
             <li class="fragment">Ingeschatte antwoord tijd: &gt;300 sec.</li>
@@ -216,7 +208,7 @@
         </section>
         
         <section>
-          <h2>Solr/Lucene</h2>
+          <h2>4b. Solr/Lucene</h2>
           <ul>
             <li class="fragment">Antwoord tijd ~10 ms</li>
             <li class="fragment">Geeft resultaten incrementeel terug</li>
@@ -227,7 +219,7 @@
         </section>
         
         <section>
-          <h2>SotA GIS libraries</h2>
+          <h2>4c. SotA GIS libraries</h2>
           <ul>
             <li class="fragment">Antwoord tijd ~6 ms</li>
             <li class="fragment">Ondersteuning voor alle
