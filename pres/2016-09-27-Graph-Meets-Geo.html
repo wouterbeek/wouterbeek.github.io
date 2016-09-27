@@ -76,22 +76,28 @@
               Data’, <em>ESWC 2016.</em></small>
           </section>
           <section>
-            <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+            <h3><a href="http://lodsearch.org">lodsearch.org</a></h3>
+            <!--<small>2nd prize Linked Open Data Competition</small>-->
             <img src="../img/pet_sounds.png">
           </section>
         </section>
+
+        <section>
+          <h1><b>Graph</b> + <b>Geo</b></h1>
+          <h3>Challenges we face</h3>
+        </section>
         
         <section>
-          <h2>Standardization ongoing…</h2>
+          <h2>1. Standardization ongoing…</h2>
           <img src="../img/geo_graph.jpg">
         </section>
         
         <section>
-          <h2>Representation I: uniform</h2>
+          <h2>2a. Representation : uniform</h2>
           <pre>
             <code>
               entity:y wgs84:lat  "51.35"^^xsd:float ;
-              wgs84:long "5.46"^^xsd:float  .
+                       wgs84:long "5.46"^^xsd:float  .
             </code>
           </pre>
           <pre class="fragment">
@@ -101,12 +107,12 @@
           </pre>
         </section>
         <section>
-          <h2>Representation I: uniform &amp; simple</h2>
+          <h2>2a. Representation: uniform &amp; simple</h2>
           <pre>
             <code>
               entity:x geosparql:defaultGeometry _:1                .
               _:1      geosparql:asWKT           "POLYGON((…))"     ;
-              rdf:type                  geosparql:Geometry .
+                       rdf:type                  geosparql:Geometry .
             </code>
           </pre>
           <pre class="fragment">
@@ -123,7 +129,7 @@
 
         <section>
           <section>
-            <h2>Representation II: ‘hidden’ relations</h2>
+            <h2>2b. Representation: ‘hidden’ relations</h2>
             <p><code>BU00030002</code></p>
             <img class="fragment" height="500px" src="../img/buurtcode.png">
           </section>
@@ -141,7 +147,7 @@
         </section>
 
         <section>
-          <h2>Serialization: GeoJSON or JSON-LD?</h2>
+          <h2>3. Serialization: GeoJSON or JSON-LD?</h2>
 
           <p>Geometries can be stored as floating point arrays.</p>
 
@@ -150,9 +156,10 @@
 
         </section>
 
+        <!--
         <section>
           <section>
-            <h2>Meerdere kennisgrafen → één geïntegreerde kennisgraaf</h2>
+            <h2>4. Meerdere kennisgrafen → één geïntegreerde kennisgraaf</h2>
             <ul>
               <li class="fragment">“Appingedam” in tekst op web site</li>
               <li class="fragment">“GM0003” in CBS data</li>
@@ -170,10 +177,10 @@
             <img class="fragment" height="500px" src="../img/iisg_sparql.jpg">
           </section>
         </section>
-
+        -->
 
         <section>
-          <h2>Voorbeeld vragen</h2>
+          <h2>4. Large-scale + performant querying</h2>
           <p>“De 25 dichtstbijzijnde monumentale gebouwen uit de 19de
             eeuw.”</p>
           <p class="fragment">“De 10 dichtstbijzijnde monumentale gebouwen ontworpen
