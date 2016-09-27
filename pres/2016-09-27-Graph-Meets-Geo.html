@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Triply - Maak geo-info developervriendelijk (2016-09-06)</title>
+    <title>Graph Meets Geo</title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
       tex2jax: {
@@ -12,7 +12,7 @@
       });
     </script>
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <meta name="description" content="Tussentijdse resultaten van Triply werkzaamheden binnen de IISG pilot.">
+    <meta name="description" content="Graph Meets Geo.">
     <meta name="author" content="Wouter Beek">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -54,125 +54,126 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        
-	      <section>
-          <h2>Maak geo-info developervriendelijk</h2>
-	        <img height="150px" src="../img/triply.svg">
-          <img height="150px" src="../img/geonovum.png">
-	        <h3>Wouter Beek (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h3>
-          <h3>2016-09-06</h3>
-          <h3>@Geo-Gebruikersfestival-2016</h3>
-	      </section>
 
         <section>
-          <img src="../img/vu-krr-logo-print-600dpi.png">
-        </section>
-        
-        <section data-background="#dddddd">
-          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
-          <a href="http://lodlaundromat.org/basket/">
-            <img src="../img/basket.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/">
-            <img src="../img/laundry.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/wardrobe/">
-            <img src="../img/wardrobe.png" width="200">
-          </a>
-          <br/>
-          <a href="http://lodlaundromat.org/visualizations/">
-            <img src="../img/analysis.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-            <img src="../img/labels.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/about/">
-            <img src="../img/laundryLine.png" width="200">
-          </a>
-        </section>
-        
-        <section>
-          <h2>Semantic Search Engine</h2>
-          <img src="../img/lotus_cropped.png">
-        </section>
-        
-        <section>
-          <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
-          <img src="../img/pet_sounds.png">
+          <h1>Graph Meets Geo</h1>
+          <h4>September 26<sup>th</sup>, 2016</h4>
+	        <h4>Wouter Beek
+	          (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h4>
+	        <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+          <img src="../img/triply.svg" height="150px">
         </section>
 
         <section>
-          <img src="../img/geonovum.png">
-          <h1>Onderzoeksvraag</h1>
-          <blockquote>
-            Neem de ‘lessons learned’ van GeoNovum.  Hoeveel kennis
-            &amp; kunde heeft een organizatie nodig om deze te
-            implementeren?
-          </blockquote>
+          <section>
+            <h1>The newest tool in town</h1>
+          </section>
+          <section>
+            <h2>Semantic Search Engine</h2>
+            <img src="../img/lotus_cropped.png">
+            <br>
+            <small>Ilievski &amp; Beek &amp Van Erp &amp; Rietveld &amp;
+              Schlobach, ‘LOTUS: Adaptive Text Search for Big Linked
+              Data’, <em>ESWC 2016.</em></small>
+          </section>
+          <section>
+            <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+            <img src="../img/pet_sounds.png">
+          </section>
+        </section>
+        
+        <section>
+          <h2>Representation I: uniform</h2>
+          <pre>
+            <code>
+              entity:y wgs84:lat  "51.35"^^xsd:float ;
+              wgs84:long "5.46"^^xsd:float  .
+            </code>
+          </pre>
+          <pre class="fragment">
+            <code>
+              entity:y def:geometry "POINT(5.46 51.35)"^^def:polygon .
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2>Representation I: uniform &amp; simple</h2>
+          <pre>
+            <code>
+              entity:x geosparql:defaultGeometry _:1                .
+              _:1      geosparql:asWKT           "POLYGON((…))"     ;
+              rdf:type                  geosparql:Geometry .
+            </code>
+          </pre>
+          <pre class="fragment">
+            <code>
+              entity:x def:geometry "POLYGON((…))"^^def:polygon .
+            </code>
+          </pre>
+          <pre class="fragment">
+            <code>
+              ?x def:geometry ?y FILTER (datatype(?y) = def:polygon)
+            </code>
+          </pre>
         </section>
 
-        <!--
         <section>
-          <ol>
-            <li>Data conversie: 5⋆ Linked Data</li>
-            <li>Data integratie: 200 datasets / 1 API</li>
-            <li>Data hosting: open &amp; gesloten APIs</li>
-          </ol>
-        </section>
-        -->
-
-        <section>
-          <h1>№.1 Data conversie &amp; transformatie</h1>
-        </section>
-        
-        <section>
-          <img height="500px" src="../img/5star.png">
-          <p>XML, CSV, Shapefile, JSON, … → Linked Data</p>
-          <!--<p>(<a href="http://triply.cc/presentation/l1">link</a>)</p>-->
-        </section>
-        
-        <section>
-          <h2>Code-taal ‘BU00030002’ → kennisgraaf</h2>
-          <img class="fragment" height="500px" src="../img/buurtcode.png">
-          <a href="http://rml.io/img/editor/rmleditor.png">.</a>
-        </section>
-        
-        <section>
-          <h1>№.2 Data integratie</h1>
-        </section>
-        
-        <section>
-          <h2>Meerdere kennisgrafen → één geïntegreerde kennisgraaf</h2>
-          <ul>
-            <li class="fragment">“Appingedam” in tekst op web site</li>
-            <li class="fragment">“GM0003” in CBS data</li>
-            <li class="fragment">
-              <a href="http://wikidata.org/entity/Q320014" style="font-size: 95%;">
-                <code>http://wikidata.org/entity/Q320014</code>
-              </a>
-              in Wikidata
-            </li>
-          </ul>
+          <section>
+            <h2>Representation II: ‘hidden’ relations</h2>
+            <p><code>BU00030002</code></p>
+            <img class="fragment" height="500px" src="../img/buurtcode.png">
+          </section>
+          <section>
+            <pre>
+              <code>
+                buurt:00030002 rdf:type        def:Buurt      .
+                gemeente:0003  geof:sfContains wijk:000300    ;
+                rdf:type        def:Gemeente   .
+                wijk:000300    geof:sfContains buurt:00030002 ;
+                rdf:type        def:Wijk       .
+              </code>
+            </pre>
+          </section>
         </section>
 
-        <!--
-            <section>
-              <h2>Één vraag over meerdere datasets</h2>
-              <p class="fragment">“Werd er in de windermaanden minder gestaakt?”</p>
-              <img class="fragment" height="500px" src="../img/iisg_sparql.jpg">
-            </section>
-            -->
+        <section>
+          <h2>Serialization: GeoJSON or JSON-LD?</h2>
+
+          <p>Geometries can be stored as floating point arrays.</p>
+
+          <p>Alas… JSON-LD uses arrays in the object position for
+            abbreviation.</p>
+
+        </section>
 
         <section>
-          <h1>№.3 Graaf + Geo</h1>
+          <section>
+            <h2>Meerdere kennisgrafen → één geïntegreerde kennisgraaf</h2>
+            <ul>
+              <li class="fragment">“Appingedam” in tekst op web site</li>
+              <li class="fragment">“GM0003” in CBS data</li>
+              <li class="fragment">
+                <a href="http://wikidata.org/entity/Q320014" style="font-size: 95%;">
+                  <code>http://wikidata.org/entity/Q320014</code>
+                </a>
+                in Wikidata
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Één vraag over meerdere datasets</h2>
+            <p class="fragment">“Werd er in de windermaanden minder gestaakt?”</p>
+            <img class="fragment" height="500px" src="../img/iisg_sparql.jpg">
+          </section>
         </section>
-        
+
+
         <section>
           <h2>Voorbeeld vragen</h2>
           <p>“De 25 dichtstbijzijnde monumentale gebouwen uit de 19de
-          eeuw.”</p>
+            eeuw.”</p>
           <p class="fragment">“De 10 dichtstbijzijnde monumentale gebouwen ontworpen
-          door Cuypers.”</p>
+            door Cuypers.”</p>
         </section>
         
         <section>
@@ -219,57 +220,20 @@
           <ul>
             <li class="fragment">Antwoord tijd ~6 ms</li>
             <li class="fragment">Ondersteuning voor alle
-            veelvoorkomende geo-queries (intersectie, proximiteit,
-            bevat).</li>
+              veelvoorkomende geo-queries (intersectie, proximiteit,
+              bevat).</li>
             <li class="fragment">Geeft resultaten incrementeel
-            terug</li>
+              terug</li>
             <li class="fragment">Geïntegreerd met graaf queries</li>
           </ul>
           <p class="fragment"><a href="http://geonovum.triply.cc/geo">live</a></p>
         </section>
-
-        <!--
-            <section>
-              <h2>Welke ‘lessons learned’</h2>
-              <ul>
-                <li>Maak gebruik van structuur</li>
-                <li>Performance</li>
-                <li>Relateer gegevens middels links</li>
-              </ul>
-            </section>
-            -->
         
         <section>
-          <h2>Andere ‘lessons learned’</h2>
-          <ul>
-            <li>Verschillende formaten</li>
-            <li>Vindbaarheid middels zoekmachines</li>
-            <li>Eenvoud</li>
-            <li>Verschillende gebruikers groepen</li>
-          </ul>
-          <div class="fragment">
-            <h2>(Nog) niet aan toe gekomen</h2>
-            <ul>
-              <li>Demonstrator → productie systeem</li>
-              <li>Persistente IRIs</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h2>Conclusie</h2>
-          <p>Niet eenvoudig om Linked Geodata te publiceren!</p>
-          <p>
-            Volg de GeoNovum ‘lessons learned’.  Deze geven richting
-            aan het proces.
-          </p>
-        </section>
-
-        <section>
-          <img src="../img/geonovum.png">
-          <h3><a href="http://www.geonovum.nl">http://www.geonovum.nl</a></h3>
-          <img src="../img/triply.svg">
-          <h3><a href="http://triply.cc">http://Triply.cc</a></h3>
+          <h1>Thank you!</h1>
+          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></p>
+          <p>Triply: <a href="http://triply.cc">triply.cc</a></p>
         </section>
         
       </div>
@@ -296,7 +260,8 @@
       ]
       });
     </script>
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
     <script>
       window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
