@@ -16,11 +16,8 @@
     dcterms:title "LOD Laundromat (archival package 2016/06)"@en-US ;
     foaf:page <http://lodlaundromat.org/> ;
     rdfs:isDefinedBy : ;
-    void:dataDump <LINK-TO-DARK-ARCHIVE-PROCEDURE> ;
-    void:documents "SOMETHING-SOMETHING"^^xsd:nonNegativeInteger ;
     void:feature <http://www.w3.org/ns/formats/N-Quads> ;
     void:sparqlEndpoint <http://lodlaundromat.org/sparql> ;
-    void:triples "SOMETHING-SOMETHING"^^xsd:nonNegativeInteger ;
     wv:norms <http://www.opendatacommons.org/norms/odc-by-sa/> .
     
 :frankVanHarmelen a foaf:Person ;
