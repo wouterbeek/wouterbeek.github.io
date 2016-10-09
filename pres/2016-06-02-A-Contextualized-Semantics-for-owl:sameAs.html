@@ -27,10 +27,8 @@
       link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
-    <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
-        <![endif]-->
     <style>
+      .img-full { height: 100%; width: 100%; }
       figure {
       float: left;
       height: 150px;
@@ -45,9 +43,6 @@
       margin: 0% 20% 0% 20%;
       max-height: 900px;
       max-width: 900px;
-      }
-      sup {
-      font-size: 40pt !important;
       }
     </style>
   </head>
@@ -125,39 +120,37 @@
           <h4>How formal meaning and social meaning collide</h4>
         </section>
         
-        <section data-background-image="../img/identity_crisis1.svg" data-background-size="800px">
+        <section>
+          <img class="img-full" src="../img/identity_crisis1.svg">
         </section>
 
-        <section data-background-image="../img/identity_crisis2.svg" data-background-size="700px">
+        <section>
+          <img class="img-full" src="../img/identity_crisis2.svg">
         </section>
 
-        <section data-background-image="../img/identity_crisis3.svg" data-background-size="800px">
+        <section>
+          <img class="img-full" src="../img/identity_crisis3.svg">
         </section>
 
-        <section data-background-image="../img/identity_crisis4.svg" data-background-size="1250px">
+        <section>
+          <img class="img-full" src="../img/identity_crisis4.svg">
         </section>
 
         <section>
           <h1>Existing solutions</h1>
         </section>
         
-        <!--
-            <section>
-              <h2>Extend <code>owl:sameAs</code> with...</h2>
-              <ul>
-                <li>fuzzyness metric</li>
-                <li>confidence metric</li>
-                <li>a distinction between use and mention</li>
-              </ul>
-            </section>
-            -->
-
         <section>
           <h2>Use weaker alternatives<br>(e.g. relatedness)</h2>
           <p class="fragment">Everything is related to everything.</p>
           <br>
           <div class="fragment">
-            <blockquote>SKOS exactMatch indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications</blockquote>
+            
+            <blockquote>SKOS exactMatch indicates a high degree of
+            confidence that two concepts can be used interchangeably
+            across a wide range of information retrieval
+            applications</blockquote>
+            
             <small>SKOS specification, 2009</small>
           </div>
         </section>
