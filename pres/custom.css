@@ -13,3 +13,37 @@ html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; m
   font-size: 120% !important;
   text-align: left !important;
 }
+
+.circle {
+  float: left;
+  width: 500px;
+  height: 500px;
+  border-radius: 500px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.inner {
+  padding-bottom: 55% !important;
+  padding-top: 45% !important;
+}
+
+.one {
+  background-color: #e2b4bd;
+}
+
+.two::before{
+  position: absolute !important;
+  left: 120px !important;
+}
+
+.two {
+  background-color: rgba(255,0,0,0.5);
+  margin-left: -120px !important;
+}
