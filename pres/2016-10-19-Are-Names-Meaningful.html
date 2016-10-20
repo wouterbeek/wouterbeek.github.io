@@ -119,8 +119,8 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
 
         <section>
           <h2>FORMAL meaning</h2>
-          <p>Classes: $$\{ tbox:Product, rdfs:Resource \}$$</p>
-          <p>Properties: $$\{ tbox:costs, tbox:sells \}$$</p>
+          <p>Classes: $\{ tbox:Product, rdfs:Resource \}$</p>
+          <p>Properties: $\{ tbox:costs, tbox:sells \}$</p>
           <div class="fragment">
             <h2>SOCIAL meaning</h2>
             <p>Name: <code>http://example.com/tent</code></p>
@@ -129,34 +129,34 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
 
         <section>
           <h2>Hypothesis test</h2>
-          <p>$$H_0$$: There is no mutual information between IRIs and
+          <p>$H_0$: There is no mutual information between IRIs and
             their classes/properties.</p>
         </section>
 
         <section>
           <h2>Hypothesis test</h2>
-          <p>$$C_0$$: Code that compresses optimally under $$H_0$$</p>
-          <p>$$C_A$$: Our code, uses the mutual information</p>
+          <p>$C_0$: Code that compresses optimally under $H_0$</p>
+          <p>$C_A$: Our code, uses the mutual information</p>
         </section>
 
         <section>
-          <h2>$$C_0$$</h2>
-          <p>Store meaning $$m \in M$$ using $$(m / |M|) \log_2
-          (m / |M|)$$ bits per IRI.</p>
+          <h4>$C_0$</h4>
+          <p>Store meaning $m \in M$ using $(m / |M|) \log_2
+          (m / |M|)$ bits per IRI.</p>
         </section>
         
         <section>
-          <h3>$$C_A$$</h3>
+          <h4>$C_A$</h4>
           <img class="img-full" src="../img/iri_tree.png">
         </section>
 
         <section>
-          <h3>$$C_A$$</h3>
+          <h4>$C_A$</h4>
           <img class="img-full" src="../img/iri_tree_highlight.png">
         </section>
         
         <section>
-          <h3>$$C_A$$</h3>
+          <h4>$C_A$</h4>
           <img class="img-full" src="../img/iri_tree_highlight_node.png">
           <p>Pitman-Yor code</p>
         </section>
@@ -164,9 +164,9 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
         <section>
           <h2>The boundary</h2>
           <ul>
-            <li>$$C_A(X | B) \,\Rightarrow\, P_A(X | B)$$</li>
-            <li class="fragment">$$P_A(X|B) P(B)$$
-            <li class="fragment">$$\sum_B P_A(X|B)P(B) \,\Rightarrow\, P_A(X) \,\Rightarrow\, C_A(X)$$</li>
+            <li>$C_A(X | B) \,\Rightarrow\, P_A(X | B)$</li>
+            <li class="fragment">$P_A(X|B) P(B)$
+            <li class="fragment">$\sum_B P_A(X|B)P(B) \,\Rightarrow\, P_A(X) \,\Rightarrow\, C_A(X)$</li>
           </ul>
         </section>
 
