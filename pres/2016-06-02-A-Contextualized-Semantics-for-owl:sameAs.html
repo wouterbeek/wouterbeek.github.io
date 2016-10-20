@@ -27,24 +27,7 @@
       link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
-    <style>
-      .img-full { height: 100%; width: 100%; }
-      figure {
-      float: left;
-      height: 150px;
-      margin: 55px !important;
-      width: 150px;
-      }
-      figure figcaption {
-      font-size: 20px !important;
-      }
-      html.img-right {
-      position: relative;
-      margin: 0% 20% 0% 20%;
-      max-height: 900px;
-      max-width: 900px;
-      }
-    </style>
+    <link rel="stylesheet" href="custom.css">
   </head>
   <body>
     <div class="reveal">
