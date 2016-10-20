@@ -42,7 +42,7 @@
           <h1>Are Names Meaningful?</h1>
           <h3>October 19<sup>th</sup>, 2016</h3>
           <h3>Steven De Rooij &amp; <b>Wouter Beek</b> &amp; <b>Peter
-          Bloem</b> &amp; Stefan Schlobach &amp; Frank Van
+          Bloem</b> &amp;<br> Stefan Schlobach &amp; Frank Van
           Harmelen</h3>
 	        <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
         </section>
@@ -128,25 +128,49 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
         </section>
 
         <section>
-          <h2>Create a compressor for FORMAL and SOCIAL</h2>
-          <p>???</p>
-        </section>
-
-        <section>
+          <h2>Hypothesis test</h2>
           <p>$$H_0$$: There is no mutual information between IRIs and
-          their classes/properties.</p>
+            their classes/properties.</p>
         </section>
 
         <section>
+          <h2>Hypothesis test</h2>
+          <p>$$C_0$$: Code that compresses optimally under $$H_0$$</p>
+          <p>$$C_A$$: Our code, uses the mutual information</p>
+        </section>
+
+        <section>
+          <h2>$$C_0$$</h2>
+          <p>Store meaning $$m \in M$$ using $$(m / |M|) \log_2
+          (m / |M|)$$ bits per IRI.</p>
+        </section>
+        
+        <section>
+          <h3>$$C_A$$</h3>
           <img class="img-full" src="../img/iri_tree.png">
         </section>
+
         <section>
+          <h3>$$C_A$$</h3>
           <img class="img-full" src="../img/iri_tree_highlight.png">
         </section>
+        
         <section>
+          <h3>$$C_A$$</h3>
           <img class="img-full" src="../img/iri_tree_highlight_node.png">
+          <p>Pitman-Yor code</p>
         </section>
 
+        <section>
+          <h2>The boundary</h2>
+          <ul>
+            <li>$$C_A(X | B) \,\Rightarrow\, P_A(X | B)$$</li>
+            <li class="fragment">$$P_A(X|B) P(B)$$
+            <li class="fragment">$$\sum_B P_A(X|B)P(B) \,\Rightarrow\, P_A(X) \,\Rightarrow\, C_A(X)$$</li>
+          </ul>
+        </section>
+
+        <!--
         <section data-background="#dddddd">
           <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
           <a href="http://lodlaundromat.org/basket/">
@@ -174,6 +198,7 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
             Publishing Other People’s Dirty Data” <em>ISWC</em>,
             2014.</small>
         </section>
+        -->
 
         <section>
           <h2>So… are names meaningful?</h2>
@@ -197,8 +222,8 @@ fy:jufn12 rdf:type fyufnt:tmffqt .<br>
         
         <section>
           <h1>Thank you!</h1>
-          <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></p>
-          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a>, <a href="http://peterbloem.nl">www.peterbloem.nl</a></p>
+          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>, <a href="mailto:vu@peterbloem.nl">vu@peterbloem.nl</a></p>
         </section>
         
       </div>
