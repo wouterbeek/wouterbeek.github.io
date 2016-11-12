@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Linked Data Lab</title>
     <script type="text/javascript" async
-	          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <meta name="description" content="Linked Data Lab Workshop.  Part of the Web Reasoning and Rule Systems Conference 2016.">
     <meta name="author" content="Wouter Beek; Stefan Schlobach">
@@ -42,7 +42,7 @@
         <section>
           <h1>Linked Data Lab</h1>
           <h3>September 9<sup>th</sup>, 2016</h3>
-	        <h4>Stefan Schlobach &amp; Wouter Beek</h4>
+	  <h4>Stefan Schlobach &amp; Wouter Beek</h4>
           <img src="../img/vu-krr-logo-print-600dpi.png">
         </section>
 
@@ -53,7 +53,7 @@
           </p>
           <img height="600px" src="../img/lastfm_foaf_knows.png">
         </section>
-		    
+	
         <section>
           <h1>Program</h1>
           <ul>
@@ -76,21 +76,21 @@
           </blockquote>
         </section>
 
-		    <section>
-	        <h3>An old AI dream come true?</h3>
-			    <ul>
-	          <li>Semantic Web = Well curated knowledge (ontologies)</li>
-	          <li>Web of Data = Unlimitted Data</li>
-	        </ul>
-	      </section>
+	<section>
+	  <h3>An old AI dream come true?</h3>
+	  <ul>
+	    <li>Semantic Web = Well curated knowledge (ontologies)</li>
+	    <li>Web of Data = Unlimitted Data</li>
+	  </ul>
+	</section>
 
-		    <section>
-	        <h3>Publishing Paradigms</h3>
-		      <ul>
-	          <li>Data dumps</li>
-	          <li>Triple stores </li>
-			      <li>The things inbetween (LDF,HDT)</li>
-	        </ul>
+	<section>
+	  <h3>Publishing Paradigms</h3>
+	  <ul>
+	    <li>Data dumps</li>
+	    <li>Triple stores </li>
+	    <li>The things inbetween (LDF,HDT)</li>
+	  </ul>
         </section> 
 
         <section id="linked-data-lab">
@@ -98,37 +98,37 @@
         </section>
 
         <section>
-	        <p>After 15 years most data cannot be automatically:</p>
-		      <ul>
-		        <li>found</li>
-		        <li>read</li>
-		        <li>queried</li>
-		        <li>reasoned over (only implicit in this presentation)</li>
-		      </ul>
-			    <p>Many PhD students' worse nightmare... </p>
-	        <!--
-		          <li>Clash between semantics and pragmatics</li>
-		          <ul>
-		            <li>Theory of identity vs practice of linking</li>
-		            <li>Formal meaning vs social meaning</li>
-		            <li>Universal statements vs trivia</li>
-		          </ul>
-		          -->
-	      </section>
-	      
-	      <section>
-	        <h2>Problem 1</h2>
-	        <h3>Most data cannot be <i>found</i></h3>
-	        <ul>
-	          <li>SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
-	          <li>Most SW datasets are not available online.</li>
-	          <li>Most online datasets are not registered in any catalogue.</li>
-	        </ul>
-	      </section>
-	      
-	      <section>
-	        <h2>Problem 2</h2>
-	        <h3>Most data cannot be <i>read</i></h3>
+	  <p>After 15 years most data cannot be automatically:</p>
+	  <ul>
+	    <li>found</li>
+	    <li>read</li>
+	    <li>queried</li>
+	    <li>reasoned over (only implicit in this presentation)</li>
+	  </ul>
+	  <p>Many PhD students' worse nightmare... </p>
+	  <!--
+	      <li>Clash between semantics and pragmatics</li>
+	      <ul>
+		<li>Theory of identity vs practice of linking</li>
+		<li>Formal meaning vs social meaning</li>
+		<li>Universal statements vs trivia</li>
+	      </ul>
+	      -->
+	</section>
+	
+	<section>
+	  <h2>Problem 1</h2>
+	  <h3>Most data cannot be <i>found</i></h3>
+	  <ul>
+	    <li>SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
+	    <li>Most SW datasets are not available online.</li>
+	    <li>Most online datasets are not registered in any catalogue.</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h2>Problem 2</h2>
+	  <h3>Most data cannot be <i>read</i></h3>
           <p><a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a> (&lt; 10% syntactically correct)</p>
         </section>
 
@@ -136,203 +136,203 @@
           <img src="../img/screen.png">
         </section>
         
-	      <section>
-		      <h3>The WWW is not standards-compliant either, but:</h3>
-		      <ul>
-		        <li>WWW tools optimized for common errors</li>
-		        <li>WWW consumers have human-level intelligence</li>
-		      </ul>
-	      </section>
+	<section>
+	  <h3>The WWW is not standards-compliant either, but:</h3>
+	  <ul>
+	    <li>WWW tools optimized for common errors</li>
+	    <li>WWW consumers have human-level intelligence</li>
+	  </ul>
+	</section>
         
         <section>
-		      <h2>Why is data dirty?</h2>
-		      <div style="float: left;">
-		        <ul>
-		          <li>Character encoding issues</li>
-		          <li>Socket errors</li>
-		          <li>Protocol errors</li>
-		          <li>Corrupted archives</li>
-		          <li>Authentication problems</li>
-		          <li>Syntax errors</li>
-		          <li>Wrong metadata</li>
-		        </ul>
-		      </div>
-		      <div style="float: right;">
-		        <ul>
-		          <li>Lexical form ≠ value</li>
-		          <li>Non-canonical lexical form</li>
-		          <li>Logically inconsistent</li>
-		          <li>...</li>
-		        </ul>
-		      </div>
+	  <h2>Why is data dirty?</h2>
+	  <div style="float: left;">
+	    <ul>
+	      <li>Character encoding issues</li>
+	      <li>Socket errors</li>
+	      <li>Protocol errors</li>
+	      <li>Corrupted archives</li>
+	      <li>Authentication problems</li>
+	      <li>Syntax errors</li>
+	      <li>Wrong metadata</li>
+	    </ul>
+	  </div>
+	  <div style="float: right;">
+	    <ul>
+	      <li>Lexical form ≠ value</li>
+	      <li>Non-canonical lexical form</li>
+	      <li>Logically inconsistent</li>
+	      <li>...</li>
+	    </ul>
+	  </div>
         </section>
-	      
-	      <section>
-	        <h2>Problem 3</h2>
-	        <h3>Most data cannot be <i>queried</i></h3>
-	        <ul>
-	          <li>Data dumps are the most popular deployment strategy</li>
-	          <li>Many live queriable datasets have a custom API</li>
-	          <li>Most custom APIs are not self-describing</li>
-	          <li>Many SPARQL endpoints enforce restrictions</li>
-	          <li>Most SPARQL endpoints that do not enforce restrictions have low availability</li>
-	          <li>Different SPARQL endpoints enforce different restrictions</li>
-	          <li>Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
-	          <li>Web-scale federated querying has not even been considered</li>
-	        </ul>
-	      </section>
-	      
-	      <section>
-	        <h4>Query endpoint availablility according to <em>LODStats</em></h4>
-	        <img src="../img/availability2015.png" style="max-height: 625px;"/>
-	      </section>
+	
+	<section>
+	  <h2>Problem 3</h2>
+	  <h3>Most data cannot be <i>queried</i></h3>
+	  <ul>
+	    <li>Data dumps are the most popular deployment strategy</li>
+	    <li>Many live queriable datasets have a custom API</li>
+	    <li>Most custom APIs are not self-describing</li>
+	    <li>Many SPARQL endpoints enforce restrictions</li>
+	    <li>Most SPARQL endpoints that do not enforce restrictions have low availability</li>
+	    <li>Different SPARQL endpoints enforce different restrictions</li>
+	    <li>Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
+	    <li>Web-scale federated querying has not even been considered</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h4>Query endpoint availablility according to <em>LODStats</em></h4>
+	  <img src="../img/availability2015.png" style="max-height: 625px;"/>
+	</section>
 
-	      <section>
-	        <h3>SPARQL cannot fulfill the role of SW query language</h3>
-	        <p>There are millions of data documents but
-	          only hundreds of live query endpoints with reasonable
-	          availability.</p>
-	        <p>Existing deployment techniques are
-	          unable to close the gap between downloadable data dumps and
-	          live queryable data.</p>
-	        <p>Data is growing faster than SPARQL
-	          deployment uptake.</p>
-	      </section>
+	<section>
+	  <h3>SPARQL cannot fulfill the role of SW query language</h3>
+	  <p>There are millions of data documents but
+	    only hundreds of live query endpoints with reasonable
+	    availability.</p>
+	  <p>Existing deployment techniques are
+	    unable to close the gap between downloadable data dumps and
+	    live queryable data.</p>
+	  <p>Data is growing faster than SPARQL
+	    deployment uptake.</p>
+	</section>
 
-	      <section>
-		      <h2>Problem 4</h2>
-		      <h3>Most data cannot be <i>reasoned over</i></h3>
-		      <ul>
-		        <li>No standardized way of selecting the
-		          entailment regime in SPARQL</li>
-		        <li>Some entailment results cannot be
-		          expressed in RDF</li>
-		        <li>Most triple stores only implement
-		          subsets of RDF(S) and OWL entailment</li>
-		        <li>Different triple stores implement
-		          different subsets of different version of RDF(S) and
-		          OWL</li>
-		        <li>Web-scale reasoning has only been
-		          performed in the lab</li>
+	<section>
+	  <h2>Problem 4</h2>
+	  <h3>Most data cannot be <i>reasoned over</i></h3>
+	  <ul>
+	    <li>No standardized way of selecting the
+	      entailment regime in SPARQL</li>
+	    <li>Some entailment results cannot be
+	      expressed in RDF</li>
+	    <li>Most triple stores only implement
+	      subsets of RDF(S) and OWL entailment</li>
+	    <li>Different triple stores implement
+	      different subsets of different version of RDF(S) and
+	      OWL</li>
+	    <li>Web-scale reasoning has only been
+	      performed in the lab</li>
             <li>Federation does not scale to hundreds
               of thousands of endpoints</li>
-		      </ul>
-	      </section>
+	  </ul>
+	</section>
 
         <section>
-	        <h1>Why is it not working?</h1>
-	      </section>
+	  <h1>Why is it not working?</h1>
+	</section>
         
-	      <section>
-	        <h2>[1] Distributed approach</h2>
-	        <p>Coordination techniques:</p>
-	        <ul>
+	<section>
+	  <h2>[1] Distributed approach</h2>
+	  <p>Coordination techniques:</p>
+	  <ul>
             <li>Standards</li>
-	          <li>Guidelines</li>
-	          <li>Best practices</li>
-	          <li>Tools</li>
-	        </ul>
-	        <p>Targeted towards humans</p>
-	        <p>Inherently slow</p>
-	        <p>Mixed results after 15 years</p>
-	      </section>
+	    <li>Guidelines</li>
+	    <li>Best practices</li>
+	    <li>Tools</li>
+	  </ul>
+	  <p>Targeted towards humans</p>
+	  <p>Inherently slow</p>
+	  <p>Mixed results after 15 years</p>
+	</section>
         
-	      <section>
-	        <h2>[2] Data navigation broken by design</h2>
-	        <img src="../img/navigation1.jpg" height="400"/>
-	      </section>
+	<section>
+	  <h2>[2] Data navigation broken by design</h2>
+	  <img src="../img/navigation1.jpg" height="400"/>
+	</section>
         
-	      <section>
-	        <h2>[3] Broken cost-benefit model</h2>
-	        <img src="../img/sparql.svg" height="400"/>
+	<section>
+	  <h2>[3] Broken cost-benefit model</h2>
+	  <img src="../img/sparql.svg" height="400"/>
         </section>
 
         <section>
-	        <h2>[3] Broken cost-benefit model</h2>
-	        <p>Allocative efficiency: the price a consumer pays should
-	          equal the marginal cost of producing the consumed service.
-	          Since a client pays nothing and the marginal cost of
-	          production is relatively high, the SPARQL paradigm is
-	          inherently far removed from allocative efficiency.</p>
-	        <ul>
-	          <li>Publishing large volumes of
-	            high-quality data is penalized.</li>
-	          <li>Consuming large volumes of data /
-	            asking DDOS-like queries is free.</li>
-	        </ul>
-	      </section>
+	  <h2>[3] Broken cost-benefit model</h2>
+	  <p>Allocative efficiency: the price a consumer pays should
+	    equal the marginal cost of producing the consumed service.
+	    Since a client pays nothing and the marginal cost of
+	    production is relatively high, the SPARQL paradigm is
+	    inherently far removed from allocative efficiency.</p>
+	  <ul>
+	    <li>Publishing large volumes of
+	      high-quality data is penalized.</li>
+	    <li>Consuming large volumes of data /
+	      asking DDOS-like queries is free.</li>
+	  </ul>
+	</section>
 
         <section>
-	        <h2>[4] Complex Usefullness/Cost Balance</h2>
-	        <ul>
-	          <li>Useful publishing is expensive</li>
-	          <li>Cheep publishing often not useful</li>
-	        </ul>
-	      </section>
+	  <h2>[4] Complex Usefullness/Cost Balance</h2>
+	  <ul>
+	    <li>Useful publishing is expensive</li>
+	    <li>Cheep publishing often not useful</li>
+	  </ul>
+	</section>
 
         <!--
-	          <section>
-		          <h2>LOD Laundromat approach</h2>
-		          <dl>
-		            <dt>Distribution</dt>
-		            <dd>Centralises the gathering, cleaning, querying and (re)publishing of Linked Open Data</dd>
-		            <dt>Re-use</dt>
-		            <dd>Does not use SPARQL for disseminating data</dd>
-		            <dt>Navigation</dt>
-		            <dd>Drop the dereferenceability requirement for IRIs</dd>
-		          </dl>
-	          </section>
+	    <section>
+	      <h2>LOD Laundromat approach</h2>
+	      <dl>
+		<dt>Distribution</dt>
+		<dd>Centralises the gathering, cleaning, querying and (re)publishing of Linked Open Data</dd>
+		<dt>Re-use</dt>
+		<dd>Does not use SPARQL for disseminating data</dd>
+		<dt>Navigation</dt>
+		<dd>Drop the dereferenceability requirement for IRIs</dd>
+	      </dl>
+	    </section>
             -->
 
         <section>
-	        <h1>How to redeploy the Semantic Web?</h1>
-	        <ol>
-	          <li>Data collection</li>
-	          <li>Data cleaning</li>
-	          <li>Data publishing</li>
-	          <li>Data consumption</li>
-	          <li>Text-based search</li>
-	          <li>Web-scale BGP answering</li>
-	          <li>Web-scale backwards chaining</li>
-	        </ol>
+	  <h1>How to redeploy the Semantic Web?</h1>
+	  <ol>
+	    <li>Data collection</li>
+	    <li>Data cleaning</li>
+	    <li>Data publishing</li>
+	    <li>Data consumption</li>
+	    <li>Text-based search</li>
+	    <li>Web-scale BGP answering</li>
+	    <li>Web-scale backwards chaining</li>
+	  </ol>
         </section>
 
         <section>
-	        <h1>[1] Data collection</h1>
-	      </section>
+	  <h1>[1] Data collection</h1>
+	</section>
         
-	      <section>
-		      <ul>
-		        <li>Scrape catalogues
-		          <ul>
-		            <li>Custom API (CKAN)</li>
-		            <li>HTML (VoID Store, LOV)</li>
-		        </ul></li>
-		        <li>Interpret metadata vocabularies (VoID,DCAT)</li>
-		        <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
-		        <li>Craw dereferenceable IRIs</li>
-		        <li>Hard-craft a seed list</li>
-		        <li>Crowd-source the seed list</li>
-		      </ul>
-	      </section>
+	<section>
+	  <ul>
+	    <li>Scrape catalogues
+	      <ul>
+		<li>Custom API (CKAN)</li>
+		<li>HTML (VoID Store, LOV)</li>
+	    </ul></li>
+	    <li>Interpret metadata vocabularies (VoID,DCAT)</li>
+	    <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+	    <li>Craw dereferenceable IRIs</li>
+	    <li>Hard-craft a seed list</li>
+	    <li>Crowd-source the seed list</li>
+	  </ul>
+	</section>
 
         <section>
           <h1>[2] Data cleaning</h1>
-	      </section>
+	</section>
         
-	      <section>
-	        <h2>New solution for data cleaning</h2>
-	        <div>
-	          <p>(1) Automate conformity to standards</p>
-	          <p>"Days not decades"</p>
-	        </div>
-	        <br/>
-	        <br/>
-	        <div>
-	          <p>(2) Tools → Web Service</p>
-	        </div>
-	      </section>
-	      
+	<section>
+	  <h2>New solution for data cleaning</h2>
+	  <div>
+	    <p>(1) Automate conformity to standards</p>
+	    <p>"Days not decades"</p>
+	  </div>
+	  <br/>
+	  <br/>
+	  <div>
+	    <p>(2) Tools → Web Service</p>
+	  </div>
+	</section>
+	
         <section>
           <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
           <a href="http://lodlaundromat.org/basket/">
@@ -359,24 +359,24 @@
         </section>
         
         <section>
-	        <h1>[3] Data publishing</h1>
+	  <h1>[3] Data publishing</h1>
         </section>
-	      
-	      <section>
-	        <h2>Fix the cost/benefit model</h2>
-	        <p>(1) Publishing data is free</p>
-	        <p>(2a) Asking more questions increases client costs</p>
-	        <p>(2b) Asking more complex questions increases client costs</p>
-	      </section>
+	
+	<section>
+	  <h2>Fix the cost/benefit model</h2>
+	  <p>(1) Publishing data is free</p>
+	  <p>(2a) Asking more questions increases client costs</p>
+	  <p>(2b) Asking more complex questions increases client costs</p>
+	</section>
         
-	      <section>
+	<section>
           <h3>How to query &gt;30B statements</h3>
-	        <img src="../img/sparql.svg" height="350"/>
-	        <img src="../img/ldf.svg" height="350"/>
+	  <img src="../img/sparql.svg" height="350"/>
+	  <img src="../img/ldf.svg" height="350"/>
           <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander
             Sande &amp; Schlobach, “Linked Data-as-a-Service: The
             Semantic Web Redeployed” <em>ESWC</em> 2015</small>
-	      </section>
+	</section>
         
         <section>
           <h2>SW layer cake</h2>
@@ -394,43 +394,43 @@
           </small>
         </section>
 
-	      <section>
-	        <h2>Why it works: HDT + SSD + LDF</h2>
-	        <br/>
-	        <p><b>HDT</b>: Disk-based, efficient yet queryable storage</p>
-	        <br/>
-	        <br/>
-	        <p><b>SSD</b>: Disks become faster and cheaper</p>
-	        <!-- 6TB SSD in the new LOD Laundromat. -->
-	        <br/>
-	        <br/>
-	        <p><b>LDF</b>: BGP queries require client-side joins</p>
-	      </section>
+	<section>
+	  <h2>Why it works: HDT + SSD + LDF</h2>
+	  <br/>
+	  <p><b>HDT</b>: Disk-based, efficient yet queryable storage</p>
+	  <br/>
+	  <br/>
+	  <p><b>SSD</b>: Disks become faster and cheaper</p>
+	  <!-- 6TB SSD in the new LOD Laundromat. -->
+	  <br/>
+	  <br/>
+	  <p><b>LDF</b>: BGP queries require client-side joins</p>
+	</section>
 
-	      <section>
-	        <h2>Data consumption tools</h2>
-			    <ul>
-			      <li>From Natural language to Resources (Lotus)</li>
-			      <li>From Resources to documents (Index)</li>
-			      <li>Resources in the knowledge graph (LDF)</li>
-			      <li>Properties of the graphs (Metadata)</li>
-			      <li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
-			    </ul>
-	      </section>
+	<section>
+	  <h2>Data consumption tools</h2>
+	  <ul>
+	    <li>From Natural language to Resources (Lotus)</li>
+	    <li>From Resources to documents (Index)</li>
+	    <li>Resources in the knowledge graph (LDF)</li>
+	    <li>Properties of the graphs (Metadata)</li>
+	    <li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
+	  </ul>
+	</section>
 
-		    
+	
         <section>
-	        <h1>[4] Data consumption</h1>
-	      </section>
+	  <h1>[4] Data consumption</h1>
+	</section>
         
-	      <section>
-	        <h2>Data navigation fixed</h2>
-	        <img src="../img/navigation2.jpg"/>
-	      </section>
+	<section>
+	  <h2>Data navigation fixed</h2>
+	  <img src="../img/navigation2.jpg"/>
+	</section>
 
         <section>
-	        <h1>[5] Natural language text search</h1>
-	      </section>
+	  <h1>[5] Natural language text search</h1>
+	</section>
         
         <section>
           <h1>LOTUS</h1>
@@ -454,40 +454,40 @@
         </section>
 
         <section>
-	        <h2>LOTUS in numbers</h2>
-	        <table>
-	          <thead>
-		          <tr><th>Metric</th><th>Number</th></tr>
-	          </thead>
-	          <tbody>
-		          <tr><td># literals</td><td>12,018,939,378</td></tr>
-		          <tr><td># integers and dates</td><td>6,699,148,542</td></tr>
-		          <tr><td># indexed strings</td><td>5,319,790,836</td></tr>
-		          <tr><td># distinct sources</td><td>508,244</td></tr>
-		          <tr><td># distinct languages</td><td>713</td></tr>
-		          <tr><td># hours to create index</td><td>56</td></tr>
-		          <tr><td>disk space use</td><td>484.77 GB</td></tr>
-	          </tbody>
-	        </table>
-	      </section>
+	  <h2>LOTUS in numbers</h2>
+	  <table>
+	    <thead>
+	      <tr><th>Metric</th><th>Number</th></tr>
+	    </thead>
+	    <tbody>
+	      <tr><td># literals</td><td>12,018,939,378</td></tr>
+	      <tr><td># integers and dates</td><td>6,699,148,542</td></tr>
+	      <tr><td># indexed strings</td><td>5,319,790,836</td></tr>
+	      <tr><td># distinct sources</td><td>508,244</td></tr>
+	      <tr><td># distinct languages</td><td>713</td></tr>
+	      <tr><td># hours to create index</td><td>56</td></tr>
+	      <tr><td>disk space use</td><td>484.77 GB</td></tr>
+	    </tbody>
+	  </table>
+	</section>
         <!-- 
-	           <section>
+	     <section>
                <h2>[6] Streamed BGP answering</h2>
-		           <ul>
-		             <li>LOD Cloud-wide triple pattern selectivity estimates</li>
-		             <li>Client-side query reordering</li>
-		             <li>Client-side symmetric hash joins</li>
-		             <li>Culprit 1: Identity closure (800M)</li>
-		             <li>Culprit 2: Natural language index (1.5-2B)</li>
-		           </ul>
-	           </section>
-		         -->
+	       <ul>
+		 <li>LOD Cloud-wide triple pattern selectivity estimates</li>
+		 <li>Client-side query reordering</li>
+		 <li>Client-side symmetric hash joins</li>
+		 <li>Culprit 1: Identity closure (800M)</li>
+		 <li>Culprit 2: Natural language index (1.5-2B)</li>
+	       </ul>
+	     </section>
+	     -->
 
         <section>
-		      <h1>Why bother? LOD Lab</h1>	 
-		      <h2>Web-scale evaluation (and reasoning)</h2>
-		      <b>An example for scaling up to Web Size.</b>
-		    </section>
+	  <h1>Why bother? LOD Lab</h1>	 
+	  <h2>Web-scale evaluation (and reasoning)</h2>
+	  <b>An example for scaling up to Web Size.</b>
+	</section>
         
         <section>
           <h3>How generalizable is SW research?</h3>
@@ -683,11 +683,11 @@
         </section>
 
         <section>
-	        <h2>Anytime Reasoning based on adding axioms</h2>
-	        <img src="../img/graphicsReasoning.png" class="blank" height="450px">
+	  <h2>Anytime Reasoning based on adding axioms</h2>
+	  <img src="../img/graphicsReasoning.png" class="blank" height="450px">
         </section>
-	      
-	      
+	
+	
         
 
         <section>
@@ -704,13 +704,13 @@
         </section>
 
         <section id="find-iris-with-lotus">
-	        <h1>Find IRIs with <em>LOTUS</em></h1>
+	  <h1>Find IRIs with <em>LOTUS</em></h1>
         </section>
 
         <section>
-	        <center>
+	  <center>
             <img src="../img/lotus.svg"/ height="300px">
-	        </center>
+	  </center>
           <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
         </section>
 
@@ -745,7 +745,7 @@
         </section>
 
         <section id="find-documents-with-lod-laundromat">
-	        <h2>Find documents with<br><em>LOD Laundromat</em></h2>
+	  <h2>Find documents with<br><em>LOD Laundromat</em></h2>
         </section>
 
         <section>
@@ -756,7 +756,7 @@
           <p><a href="http://lodlaundromat.org/sparql">lodlaundromat.org/sparql</a></p>
           <hr>
           <h3>With <em>Frank</em></h3>
-	        <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>          
+	  <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>          
         </section>
 
         <section>
@@ -820,11 +820,11 @@
         </section>
 
         <section id="find-statements-with-frank">
-	        <h2>Find statements with <em>Frank</em></h2>
-	        <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
-	        <img src="../img/openDoor.png" class="blank" height="350px">
-	        <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
-	        <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+	  <h2>Find statements with <em>Frank</em></h2>
+	  <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
+	  <img src="../img/openDoor.png" class="blank" height="350px">
+	  <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
+	  <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
         </section>
 
         <section>
@@ -836,19 +836,19 @@
           </ol>
           <hr>
           <p>Example “Info about ‘dbr:Monkey’ from one document”:</p>
-	        <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
+	  <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
         </section>
 
         <section>
           <h2>With <em>Frank</em></h2>
           <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
-	        <p style="font-family: monospace; font-size: 100%;">
+	  <p style="font-family: monospace; font-size: 100%;">
             frank statements -s dbr:Monkey
           </p>
           <br>
           <div>
             <h4>+ show the document</h4>
-	          <p style="font-family: monospace; font-size: 100%;">
+	    <p style="font-family: monospace; font-size: 100%;">
               frank statements -s dbr:Monkey <span style="color: red;">-g</span>
             </p>
           </div>
