@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to Query Cadastral Big Data?</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Query Ledger">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>How to Query Cadastral Big Data?</h1>
+	  <h3>Or: How to SPARQL 100,000,000,000 statements without
+	    blowing up?</h3>
+          <!--<h5>Wouter Beek, Christophe Debruyne</h5>-->
+          <img src="../img/triply.svg" height="150px">
+        </section>
+
+        <section>
+          <h2>Properties of Cadastral Big Data</h2>
+
+          <ul>
+            <li>Billions of statements</li>
+            <li>Worst-case precision <em>at least</em> 1.0e-6
+            (~11cm)</li>
+            <li>High ánd low complexity geometries</li>
+            <li>2D ánd 3D geometries: projection currently not
+              standardized</li>
+            <li>Fast data joins</li>
+            <li>Fast filters</li>
+            <li>Fast geo functions</li>
+            <li>Fast schema queries</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Stakeholder Wishlist</h2>
+          <ul>
+            <li>External ánd internal rings: the famous ‘donut’
+              problem.</li>
+            <!--<li>Current implementations simplify polygons with
+                Convex hulls.</li>-->
+            <li>Syntactic sugar for mapping functions → queries
+              (e.g., <code>geo:sfWithin</code>)</li>
+            <li>Accept multiple serializations: WKT, GML</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Open issue: geometry representation</h2>
+          <pre>
+            <code>
+              entity:x geosparql:defaultGeometry _:1                .
+              _:1      geosparql:asWKT           "POLYGON((…))"     ;
+                       rdf:type                  geosparql:Geometry .
+            </code>
+          </pre>
+          <pre>
+            <code>
+              entity:x def:geometry "POLYGON((…))"^^def:polygon .
+            </code>
+          </pre>
+        </section>
+        
+	<section>
+          <h3>Query</h3>
+	  <pre>
+	    <code>
+SELECT ?yr {
+  ?journal rdf:type bench:Journal .
+  ?journal dc:title "Journal 1 (1940)"^^xsd:string .
+  ?journal dcterms:issued ?yr 
+}
+	    </code>
+	  </pre>
+	  <h3>Query ledger:</h3>
+	  <code>
+	    <pre>
+1726: BGP
+  ├ 7: ?journal dc:title "Journal 1 (1940)" .
+  ├ 109: ?journal a bench:Journal .
+  └ 1610: ?journal dcterms:issued ?yr .
+	    </pre>
+	  </code>
+	</section>
+
+        <section>
+          <h2>The competition</h2>
+          <ul>
+            <li>OntoText GraphDB</li>
+            <li>Oracle Spatial & Graph</li>
+            <li>Triply reference store</li>
+            <li>SAP?</li>
+            <li>others?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Close the SPARQL/API gap</h3>
+          <pre>
+            <code>
+> GET /geoInfo?country=Nederland
+> Accept: application/json
+> Host: https://example.com
+
+{
+  "capital": "Amsterdam",
+  "provinces": ["Limburg","Brabant",…],
+  "population": 16000000
+}
+            </code>
+          </pre>
+
+          <pre>
+            <code>
+SELECT ?country
+PROJECTION {
+  "capital": ?capital,
+  "provinces": [?province],
+  "population": ?population
+} WHERE {
+  ?country def:hasCapital ?capital ;
+           def:hasProvince ?province ;
+           def:hasPopulation ?population .
+}
+            </code>
+          </pre>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
