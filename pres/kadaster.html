@@ -12,7 +12,7 @@
       });
     </script>
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <meta name="description" content="Query Ledger">
+    <meta name="description" content="How to Query Cadastral Big Data?">
     <meta name="author" content="Wouter Beek">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@
 
         <section>
           <h1>How to Query Cadastral Big Data?</h1>
-	  <h3>Or: How to SPARQL 100,000,000,000 statements without
+	  <h3>Or: How to GeoSPARQL 1,000,000,000 statements without
 	    blowing up?</h3>
           <!--<h5>Wouter Beek, Christophe Debruyne</h5>-->
           <img src="../img/triply.svg" height="150px">
@@ -50,7 +50,7 @@
           <h2>Properties of Cadastral Big Data</h2>
 
           <ul>
-            <li>Billions of statements</li>
+            <li>At least a billion statements</li>
             <li>Worst-case precision <em>at least</em> 1.0e-6
             (~11cm)</li>
             <li>High ánd low complexity geometries</li>
@@ -68,14 +68,14 @@
           <ul>
             <li>External ánd internal rings: the famous ‘donut’
               problem.</li>
-            <!--<li>Current implementations simplify polygons with
-                Convex hulls.</li>-->
+            <li>Current implementations simplify polygons with Convex
+                hulls.</li>
             <li>Syntactic sugar for mapping functions → queries
-              (e.g., <code>geo:sfWithin</code>)</li>
-            <li>Accept multiple serializations: WKT, GML</li>
+              (e.g., <code>geo:sfWithin</code>).</li>
+            <li>Accept multiple serializations: WKT, GML.</li>
           </ul>
         </section>
-
+<!--
         <section>
           <h2>Open issue: geometry representation</h2>
           <pre>
@@ -91,9 +91,21 @@
             </code>
           </pre>
         </section>
-        
+-->
+
+        <section>
+          <h2>The competition</h2>
+          <ul>
+            <li>OntoText GraphDB</li>
+            <li>Oracle Spatial & Graph</li>
+            <li>Triply reference store</li>
+            <li>SAP?</li>
+          </ul>
+        </section>
+
 	<section>
-          <h3>Query</h3>
+          <h3>Triply reference store</h3>
+          <p>Query:</p>
 	  <pre>
 	    <code>
 SELECT ?yr {
@@ -103,7 +115,7 @@ SELECT ?yr {
 }
 	    </code>
 	  </pre>
-	  <h3>Query ledger:</h3>
+	  <p>Query ledger:</p>
 	  <code>
 	    <pre>
 1726: BGP
@@ -113,20 +125,9 @@ SELECT ?yr {
 	    </pre>
 	  </code>
 	</section>
-
+        
         <section>
-          <h2>The competition</h2>
-          <ul>
-            <li>OntoText GraphDB</li>
-            <li>Oracle Spatial & Graph</li>
-            <li>Triply reference store</li>
-            <li>SAP?</li>
-            <li>others?</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Close the SPARQL/API gap</h3>
+          <h3>Close the SPARQL/API gap (1/2)</h3>
           <pre>
             <code>
 > GET /geoInfo?country=Nederland
@@ -140,7 +141,11 @@ SELECT ?yr {
 }
             </code>
           </pre>
+          <p>That's a nice Web API!</p>
+        </section>
 
+        <section>
+          <h3>Close the SPARQL/API gap (2/2)</h3>
           <pre>
             <code>
 SELECT ?country
@@ -155,6 +160,7 @@ PROJECTION {
 }
             </code>
           </pre>
+          <p>It's actually SPARQL…</p>
         </section>
 
       </div>
