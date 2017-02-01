@@ -49,6 +49,52 @@
         </section>
 
         <section>
+          <h2>How much structured data is there?</h2>
+          <ul>
+            <li><i>WebDataCommons</i>: 44.2B statements from
+              Microdata, Embedded JSON-LD, RDFa and Microformats (5.6M
+              PLDs).</li>
+            <li><i>LOD Laundromat</i>: 38,6B statements from data
+              documents (650K documents).</li>
+            <li>~600 <i>SPARQL endpoints</i></li>
+            <li>We know there is <i>much</i> more out there.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="../img/basket.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="../img/laundry.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="../img/wardrobe.png" width="200">
+          </a>
+          <br>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="../img/analysis.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+            <img src="../img/labels.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/about/">
+            <img src="../img/laundryLine.png" width="200">
+          </a>
+          <br>
+          <small>Beek &amp; Rietveld &amp; Bazoobandi &amp;
+            Wielemaker &amp; Schlobach “LOD laundromat: A Uniform
+            Way of Publishing Other People’s Dirty
+            Data” <em>ISWC</em>, 2014.</small>
+          <br>
+          <small>Best Linked Data Application Award 2015.</small>
+          <br>
+          <small>3<sup>rd</sup> prize, European Linkd Data
+            Application Award.</small>
+        </section>
+
+        <section>
           <a href="../img/iriLongtail.svg">
             <img src="../img/iriLongtail.svg">
           </a>
@@ -96,52 +142,6 @@
 
                - We hebben nog steeds maar een heel klein deel van de
                LOD Cloud bestudeerd.-->
-        </section>
-
-        <section>
-          <h2>How much structured data is there?</h2>
-          <ul>
-            <li><i>WebDataCommons</i>: 44.2B statements from
-              Microdata, Embedded JSON-LD, RDFa and Microformats (5.6M
-              PLDs).</li>
-            <li><i>LOD Laundromat</i>: 38,6B statements from data
-              documents (650K documents).</li>
-            <li>~600 <i>SPARQL endpoints</i></li>
-            <li>We know there is <i>much</i> more out there.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
-          <a href="http://lodlaundromat.org/basket/">
-            <img src="../img/basket.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/">
-            <img src="../img/laundry.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/wardrobe/">
-            <img src="../img/wardrobe.png" width="200">
-          </a>
-          <br>
-          <a href="http://lodlaundromat.org/visualizations/">
-            <img src="../img/analysis.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-            <img src="../img/labels.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/about/">
-            <img src="../img/laundryLine.png" width="200">
-          </a>
-          <br>
-          <small>Beek &amp; Rietveld &amp; Bazoobandi &amp;
-            Wielemaker &amp; Schlobach “LOD laundromat: A Uniform
-            Way of Publishing Other People’s Dirty
-            Data” <em>ISWC</em>, 2014.</small>
-          <br>
-          <small>Best Linked Data Application Award 2015.</small>
-          <br>
-          <small>3<sup>rd</sup> prize, European Linkd Data
-            Application Award.</small>
         </section>
 
         <section>
