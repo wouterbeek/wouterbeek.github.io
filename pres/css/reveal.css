@@ -1,3 +1,138 @@
+@keyframes car123 {
+  0%   {left: -1000px; top: 0px;}
+  100% {left: 600px; top: 0px;}
+}
+/*
+@keyframes car2 {
+  0%   {left: -900px; top: 0px;}
+  100% {left: 800px; top: 0px;}
+}
+@keyframes car3 {
+  0%   {left: -800px; top: 0px;}
+  100% {left: 800px; top: 0px;}
+}
+*/
+@keyframes car4 {
+  0%   {left: -1000px; top: 100px;}
+  100% {left: 800px; top: 100px;}
+}
+@keyframes truck1 {
+  0%   {left: 800px; top: 200px;}
+  100% {left: -1000px; top: 200px;}
+}
+@keyframes bike1 {
+    0%   {left: 400px; top: -300px;}
+    25%  {left: 400px; top: -150px;}
+    50%  {left: 400px; top: 0px;}
+    75%  {left: 400px; top: 0px;}
+    100%  {left: 400px; top: 0px;}
+}
+@keyframes wiel {
+    0%   {fill: red;}
+    10% {fill: orange;}
+    20% {fill: yellow;}
+    30% {fill: green;}
+    40% {fill: blue;}
+    60% {fill: purple;}
+    80% {fill: pink;}
+    100% {fill: red;}
+}
+@keyframes bike2 {
+    0%   {left: 300px; top: -400px;}
+    /*25%  {left: 0px; top: -200px;}
+    50%  {left: 0px; top: 0px;}
+    75%  {left: 0px; top: 200px;}*/
+    100%  {left: 300px; top: 400px;}
+}
+@keyframes bike3 {
+    0%   {left: 450px; top: -400px;}
+    25%  {left: 450px; top: -300px;}
+    50%  {left: 450px; top: -200px;}
+    75%  {left: 450px; top: -100px;}
+    100%  {left: 450px; top: 0px;}
+}
+
+.car123 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: car123;
+  animation-duration: 4s;
+}
+.car2 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: car2;
+  animation-duration: 8s;
+}
+.car3 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: car3;
+  animation-duration: 5s;
+}
+.car4 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: car4;
+  animation-duration: 8s;
+}
+.truck1 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: truck1;
+  animation-duration: 2s;
+}
+.wiel {
+  animation-iteration-count: infinite;
+  animation-name: wiel;
+  animation-duration: 1s;
+}
+.bike1 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: bike1;
+  animation-duration: 8s;
+}
+.bike2 {
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: bike2;
+  animation-duration: 8s;
+}
+.bike3 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  animation-name: bike3;
+  animation-duration: 2s;
+}
+
+/*
+@keyframes diagonal-slide {
+  from { left: 0; top: 0; }
+  to { left: 100px; top: 100px; }
+}
+.test {
+  animation-duration: 5s;
+  animation-iteration-count: 10;
+  animation-name: diagonal-slide;
+}
+*/
+
 .parent {
   display: flex;
 }
