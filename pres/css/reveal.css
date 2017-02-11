@@ -23,9 +23,9 @@
 @keyframes bike1 {
     0%   {left: 400px; top: -300px;}
     25%  {left: 400px; top: -150px;}
-    50%  {left: 400px; top: 0px;}
-    75%  {left: 400px; top: 0px;}
-    100%  {left: 400px; top: 0px;}
+    50%  {left: 400px; top: -25px;}
+    75%  {left: 400px; top: -25px;}
+    100%  {left: 400px; top: -25px;}
 }
 @keyframes wiel {
     0%   {fill: red;}
