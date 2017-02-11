@@ -1,3 +1,11 @@
+.parent {
+  display: flex;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
 /*!
  * reveal.js
  * http://lab.hakim.se/reveal-js
@@ -861,6 +869,7 @@ body {
 .reveal .slide-background video {
   position: absolute;
   width: 100%;
+  filter: blur(0px);
   height: 100%;
   max-width: none;
   max-height: none;
