@@ -195,7 +195,7 @@
 | ~geof:buffer~ (GE)        |           |             |
 | ~geof:convexHull~ (GE)    |           |             |
 | ~geof:difference~ (GE)    |           |             |
-| ~geof:distance~ (GE)      | ✓         |             |
+| ~geof:distance~ (GE)      |           | ✓           |
 | ~geof:envelope~ (GE)      |           |             |
 | ~geof:getSRID~ (GE)       |           |             |
 | ~geof:intersection~ (GE)  |           |             |
