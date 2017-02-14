@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>GeoSPARQL v0.1</title>
+<!-- 2017-02-14 di 08:55 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Wouter Beek" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">GeoSPARQL v0.1</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Preliminaries</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Abbreviations</a></li>
+<li><a href="#sec-1-2">1.2. IRI prefixes</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Precision</a></li>
+<li><a href="#sec-3">3. Classes</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Other shapes?</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Properties</a></li>
+<li><a href="#sec-5">5. Units of measure</a></li>
+<li><a href="#sec-6">6. Coordinate Reference Systems</a></li>
+<li><a href="#sec-7">7. Datatypes</a></li>
+<li><a href="#sec-8">8. Topological functions</a>
+<ul>
+<li><a href="#sec-8-1">8.1. RF=SF</a></li>
+<li><a href="#sec-8-2">8.2. RF=E</a></li>
+<li><a href="#sec-8-3">8.3. RF=RCC8</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. Non-topological functions</a></li>
+<li><a href="#sec-10">10. Exceptions</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Preliminaries</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Abbreviations</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left"><b>Abbreviation</b></th>
+<th scope="col" class="left"><b>Expansion</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">C</td>
+<td class="left">Core</td>
+</tr>
+
+<tr>
+<td class="left">TVE</td>
+<td class="left">Topology Vocabulary Extension</td>
+</tr>
+
+<tr>
+<td class="left">GE</td>
+<td class="left">Geometry Extension</td>
+</tr>
+
+<tr>
+<td class="left">GTE</td>
+<td class="left">Geometry Topology Extension</td>
+</tr>
+
+<tr>
+<td class="left">REE</td>
+<td class="left">RDFS Entailment Extension</td>
+</tr>
+
+<tr>
+<td class="left">QRE</td>
+<td class="left">Query Rewrite Extension</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">RF</td>
+<td class="left">Relation Family</td>
+</tr>
+
+<tr>
+<td class="left">S</td>
+<td class="left">Serialization</td>
+</tr>
+
+<tr>
+<td class="left">V</td>
+<td class="left">Version</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left">SF</td>
+<td class="left">Simple Features</td>
+</tr>
+
+<tr>
+<td class="left">EG</td>
+<td class="left">Egenhofer</td>
+</tr>
+
+<tr>
+<td class="left">RCC8</td>
+<td class="left">Region Connection Calculus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> IRI prefixes</h3>
+<div class="outline-text-3" id="text-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left"><b>Alias</b></th>
+<th scope="col" class="left"><b>IRI Prefix</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>crs</code></td>
+<td class="left"><a href="http://www.opengis.net/def/crs/OGC/1.3/">http://www.opengis.net/def/crs/OGC/1.3/</a></td>
+</tr>
+
+<tr>
+<td class="left"><code>geo</code></td>
+<td class="left"><a href="http://www.opengis.net/ont/geosparql">http://www.opengis.net/ont/geosparql</a>#</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof</code></td>
+<td class="left"><a href="http://www.opengis.net/def/function/geosparql/">http://www.opengis.net/def/function/geosparql/</a></td>
+</tr>
+
+<tr>
+<td class="left"><code>geor</code></td>
+<td class="left"><a href="http://www.opengis.net/def/rule/geosparql/">http://www.opengis.net/def/rule/geosparql/</a></td>
+</tr>
+
+<tr>
+<td class="left"><code>gml</code></td>
+<td class="left"><a href="http://www.opengis.net/ont/gml">http://www.opengis.net/ont/gml</a>#</td>
+</tr>
+
+<tr>
+<td class="left"><code>ogc</code></td>
+<td class="left"><a href="http://www.opengis.net/">http://www.opengis.net/</a></td>
+</tr>
+
+<tr>
+<td class="left"><code>sf</code></td>
+<td class="left"><a href="http://www.opengis.net/ont/sf">http://www.opengis.net/ont/sf</a>#</td>
+</tr>
+
+<tr>
+<td class="left"><code>uom</code></td>
+<td class="left"><a href="http://www.opengis.net/def/uom/OGC/1.0/">http://www.opengis.net/def/uom/OGC/1.0/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Precision</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right"><b>Precision</b></th>
+<th scope="col" class="left"><b>Meaning</b></th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">sign</td>
+<td class="left">east/west or north/south</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e2</td>
+<td class="left">must be longitude</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e1</td>
+<td class="left">1111 kilometer, continent</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e0</td>
+<td class="left">111 kilometer, country</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-1</td>
+<td class="left">11 kilometer, city</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-2</td>
+<td class="left">1.1 kilometer, village</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-3</td>
+<td class="left">111 meter, large field</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-4</td>
+<td class="left">11 meter, parcel of land</td>
+<td class="left">✓</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-5</td>
+<td class="left">1.1 meter, tree</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-6</td>
+<td class="left">11 centimeter, engineering</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-7</td>
+<td class="left">11 milimeter</td>
+<td class="left">&#xa0;</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-8</td>
+<td class="left">1.1 milimeter, tectonic plate motion</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">1.0e-9</td>
+<td class="left">110 micron, microscopy</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Classes</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>Curve</code></td>
+<td class="left">✓</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:Feature</code> (C)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>Geometry</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>GeometryCollection</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>LinearRing</code></td>
+<td class="left">✓</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>Line</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>LineString</code></td>
+<td class="left">✓</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>MultiCurve</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>MultiLineString</code></td>
+<td class="left">✓</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>MultiPoint</code></td>
+<td class="left">✓</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>MultiPolygon</code></td>
+<td class="left">✓</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>MultiSurface</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>Point</code></td>
+<td class="left">✓</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>Polygon</code></td>
+<td class="left">✓</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:SpatialObject</code> (C)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>SpatialReferenceSystem</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>Surface</code></td>
+<td class="left">✓</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Other shapes?</h3>
+<div class="outline-text-3" id="text-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><code>CircularString</code></td>
+</tr>
+
+<tr>
+<td class="left"><code>CompoundCurve</code></td>
+</tr>
+
+<tr>
+<td class="left"><code>CurvePolygon</code></td>
+</tr>
+
+<tr>
+<td class="left"><code>PolyhedralSurface</code></td>
+</tr>
+
+<tr>
+<td class="left"><code>TIN</code></td>
+</tr>
+
+<tr>
+<td class="left"><code>Triangle</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Properties</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geo:asGML</code> (GE,s=GML)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:asWKT</code> (GE,s=WKT)</td>
+<td class="left">&#xa0;</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:coordinateDimension</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:dimension</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:hasDefaultGeometry</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:hasGeometry</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:hasSerialization</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:isEmpty</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:isSimple</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:spatialDimension</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Units of measure</h2>
+<div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>uom:metre</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Coordinate Reference Systems</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>crs:CRS84</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Datatypes</h2>
+<div class="outline-text-2" id="text-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geo:wktLiteral</code> (GE,s=WKT)</td>
+<td class="left">✓</td>
+<td class="left">✓</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:gmlLiteral</code> (GE,S=GML)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Topological functions</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> RF=SF</h3>
+<div class="outline-text-3" id="text-8-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>Geometry types</b></th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geo:sfContains</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">not: P</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfCrosses</code></td>
+<td class="left">P/L, P/A, L/L, L/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfDisjoint</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfEquals</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfIntersects</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfOverlaps</code></td>
+<td class="left">P/P, L/L, A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfTouches</code></td>
+<td class="left">not: P/P</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:sfWithin</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">not: P</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><code>geof:sfContains</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfCrosses</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfDisjoint</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfEquals</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfIntersects</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">🚧</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfOverlaps</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfTouches</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:sfWithin</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">🚧</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> RF=E</h3>
+<div class="outline-text-3" id="text-8-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>Geometry types</b></th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geo:ehContains</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehCoveredBy</code></td>
+<td class="left">L/L, L/A, A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehCovers</code></td>
+<td class="left">L/L, A/L, A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehDisjoint</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehEquals</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehInside</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehMeet</code></td>
+<td class="left">not: P/P</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:ehOverlap</code></td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><code>geof:ehContains</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehCoveredBy</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehCovers</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehDisjoint</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehEquals</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehInside</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehMeet</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:ehOverlap</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> RF=RCC8</h3>
+<div class="outline-text-3" id="text-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>Geometry types</b></th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geo:rcc8dc</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8ec</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8eq</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8ntpp</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8ntppi</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8po</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8tppi</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geo:rcc8tpp</code></td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><code>geof:rcc8dc</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8ec</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8eq</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8ntpp</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8ntppi</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8po</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8tppi</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:rcc8tpp</code> (GTE)</td>
+<td class="left">A/A</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Non-topological functions</h2>
+<div class="outline-text-2" id="text-9">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>geof:boundary</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:buffer</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:convexHull</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:difference</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:distance</code> (GE)</td>
+<td class="left">✓</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:envelope</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:getSRID</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:intersection</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:symDifference</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:union</code> (GE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>geof:relate</code> (GTE)</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Exceptions</h2>
+<div class="outline-text-2" id="text-10">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left"><b>GraphDB</b></th>
+<th scope="col" class="left"><b>Triply RI</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Function argument unexpected type</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Function invalid geometry literal</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Function incompatible CRSes</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Function invalid unit</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+
+<pre class="src src-sparql">prefix brt-def: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+prefix geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+select ?gebouw ?gebouwWkt
+where {
+  &lt;https://gemeentegeschiedenis.nl/id/municipality/Roermond&gt; &lt;https://gemeentegeschiedenis.nl/def/temporalExtension&gt;/geo:hasGeometry ?gemeenteGeo .
+  ?gemeenteGeo geo:asWKT ?gemeenteWkt .
+  ?gebouw geo:hasGeometry ?gebouwGeo .
+  ?gebouwGeo geo:asWKT ?gebouwWkt .
+  ?gebouw a brt-def:Gebouw .
+  filter (geof:sfContains(?gemeenteWkt, ?gebouwWkt) &amp;&amp; !sameTerm(?gemeenteGeo,?gebouwGeo))
+}
+limit 5
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Wouter Beek</p>
+<p class="date">Created: 2017-02-14 di 08:55</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
