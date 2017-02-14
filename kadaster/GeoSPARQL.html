@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>GeoSPARQL v0.1</title>
-<!-- 2017-02-14 di 08:55 -->
+<!-- 2017-02-14 di 15:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Wouter Beek" />
@@ -1269,8 +1269,8 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="left"><code>geof:distance</code> (GE)</td>
-<td class="left">✓</td>
 <td class="left">&#xa0;</td>
+<td class="left">✓</td>
 </tr>
 
 <tr>
@@ -1359,30 +1359,12 @@ for the JavaScript code in this tag.
 </tr>
 </tbody>
 </table>
-
-<div class="org-src-container">
-
-<pre class="src src-sparql">prefix brt-def: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
-prefix geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
-prefix geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
-select ?gebouw ?gebouwWkt
-where {
-  &lt;https://gemeentegeschiedenis.nl/id/municipality/Roermond&gt; &lt;https://gemeentegeschiedenis.nl/def/temporalExtension&gt;/geo:hasGeometry ?gemeenteGeo .
-  ?gemeenteGeo geo:asWKT ?gemeenteWkt .
-  ?gebouw geo:hasGeometry ?gebouwGeo .
-  ?gebouwGeo geo:asWKT ?gebouwWkt .
-  ?gebouw a brt-def:Gebouw .
-  filter (geof:sfContains(?gemeenteWkt, ?gebouwWkt) &amp;&amp; !sameTerm(?gemeenteGeo,?gebouwGeo))
-}
-limit 5
-</pre>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2017-02-14 di 08:55</p>
+<p class="date">Created: 2017-02-14 di 15:57</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
