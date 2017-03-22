@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>How to Query Cadastral Big Data?</title>
+    <title>How to Query Cadastral Big Data Using GeoSPARQL?</title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
       tex2jax: {
@@ -39,133 +39,81 @@
       <div class="slides">
 
         <section>
-          <h1>How to Query Cadastral Big Data?</h1>
-	  <h3>Or: How to GeoSPARQL 1,000,000,000 statements without
-	    blowing up?</h3>
+          <h2>How to Query Cadastral Big Data Using GeoSPARQL?</h2>
+          <br>
 	  <h5>Wouter Beek
 	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
 	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
 	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
           <img src="../img/triply.svg" height="150px">
-          <h5>Wouter Beek</h5>
-          <img src="../img/triply.svg" height="150px">
+        </section>
+
+        <section>
+          <h2>The Open Data Vision</h2>
+          <img src="../img/5star.png">
+          <p>Use SPARQL endpoints i.o. copying data locally.</p>
         </section>
 
         <section>
           <h2>Properties of Cadastral Big Data</h2>
-
           <ul>
-            <li>At least a billion statements</li>
-            <li>Worst-case precision <em>at least</em> 1.0e-6
-            (~11cm)</li>
-            <li>High ánd low complexity geometries</li>
-            <li>2D ánd 3D geometries: projection currently not
-              standardized</li>
-            <li>Fast data joins</li>
-            <li>Fast filters</li>
-            <li>Fast geo functions</li>
-            <li>Fast schema queries</li>
+            <li>Over 1,000,000,000 graph edges</li>
+            <li>Over 100,000,000 geo shapes</li>
+            <li>Precision</li>
+            <li>Performance</li>
           </ul>
         </section>
 
         <section>
-          <h2>Stakeholder Wishlist</h2>
-          <ul>
-            <li>External ánd internal rings: the famous ‘donut’
-              problem.</li>
-            <li>Current implementations simplify polygons with Convex
-                hulls.</li>
-            <li>Syntactic sugar for mapping functions → queries
-              (e.g., <code>geo:sfWithin</code>).</li>
-            <li>Accept multiple serializations: WKT, GML.</li>
-          </ul>
-        </section>
-<!--
-        <section>
-          <h2>Open issue: geometry representation</h2>
-          <pre>
-            <code>
-              entity:x geosparql:defaultGeometry _:1                .
-              _:1      geosparql:asWKT           "POLYGON((…))"     ;
-                       rdf:type                  geosparql:Geometry .
-            </code>
-          </pre>
-          <pre>
-            <code>
-              entity:x def:geometry "POLYGON((…))"^^def:polygon .
-            </code>
-          </pre>
-        </section>
--->
-
-        <section>
-          <h2>The competition</h2>
-          <ul>
-            <li>OntoText GraphDB</li>
-            <li>Oracle Spatial & Graph</li>
-            <li>Triply reference store</li>
-            <li>SAP?</li>
-          </ul>
+          <h2>Implementations of GeoSPARQL</h2>
+          <a href="../img/geosparql.png">
+            <img src="../img/geosparql.png">
+          </a>
         </section>
 
-	<section>
-          <h3>Triply reference store</h3>
-          <p>Query:</p>
-	  <pre>
-	    <code>
-SELECT ?yr {
-  ?journal rdf:type bench:Journal .
-  ?journal dc:title "Journal 1 (1940)"^^xsd:string .
-  ?journal dcterms:issued ?yr 
-}
-	    </code>
-	  </pre>
-	  <p>Query ledger:</p>
-	  <code>
-	    <pre>
-1726: BGP
-  ├ 7: ?journal dc:title "Journal 1 (1940)" .
-  ├ 109: ?journal a bench:Journal .
-  └ 1610: ?journal dcterms:issued ?yr .
-	    </pre>
-	  </code>
-	</section>
+        <section>
+          <h2>GeoSPARQL: Executive summary</h2>
+          <ol>
+            <li class="fragment">Only few implementations to choose from.</li>
+            <li class="fragment">FOSS implementations do not perform.</li>
+            <li class="fragment">Commercial vendors cannot deliver an
+            open endpoint.</li>
+            <li class="fragment">Commercial solutions do not work
+            out-of-the-box.</li>
+          </ol>
+        </section>
         
         <section>
-          <h3>Close the SPARQL/API gap (1/2)</h3>
-          <pre>
-            <code>
-> GET /geoInfo?country=Nederland
-> Accept: application/json
-> Host: https://example.com
-
-{
-  "capital": "Amsterdam",
-  "provinces": ["Limburg","Brabant",…],
-  "population": 16000000
-}
-            </code>
-          </pre>
-          <p>That's a nice Web API!</p>
+          <h3>“Nobody has complained about this before”</h3>
+          <a class="fragment" href="../img/delft.png">
+            <img src="../img/delft.png">
+          </a>
+          <a class="fragment" href="../img/lodlaundromat_home.png">
+            <img src="../img/lodlaundromat_home.png">
+          </a>
         </section>
 
+        <!--
         <section>
-          <h3>Close the SPARQL/API gap (2/2)</h3>
-          <pre>
-            <code>
-SELECT ?country
-PROJECTION {
-  "capital": ?capital,
-  "provinces": [?province],
-  "population": ?population
-} WHERE {
-  ?country def:hasCapital ?capital ;
-           def:hasProvince ?province ;
-           def:hasPopulation ?population .
-}
-            </code>
-          </pre>
-          <p>It's actually SPARQL…</p>
+          <ul>
+            <li>Online SPARQL (non-geo) works: DBpedia/Wikidata</li>
+            <li>Online GIS work: Solr</li>
+            <li>But SPARQL+GIS is still a problem</li>
+          </ul>
+        </section>
+        -->
+
+        <section>
+          <h2>Questions to you</h2>
+          <ul>
+            <li class="fragment">Should we drop the vision? (no open endpoints)</li>
+            <li class="fragment">Is GeoSPARQL too demanding for the
+            web?</li>
+            <li class="fragment">Is there no market? (Open
+            Government)</li>
+            <li class="fragment">Can we --- commerce, FOSS, OGC,
+              academia --- work something out here?</li>
+          </ul>
         </section>
 
       </div>
