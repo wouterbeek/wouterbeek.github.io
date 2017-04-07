@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data on the Web Community Event</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Data on the Web Community Event">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Data on the Web Community Event</h2>
+          <br>
+	  <h5>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+          <img src="../img/triply.svg" height="150px">
+        </section>
+
+        <section>
+          <h1>SPARQL Stories</h1>
+          <a href="http://static.triply.cc/sparql/">
+        </section>
+
+        <section>
+          <h1>LD-R (Linked Data Widgets)</h1>
+          <a href="http://demo.ld-r.org/">LD-R</a>
+          <a href="https://kadaster.triply.cc/">Kadaster FacetCheck</a>
+        </section>
+
+        <section>
+          <h1>Sustainability pitfalls</h1>
+          <ul>
+            <li>Development </li>
+            <li>Breaking changes without upgrade path (FOSS)</li>
+            <li>Vendor lock-in</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>Be part of the FOSS community (e.g., ClioPatria,
+            hdt-ccp, libgeos)</li>
+            <li>Be part of the LOD community (e.g., PLDN)</li>
+            <li>Support contract</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Sustainable development</h1>
+          <ul>
+            <li>Continuous Integration (CI)</li>
+            <li>Regression tests &amp; unit tests</li>
+            <li>Modularity</li>
+            <li>Container (a box that works) [e.g., Docker]</li>
+            <li>Instant utility (out-of-the-box)</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h1>‘Blind spots’</h1>
+            <ul>
+              <li>
+                Exploring the query contingent
+                <img src="">
+              </li>
+              <li>GeoSPARQL (PLDN working group)</li>
+              <li>Frank's TODO</li>
+            </ul>
+          </section>
+          
+          <section>
+            <img src="../img/kadaster.jpg" height="200px">
+            <h2>Properties of Cadastral Big Data</h2>
+            <ul>
+              <li>Over 1,000,000,000 graph edges</li>
+              <li>Over 100,000,000 geo shapes</li>
+              <li>Precision</li>
+              <li>Performance</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Implementations of GeoSPARQL</h2>
+            <a href="../img/geosparql.png">
+              <img src="../img/geosparql.png">
+            </a>
+          </section>
+          
+          <section>
+            <h2>GeoSPARQL: Executive summary</h2>
+            <ol>
+              <li class="fragment">Only few implementations to choose
+                from.</li>
+              <li class="fragment">FOSS implementations do not
+                perform.</li>
+              <li class="fragment">Commercial vendors cannot deliver
+                an open endpoint.</li>
+              <li class="fragment">Commercial solutions do not work
+                out-of-the-box.</li>
+            </ol>
+          </section>
+          
+          <section>
+            <h3>“Nobody has complained about this before”</h3>
+            <a class="fragment" href="../img/delft.png">
+              <img src="../img/delft.png">
+            </a>
+            <a class="fragment" href="../img/lodlaundromat_home.png">
+              <img src="../img/lodlaundromat_home.png">
+            </a>
+          </section>
+        </section>
+        
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
