@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOD Lab: Running Experiments at Web Scale</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="LOD Lab: Running Experiments at Web Scale">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>LOD Lab</h1>
+          <h2>Running Experiments at Web Scale</h2>
+          <h4>2<sup>nd</sup> May 2017</h4>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+          <img src="../img/triply.svg" height="150px">
+	  <h4>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)
+          </h4>
+        </section>
+
+        <section>
+          <section>
+            <h1>[1] Web-Scale Data Access</h1>
+          </section>
+          <section>
+            <h3>Generalizability of Semantic Web research?</h3>
+            <img src="../img/articlesPerDataset.png">
+            <p>ISWC 2014 Research Track: 17 datasets; 1-6 datasets per
+            paper (avg 2).</p>
+          </section>
+          <section>
+            <h3>Reproducibility &amp; generalizability</h3>
+            <br>
+            <ul>
+              <li class="fragment">Data cleaning is largely manual</li>
+              <li class="fragment">Data cleaning effort is linear in
+              terms of the number of datasets</li>
+              <li class="fragment">High cost per evaluation,
+              disincentivizing reproducibility</li>
+              <li class="fragment">High cost per dataset,
+              disinsentivizing generalizability</li>
+            </ul>
+          </section>
+          <section>
+            <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="../img/basket.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="../img/laundry.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="../img/wardrobe.png" width="200">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="../img/analysis.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="../img/labels.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="../img/laundryLine.png" width="200">
+            </a>
+            <br>
+	    <small>Best Linked Open Data Application Award 2015</small>
+            <small>Beek &amp; Rietveld &amp; Bazoobandi &amp;
+              Wielemaker &amp; Schlobach “LOD laundromat: A Uniform
+              Way of Publishing Other People’s Dirty
+              Data” <em>ISWC</em>, 2014.</small>
+          </section>
+          <section>
+            <h1>Web-Scale Experiments</h1>
+	    <img height="200px" src="../img/lodLab.png">
+            <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD
+              Lab: Experiments at LOD Scale”, <em>International
+              Semantic Web Conference</em>, 2015 (Best Paper
+              Award).</small>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>[2] Web-Scale Data Quality</h1>
+          </section>
+          <section>
+            <h3>Web-Scale Data Quality Implements</h3>
+            <img height="550px" src="../img/ltag_before.png">
+          </section>
+          <section>
+            <h3>Web-scale Data Quality Improvement</h3>
+            <img height="500px" src="../img/ltag_after.png">
+            <small>W. Beek &amp; F. Ilievski &amp; J. Debattista &amp;
+              S. Sclobach &amp; J. Wielemaker, “<em>Literally</em>
+              Better: Analyzing and Improving the Quality of
+              Literals”, to appear in <em>Semantic Web
+              Journal</em>.</small>
+          </section>
+          <section>
+            <h3>Web-scale Data Quality Improvement</h3>
+            <img height="550px" src="../img/dhier.png">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>[3] Empirical Semantics</h1>
+            <h3>(By running Web-Scale experiments.)</h3>
+          </section>
+          <section>
+            <p>Take age-old statements from Analytic Semantics…</p>
+            <p class="fragment">… and evaluate them empirically WRT
+              Data on the Web</p>
+            <div class="fragment">
+              <hr>
+              <p>E.g., “Names are chosen arbitrarily and have no
+                meaning.”</p>
+            </div>
+          </section>
+          <section>
+            <h3>Quantifying the Meaning of Names</h3>
+            <div class="circle one">
+              <div class="inner" style="padding-top: 38%;">FORMAL<br>MEANING</div>
+            </div>
+            <div class="circle two">
+              <div class="inner" style="padding-top: 45%;">NAMES</div>
+            </div>
+            <div>
+              <p class="fragment">encode(FORMAL_MEANING) + encode(NAMES)</p>
+              <p class="fragment">- encode(FORMAL_MEANING + NAMES)</p>
+              <p class="fragment">= Mutual Information</p>
+            </div>
+          </section>
+          <section>
+            <h3>Two hypotheses</h3>
+            <p>$H_X$: Names do not encode predicate information</p>
+            <p>$H_Y$: Names do not encode type information</p>
+          </section>
+          <section>
+            <h4>$H_X$ (predicates) and $H_Y$ (types) evaluated for
+            600,000 datasets</h4>
+            <a href="../img/logp_comparison_zoom_pb.png">
+              <img height="400px" src="../img/logp_comparison_zoom_pb.png">
+            </a>
+            <small>S. De Rooij &amp; W. Beek &amp; P. Bloem &amp;
+              S. Schlobach &amp; F. Van Harmelen, “Are Names Meaningful?
+              Quantifying Social Meaning on the Semantic Web”,
+              <em>ISWC</em>, 2016.</small>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>[4] Structured &amp; Web-Scale Querying</h1>
+          </section>
+          <section>
+            <h3>Online structured query endpoints (SPARQL)</h3>
+            <a href="http://sparqles.ai.wu.ac.at/">
+              <img height="500px" src="../img/sparqles.png">
+            </a>
+            <a href="http://sparqles.ai.wu.ac.at/">sparqles.ai.wu.ac.at</a>
+          </section>
+          <section>
+            <h3>Unique opportunity:</h3>
+            <ul>
+              <li>
+                <a href="https://github.com/ClioPatria/ClioPatria">ClioPatria</a>
+                <small>Wielemaker &amp; Beek &amp; Hildebrand &amp;
+                  Van Ossenbruggen, ‘ClioPatria: A SWI-Prolog
+                  Infrastructure for the Semantic Web’ in <em>Semantic
+                  Web Journal</em>, 2016.</small>
+              </li>
+              <li>
+                <a href="http://www.rdfhdt.org/">Header Dictionary
+                  Triples (HDT)</a>
+                <small>Fernández &amp; Martínez-Prieto &amp; Gutiérrez
+                  &amp; Polleres &amp; Arias, ‘Binary RDF
+                  representation for publication and exchange(HDT)’
+                  in <em>Web Semantics: Science, Services and Agents
+                  on the World Wide Web</em>, Vol. 19, p. 22-41,
+                  2013.</small>
+              </li>
+              <li>Comodification of SSD</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>[5] Semantic Search</h1>
+          </section>
+          <section>
+            <h2>LOD Search</h2>
+            <a href="http://lodsearch">
+              <img height="400px" src="../img/lotus_cropped.png">
+            </a>
+            <small>2<sup>nd</sup> place, <em>Linked Data
+              Challenge</em>, 2016.</small>
+            <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+              L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+              Search for Big Linked Data”, <em>ESWC</em>,
+              2016.</small>
+          </section>
+          <section>
+            <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+            <a href="../img/pet_sounds.png">
+              <img src="../img/pet_sounds.png">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>[6] Web-Scale Theory of Meaning</h1>
+          </section>
+          <section>
+            <h2>owl:sameAs has 2 meanings</h2>
+            <div style="float: left; width: 45%;">
+              <h3>Formal meaning</h3>
+              <img height="350px" src="../img/barad_dur.jpg">
+              <p>$$a = b \,\longleftrightarrow\, (\forall P)(Pa = Pb)$$</p>
+            </div>
+            <div style="float: right; width: 55%;">
+              <h3>Social meaning</h3>
+              <img height="350px" src="../img/babel.png">
+              <p>“Include links to other URIs, to discover more things.”</p>
+            </div>
+          </section>
+          <section>
+            <h3>Contextual semantics for <code>owl:sameAs</code></h3>
+            <a href="../img/iimb_16_2.pdf">
+              <img height="500px" src="../img/iimb_16_2.svg">
+            </a>
+            <small>Beek &amp; Schlobach &amp; Van Harmelen, ‘A
+              Contextualised Semantics for <code>owl:sameAs</code>’
+              in <em>International Semantic Web Conference</em>,
+              p. 405--419, 2016.</small>
+          </section>
+        </section>
+        
+        <section>
+          <h1>Thank you!</h1>
+          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>WWW:
+	    <a href="http://lodlaundromat.org">lodlaundromat.org</a>,
+            <a href="http://lodsearch.cc">lodsearch.cc</a>,
+            <a href="http://wouterbeek.com">wouterbeek.com</a>,
+            <a href="http://triply.cc">triply.cc</a>
+          </p>
+        </section>
+          
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
