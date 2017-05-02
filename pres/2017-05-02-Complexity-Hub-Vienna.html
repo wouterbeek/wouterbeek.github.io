@@ -37,17 +37,40 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        
+
         <section>
-          <h1>LOD Lab</h1>
-          <h2>Running Experiments at Web Scale</h2>
-          <h4>2<sup>nd</sup> May 2017</h4>
-	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
-          <img src="../img/triply.svg" height="150px">
-	  <h4>Wouter Beek
-	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
-	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)
-          </h4>
+          <section>
+            <h1>LOD Lab</h1>
+            <h2>Running Experiments at Web Scale</h2>
+            <h4>2<sup>nd</sup> May 2017</h4>
+	    <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+            <img src="../img/triply.svg" height="150px">
+	    <h4>Wouter Beek
+	      (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	      <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)
+            </h4>
+          </section>
+	  <section>
+	    <img src="../img/1.png">
+	  </section>
+	  <section>
+	    <img src="../img/2.png">
+	  </section>
+	  <section>
+	    <img src="../img/3.png">
+	  </section>
+          <section>
+            <h2>How much structured data is there?</h2>
+            <ul>
+              <li>44.2B statements from Microdata, Embedded JSON-LD,
+                RDFa and Microformats (5.6M PLDs)
+                [<i>WebDataCommons</i>].</li>
+              <li>Millions of data documents containing at least 100B
+                statements</li>
+              <li>~600 SPARQL endpoints [<i>Sparqles</i>]</li>
+              <li>We know there is <i>much</i> more out there</li>
+            </ul>
+          </section>
         </section>
 
         <section>
@@ -150,6 +173,56 @@
             </div>
           </section>
           <section>
+            <a href="../img/iriLongtail.svg">
+              <img src="../img/iriLongtail.svg">
+            </a>
+            <!-- Op bijgevoegde kerstkaart zien we voor 3,543,226,266
+                 unieke IRIs het aantal documenten waarin ze
+                 voorkomen. Helemaal links op de kerstkaart zien we de
+                 IRI ‘rdf:type’ die in de meeste (639,478) documenten
+                 voorkomt.  Daarna volgen schema termen die voor
+                 sensor observaties gebruikt worden (bijvoorbeeld
+                 http://www.w3.org/2006/time#Interval en
+                 http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom)
+                 en die in de meeste andere analyses van de LOD Cloud
+                 niet voorkomen (vanwege de gebruikelijke focus op
+                 declaratieve kennis, waarvan nu eenmaal minder
+                 beschikbaar is).
+
+                 Het plateau tussen ongeveer 100 en 10K IRIs wordt
+                 veroorzaakt door Eionet (European Environment
+                 Information and Observation Network) waarvan heel
+                 veel documenten in de LOD Laundromat zitten.
+
+                 Daarna gaat het vrijwel lineair omlaag in een
+                 longtail.  De meeste IRIs (2,981,438,990) komen in
+                 precies 1 document voor.
+
+                 Dit komt overeen met andere LOD Observatories
+                 (bv. Bizer) die stellen dat IRIs niet vaak
+                 hergebruikt worden, maar ik denk zelf dat dit een
+                 premature conclusie is:
+
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                   onder _syntactische equivalentie_: we weten dat
+                   overbodige percent-encoding in de praktijk heel
+                   vaak voorkomt waardoor IRIs die hetzelfde zijn niet
+                   zo worden ge\"identificeerd.
+
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                   onder _semantische equivalentie_: we hebben
+                   >900,000,000 unieke owl:sameAs statements die nu
+                   nog niet zijn meegenomen.
+
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                   onder _pragmatische equivalentie_: in de praktijk
+                   denoteren IRIs met schema HTTP en schema HTTPS
+                   dezelfde resource.
+
+                 - We hebben nog steeds maar een heel klein deel van
+                   de LOD Cloud bestudeerd.-->
+          </section>
+          <section>
             <h3>Quantifying the Meaning of Names</h3>
             <div class="circle one">
               <div class="inner" style="padding-top: 38%;">FORMAL<br>MEANING</div>
@@ -216,10 +289,42 @@
             </ul>
           </section>
         </section>
-        
+
         <section>
           <section>
-            <h1>[5] Semantic Search</h1>
+            <h1>[5] Semantics &amp; Graph Structure</h1>
+          </section>
+          <section>
+            <h4>geopolitics:hasBorderWidth</h4>
+            <a href="../img/has_border_with.png">
+              <img src="../img/has_border_with.png">
+            </a>
+          </section>
+          <!--
+            <section>
+              <h4>osspr:contains</h4>
+              <a href="../img/contains.png">
+                <img src="../img/contains.png">
+              </a>
+            </section>
+            -->
+          <section>
+            <h4>skos:exactMatch</h4>
+            <a href="../img/exact_match.png">
+              <img src="../img/exact_match.png">
+            </a>
+          </section>
+          <section>
+            <h4>foaf:knows</h4>
+            <a href="../img/foaf_knows.png">
+              <img src="../img/foaf_knows.png">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>[6] Semantic Search</h1>
           </section>
           <section>
             <h2>LOD Search</h2>
@@ -243,7 +348,7 @@
 
         <section>
           <section>
-            <h1>[6] Web-Scale Theory of Meaning</h1>
+            <h1>[7] Web-Scale Theory of Meaning</h1>
           </section>
           <section>
             <h2>owl:sameAs has 2 meanings</h2>
