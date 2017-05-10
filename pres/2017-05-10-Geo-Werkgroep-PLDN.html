@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Geo Werkgroep PLDN</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Geo Werkgroep PLDN">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Geo Werkgroep PLDN</h2>
+          <br>
+	  <h5>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+          <img src="../img/triply.svg" height="150px">
+        </section>
+
+        <section>
+          <h2>The Open Data Vision</h2>
+          <img src="../img/5star.png">
+          <p>Use (Geo)SPARQL endpoints i.o. copying data locally.</p>
+        </section>
+
+        <section>
+          <img src="../img/kadaster.jpg" height="200px">
+          <h2>Properties of Cadastral Big Data</h2>
+          <ul>
+            <li>Over 5,000,000,000 graph edges</li>
+            <li>Over 500,000,000 geo shapes</li>
+            <li>High precision</li>
+            <li>Performance</li>
+          </ul>
+        </section>
+
+        <section>
+          <small>
+          <table>
+            <tr><th>Precision</th><th>Meaning</th></tr>
+            <tr><td>+/-</td><td>east/west or north/south</td></tr>
+            <tr><td>1.0e2</td><td>must be longitude</td></tr>
+            <tr><td>1.0e1</td><td>1111 kilometer, continent</td></tr>
+            <tr><td>1.0e0</td><td>111 kilometer, country </td></tr>
+            <tr><td>1.0e-1</td><td>11 kilometer, city </td></tr>
+            <tr><td>1.0e-2</td><td>1.1 kilometer, village</td></tr>
+            <tr><td>1.0e-3</td><td>111 meter, large field</td></tr>
+            <tr><td>1.0e-4</td><td>11 meter, parcel of land</td></tr>
+            <tr><td>1.0e-5</td><td>1.1 meter, tree</td></tr>
+            <tr><td>1.0e-6</td><td>11 centimeter, engineering</td></tr>
+            <tr><td><b>1.0e-7</b></td><td><b>11 milimeter</b></td></tr>
+            <tr><td>1.0e-8</td><td>1.1 milimeter, tectonic plate motion</td></tr>
+            <tr><td>1.0e-9</td><td>110 micron, microscopy</td></tr>
+          </table>
+          </small>
+        </section>
+
+        <section>
+          <section>
+            <h2>GeoSPARQL Implementations</h2>
+            <a href="../img/geosparql.png">
+              <img src="../img/geosparql.png">
+            </a>
+          </section>
+          <section>
+            <h2>GeoSPARQL Implementations</h2>
+            <ol>
+              <li class="fragment">Only few implementations to choose from.</li>
+              <li class="fragment">FOSS implementations do not perform.</li>
+              <li class="fragment">Commercial vendors cannot deliver an
+                open endpoint.</li>
+              <li class="fragment">Commercial solutions do not work
+                out-of-the-box.</li>
+            </ol>
+          </section>
+          <section>
+            <h3>“Nobody has complained about this before”</h3>
+            <a class="fragment" href="../img/delft.png">
+              <img src="../img/delft.png">
+            </a>
+            <a class="fragment" href="../img/lodlaundromat_home.png">
+              <img src="../img/lodlaundromat_home.png">
+            </a>
+          </section>
+        </section>
+        <!--
+        <section>
+          <ul>
+            <li>Online SPARQL (non-geo) works: DBpedia/Wikidata</li>
+            <li>Online GIS work: Solr</li>
+            <li>But SPARQL+GIS is still a problem</li>
+          </ul>
+        </section>
+        -->
+
+        <section>
+          <h2>GeoSPARQL</h2>
+          <p>Components:</p>
+          <ul>
+            <li><b>Core</b></li>
+            <li><b>Topology Vocabulary</b> (Relation Family)</li>
+            <li><b>Geometry</b> (Serialization)</li>
+            <li>Geometry Topology (Relation Family, Serialization)</li>
+            <li>RDFS Entailment</li>
+            <li>Query Rewrite</li>
+          </ul>
+          <p>Relation Families:</p>
+          <ul>
+            <li><b>Simple Features</b></li>
+            <li>Egenhofer</li>
+            <li>RCC8</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>SPARQL Benchmarks</h2>
+          <p>Synthetic:</p>
+          <ul>
+            <li><b>SP<sup>2</sup>Bench</b></li>
+            <li><b>WatDiv</b></li>
+            <li>BSBM (Berlin SPARQL Benchmark)</li>
+            <li>LUBM (Lehigh University Benchmark)</li>
+          </ul>
+          <p>Real-life:</p>
+          <ul>
+            <li><b>DBPSB</b> (DBpedia SPARQL Benchmark)</li>
+            <li>FEASIBLE</li>
+          </ul>
+          <p>GeoSPARQL:</p>
+          <ul>
+            <li><b>Geographica</b> (small data)</li>
+            <li>Volume: number &amp; detail</li>
+            <li>Variety: large &amp; small</li>
+            <li>Veracity: differences in precision</li>
+          </ul>
+          <!--
+          <p>Federation:</p>
+          <ul>
+            <li><b>FedBench</b></li>
+            <li>LargeRDFBench</li>
+            <li>SPLODGE</li>
+          </ul>
+          -->
+        </section>
+        
+        <section>
+          <h2>Questions</h2>
+          <ul>
+            <li class="fragment">Should we drop the vision? (i.e., no
+            open endpoints)</li>
+            <li class="fragment">Is GeoSPARQL too demanding for the
+            web?</li>
+            <li class="fragment">Is there no market? (Open
+            Government)</li>
+            <li class="fragment">Can we --- commerce, FOSS, OGC,
+              academia --- work something out here?</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
