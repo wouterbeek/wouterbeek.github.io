@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Triply and the Benefits of Linked CBS Data</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Triply and the Benefits of Linked CBS Data">
+    <meta name="author" content="Laurens Rietveld, Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style type="text/css">
+      td { border-bottom-width: 0px !important; font-size: 90% !important; }
+    </style>
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Triply and the Benefits of<br>Linked CBS Data</h2>
+          <br>
+	  <h5>Laurens Rietveld
+	    (<a href="mailto:laurens@triply.cc">laurens@triply.cc</a>)</h5>
+	  <h5>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h5>
+          <img src="../img/triply.svg" height="100px">
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="100px">
+        </section>
+
+        <section>
+          <h3>What's in a Name?</h3>
+          <table border="0">
+            <tr><td>3594</td><td class="fragment">BAG ID</td><td class="fragment"><a href="http://bag.basisregistraties.overheid.nl/bag/id/woonplaats/3594">Kadaster</a></td></tr>
+            <tr><td>129293095</td><td class="fragment">BRT registration area</td><td class="fragment"><a href="http://brt.basisregistraties.overheid.nl/top10nl/id/registratief-gebied/129293095">Kadaster</a></td></tr>
+            <tr><td>129513741</td><td class="fragment">BRT place</td><td class="fragment"><a href="http://brt.basisregistraties.overheid.nl/top10nl/id/plaats/129513741">Kadaster</a></td></tr>
+            <tr><td>11150</td><td class="fragment">Amco</td><td class="fragment"><a href="http://www.gemeentegeschiedenis.nl/gemeentenaam/Amsterdam">IISH</a></td></tr>
+            <tr><td>GM0363</td><td class="fragment">CBS</td><td class="fragment">no link yet…</td></tr>
+            <tr><td>2759793</td><td class="fragment">GeoNames</td><td class="fragment"><a href="http://sws.geonames.org/2759793">LOD Cloud</a></td></tr>
+            <tr><td>Q9899</td><td class="fragment">Wikidata</td><td class="fragment"><a href="https://www.wikidata.org/wiki/Q9899">LOD Cloud</a></td></tr>
+            <tr><td>271110</td><td class="fragment">OpenStreetMap</td><td class="fragment"><a href="https://www.openstreetmap.org/relation/47811">LOD Cloud</a></td></tr>
+          </table>
+        </section>
+
+        <section>
+          <h4>Links Lead Into the Linked Open Data Cloud</h4>
+          <a href="../img/lod_cloud_2014.svg">
+            <img src="../img/lod_cloud_2014.svg">
+          </a>
+        </section>
+
+        <!--
+        <section>
+          <h2>Linked Open Data</h2>
+          <img src="../img/5star.png">
+          <p>Use (Geo)SPARQL endpoints i.o. copying data locally.</p>
+        </section>
+        -->
+        
+        <section>
+          <h3>Our Customers Want to Query the CBS as Linked Data</h3>
+          <table>
+            <tr>
+              <td>
+                <img src="../img/kadaster.jpg" style="max-width: 150px;">
+              </td>
+              <td style="vertical-align: middle;"><b>Information about
+                  my house:</b> What's the neighborhood crime rate?
+                  Is this a child-friendly neighborhood?</td>
+            </tr>
+            <tr>
+              <td><img src="http://www.isgeschiedenis.nl/wp-content/uploads/2012/09/IISG-150x150.jpg"></td>
+              <td style="vertical-align: middle;"><b>Social
+                history:</b> How did the population compostion of
+                Amsterdam neighborhoods change through time?</td>
+            </tr>
+          </table>
+          <p class="fragment">So Triply has published <i>CBS Wijken en
+            Buurten 2009-2016</i> as Linked Data.</p>
+        </section>
+        
+        <section style="text-align: left;">
+          <h2>A simple Linked Data query</h2>
+          <p><b>Query</b>: Show the municipalities with the highest
+            population density.</p>
+          <p><b>Answer</b>: <a href="http://yasgui.org/short/Bk4ZtLwZ-">link</a></p>
+          <p><b>Sources</b>: Population size from CBS, surface polygon
+            from Kadaster, flag from Wikidata.</p>
+        </section>
+        
+        <section>
+          <h2>Opportunities</h2>
+          <ul>
+            <li>Authoritative dereferencing</li>
+            <li>Modeling choices</li>
+            <li>Cheap heterogeneous data integration</li>
+          </ul>
+        </section>
+        
+        <!--
+        <section>
+          <h1>The temporal dimension</h1>
+          <p>Zuyderzée</p>
+          <p>Previous BAG ID (2007-2013): 1024</p>
+          <p>Amsterdam has absorbed:</p>
+          <ul>
+            <li>Buiksloot</li>
+            <li>Nieuwendam</li>
+            <li>Ransdorp</li>
+            <li>Sloten</li>
+            <li>Watergraafsmeer</li>
+            <li>Weesperkarspel</li>
+          </ul>
+        </section>
+        <section>
+        </section>
+        -->
+        
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+    <script src="../resource/js/jquery-3.2.1.min.js"></script>
+    <script src="../resource/js/tether-1.3.3.min.js"></script>
+    <script src="../resource/js/bootstrap.min.js"></script>
+    <script src="../resource/js/yasgui.min.js"></script>
+    <script type="text/javascript">
+YASGUI.YASR.plugins.leaflet.defaults.defaultMap = "nlmaps";
+YASGUI.sparqlStories();
+    </script>
+  </body>
+</html>
