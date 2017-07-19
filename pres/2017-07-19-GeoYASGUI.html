@@ -39,8 +39,9 @@
       <div class="slides">
         
         <section>
-          <h4>The GeoSPARQL Query Editor and Result Set
-          Visualizer</h4>
+          <h2>GeoYASGUI</h2>
+          <h3>The GeoSPARQL Query Editor and Result Set
+          Visualizer</h3>
 	        <h5>Wouter
 	        Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>,
 	        Erwin
@@ -135,7 +136,7 @@ limit 100
             <h3>Open Standards</h3>
             <ul>
               <li>SPARQL 1.1 Query Language
-                (W3C, <a href="https://www.w3.org/TR/sparql11-query/"></a>)</li>
+                (W3C, <a href="https://www.w3.org/TR/sparql11-query/">link</a>)</li>
               <li>SPARQL 1.1 Protocol
                 (W3C, <a href="https://www.w3.org/TR/sparql11-protocol/">link</a>)</li>
               <li>GeoSPARQL
@@ -174,8 +175,8 @@ limit 100
               (<a href="http://yasgui.org/#query=SELECT+%3Fp+%3Fo+%7B%0A++%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FDisneyland_Park_(Paris)%3E+%3Fp+%3Fo%0A%7D%0ALIMIT+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+3&headers=%7B%7D&outputFormat=rawResponse">example</a>)</li>
               <li>Table
                 (<a href="http://yasgui.org/#query=SELECT+%3Fp+%3Fo+%7B%0A++%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FDisneyland_Park_(Paris)%3E+%3Fp+%3Fo%0A%7D%0ALIMIT+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+3&headers=%7B%7D&outputFormat=table">example</a>)</li>
-              <li>Pivot tables</li>
-              <li>Google Charts
+              <li>Pivot table</li>
+              <li>Google Chart
                 (<a href="https://stories.triply.cc/elections/">example</a>)</li>
               <li>Map</li>
             </ul>
@@ -217,6 +218,20 @@ limit 100
         <section>
           <section>
             <h1>YASGUI</h1>
+            <p>Free web service</p>
+            <p><a href="http://yasgui.org/">http://yasgui.org</a></p>
+          </section>
+
+          <section>
+            <p>
+              Components:
+              <ul>
+                <li>YASQE</li>
+                <li>YASR</li>
+                <li>tabs</li>
+                <li>URL shortener</li>
+              </ul>
+            </p>
           </section>
 
           <section>
@@ -287,14 +302,22 @@ Turtle editor
         <section>
           <section>
             <h1>Data Stories</h1>
-            <p>A simple SPARQL-compatible GeoSPARQL templating
-              language for presentation purposes.</p>
+          </section>
+
+          <section>
+            <p>A simple GeoSPARQL templating language for presentation
+              purposes.</p>
+            <p class="fragment">Easily integrates with HTML5</p>
+            <p class="fragment">100% GeoSPARQL compatible</p>
           </section>
           
           <section>
-            <img src="../img/GeoYASR.png">
+            <a href="https://stories.triply.cc/municipalities/">
+              <img src="../img/GeoYASR.png">
+            </a>
           </section>
 
+          <!--
           <section>
             <h3>FOSS</h3>
             <ul>
@@ -302,6 +325,13 @@ Turtle editor
                 (<a href="https://www.npmjs.com/package/color">link</a>)</li>
             </ul>
           </section>
+          -->
+
+          <section>
+            <h2>For more Data Stories…</h2>
+            <p><a href="https://data.labs.pdok.nl/stories/">https://data.labs.pdok.nl/stories/</a></p>
+          </section>
+          
         </section>
 
         <section>
