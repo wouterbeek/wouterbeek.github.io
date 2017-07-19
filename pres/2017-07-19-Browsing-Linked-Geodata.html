@@ -39,12 +39,12 @@
       <div class="slides">
 
         <section>
-          <h2>Geo Werkgroep PLDN</h2>
+          <h2>Browsing Linked Geodata</h2>
           <br>
-	  <h5>Wouter Beek
-	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
-	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
-	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+	        <h5>Wouter Beek
+	          (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	          <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+	        <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
           <img src="../img/triply.svg" height="150px">
         </section>
 
@@ -61,44 +61,55 @@
 
         <section>
           <h3>Challenging: Geo + Linked Data</h3>
-          <a href="../img/delft.png">
-            <img src="../img/delft.png">
+          <a href="../img/paris.png">
+            <img src="../img/paris.png">
           </a>
         </section>
-          
+        
         <section>
           <h2>GeoSPARQL</h2>
-          <p>Components:</p>
-          <ul>
+          <ol>
             <li><b>Core</b></li>
-            <li><b>Topology Vocabulary</b> (Relation Family)</li>
-            <li><b>Geometry</b> (Serialization)</li>
-            <li>Geometry Topology (Relation Family, Serialization)</li>
-            <li>RDFS Entailment</li>
-            <li>Query Rewrite</li>
+            <li>
+              <b>Topology Vocabulary</b>: relations between geometries
+              <ul>
+                <li>Simple Features</li>
+                <li>Egenhofer</li>
+                <li>RCC8</li>
+              </ul>
+            </li>
+            <li>
+              <b>Geometry</b>
+              <ul>
+                <li>GML</li>
+                <li>WKT</li>
+              </ul>
+            </li>
+            <li><b>Geometry Topology</b>: properties of geometries
+              &amp; geometry functions</li>
+            <li><b>RDFS Entailment</b>: shape hierarchy</li>
+            <li><b>Query Rewrite</b>: rules for shapes (RIF)</li>
           </ul>
-          <p>Relation Families:</p>
-          <p><b>Simple Features</b>, Egenhofer, RCC8</p>
         </section>
 
         <section>
           <small>
-          <table>
-            <tr><th>Precision</th><th>Meaning</th></tr>
-            <tr><td>+/-</td><td>east/west or north/south</td></tr>
-            <tr><td>1.0e2</td><td>must be longitude</td></tr>
-            <tr><td>1.0e1</td><td>1111 kilometer, continent</td></tr>
-            <tr><td>1.0e0</td><td>111 kilometer, country </td></tr>
-            <tr><td>1.0e-1</td><td>11 kilometer, city </td></tr>
-            <tr><td>1.0e-2</td><td>1.1 kilometer, village</td></tr>
-            <tr><td>1.0e-3</td><td>111 meter, large field</td></tr>
-            <tr><td>1.0e-4</td><td>11 meter, parcel of land</td></tr>
-            <tr><td>1.0e-5</td><td>1.1 meter, tree</td></tr>
-            <tr><td>1.0e-6</td><td>11 centimeter, engineering</td></tr>
-            <tr><td><b>1.0e-7</b></td><td><b>11 milimeter</b></td></tr>
-            <tr><td>1.0e-8</td><td>1.1 milimeter, tectonic plate motion</td></tr>
-            <tr><td>1.0e-9</td><td>110 micron, microscopy</td></tr>
-          </table>
+            <table>
+              <tr><th>Precision</th><th>Meaning</th></tr>
+              <tr><td>+/-</td><td>east/west or north/south</td></tr>
+              <tr><td>1.0e2</td><td>must be longitude</td></tr>
+              <tr><td>1.0e1</td><td>1111 kilometer, continent</td></tr>
+              <tr><td>1.0e0</td><td>111 kilometer, country </td></tr>
+              <tr><td>1.0e-1</td><td>11 kilometer, city </td></tr>
+              <tr><td>1.0e-2</td><td>1.1 kilometer, village</td></tr>
+              <tr><td>1.0e-3</td><td>111 meter, large field</td></tr>
+              <tr><td>1.0e-4</td><td>11 meter, parcel of land</td></tr>
+              <tr><td>1.0e-5</td><td>1.1 meter, tree</td></tr>
+              <tr><td>1.0e-6</td><td>11 centimeter, engineering</td></tr>
+              <tr><td><b>1.0e-7</b></td><td><b>11 milimeter</b></td></tr>
+              <tr><td>1.0e-8</td><td>1.1 milimeter, tectonic plate motion</td></tr>
+              <tr><td>1.0e-9</td><td>110 micron, microscopy</td></tr>
+            </table>
           </small>
         </section>
 
@@ -149,13 +160,13 @@
               <li>Veracity: differences in precision</li>
             </ul>
             <!--
-            <p>Federation:</p>
-            <ul>
-              <li><b>FedBench</b></li>
-              <li>LargeRDFBench</li>
-              <li>SPLODGE</li>
-            </ul>
-            -->
+                <p>Federation:</p>
+                <ul>
+                  <li><b>FedBench</b></li>
+                  <li>LargeRDFBench</li>
+                  <li>SPLODGE</li>
+                </ul>
+                -->
           </section>
           <section>
             <a href="../img/cshapes.png"><img src="../img/cshapes.png"></a>
@@ -168,21 +179,52 @@
           <p>Use (Geo)SPARQL endpoints i.o. copying data locally.</p>
         </section>
 
-        <!--
         <section>
-          <h2>Questions</h2>
-          <ul>
-            <li class="fragment">Should we drop the vision? (i.e., no
-            open endpoints)</li>
-            <li class="fragment">Is GeoSPARQL too demanding for the
-            web?</li>
-            <li class="fragment">Is there no market? (Open
-            Government)</li>
-            <li class="fragment">Can we --- commerce, FOSS, OGC,
-              academia --- work something out here?</li>
-          </ul>
+          <h2>Hierarchical browsing</h2>
+          <p>Vocabulary: hierarchy of classes &amph; properties</p>
+          <a href="https://bag.basisregistraties.overheid.nl/query/model">
+            <img src="../img/LDT-Classes.png">
+          </a>
         </section>
-        -->
+
+        <section>
+          <h2>Tabular browsing</h2>
+          <p>Concept definition</p>
+          <a href="https://bag.basisregistraties.overheid.nl/resource?subject=http%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23Pand">
+            <img src="../img/LDT-Class.png">
+          </a>
+        </section>
+        
+        <section>
+          <h2>Graph navigation</h2>
+          <img src="../img/LodLive.png">
+          <p>LodLive</p>
+        </section>
+
+        <section>
+          <h2>Faceted browsing</h2>
+          <!-- hoogbouw, buiten gebruik -->
+          <a href="https://kadaster.triply.cc">
+            <img src="../img/FacetCheck.png">
+          </a>
+        </section>
+
+
+        <!--
+            <section>
+              <h2>Questions</h2>
+              <ul>
+                <li class="fragment">Should we drop the vision? (i.e., no
+                  open endpoints)</li>
+                <li class="fragment">Is GeoSPARQL too demanding for the
+                  web?</li>
+                <li class="fragment">Is there no market? (Open
+                  Government)</li>
+                <li class="fragment">Can we --- commerce, FOSS, OGC,
+                  academia --- work something out here?</li>
+              </ul>
+            </section>
+            -->
         
       </div>
     </div>
