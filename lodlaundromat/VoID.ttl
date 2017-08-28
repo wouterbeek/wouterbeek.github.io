@@ -1,51 +1,51 @@
-@prefix : <http://lodlaundromat.org/resource/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix llo: <http://lodlaundromat.org/ontology/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix wv: <http://vocab.org/waiver/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+prefix : <http://lodlaundromat.org/resource/>
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix llo: <http://lodlaundromat.org/ontology/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix void: <http://rdfs.org/ns/void#>
+prefix wv: <http://vocab.org/waiver/terms/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :lodLaundromat201606 a void:Dataset ;
-    dcterms:contributor :frankVanHarmelen , :janWielemaker , :rinkeHoestra ;
-    dcterms:created "2016-06"^^xsd:gYearMonth ;
-    dcterms:creator ( :wouterBeek :laurensRietveld :stefanSchlobach ) ;
-    dcterms:description "The LOD Laundromat Archival Package contains a snapshot of the LOD Laundromat data collection, itself a snapshot of the so-called Linked Open Data (LOD) Cloud.  The LOD Laundromat is a framework that provides access to a large subset of LOD that can be found, scraped and cleaned at a given moment.  LOD documents that are scraped are automatically cleaned (thus the washing machine metaphor) and converted to a standards-compliant format (i.e., gzipped N-Triples/N-Quads).  The data cleaning process includes removing ‘stains’ such as syntax errors, duplicate statements, blank nodes and more."@en-US ;    
-    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dcterms:title "LOD Laundromat (archival package 2016/06)"@en-US ;
-    foaf:page <http://lodlaundromat.org/> ;
-    rdfs:isDefinedBy : ;
-    void:feature <http://www.w3.org/ns/formats/N-Quads> ;
-    void:sparqlEndpoint <http://lodlaundromat.org/sparql> ;
-    wv:norms <http://www.opendatacommons.org/norms/odc-by-sa/> .
-    
+  dct:contributor :frankVanHarmelen , :janWielemaker , :rinkeHoestra ;
+  dct:created "2016-06"^^xsd:gYearMonth ;
+  dct:creator ( :wouterBeek :laurensRietveld :stefanSchlobach ) ;
+  dct:description "The LOD Laundromat Archival Package contains a snapshot of the LOD Laundromat data collection, itself a snapshot of the so-called Linked Open Data (LOD) Cloud.  The LOD Laundromat is a framework that provides access to a large subset of LOD that can be found, scraped and cleaned at a given moment.  LOD documents that are scraped are automatically cleaned (thus the washing machine metaphor) and converted to a standards-compliant format (i.e., gzipped N-Triples/N-Quads).  The data cleaning process includes removing ‘stains’ such as syntax errors, duplicate statements, blank nodes and more."@en-US ;
+  dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+  dct:title "LOD Laundromat (archival package 2016/06)"@en-gb ;
+  foaf:page "http://lodlaundromat.org/"^^xsd:anyURI ;
+  rdfs:isDefinedBy : ;
+  void:feature <http://www.w3.org/ns/formats/N-Quads> ;
+  void:sparqlEndpoint "http://lodlaundromat.org/sparql"^^xsd:anyURI ;
+  wv:norms <http://www.opendatacommons.org/norms/odc-by-sa/> .
+
 :frankVanHarmelen a foaf:Person ;
-    foaf:familyName "Van Harmelen"@nl ;
-    foaf:givenName "Frank"@nl ;
-    foaf:homepage <http://www.cs.vu.nl/~frankh/> .
+  foaf:familyName "Van Harmelen"@nl-nl ;
+  foaf:givenName "Frank"@nl-nl ;
+  foaf:homepage "http://www.cs.vu.nl/~frankh/"^^xsd:anyURI .
 
 :janWielemaker a foaf:Person ;
-    foaf:familyName "Wielemaker"@nl ;
-    foaf:givenName "Jan"@nl ;
-    foaf:homepage <http://www.cs.vu.nl/~janw/> .
+  foaf:familyName "Wielemaker"@nl-nl ;
+  foaf:givenName "Jan"@nl-nl ;
+  foaf:homepage "http://www.cs.vu.nl/~janw"^^xsd:anyURI .
 
 :laurensRietveld a foaf:Person ;
-    foaf:familyName "Rietveld"@nl ;
-    foaf:givenName "Laurens"@nl ;
-    foaf:homepage <http://laurensrietveld.nl> .
+  foaf:familyName "Rietveld"@nl-nl ;
+  foaf:givenName "Laurens"@nl-nl ;
+  foaf:homepage "http://laurensrietveld.nl"^^xsd:anyURI .
 
 :rinkeHoekstra a foaf:Person ;
-    foaf:familyName "Hoekstra"@nl ;
-    foaf:givenName "Rinke"@nl ;
-    foaf:homepage <http://www.few.vu.nl/~hoekstra/> .
+  foaf:familyName "Hoekstra"@nl-nl ;
+  foaf:givenName "Rinke"@nl-nl ;
+  foaf:homepage "http://www.few.vu.nl/~hoekstra"^^xsd:anyURI .
 
 :wouterBeek a foaf:Person;
-    foaf:familyName "Beek"@nl ;
-    foaf:givenName "Wouter"@nl ;
-    foaf:homepage <http://www.wouterbeek.com> .
+  foaf:familyName "Beek"@nl-nl ;
+  foaf:givenName "Wouter"@nl-nl ;
+  foaf:homepage "http://www.wouterbeek.com"^^xsd:anyURI .
 
 :stefanSchlobach a foaf:Person ;
-    foaf:familyName "Schlobach"@de ;
-    foaf:givenName "Stefan"@de ;
-    foaf:homepage <http://www.few.vu.nl/~schlobac/> .
+  foaf:familyName "Schlobach"@de-de ;
+  foaf:givenName "Stefan"@de-de ;
+  foaf:homepage "http://www.few.vu.nl/~schlobac"^^xsd:anyURI .
