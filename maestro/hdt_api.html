@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-09 Sat 16:03 -->
+<!-- 2017-09-10 Sun 14:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Prolog API for HDT (rewrite) v0.2</title>
@@ -240,51 +240,53 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org20eeddb">1. API proposal</a>
+<li><a href="#org198823e">1. API proposal</a>
 <ul>
-<li><a href="#org586aedc">1.1. Predicates for working with HDT files</a></li>
-<li><a href="#org9118ef2">1.2. Predicates for converting between terms and IDs</a></li>
-<li><a href="#org18454d0">1.3. Predicates for working with triples</a></li>
-<li><a href="#orgd5efea6">1.4. Predicates for working with terms</a></li>
-<li><a href="#orge69afe1">1.5. Predicates for working with terms based on a prefix</a></li>
-<li><a href="#orge92407c">1.6. <span class="todo TODO">TODO</span> A mapping between HDT files and named graphs</a></li>
-<li><a href="#orga19ea9a">1.7. Other predicates</a></li>
+<li><a href="#org0f56aae">1.1. Predicates for working with HDT files</a></li>
+<li><a href="#org8d2dbfb">1.2. Predicates for converting between terms and IDs</a></li>
+<li><a href="#orge4d90e9">1.3. Predicates for working with triples</a></li>
+<li><a href="#org0319281">1.4. Predicates for working with terms</a></li>
+<li><a href="#org1c960a9">1.5. Predicates for working with terms based on a prefix</a></li>
+<li><a href="#orga3e6328">1.6. <span class="todo TODO">TODO</span> A mapping between HDT files and named graphs</a></li>
+<li><a href="#orgdba3e7a">1.7. Other predicates</a></li>
 </ul>
 </li>
-<li><a href="#orgaa80487">2. TO-DO list for <code>hdt-cpp</code></a>
+<li><a href="#org300c78b">2. TO-DO list for <code>hdt-cpp</code></a>
 <ul>
-<li><a href="#orgec55a70">2.1. <span class="todo TODO">TODO</span> test <code>goTo</code> function, used by random functions</a></li>
-<li><a href="#org6ddf99e">2.2. <span class="todo TODO">TODO</span> store the offset of literals in the header</a></li>
-<li><a href="#org5206562">2.3. <span class="todo TODO">TODO</span> store the offsets (S, P, O, and SO)  of IRIs in the header</a></li>
-<li><a href="#org45a964a">2.4. <span class="todo TODO">TODO</span> how to guarantee uniqueness for IRI enumeration?</a></li>
-<li><a href="#org4e7a6dc">2.5. <span class="todo TODO">TODO</span> store the offsets (S, O, and SO) of blank nodes in the header</a></li>
+<li><a href="#orge6250d6">2.1. <span class="done DONE">DONE</span> iterator-based suggestions function</a></li>
+<li><a href="#orgfa67e01">2.2. <span class="todo TODO">TODO</span> test <code>goTo</code> function, used by random functions</a></li>
+<li><a href="#org2387511">2.3. <span class="todo TODO">TODO</span> store the offset of literals in the header</a></li>
+<li><a href="#orgef857c5">2.4. <span class="todo TODO">TODO</span> store the offsets (S, P, O, and SO)  of IRIs in the header</a></li>
+<li><a href="#org1823dcc">2.5. <span class="todo TODO">TODO</span> how to guarantee uniqueness for IRI enumeration?</a></li>
+<li><a href="#org1bb3c8e">2.6. <span class="todo TODO">TODO</span> store the offsets (S, O, and SO) of blank nodes in the header</a></li>
 </ul>
 </li>
-<li><a href="#org14e3da7">3. TO-DO list for <code>hdt4swipl</code></a>
+<li><a href="#orgfe40209">3. TO-DO list for <code>hdt4swipl</code></a>
 <ul>
-<li><a href="#orgfb9a066">3.1. <span class="todo TODO">TODO</span> test random function</a></li>
-<li><a href="#orgb666b3e">3.2. <span class="todo TODO">TODO</span> random function with IDs</a></li>
+<li><a href="#org1486605">3.1. <span class="todo TODO">TODO</span> non-deterministic reimplementation of suggestions function</a></li>
+<li><a href="#org33a126f">3.2. <span class="todo TODO">TODO</span> test random function</a></li>
+<li><a href="#org9b5c347">3.3. <span class="todo TODO">TODO</span> random function with IDs</a></li>
 </ul>
 </li>
-<li><a href="#org5bcd288">4. TO-DO list for <code>hdt.pl</code></a>
+<li><a href="#orga5fd01d">4. TO-DO list for <code>hdt.pl</code></a>
 <ul>
-<li><a href="#orgd8117ef">4.1. <span class="todo TODO">TODO</span> <code>hdt_rnd/4</code></a></li>
-<li><a href="#orgf28fc69">4.2. <span class="todo TODO">TODO</span> <code>hdt_rnd_id/4</code></a></li>
-<li><a href="#orgc8aa328">4.3. <span class="todo TODO">TODO</span> <code>hdt_term/3</code></a>
+<li><a href="#org2f3c843">4.1. <span class="todo TODO">TODO</span> <code>hdt_rnd/4</code></a></li>
+<li><a href="#org8f34057">4.2. <span class="todo TODO">TODO</span> <code>hdt_rnd_id/4</code></a></li>
+<li><a href="#org82034b2">4.3. <span class="todo TODO">TODO</span> <code>hdt_term/3</code></a>
 <ul>
-<li><a href="#org9660270">4.3.1. <span class="todo TODO">TODO</span> role <code>bnode</code></a></li>
-<li><a href="#orgf250d64">4.3.2. <span class="todo TODO">TODO</span> role <code>iri</code></a></li>
-<li><a href="#orgf3136df">4.3.3. <span class="todo TODO">TODO</span> role <code>literal</code></a></li>
-<li><a href="#org9ebca4d">4.3.4. <span class="todo TODO">TODO</span> role <code>term</code></a></li>
+<li><a href="#org3a43426">4.3.1. <span class="todo TODO">TODO</span> role <code>bnode</code></a></li>
+<li><a href="#orgf2b2c64">4.3.2. <span class="todo TODO">TODO</span> role <code>iri</code></a></li>
+<li><a href="#org6726fc7">4.3.3. <span class="todo TODO">TODO</span> role <code>literal</code></a></li>
+<li><a href="#org95bb8e1">4.3.4. <span class="todo TODO">TODO</span> role <code>term</code></a></li>
 </ul>
 </li>
-<li><a href="#org0781750">4.4. <span class="todo TODO">TODO</span> <code>hdt_term/4</code></a></li>
-<li><a href="#orgec47ea2">4.5. <span class="todo TODO">TODO</span> <code>hdt_term_count/4</code></a></li>
-<li><a href="#org0009f3b">4.6. <span class="todo TODO">TODO</span> <code>hdt_term_id/3</code></a></li>
-<li><a href="#orgd88df31">4.7. <span class="todo TODO">TODO</span> <code>hdt_term_rnd/3</code></a></li>
-<li><a href="#orgf566880">4.8. <span class="todo TODO">TODO</span> <code>hdt_term_rnd/4</code></a></li>
-<li><a href="#orge952b98">4.9. <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/3</code></a></li>
-<li><a href="#org53eebcd">4.10. <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/4</code></a></li>
+<li><a href="#orgb6a1418">4.4. <span class="todo TODO">TODO</span> <code>hdt_term/4</code></a></li>
+<li><a href="#org0bcd7c3">4.5. <span class="todo TODO">TODO</span> <code>hdt_term_count/4</code></a></li>
+<li><a href="#org40e0a8d">4.6. <span class="todo TODO">TODO</span> <code>hdt_term_id/3</code></a></li>
+<li><a href="#orga5f0ef8">4.7. <span class="todo TODO">TODO</span> <code>hdt_term_rnd/3</code></a></li>
+<li><a href="#org217bc0e">4.8. <span class="todo TODO">TODO</span> <code>hdt_term_rnd/4</code></a></li>
+<li><a href="#org3baee7b">4.9. <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/3</code></a></li>
+<li><a href="#org0121909">4.10. <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/4</code></a></li>
 </ul>
 </li>
 </ul>
@@ -293,7 +295,7 @@ for the JavaScript code in this tag.
 <p>
 This document is an attempt to create a new API for using HDT storage
 in SWI-Prolog.  The code for the Prolog API for HDT is hosted on
-<a href="https://github.com/JanWielemaker/hdt">Github</a>.
+<a href="https://github.com/JanWielemaker/hdt/blob/master/prolog/hdt.pl">Github</a>.
 </p>
 
 <p>
@@ -311,12 +313,12 @@ Specifically, the new functionality introduced in this document will
 enable several use cases that are currently blocked in MaestroGraph.
 </p>
 
-<div id="outline-container-org20eeddb" class="outline-2">
-<h2 id="org20eeddb"><span class="section-number-2">1</span> API proposal</h2>
+<div id="outline-container-org198823e" class="outline-2">
+<h2 id="org198823e"><span class="section-number-2">1</span> API proposal</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org586aedc" class="outline-3">
-<h3 id="org586aedc"><span class="section-number-3">1.1</span> Predicates for working with HDT files</h3>
+<div id="outline-container-org0f56aae" class="outline-3">
+<h3 id="org0f56aae"><span class="section-number-3">1.1</span> Predicates for working with HDT files</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Old API:
@@ -357,8 +359,8 @@ file (arg1) to an HDT handle (arg2), i.o. the other way around.</li>
 </div>
 </div>
 
-<div id="outline-container-org9118ef2" class="outline-3">
-<h3 id="org9118ef2"><span class="section-number-3">1.2</span> Predicates for converting between terms and IDs</h3>
+<div id="outline-container-org8d2dbfb" class="outline-3">
+<h3 id="org8d2dbfb"><span class="section-number-3">1.2</span> Predicates for converting between terms and IDs</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Old API:
@@ -388,8 +390,8 @@ Changes:
 </div>
 </div>
 
-<div id="outline-container-org18454d0" class="outline-3">
-<h3 id="org18454d0"><span class="section-number-3">1.3</span> Predicates for working with triples</h3>
+<div id="outline-container-orge4d90e9" class="outline-3">
+<h3 id="orge4d90e9"><span class="section-number-3">1.3</span> Predicates for working with triples</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Old API:
@@ -432,8 +434,8 @@ for IDs; <code>hdt_rnd/4</code> for terms).</li>
 </div>
 </div>
 
-<div id="outline-container-orgd5efea6" class="outline-3">
-<h3 id="orgd5efea6"><span class="section-number-3">1.4</span> Predicates for working with terms</h3>
+<div id="outline-container-org0319281" class="outline-3">
+<h3 id="org0319281"><span class="section-number-3">1.4</span> Predicates for working with terms</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Old API:
@@ -484,8 +486,8 @@ both predicates and nodes have two IDs.
 </div>
 </div>
 
-<div id="outline-container-orge69afe1" class="outline-3">
-<h3 id="orge69afe1"><span class="section-number-3">1.5</span> Predicates for working with terms based on a prefix</h3>
+<div id="outline-container-org1c960a9" class="outline-3">
+<h3 id="org1c960a9"><span class="section-number-3">1.5</span> Predicates for working with terms based on a prefix</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Old API:
@@ -519,8 +521,8 @@ previous section).</li>
 </div>
 </div>
 
-<div id="outline-container-orge92407c" class="outline-3">
-<h3 id="orge92407c"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> A mapping between HDT files and named graphs</h3>
+<div id="outline-container-orga3e6328" class="outline-3">
+<h3 id="orga3e6328"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> A mapping between HDT files and named graphs</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Jan already has an API + implementation for this.
@@ -528,8 +530,8 @@ Jan already has an API + implementation for this.
 </div>
 </div>
 
-<div id="outline-container-orga19ea9a" class="outline-3">
-<h3 id="orga19ea9a"><span class="section-number-3">1.7</span> Other predicates</h3>
+<div id="outline-container-orgdba3e7a" class="outline-3">
+<h3 id="orgdba3e7a"><span class="section-number-3">1.7</span> Other predicates</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 Old API:
@@ -547,90 +549,96 @@ These will not be changed in the new API.
 </div>
 </div>
 
-<div id="outline-container-orgaa80487" class="outline-2">
-<h2 id="orgaa80487"><span class="section-number-2">2</span> TO-DO list for <code>hdt-cpp</code></h2>
+<div id="outline-container-org300c78b" class="outline-2">
+<h2 id="org300c78b"><span class="section-number-2">2</span> TO-DO list for <code>hdt-cpp</code></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgec55a70" class="outline-3">
-<h3 id="orgec55a70"><span class="section-number-3">2.1</span> <span class="todo TODO">TODO</span> test <code>goTo</code> function, used by random functions</h3>
+<div id="outline-container-orge6250d6" class="outline-3">
+<h3 id="orge6250d6"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> iterator-based suggestions function</h3>
 </div>
-<div id="outline-container-org6ddf99e" class="outline-3">
-<h3 id="org6ddf99e"><span class="section-number-3">2.2</span> <span class="todo TODO">TODO</span> store the offset of literals in the header</h3>
+<div id="outline-container-orgfa67e01" class="outline-3">
+<h3 id="orgfa67e01"><span class="section-number-3">2.2</span> <span class="todo TODO">TODO</span> test <code>goTo</code> function, used by random functions</h3>
 </div>
-<div id="outline-container-org5206562" class="outline-3">
-<h3 id="org5206562"><span class="section-number-3">2.3</span> <span class="todo TODO">TODO</span> store the offsets (S, P, O, and SO)  of IRIs in the header</h3>
+<div id="outline-container-org2387511" class="outline-3">
+<h3 id="org2387511"><span class="section-number-3">2.3</span> <span class="todo TODO">TODO</span> store the offset of literals in the header</h3>
 </div>
-<div id="outline-container-org45a964a" class="outline-3">
-<h3 id="org45a964a"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> how to guarantee uniqueness for IRI enumeration?</h3>
+<div id="outline-container-orgef857c5" class="outline-3">
+<h3 id="orgef857c5"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> store the offsets (S, P, O, and SO)  of IRIs in the header</h3>
 </div>
-<div id="outline-container-org4e7a6dc" class="outline-3">
-<h3 id="org4e7a6dc"><span class="section-number-3">2.5</span> <span class="todo TODO">TODO</span> store the offsets (S, O, and SO) of blank nodes in the header</h3>
+<div id="outline-container-org1823dcc" class="outline-3">
+<h3 id="org1823dcc"><span class="section-number-3">2.5</span> <span class="todo TODO">TODO</span> how to guarantee uniqueness for IRI enumeration?</h3>
+</div>
+<div id="outline-container-org1bb3c8e" class="outline-3">
+<h3 id="org1bb3c8e"><span class="section-number-3">2.6</span> <span class="todo TODO">TODO</span> store the offsets (S, O, and SO) of blank nodes in the header</h3>
 </div>
 </div>
-<div id="outline-container-org14e3da7" class="outline-2">
-<h2 id="org14e3da7"><span class="section-number-2">3</span> TO-DO list for <code>hdt4swipl</code></h2>
+<div id="outline-container-orgfe40209" class="outline-2">
+<h2 id="orgfe40209"><span class="section-number-2">3</span> TO-DO list for <code>hdt4swipl</code></h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgfb9a066" class="outline-3">
-<h3 id="orgfb9a066"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> test random function</h3>
+<div id="outline-container-org1486605" class="outline-3">
+<h3 id="org1486605"><span class="section-number-3">3.1</span> <span class="todo TODO">TODO</span> non-deterministic reimplementation of suggestions function</h3>
 </div>
-<div id="outline-container-orgb666b3e" class="outline-3">
-<h3 id="orgb666b3e"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> random function with IDs</h3>
+<div id="outline-container-org33a126f" class="outline-3">
+<h3 id="org33a126f"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> test random function</h3>
+</div>
+<div id="outline-container-org9b5c347" class="outline-3">
+<h3 id="org9b5c347"><span class="section-number-3">3.3</span> <span class="todo TODO">TODO</span> random function with IDs</h3>
 </div>
 </div>
-<div id="outline-container-org5bcd288" class="outline-2">
-<h2 id="org5bcd288"><span class="section-number-2">4</span> TO-DO list for <code>hdt.pl</code></h2>
+<div id="outline-container-orga5fd01d" class="outline-2">
+<h2 id="orga5fd01d"><span class="section-number-2">4</span> TO-DO list for <code>hdt.pl</code></h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgd8117ef" class="outline-3">
-<h3 id="orgd8117ef"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> <code>hdt_rnd/4</code></h3>
+<div id="outline-container-org2f3c843" class="outline-3">
+<h3 id="org2f3c843"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> <code>hdt_rnd/4</code></h3>
 </div>
-<div id="outline-container-orgf28fc69" class="outline-3">
-<h3 id="orgf28fc69"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> <code>hdt_rnd_id/4</code></h3>
+<div id="outline-container-org8f34057" class="outline-3">
+<h3 id="org8f34057"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> <code>hdt_rnd_id/4</code></h3>
 </div>
-<div id="outline-container-orgc8aa328" class="outline-3">
-<h3 id="orgc8aa328"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> <code>hdt_term/3</code></h3>
+<div id="outline-container-org82034b2" class="outline-3">
+<h3 id="org82034b2"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> <code>hdt_term/3</code></h3>
 <div class="outline-text-3" id="text-4-3">
 </div>
-<div id="outline-container-org9660270" class="outline-4">
-<h4 id="org9660270"><span class="section-number-4">4.3.1</span> <span class="todo TODO">TODO</span> role <code>bnode</code></h4>
+<div id="outline-container-org3a43426" class="outline-4">
+<h4 id="org3a43426"><span class="section-number-4">4.3.1</span> <span class="todo TODO">TODO</span> role <code>bnode</code></h4>
 </div>
-<div id="outline-container-orgf250d64" class="outline-4">
-<h4 id="orgf250d64"><span class="section-number-4">4.3.2</span> <span class="todo TODO">TODO</span> role <code>iri</code></h4>
+<div id="outline-container-orgf2b2c64" class="outline-4">
+<h4 id="orgf2b2c64"><span class="section-number-4">4.3.2</span> <span class="todo TODO">TODO</span> role <code>iri</code></h4>
 </div>
-<div id="outline-container-orgf3136df" class="outline-4">
-<h4 id="orgf3136df"><span class="section-number-4">4.3.3</span> <span class="todo TODO">TODO</span> role <code>literal</code></h4>
+<div id="outline-container-org6726fc7" class="outline-4">
+<h4 id="org6726fc7"><span class="section-number-4">4.3.3</span> <span class="todo TODO">TODO</span> role <code>literal</code></h4>
 </div>
-<div id="outline-container-org9ebca4d" class="outline-4">
-<h4 id="org9ebca4d"><span class="section-number-4">4.3.4</span> <span class="todo TODO">TODO</span> role <code>term</code></h4>
+<div id="outline-container-org95bb8e1" class="outline-4">
+<h4 id="org95bb8e1"><span class="section-number-4">4.3.4</span> <span class="todo TODO">TODO</span> role <code>term</code></h4>
 </div>
 </div>
-<div id="outline-container-org0781750" class="outline-3">
-<h3 id="org0781750"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> <code>hdt_term/4</code></h3>
+<div id="outline-container-orgb6a1418" class="outline-3">
+<h3 id="orgb6a1418"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> <code>hdt_term/4</code></h3>
 </div>
-<div id="outline-container-orgec47ea2" class="outline-3">
-<h3 id="orgec47ea2"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> <code>hdt_term_count/4</code></h3>
+<div id="outline-container-org0bcd7c3" class="outline-3">
+<h3 id="org0bcd7c3"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> <code>hdt_term_count/4</code></h3>
 </div>
-<div id="outline-container-org0009f3b" class="outline-3">
-<h3 id="org0009f3b"><span class="section-number-3">4.6</span> <span class="todo TODO">TODO</span> <code>hdt_term_id/3</code></h3>
+<div id="outline-container-org40e0a8d" class="outline-3">
+<h3 id="org40e0a8d"><span class="section-number-3">4.6</span> <span class="todo TODO">TODO</span> <code>hdt_term_id/3</code></h3>
 </div>
-<div id="outline-container-orgd88df31" class="outline-3">
-<h3 id="orgd88df31"><span class="section-number-3">4.7</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd/3</code></h3>
+<div id="outline-container-orga5f0ef8" class="outline-3">
+<h3 id="orga5f0ef8"><span class="section-number-3">4.7</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd/3</code></h3>
 </div>
-<div id="outline-container-orgf566880" class="outline-3">
-<h3 id="orgf566880"><span class="section-number-3">4.8</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd/4</code></h3>
+<div id="outline-container-org217bc0e" class="outline-3">
+<h3 id="org217bc0e"><span class="section-number-3">4.8</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd/4</code></h3>
 </div>
-<div id="outline-container-orge952b98" class="outline-3">
-<h3 id="orge952b98"><span class="section-number-3">4.9</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/3</code></h3>
+<div id="outline-container-org3baee7b" class="outline-3">
+<h3 id="org3baee7b"><span class="section-number-3">4.9</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/3</code></h3>
 </div>
-<div id="outline-container-org53eebcd" class="outline-3">
-<h3 id="org53eebcd"><span class="section-number-3">4.10</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/4</code></h3>
+<div id="outline-container-org0121909" class="outline-3">
+<h3 id="org0121909"><span class="section-number-3">4.10</span> <span class="todo TODO">TODO</span> <code>hdt_term_rnd_id/4</code></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek, Jan Wielemaker, Javier Fernández</p>
-<p class="date">Created: 2017-09-09 Sat 16:03</p>
+<p class="date">Created: 2017-09-10 Sun 14:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
