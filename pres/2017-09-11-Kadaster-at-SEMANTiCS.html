@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Finding &amp; Querying Big Linked Geodata</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Finding &amp; Querying Big Linked Geodata">
+    <meta name="author" content="Wouter Beek and John Walker">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Finding &amp; Querying Big Linked Geodata</h2>
+	        <h5>Wouter
+	        Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>,
+	        John
+	        Walker <a href="mailto:john.walker@semaku.com">john.walker@semaku.com</a></h5>
+          <img src="../img/kadaster.jpg" height="250px">
+          <h5>Kadaster Data Platform: <a href="https://data.pdok.nl">https://data.pdok.nl</a></h5>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Big Linked Geodata</h2>
+          </section>
+
+          <section>
+            <h2>Linked Open Data</h2>
+            <img src="../img/5star.png">
+            <p>Use (Geo)SPARQL endpoints i.o. copying data
+              locally.</p>
+          </section>
+
+          <section>
+            <img src="../img/kadaster.jpg" height="250px">
+            <h2>Big Linked Geodata @ Kadaster</h2>
+            <ul>
+              <li>Over 5,000,000,000 graph edges</li>
+              <li>Over 500,000,000 geo shapes</li>
+              <li>High precision</li>
+              <li>Performance</li>
+            </ul>
+          </section>
+
+          <section>
+            <small>
+              <table>
+                <tr><th>Precision</th><th>Meaning</th></tr>
+                <tr><td>+/-</td><td>east/west or north/south</td></tr>
+                <tr><td>1.0e2</td><td>must be longitude</td></tr>
+                <tr><td>1.0e1</td><td>1111 kilometer, continent</td></tr>
+                <tr><td>1.0e0</td><td>111 kilometer, country </td></tr>
+                <tr><td>1.0e-1</td><td>11 kilometer, city </td></tr>
+                <tr><td>1.0e-2</td><td>1.1 kilometer, village</td></tr>
+                <tr><td>1.0e-3</td><td>111 meter, large field</td></tr>
+                <tr><td>1.0e-4</td><td>11 meter, parcel of land</td></tr>
+                <tr><td>1.0e-5</td><td>1.1 meter, tree</td></tr>
+                <tr><td>1.0e-6</td><td>11 centimeter, engineering</td></tr>
+                <tr><td><b>1.0e-7</b></td><td><b>11 milimeter</b></td></tr>
+                <tr><td>1.0e-8</td><td>1.1 milimeter, tectonic plate motion</td></tr>
+                <tr><td>1.0e-9</td><td>110 micron, microscopy</td></tr>
+              </table>
+            </small>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>Challenge 1:<br>Geo + Linked Data is still very new</h2>
+          <a href="../img/paris.png">
+            <img src="../img/paris.png">
+          </a>
+        </section>
+
+        <section>
+
+          <section>
+            <h2>Challenge 2:<br>GeoSPARQL implementations</h2>
+          </section>
+
+          <section>
+            <h2>GeoSPARQL standard</h2>
+            <ol>
+              <li><b>Core</b></li>
+              <li>
+                <b>Topology Vocabulary</b>: relations between geometries
+                <ul>
+                  <li>Simple Features</li>
+                  <li>Egenhofer</li>
+                  <li>RCC8</li>
+                </ul>
+              </li>
+              <li>
+                <b>Geometry</b>
+                <ul>
+                  <li>GML</li>
+                  <li>WKT</li>
+                </ul>
+              </li>
+              <li><b>Geometry Topology</b>: properties of geometries
+                &amp; geometry functions</li>
+              <li><b>RDFS Entailment</b>: shape hierarchy</li>
+              <li><b>Query Rewrite</b>: rules for shapes (RIF)</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>GeoSPARQL implementations</h2>
+            <a href="../img/geosparql.png">
+              <img src="../img/geosparql.png">
+            </a>
+          </section>
+            
+          <section>
+            <h2>GeoSPARQL implementations</h2>
+            <ol>
+              <li class="fragment">Not that many implementations to
+                choose from.</li>
+              <li class="fragment">FOSS implementations do not
+                perform.</li>
+              <li class="fragment">Challenging to deliver <i>Open</i>
+                endpoints.</li>
+            </ol>
+          </section>
+          
+        </section>
+
+        <!--
+        <section>
+          <h2>SPARQL Benchmarks</h2>
+          <p>Synthetic:</p>
+          <ul>
+            <li><b>SP<sup>2</sup>Bench</b></li>
+            <li><b>WatDiv</b></li>
+            <li>BSBM (Berlin SPARQL Benchmark)</li>
+            <li>LUBM (Lehigh University Benchmark)</li>
+          </ul>
+          <p>Real-life:</p>
+          <ul>
+            <li><b>DBPSB</b> (DBpedia SPARQL Benchmark)</li>
+            <li>FEASIBLE</li>
+          </ul>
+        </section>
+  
+        <section>
+          <h2>GeoSPARQL Benchmarks</h2>
+          <ul>
+            <li>Bellini2015: Benchmarking RDF Stores for Smart City
+              Services</li>
+            <li><b>Geographica</b> (2013, small data)</li>
+            <li>Volume: number &amp; detail</li>
+            <li>Variety: large &amp; small</li>
+            <li>Veracity: differences in precision</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>SPARQL federation benchmarks</h2>
+          <ul>
+            <li><b>FedBench</b></li>
+            <li>LargeRDFBench</li>
+            <li>SPLODGE</li>
+          </ul>
+        </section>
+        -->
+
+        <section>
+
+          <section>
+            <h2><u>Querying</u> Big Linked Geodata</h2>
+            <h3>(Programmers &amp; Data Analists)</h3>
+          </section>
+
+          <section>
+            <h2>Support for Programmers &amp; Data Analists</h2>
+            <a href="http://dbpedia.org/sparql">DBpedia</a>
+            <!-- Ouch! -->
+          </section>
+          
+          <section>
+            <h2>Things a programmer needs</h2>
+            <img src="../img/GeoYASQE.png">
+            <!-- koffee
+            <ul>
+              <li>syntax highlighting</li>
+              <li>feedback for syntax errors</li>
+              <li>autocompletion</li>
+              <li>automatic namespace declarations</li>
+              <li>indentation, bracket matching</li>
+              <li>persistent state</li>
+            </ul>
+            -->
+          </section>
+          
+          <section>
+            <h2>Autocompletion</h2>
+            <a href="http://lov.okfn.org/dataset/lov/">
+              <img height="400px" src="../img/lov.png">
+            </a>
+            <p><i>Linked Open Vocabularies</i></p>
+          </section>
+
+          <section>
+            
+            <h2>Result set formats</h2>
+            <ul>
+              <li>Raw triples (N-Quads, N-Triples, RDF/XML, TriG,
+                Turtle)
+                (<a href="http://yasgui.org/#query=DESCRIBE+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FDisneyland_Park_(Paris)%3E%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+3&headers=%7B%7D&outputFormat=table">example</a>)</li>
+              <li>Raw solutions (CSV/TSV, JSON, XML)
+                (<a href="http://yasgui.org/#query=SELECT+%3Fp+%3Fo+%7B%0A++%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FDisneyland_Park_(Paris)%3E+%3Fp+%3Fo%0A%7D%0ALIMIT+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+3&headers=%7B%7D&outputFormat=rawResponse">example</a>)</li>
+              <li>Table
+                (<a href="http://yasgui.org/#query=SELECT+%3Fp+%3Fo+%7B%0A++%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FDisneyland_Park_(Paris)%3E+%3Fp+%3Fo%0A%7D%0ALIMIT+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+3&headers=%7B%7D&outputFormat=table">example</a>)</li>
+              <li>Pivot table</li>
+              <li>Google Chart
+                (<a href="https://stories.triply.cc/elections/">example</a>)</li>
+              <li>Map (<a href="http://yasgui.org/#query=PREFIX+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT+DISTINCT+%3Fwkt+%7B%0A++GRAPH+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2Fcshapes%2Fdata%2F%3E+%7B%0A++++%3Fs+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B+rdfs%3Alabel+%22France%22%40en+.%0A++%7D%0A%7D%0ALIMIT+5%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query+4&headers=%7B%7D&outputFormat=leaflet">example</a>)</li>
+            </ul>
+          </section>
+
+          <!--
+          <section>
+            <h3>Data Stories</h3>
+            <a href="https://stories.triply.cc/municipalities/">
+              <img src="../img/GeoYASR.png">
+            </a>
+          </section>
+          -->
+          
+        </section>
+
+        <section>
+          
+          <section>
+            <h2><u>Finding</u> Big Linked Geodata</h2>
+            <h4>Browsing paradigms</h4>
+          </section>
+          
+          <section>
+            <h2>Hierarchical browsing</h2>
+            <a href="https://bag.basisregistraties.overheid.nl/query/model">
+              <img src="../img/LDT-Classes.png">
+            </a>
+          </section>
+
+          <section>
+            <h2>Tabular browsing: concepts</h2>
+            <a href="https://bag.basisregistraties.overheid.nl/resource?subject=http%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23Pand">
+              <img src="../img/LDT-Class.png">
+            </a>
+          </section>
+
+          <section>
+            <h2>Tabular browsing: instances</h2>
+            <a href="../img/LDT-Definition.png">
+              <img src="../img/LDT-Definition.png">
+            </a>
+          </section>
+          
+          <section>
+            <h2>Graph navigation</h2>
+            <a href="https://data.pdok.nl/lodlive/?http://bag.basisregistraties.overheid.nl/bag/id/openbare-ruimte/0003300000116990">
+              <img src="../img/LodLive.png">
+            </a>
+            <p>LodLive</p>
+          </section>
+
+          <section>
+            <h2>Faceted browsing</h2>
+            <img src="../img/FacetCheck.png">
+          </section>
+
+          <section>
+            <h2>Map navigation</h2>
+            <a href="http://demo.semaku.com/bierbrouwerij/#/map">
+              <img src="../img/cshapes.png">
+            </a>
+          </section>
+          
+          <section>
+
+            <table>
+              <tr>
+                <th>Purpose</th>
+                <th>Technique</th>
+              </tr>
+              <tr>
+                <td>Concept browsing</td>
+                <!-- understanding the vocabulary; concept lookup -->
+                <td>Hierarchical browsing</td>
+              </tr>
+              <tr>
+                <td>Display one concept/instance</td>
+                <td>Tabular browsing</td>
+              </tr>
+              <tr>
+                <td>Explorative browsing; instance in context</td>
+                <td>Graph navigation</td>
+              </tr>
+              <tr>
+                <td>Instance browsing</td>
+                <td>Faceted browsing</td>
+              </tr>
+              <tr>
+                <td>Domain-specific overview</td>
+                <td>Map navigation</td>
+              </tr>
+            </table>
+
+          </section>
+
+        </section>
+
+        <section>
+          <h1>Thank you!</h1>
+          <p>Kadaster Data Platform: <a href="https://data.pdok.nl">data.pdok.nl</a></p>
+	  <p>John Walker <a href="mailto:john.walker@semaku.com">john.walker@semaku.com</a><br>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></p>
+        </section>
+         
+          <!--
+              <section>
+                <h2>Questions</h2>
+                <ul>
+                  <li class="fragment">Should we drop the vision? (i.e., no
+                    open endpoints)</li>
+                  <li class="fragment">Is GeoSPARQL too demanding for the
+                    web?</li>
+                  <li class="fragment">Is there no market? (Open
+                    Government)</li>
+                  <li class="fragment">Can we --- commerce, FOSS, OGC,
+                    academia --- work something out here?</li>
+                </ul>
+              </section>
+              -->
+          
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
