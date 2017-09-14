@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOD Cloud-Wide Quality Improvement</title>
+    <script type="text/javascript" async
+	          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="LOD Laundromat at Data Quality Workshop, SEMANTICS 2016.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      h1, h2, h3, h4, h5 { text-transform: none !important;}
+      figure { float: left; height: 150px; margin: 55px !important; width: 150px; }
+      figure figcaption { font-size: 20px !important; }
+      html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; max-width: 900px; }
+      sup { font-size: 40pt !important; }
+      .snippet { font-family: monospace; font-size: 90%; text-align: center; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>LOD Cloud-Wide<br/>Quality Improvement</h1>
+          <h4>September 14<sup>th</sup>, 2017</h4>
+	  <h4>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h4>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+        </section>
+
+        <section>
+          <section>
+            <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="../img/basket.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="../img/laundry.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="../img/wardrobe.png" width="200">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="../img/analysis.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="../img/labels.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="../img/laundryLine.png" width="200">
+            </a>
+          </section>
+          <section>
+            <a href="../img/LOD-a-lot.jpg">
+              <img src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+          <section>
+            <h1>It's not FAIR!</h1>
+            <p>Most data cannot be…</p>
+            <ul>
+              <li>found</li>
+              <li>read</li>
+              <li>queried</li>
+              <li>reasoned over</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <h3>Analyzing 1,457,568,017 typed literals</h3>
+          <a href="../img/dhier.png">
+            <img src="../img/dhier.png">
+          </a>
+        </section>
+
+        <section>
+          <h3>Improving 1,281,785,207 textual strings</h3>
+          <a href="../img/ltag.png">
+            <img height="500px" src="../img/ltag.png">
+          </a>
+          <small>Beek &amp; Ilievski &amp; Debattista &amp; Sclobach
+            &amp; Wielemaker, <i>‘Literally Better’: Analyzing and
+            Improving the Quality of Literals</i> (under
+            submission)</small>
+        </section>
+
+        <section>
+          <h2>Cleaning <code>owl:sameAs</code></h2>
+          <p>558,943,116 <code>owl:sameAs</code> triples</p>
+          <a href="../img/identity-partitions-2.png">
+            <img src="../img/identity-partitions-2.png" height="400">
+          </a>
+        </section>
+          
+        <section>
+          <h2>Cleaning <code>owl:sameAs</code></h2>
+          <h3>Community 1: Obama, the person</h3>
+          <pre>
+http://als.dbpedia.org/resource/Barack_Obama
+http://am.dbpedia.org/resource/ባራክ_ኦባማ
+http://data.nytimes.com/obama_barack_per
+http://nl.dbpedia.org/resource/Barack_Obama
+http://rdf.freebase.com/ns/m.02mjmr
+http://viaf.org/viaf/52010985
+http://yago-knowledge.org/resource/Barack_Obama</pre>
+          <div class="fragment">
+            <h3>Community 2: Obama, the administration</h3>
+            <pre>
+http://dbpedia.org/resource/Administration_of_Barack_Obama
+http://dbpedia.org/resource/Barack_Obama_Cabinet
+http://dbpedia.org/resource/Barack_Obama_presidency
+http://rdf.freebase.com/ns/m.05b6w1g
+http://wikidata.dbpedia.org/resource/Q1379733
+http://yago-knowledge.org/resource/Presidency_of_Barack_Obama</pre>
+          </div>
+        </section>
+          
+        <section>
+          <h1>Thank you!</h1>
+          <p>
+            Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>
+            <br/>
+            WWW: <a href="http://wouterbeek.com">wouterbeek.com</a>
+          </p>
+          <hr/>
+          <p>
+            Web
+            Service: <a href="http://lodlaundromat.org">http://lodlaundromat.org</a>
+            <br/>
+            Single-file
+            download: <a href="http://purl.org/HDT/lod-a-lot">http://purl.org/HDT/lod-a-lot</a>
+          </p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+        
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
