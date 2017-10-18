@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-18 Wed 11:23 -->
+<!-- 2017-10-18 Wed 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Voorbeeld van het gebruik van HTML5+RDFa</title>
@@ -180,6 +180,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -234,8 +240,8 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3fbc612">1. Een voorbeeld van IISG data in HTML</a></li>
-<li><a href="#org3a44207">2. Hetzelfde voorbeeld in HTML5+RDFa</a></li>
+<li><a href="#orgcec64df">1. Een voorbeeld van IISG data in HTML</a></li>
+<li><a href="#orgd5ea2a6">2. Hetzelfde voorbeeld in HTML5+RDFa</a></li>
 </ul>
 </div>
 </div>
@@ -249,8 +255,8 @@ een web browser.  HTML is met name geschikt voor kleinere hoeveerheden
 data die middels een narratieve structuur verbonden zijn.
 </p>
 
-<div id="outline-container-org3fbc612" class="outline-2">
-<h2 id="org3fbc612"><span class="section-number-2">1</span> Een voorbeeld van IISG data in HTML</h2>
+<div id="outline-container-orgcec64df" class="outline-2">
+<h2 id="orgcec64df"><span class="section-number-2">1</span> Een voorbeeld van IISG data in HTML</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Gegeven dat het prima is om data in HTML op te slaan, is het wel zo
@@ -297,13 +303,21 @@ anders is:
 
 <p>
 Daarnaast weet een machine niet wat de verschillende getallen (54,
-3, 22) aanduiden.
+3, 22) aanduiden.  Als we deze HTML snippet aan een data processor
+geven, vindt deze de volgende content (d.w.z. bijna niets):
 </p>
+
+
+<div class="figure">
+<p><img src="../img/zonder-rdfa.jpg" alt="zonder-rdfa.jpg" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Machine leesbare content in het huidige HTML snippet (= bijna niets).</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org3a44207" class="outline-2">
-<h2 id="org3a44207"><span class="section-number-2">2</span> Hetzelfde voorbeeld in HTML5+RDFa</h2>
+<div id="outline-container-orgd5ea2a6" class="outline-2">
+<h2 id="orgd5ea2a6"><span class="section-number-2">2</span> Hetzelfde voorbeeld in HTML5+RDFa</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Als we gebruik maken van HTML5 en
@@ -354,6 +368,13 @@ auteur zijn gerelateerd middels de Dublin Core ‘creator’ eigenschap
   &lt;/<span style="color: #006699;">li</span>&gt;
 &lt;/<span style="color: #006699;">ul</span>&gt;
 </pre>
+</div>
+
+
+<div class="figure">
+<p><img src="../img/met-rdfa.jpg" alt="met-rdfa.jpg" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Machine leesbare content in het HTML5+RDFa snippet.</p>
 </div>
 
 <p>
@@ -462,7 +483,7 @@ te interpreteren in termen van Dublin Core, Schema.org en VIAF.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2017-10-18 Wed 11:23</p>
+<p class="date">Created: 2017-10-18 Wed 11:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
