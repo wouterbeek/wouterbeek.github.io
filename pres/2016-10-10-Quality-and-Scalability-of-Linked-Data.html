@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Quality and Scalability of Linked Data</title>
     <script type="text/javascript" async
-	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <meta name="description" content="Quality and Scalability of Linked Data.">
     <meta name="author" content="Wouter Beek">
@@ -26,13 +26,13 @@
     <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
-    <style>
-      h1, h2, h3, h4, h5 { text-transform: none !important;}
-      figure { float: left; height: 150px; margin: 55px !important; width: 150px; }
-      figure figcaption { font-size: 20px !important; }
-      html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; max-width: 900px; }
-      .snippet { font-family: monospace; font-size: 90%; text-align: center; width: 100%; }
-    </style>
+         <style>
+           h1, h2, h3, h4, h5 { text-transform: none !important;}
+           figure { float: left; height: 150px; margin: 55px !important; width: 150px; }
+           figure figcaption { font-size: 20px !important; }
+           html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; max-width: 900px; }
+           .snippet { font-family: monospace; font-size: 90%; text-align: center; width: 100%; }
+         </style>
   </head>
   <body>
     <div class="reveal">
@@ -41,9 +41,9 @@
         <section>
           <h1>Quality &amp; Scalability<br>of Linked Data</h1>
           <h4>October 10<sup>th</sup>, 2016</h4>
-	  <h4>Wouter Beek
-	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h4>
-	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
+	        <h4>Wouter Beek
+	          (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h4>
+	        <img src="../img/vu-krr-logo-print-600dpi.png" height="150px">
           <img src="../img/triply.svg" height="150px">
         </section>
 
@@ -52,52 +52,52 @@
         </section>
         
         <section>
-	  <p>Most data cannot be automatically:</p>
-	  <ul>
-	    <li>found</li>
-	    <li>read</li>
-	    <li>queried</li>
-	    <li>reasoned over</li>
-	  </ul>
-	  <p>Many PhD students' worse nightmare…</p>
-	</section>
-	
+	        <p>Most data cannot be automatically:</p>
+	        <ul>
+	          <li>found</li>
+	          <li>read</li>
+	          <li>queried</li>
+	          <li>reasoned over</li>
+	        </ul>
+	        <p>Many PhD students' worse nightmare…</p>
+	      </section>
+	      
         <section>
-	  <h3>Problem 1: Most data cannot be <em>found</em></h3>
+	        <h3>Problem 1: Most data cannot be <em>found</em></h3>
           <img src="../img/yahoo.jpg">
         </section>
         
         <section>
-	  <h3>SotA findability comparable to 1995 <em>Yahoo!</em>
-	    index</h3>
+	        <h3>SotA findability comparable to 1995 <em>Yahoo!</em>
+	          index</h3>
           <img src="../img/data_gov_uk.png">
         </section>
 
-	<section>
-	  <h2>Problem 2: Most data cannot be <em>read</em></h2>
-	  <div style="float: left;">
-	    <ul>
-	      <li>Character encoding issues</li>
-	      <li>Socket errors</li>
-	      <li>Protocol errors</li>
-	      <li>Corrupted archives</li>
-	      <li>Authentication problems</li>
-	      <li>Syntax errors</li>
-	      <li>Wrong metadata</li>
-	    </ul>
-	  </div>
-	  <div style="float: right;">
-	    <ul>
-	      <li>Lexical form ↛ value</li>
-	      <li>Non-canonical lexical form</li>
-	      <li>Logically inconsistent</li>
-	      <li>…</li>
-	    </ul>
-	  </div>
+	      <section>
+	        <h2>Problem 2: Most data cannot be <em>read</em></h2>
+	        <div style="float: left;">
+	          <ul>
+	            <li>Character encoding issues</li>
+	            <li>Socket errors</li>
+	            <li>Protocol errors</li>
+	            <li>Corrupted archives</li>
+	            <li>Authentication problems</li>
+	            <li>Syntax errors</li>
+	            <li>Wrong metadata</li>
+	          </ul>
+	        </div>
+	        <div style="float: right;">
+	          <ul>
+	            <li>Lexical form ↛ value</li>
+	            <li>Non-canonical lexical form</li>
+	            <li>Logically inconsistent</li>
+	            <li>…</li>
+	          </ul>
+	        </div>
         </section>
 
         <section>
-	  <h2>Problem 3: Most data cannot be <em>queried</em></h2>
+	        <h2>Problem 3: Most data cannot be <em>queried</em></h2>
           <img src="../img/availability2015.png" style="max-height: 625px;">
         </section>
 
@@ -105,295 +105,295 @@
             <section>
               <h2>Querying is optimized for <em>human</em> use</h2>
               <ul>
-		<li>‘Follow Your Nose’ = DoS attack</li>
-		<li>Available SPARQL endpoints return 10,000 results</li>
-		<li>No streaming, no anytime behavior</li>
+		            <li>‘Follow Your Nose’ = DoS attack</li>
+		            <li>Available SPARQL endpoints return 10,000 results</li>
+		            <li>No streaming, no anytime behavior</li>
               </ul>
             </section>
             -->
 
-        <section>
-	  <h2>Problem 4: Most data cannot be <em>reasoned over</em></h2>
-	  <ul>
-	    <!--
-		<li>Entailment regime selection not standardized</li>
-	    <li>Some entailment results cannot be expressed in RDF</li>
-	    <li>Few implementations are complete</li>
-	    -->
-            <li>Web-scale reasoning is only performed in the lab</li>
-            <li>Federation does not scale to thousands of
-              endpoints</li>
-            <li>Real-world reasoning immediately goes <em>ex falso
-		quodlibet</em>
-	  </ul>
-        </section>
-
-        <section>
-          <h1>How to solve this?</h1>
-        </section>
-
-        <!--
-            <section style="font-size: 150%;">
-              <p>Fully automate WoD scraping &amp; cleaning</p>
-	      <p>Clean the WoD in days not decades</p>
+            <section>
+	            <h2>Problem 4: Most data cannot be <em>reasoned over</em></h2>
+	            <ul>
+	              <!--
+		                <li>Entailment regime selection not standardized</li>
+	              <li>Some entailment results cannot be expressed in RDF</li>
+	              <li>Few implementations are complete</li>
+	              -->
+                <li>Web-scale reasoning is only performed in the lab</li>
+                <li>Federation does not scale to thousands of
+                  endpoints</li>
+                <li>Real-world reasoning immediately goes <em>ex falso
+		                quodlibet</em>
+	            </ul>
             </section>
-            -->
 
-        <section>
-          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
-          <a href="http://lodlaundromat.org/basket/">
-            <img src="../img/basket.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/">
-            <img src="../img/laundry.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/wardrobe/">
-            <img src="../img/wardrobe.png" width="200">
-          </a>
-          <br>
-          <a href="http://lodlaundromat.org/visualizations/">
-            <img src="../img/analysis.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-            <img src="../img/labels.png" width="200">
-          </a>
-          <a href="http://lodlaundromat.org/about/">
-            <img src="../img/laundryLine.png" width="200">
-          </a>
-          <br>
-          <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker
-            &amp; Schlobach “LOD laundromat: A Uniform Way of
-            Publishing Other People’s Dirty Data”, <em>International
-              Semantic Web Conference</em>, 2014.</small>
-          <small style="margin-top: 15px;">Best Linked Open Data Application Award 2015</small>
-        </section>
+            <section>
+              <h1>How to solve this?</h1>
+            </section>
 
-        <section>
-          <h3>How to query &gt;30B statements (1/2)</h3>
-	  <img src="../img/sparql.svg" height="400px">
-        </section>
+            <!--
+                <section style="font-size: 150%;">
+                  <p>Fully automate WoD scraping &amp; cleaning</p>
+	                <p>Clean the WoD in days not decades</p>
+                </section>
+                -->
 
-        <section>
-          <h3>How to query &gt;30B statements (2/2)</h3>
-	  <img src="../img/ldf.svg" height="400px">
-          <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
-            &amp; Schlobach, “Linked Data-as-a-Service: The Semantic
-            Web Redeployed”, <em>European Semantic Web
-              Conference</em>, 2015.</small>
-        </section>
+                <section>
+                  <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+                  <a href="http://lodlaundromat.org/basket/">
+                    <img src="../img/basket.png" width="200">
+                  </a>
+                  <a href="http://lodlaundromat.org/">
+                    <img src="../img/laundry.png" width="200">
+                  </a>
+                  <a href="http://lodlaundromat.org/wardrobe/">
+                    <img src="../img/wardrobe.png" width="200">
+                  </a>
+                  <br>
+                  <a href="http://lodlaundromat.org/visualizations/">
+                    <img src="../img/analysis.png" width="200">
+                  </a>
+                  <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+                    <img src="../img/labels.png" width="200">
+                  </a>
+                  <a href="http://lodlaundromat.org/about/">
+                    <img src="../img/laundryLine.png" width="200">
+                  </a>
+                  <br>
+                  <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker
+                    &amp; Schlobach “LOD laundromat: A Uniform Way of
+                    Publishing Other People’s Dirty Data”, <em>International
+                      Semantic Web Conference</em>, 2014.</small>
+                  <small style="margin-top: 15px;">Best Linked Open Data Application Award 2015</small>
+                </section>
 
-        <section>
-          <p>
-            Built on top of the ClioPatria triple store:
-            <a href="https://github.com/ClioPatria/ClioPatria">github.com/ClioPatria/ClioPatria</a>
-          </p>
-          <br>
-          <small>Wielemaker &amp; Beek &amp; Hildebrand &amp; Van
-            Ossenbruggen, “ClioPatria: A SWI-Prolog Infrastructure for
-            the Semantic Web” in <em>Semantic Web Journal</em>,
-            2016.</small>
-          <small style="margin-top: 15px;">Beek &amp; Wielemaker, “SWISH: An Integrated Semantic
-            Web Notebook” in <em>International Semantic Web
-              Conference</em>, 2016 (to appear).</small>
-          <!--
-              <br>
-              <br>
-              <h3>Header Dictionary Triples (HDT)</h3>
-          <p><a href="http://www.rdfhdt.org/">rdfhdt.org</a></p>
-          <small>Fernández &amp; Martínez-Prieto &amp; Gutiérrez &amp;
-	    Polleres &amp; Arias, ‘Binary RDF representation for publication and
-	    exchange(HDT)’ in <em>Web Semantics: Science, Services and Agents on
-	      the World Wide Web</em>, Vol. 19, p. 22-41, 2013.</small>
-          -->
-        </section>
+                <section>
+                  <h3>How to query &gt;30B statements (1/2)</h3>
+	                <img src="../img/sparql.svg" height="400px">
+                </section>
 
-        <section>
-          <h2>Alt. SW layer cake</h2>
-          <a href="../img/llcake.png">
-            <img height="500px" src="../img/llcake.png">
-          </a>
-          <small>Beek &amp; Rietveld &amp; Schlobach &amp; Van
-            Harmelen “LOD Laundromat: Why the Semantic Web Needs
-            Centralization (Even If We Don't Like It)” <em>IEEE
-              Internet Computing</em>, 20 (2), p.78-81, 2016.</small>
-        </section>
+                <section>
+                  <h3>How to query &gt;30B statements (2/2)</h3>
+	                <img src="../img/ldf.svg" height="400px">
+                  <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
+                    &amp; Schlobach, “Linked Data-as-a-Service: The Semantic
+                    Web Redeployed”, <em>European Semantic Web
+                      Conference</em>, 2015.</small>
+                </section>
 
-        <section>
-          <h2>Semantic Search Engine</h2>
-          <img src="../img/lotus_cropped.png">
-          <small>Ilievski &amp; Beek &amp Van Erp &amp; Rietveld &amp;
-            Schlobach, “LOTUS: Adaptive Text Search for Big Linked
-            Data”, <em>European Semantic Web Conference</em>,
-            2016.</small>
-          <small style="margin-top: 15px;">2<sup>nd</sup>
-            place, <em>Linked Data Challenge</em>, 2016.</small>
-        </section>
-        
-        <section>
-          <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
-          <img src="../img/pet_sounds.png">
-        </section>
+                <section>
+                  <p>
+                    Built on top of the ClioPatria triple store:
+                    <a href="https://github.com/ClioPatria/ClioPatria">github.com/ClioPatria/ClioPatria</a>
+                  </p>
+                  <br>
+                  <small>Wielemaker &amp; Beek &amp; Hildebrand &amp; Van
+                    Ossenbruggen, “ClioPatria: A SWI-Prolog Infrastructure for
+                    the Semantic Web” in <em>Semantic Web Journal</em>,
+                    2016.</small>
+                  <small style="margin-top: 15px;">Beek &amp; Wielemaker, “SWISH: An Integrated Semantic
+                    Web Notebook” in <em>International Semantic Web
+                      Conference</em>, 2016 (to appear).</small>
+                  <!--
+                      <br>
+                      <br>
+                      <h3>Header Dictionary Triples (HDT)</h3>
+                  <p><a href="http://www.rdfhdt.org/">rdfhdt.org</a></p>
+                  <small>Fernández &amp; Martínez-Prieto &amp; Gutiérrez &amp;
+	                  Polleres &amp; Arias, ‘Binary RDF representation for publication and
+	                  exchange(HDT)’ in <em>Web Semantics: Science, Services and Agents on
+	                    the World Wide Web</em>, Vol. 19, p. 22-41, 2013.</small>
+                  -->
+                </section>
 
-        <section>
-          <img src="../img/triply.svg" height="450px">
-          <h3><a href="../triply.html">http://Triply.cc</a></h3>
-        </section>
-        
-        <section>
-	  <h1>Why bother?</h1>	 
-	  <img height="200px" src="../img/lodLab.png">
-        </section>
+                <section>
+                  <h2>Alt. SW layer cake</h2>
+                  <a href="../img/llcake.png">
+                    <img height="500px" src="../img/llcake.png">
+                  </a>
+                  <small>Beek &amp; Rietveld &amp; Schlobach &amp; Van
+                    Harmelen “LOD Laundromat: Why the Semantic Web Needs
+                    Centralization (Even If We Don't Like It)” <em>IEEE
+                      Internet Computing</em>, 20 (2), p.78-81, 2016.</small>
+                </section>
 
-        <section>
-          <h3>How generalizable is SW research?</h3>
-          <img height="400px" src="../img/articlesPerDataset.png">
-          <p>ISWC 2014 Research Track:</p>
-          <ul>
-            <li>17 datasets overall; avg. 2 per per paper (avg. 2)</li>
-            <li>Data was cleaned locally and deleted afterwards</li>
-          </ul>
-        </section>
+                <section>
+                  <h2>Semantic Search Engine</h2>
+                  <img src="../img/lotus_cropped.png">
+                  <small>Ilievski &amp; Beek &amp Van Erp &amp; Rietveld &amp;
+                    Schlobach, “LOTUS: Adaptive Text Search for Big Linked
+                    Data”, <em>European Semantic Web Conference</em>,
+                    2016.</small>
+                  <small style="margin-top: 15px;">2<sup>nd</sup>
+                    place, <em>Linked Data Challenge</em>, 2016.</small>
+                </section>
+                
+                <section>
+                  <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+                  <img src="../img/pet_sounds.png">
+                </section>
 
-        <section>
-          <h3>
-            Reproducing “Linked Data Best Practices”
-            <small>(Schmachtenberg 2014)</small>
-          </h3>
-          <table class="bestPractices" style="font-size: 80%">
-            <thead>
-              <tr>
-                <th style="text-align: center; border-bottom: 0px solid;border-right: 1px solid;" colspan="3" >Original</th>
-                <th style="text-align: center; border-bottom: 0px solid;" colspan="3" >LOD Lab</th>
-              </tr>
-              <tr >
-                <th>Prefix</th>
-                <th >#datasets</th>
-                <th style="border-right: 1px solid;">%datasets</th>
-                <th>Prefix</th>
-                <th>#documents</th>
-                <th>%documents</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>rdf</td>
-                <td>996</td>
-                <td>98.22%</td>
-                <td>rdf</td>
-                <td>639,575</td>
-                <td>98.40%</td>
-              </tr>
-              <tr>
-                <td>rdfs</td>
-                <td>736</td>
-                <td>72.58%</td>
-                <td>time</td>
-                <td>443,222</td>
-                <td>68.19%</td>
-              </tr>
-              <tr>
-                <td>foaf</td>
-                <td>701</td>
-                <td>69.13%</td>
-                <td>cube</td>
-                <td>155,460</td>
-                <td>23.92%</td>
-              </tr>
-              <tr>
-                <td>dcterm</td>
-                <td>568</td>
-                <td>56.01%</td>
-                <td>sdmxdim</td>
-                <td>154,940</td>
-                <td>23.84%</td>
-              </tr>
-              <tr>
-                <td>owl</td>
-                <td>370</td>
-                <td>36.49%</td>
-                <td>worldbank</td>
-                <td>147,362</td>
-                <td>22.67%</td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-          <small>Rietveld &amp; Beek &amp; Schlobach, “LOD Lab:
-            Experiments at LOD Scale”, <em>International Semantic Web
-              Conference</em>, 2015 (best paper award).</small>
-        </section>
+                <section>
+                  <img src="../img/triply.svg" height="450px">
+                  <h3><a href="../triply.html">http://Triply.cc</a></h3>
+                </section>
+                
+                <section>
+	                <h1>Why bother?</h1>	 
+	                <img height="200px" src="../img/lodLab.png">
+                </section>
 
-        <section>
-          <p>Calculate a metric over all WoD documents:</p>
-          <pre style="font-size: 100%; width: 1300px;">
-            <code>
-              frank documents --downloadUri |
-              ./countNamespacesForDocument
-            </code>
-          </pre>
-          <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
-	  <small>Beek &amp; Rietveld, “<em>Frank</em>: The LOD Cloud
-	    at your Fingertips” in <em>ESWC Developers Workshop</em>,
-	    2015.</small>
-        </section>
+                <section>
+                  <h3>How generalizable is SW research?</h3>
+                  <img height="400px" src="../img/articlesPerDataset.png">
+                  <p>ISWC 2014 Research Track:</p>
+                  <ul>
+                    <li>17 datasets overall; avg. 2 per per paper (avg. 2)</li>
+                    <li>Data was cleaned locally and deleted afterwards</li>
+                  </ul>
+                </section>
 
-        <section>
-          <h2><a href="http://lodlaundromat.org/">LOD Laundromat</a>
-            gives a<br>Web-scale Data Quality report</h2>
-          <a href="http://lodlaundromat.org/visualizations/">
-            <img src="../img/analysis.png" width="300">
-          </a>
-          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
-            <img src="../img/labels.png" width="300">
-          </a>
-          <small>Rietveld &amp; Beek &amp; Hoekstra &amp; Schlobach,
-            “Meta-Data for a Lot of LOD”, <em>Semantic Web Journal</em>,
-            (to be published).</small>
-        </section>
+                <section>
+                  <h3>
+                    Reproducing “Linked Data Best Practices”
+                    <small>(Schmachtenberg 2014)</small>
+                  </h3>
+                  <table class="bestPractices" style="font-size: 80%">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center; border-bottom: 0px solid;border-right: 1px solid;" colspan="3" >Original</th>
+                        <th style="text-align: center; border-bottom: 0px solid;" colspan="3" >LOD Lab</th>
+                      </tr>
+                      <tr >
+                        <th>Prefix</th>
+                        <th >#datasets</th>
+                        <th style="border-right: 1px solid;">%datasets</th>
+                        <th>Prefix</th>
+                        <th>#documents</th>
+                        <th>%documents</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>rdf</td>
+                        <td>996</td>
+                        <td>98.22%</td>
+                        <td>rdf</td>
+                        <td>639,575</td>
+                        <td>98.40%</td>
+                      </tr>
+                      <tr>
+                        <td>rdfs</td>
+                        <td>736</td>
+                        <td>72.58%</td>
+                        <td>time</td>
+                        <td>443,222</td>
+                        <td>68.19%</td>
+                      </tr>
+                      <tr>
+                        <td>foaf</td>
+                        <td>701</td>
+                        <td>69.13%</td>
+                        <td>cube</td>
+                        <td>155,460</td>
+                        <td>23.92%</td>
+                      </tr>
+                      <tr>
+                        <td>dcterm</td>
+                        <td>568</td>
+                        <td>56.01%</td>
+                        <td>sdmxdim</td>
+                        <td>154,940</td>
+                        <td>23.84%</td>
+                      </tr>
+                      <tr>
+                        <td>owl</td>
+                        <td>370</td>
+                        <td>36.49%</td>
+                        <td>worldbank</td>
+                        <td>147,362</td>
+                        <td>22.67%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <small>Rietveld &amp; Beek &amp; Schlobach, “LOD Lab:
+                    Experiments at LOD Scale”, <em>International Semantic Web
+                      Conference</em>, 2015 (best paper award).</small>
+                </section>
 
-        <section>
-          <h3>Large-scale Data Quality Improvement (1/2):
-            Datatypes</h3>
-          <img src="../img/dhier.png">
-        </section>
+                <section>
+                  <p>Calculate a metric over all WoD documents:</p>
+                  <pre style="font-size: 100%; width: 1300px;">
+                    <code>
+                      frank documents --downloadUri |
+                      ./countNamespacesForDocument
+                    </code>
+                  </pre>
+                  <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
+	                <small>Beek &amp; Rietveld, “<em>Frank</em>: The LOD Cloud
+	                  at your Fingertips” in <em>ESWC Developers Workshop</em>,
+	                  2015.</small>
+                </section>
 
-        <section>
-          <h3>Large-scale Data Quality Improvement (2/2): Language
-            tags</h3>
-          <img height="500px" src="../img/ltag.png">
-          <small>Beek &amp; Ilievski &amp; Debattista &amp; Sclobach
-            &amp; Wielemaker, ‘<em>Literally Better</em>: Analyzing and
-            Improving the Quality of Literals’ under submission.</small>
-        </section>
+                <section>
+                  <h2><a href="http://lodlaundromat.org/">LOD Laundromat</a>
+                    gives a<br>Web-scale Data Quality report</h2>
+                  <a href="http://lodlaundromat.org/visualizations/">
+                    <img src="../img/analysis.png" width="300">
+                  </a>
+                  <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+                    <img src="../img/labels.png" width="300">
+                  </a>
+                  <small>Rietveld &amp; Beek &amp; Hoekstra &amp; Schlobach,
+                    “Meta-Data for a Lot of LOD”, <em>Semantic Web Journal</em>,
+                    (to be published).</small>
+                </section>
 
-        <section>
-          <h3>Evaluation results for ±600,000 datasets</h3>
-          <a href="../img/logp_comparison_zoom_pb.png">
-            <img height="500px" src="../img/logp_comparison_zoom_pb.png">
-          </a>
-          <small>De Rooij &amp; Beek &amp; Bloem &amp; Schlobach &amp;
-            Van Harmelen, ‘Are Names Meaningful?  Quantifying Social
-            Meaning on the Semantic Web’ in <em>ISWC</em>, 2016.</small>
-        </section>
+                <section>
+                  <h3>Large-scale Data Quality Improvement (1/2):
+                    Datatypes</h3>
+                  <img src="../img/dhier.png">
+                </section>
 
-        <section>
-          <h3>Contextual semantics for <code>owl:sameAs</code></h3>
-          <a href="../img/iimb_16_2.pdf">
-            <img height="500px" src="../img/iimb_16_2.svg">
-          </a>
-          <small>Beek &amp; Schlobach &amp; Van Harmelen, ‘A
-            Contextualised Semantics for <code>owl:sameAs</code>’
-            in <em>International Semantic Web Conference</em>,
-            p. 405--419, 2016.</small>
-        </section>
+                <section>
+                  <h3>Large-scale Data Quality Improvement (2/2): Language
+                    tags</h3>
+                  <img height="500px" src="../img/ltag.png">
+                  <small>Beek &amp; Ilievski &amp; Debattista &amp; Sclobach
+                    &amp; Wielemaker, ‘<em>Literally Better</em>: Analyzing and
+                    Improving the Quality of Literals’ under submission.</small>
+                </section>
 
-        <section>
-          <h1>Thank you!</h1>
-          <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></p>
-          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
-          <p>Triply: <a href="http://triply.cc">triply.cc</a></p>
-        </section>
-        
+                <section>
+                  <h3>Evaluation results for ±600,000 datasets</h3>
+                  <a href="../img/logp_comparison_zoom_pb.png">
+                    <img height="500px" src="../img/logp_comparison_zoom_pb.png">
+                  </a>
+                  <small>De Rooij &amp; Beek &amp; Bloem &amp; Schlobach &amp;
+                    Van Harmelen, ‘Are Names Meaningful?  Quantifying Social
+                    Meaning on the Semantic Web’ in <em>ISWC</em>, 2016.</small>
+                </section>
+
+                <section>
+                  <h3>Contextual semantics for <code>owl:sameAs</code></h3>
+                  <a href="../img/iimb_16_2.pdf">
+                    <img height="500px" src="../img/iimb_16_2.svg">
+                  </a>
+                  <small>Beek &amp; Schlobach &amp; Van Harmelen, ‘A
+                    Contextualised Semantics for <code>owl:sameAs</code>’
+                    in <em>International Semantic Web Conference</em>,
+                    p. 405--419, 2016.</small>
+                </section>
+
+                <section>
+                  <h1>Thank you!</h1>
+                  <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></p>
+                  <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+                  <p>Triply: <a href="http://triply.cc">triply.cc</a></p>
+                </section>
+                
       </div>
     </div>
     <script src="lib/js/head.min.js"></script>
@@ -402,38 +402,38 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-      transition: 'slide', // none/fade/slide/convex/concave/zoom
-      // Optional reveal.js plugins
-      dependencies: [
-      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: 'plugin/zoom-js/zoom.js', async: true },
-      { src: 'plugin/notes/notes.js', async: true }
-      ]
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          // Optional reveal.js plugins
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
       });
     </script>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
     </script>
     <script>
       window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-      t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      t._e = [];
-      t.ready = function(f) {
-      t._e.push(f);
-      };
-      return t;
+          var js, fjs = d.getElementsByTagName(s)[0],
+              t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+          t._e = [];
+          t.ready = function(f) {
+              t._e.push(f);
+          };
+          return t;
       }(document, "script", "twitter-wjs"));
     </script>
   </body>
