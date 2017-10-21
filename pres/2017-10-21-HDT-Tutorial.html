@@ -123,20 +123,6 @@
           <small style="margin-top: 15px;">Best Linked Open Data Application Award 2015</small>
         </section>
 
-        <section>
-          <h3>How to query &gt;30B statements (1/2)</h3>
-	        <img src="../img/sparql.svg" height="400px">
-        </section>
-
-        <section>
-          <h3>How to query &gt;30B statements (2/2)</h3>
-	        <img src="../img/ldf.svg" height="400px">
-          <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
-            &amp; Schlobach, “Linked Data-as-a-Service: The Semantic
-            Web Redeployed”, <em>European Semantic Web
-              Conference</em>, 2015.</small>
-        </section>
-        
 	      <section>
           <h2>Data cleaning</h2>
 	        <ul>
@@ -162,12 +148,53 @@
         </section>
         
         <section>
-          <h2>
-            <a href="http://purl.org/HDT/lod-a-lot">LOD-a-lot</a>
-          </h2>
-          <a href="../img/LOD-a-lot.jpg">
-            <img src="../img/LOD-a-lot.jpg">
-          </a>
+          <h3>How to query &gt;30B statements (1/2)</h3>
+	        <img src="../img/sparql.svg" height="400px">
+        </section>
+
+        <section>
+          <h3>How to query &gt;30B statements (2/2)</h3>
+	        <img src="../img/ldf.svg" height="400px">
+          <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
+            &amp; Schlobach, “Linked Data-as-a-Service: The Semantic
+            Web Redeployed”, <em>European Semantic Web
+              Conference</em>, 2015.</small>
+        </section>
+        
+        <section>
+          <section>
+            <h2>
+              <a href="http://purl.org/HDT/lod-a-lot">LOD-a-lot</a>
+            </h2>
+            <a href="../img/LOD-a-lot.jpg">
+              <img src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+          <section>
+            <h2>LOD-a-lot: Obtaining statistics</h2>
+            <table>
+              <tr>
+                <td>triples</td>
+                <td>28,362,198,927</td>
+              </tr>
+              <tr>
+                <td>subject</td>
+                <td>3,214,347,198</td>
+              </tr>
+              <tr>
+                <td>predicates</td>
+                <td>1,168,932</td>
+              </tr>
+              <tr>
+                <td>objects</td>
+                <td>3,178,409,386</td>
+              </tr>
+              <tr>
+                <td>subject &amp; object</td>
+                <td>1,298,808,567</td>
+              </tr>
+            </table>
+          </section>
         </section>
         
         <section>
@@ -184,32 +211,6 @@
         </section>
 
         <section>
-          <h2>LOD-a-lot: Obtaining statistics</h2>
-          <table>
-            <tr>
-              <td>triples</td>
-              <td>28,362,198,927</td>
-            </tr>
-            <tr>
-              <td>subject</td>
-              <td>3,214,347,198</td>
-            </tr>
-            <tr>
-              <td>predicates</td>
-              <td>1,168,932</td>
-            </tr>
-            <tr>
-              <td>objects</td>
-              <td>3,178,409,386</td>
-            </tr>
-            <tr>
-              <td>subject &amp; object</td>
-              <td>1,298,808,567</td>
-            </tr>
-          </table>
-        </section>
-        
-        <section>
           <h2>
             HDT: Go Where No SPARQL Endpoint Has Gone Before
             <a href="http://hdt.lod.labs.vu.nl">…</a>
@@ -225,20 +226,21 @@
         </section>
         
         <section>
-          <h2>Example: Enumerating schema</h2>
-          <!--
-              select distinct ?p { ?s ?p ?o }
-              ?- predicate(P).
-            -->
-          <a href="http://lod.openlinksw.com/sparql">comparison</a>
-        </section>
-        
-        <section>
-          <h2>Example: Identity closure</h2>
-          <p>558,943,116 <code>owl:sameAs</code> triples</p>
-          <a href="../img/identity-partitions-2.png">
-            <img src="../img/identity-partitions-2.png">
-          </a>
+          <section>
+            <h2>Example: Enumerating schema</h2>
+            <!--
+                select distinct ?p { ?s ?p ?o }
+                ?- predicate(P).
+              -->
+            <a href="http://lod.openlinksw.com/sparql">comparison</a>
+          </section>
+          <section>
+            <h2>Example: Identity closure</h2>
+            <p>558,943,116 <code>owl:sameAs</code> triples</p>
+            <a href="../img/identity-partitions-2.png">
+              <img src="../img/identity-partitions-2.png">
+            </a>
+          </section>
         </section>
 
         <section>
