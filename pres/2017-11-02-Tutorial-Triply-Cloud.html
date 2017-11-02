@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tutorial Triply Cloud</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+          }
+      });
+    </script>
+    <style>
+      .cody {
+          font-family: monospace !important;
+          font-size: 14pt !important;
+      }
+      .left {
+          left:-8.33%;
+          text-align: left;
+          float: left;
+          width:50%;
+          z-index:-10;
+      }
+      .right {
+          left:31.25%;
+          top: 75px;
+          float: right;
+          text-align: left;
+          z-index:-10;
+          width:50%;
+      }
+    </style>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Tutorial Triply Cloud">
+    <meta name="author" content="Wouter Beek, Laurens Rietveld">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+         <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Tutorial Triply Cloud</h1>
+          <hr/>
+	        <h6>Wouter
+	          Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></h6>
+	        <h6>Laurens
+	          Rietveld <a href="mailto:laurens@triply.cc">laurens@triply.cc</a></h6>
+          <img src="../img/triply.svg" height="150">
+        </section>
+
+        <section>
+          <h2>Account aanmaken</h2>
+        </section>
+
+        <section>
+          <h2>Account instellingen</h2>
+          <ul>
+            <li>Volledige naam</li>
+            <li>Email</li>
+            <li>Avatar</li>
+            <li>Wachtwoord</li>
+            <li>Account naam</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dataset aanmaken</h2>
+          <ul>
+            <li>Naam</li>
+            <li>Beschrijving</li>
+            <li>Toegankelijkheid</li>
+            <li>Voeg bestanden toe
+              (<a href="../adamnet/data.trig">link</a>)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dataset instellingen</h2>
+          <ul>
+            <li>Voorbeeld resource</li>
+            <li>licentie</li>
+            <li>avatar (<a href="../adamnet/logo.png">link</a>)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dataset bekijken</h2>
+          <h3>Default graph</h3>
+          <ul>
+            <li>termen: IRI, literal</li>
+            <li>prefixes
+              (<code>an</code>, <code>vcard</code>, <code>graph</code>)</li>
+            <li>datatypes (<code>jaar ≠
+                integer</code>, <code>boolean</code>, <code>URL</code>)</li>
+            <li>kolommen: S/P/O (autocomplete, drag&amp;drop)</li>
+          </ul>
+          <h3>Named graph (<code>hallo</code>)</h3>
+          <ul>
+            <li>taal, regio, script</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dataset bevragen (‘containers’)</h2>
+          <ul>
+            <li>Maak een container aan</li>
+            <li>Start/stop/delete een container</li>
+            <li>Toon geladen grafen</li>
+            <li>Stel een vraag
+              (<a href="../adamnet/q1.rq">link</a>)</li>
+            <li>Stel een federatieve vraag
+              (<a href="../adamnet/q2.rq">link</a>)</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          // Optional reveal.js plugins
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+              t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+          t._e = [];
+          t.ready = function(f) {
+              t._e.push(f);
+          };
+          return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
