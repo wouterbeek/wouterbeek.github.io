@@ -27,13 +27,16 @@
 
 * Schema overview
 
+  A preliminary version of the IISG Knwoledge Graph schema ([[./shacl.svg][download]]):
+
   #+CAPTION: Schema of the IISG Knowledge Graph, showing classes as boxes, value properties as rows in boxes, and object properties as arcs between boxes.
   #+NAME: fig:shacl
   [[./shacl.svg]]
 
 ** Class hierarchy
 
-   There is a more detailed class hierarchy underneath ~schema:CreativeWork~:
+   There is a more detailed class hierarchy underneath
+   ~schema:CreativeWork~ ([[./class-hierarchy.svg][download]]):
 
    #+CAPTION: Class hierarchy of ~schema:CreativeWork~
    [[./class-hierarchy.svg]]
