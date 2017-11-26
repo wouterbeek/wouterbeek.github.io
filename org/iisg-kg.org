@@ -1,0 +1,65 @@
+# -*- mode: org; -*-
+#+TITLE: IISG Knowledge Graph
+#+AUTHOR: Wouter Beek
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+#+HTML_HEAD: <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+#+HTML_HEAD: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="https://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+
+* Used namespaces
+
+  | *Prefix alias* | *Prefix IRI*                                |
+  |----------------+---------------------------------------------|
+  | dcat           | http://www.w3.org/ns/dcat#                  |
+  | dct            | http://purl.org/dc/terms/                   |
+  | dcmit          | http://purl.org/dc/dcmitype/                |
+  | foaf           | http://xmlns.com/foaf/0.1/                  |
+  | iisg           | https://iisg.amsterdam/vocab/               |
+  | loc            | http://id.loc.gov/vocabulary/relators/      |
+  | lvont          | http://lexvo.org/ontology#                  |
+  | rdf            | http://www.w3.org/1999/02/22-rdf-syntax-ns# |
+  | rdfs           | http://www.w3.org/2000/01/rdf-schema#       |
+  | schema         | http://schema.org/                          |
+  | sh             | http://www.w3.org/ns/shacl#                 |
+  | xsd            | http://www.w3.org/2001/XMLSchema#           |
+
+* Schema overview
+
+  #+CAPTION: Schema of the IISG Knowledge Graph, showing classes as boxes, value properties as rows in boxes, and object properties as arcs between boxes.
+  #+NAME: fig:shacl
+  [[./shacl.svg]]
+
+** Class hierarchy
+
+   There is a more detailed class hierarchy underneath ~schema:CreativeWork~:
+
+   #+CAPTION: Class hierarchy of ~schema:CreativeWork~
+   [[./class-hierarchy.svg]]
+
+** Property hierarchy
+
+   There is a more detailed property hierarchy underneath ~loc:role~.
+   It has the following subproperties (relation ~rdfs:subPropertyOf~):
+
+   | *Subproperty* | *Label*                             |
+   |---------------+-------------------------------------|
+   | [[http://id.loc.gov/vocabulary/relators/aft][~loc:aft~]]     | Author of afterword, colophon, etc. |
+   | [[http://id.loc.gov/vocabulary/relators/art][~loc:art~]]     | Artist                              |
+   | [[http://id.loc.gov/vocabulary/relators/aut][~loc:aut~]]     | Author                              |
+   | [[http://id.loc.gov/vocabulary/relators/col][~loc:col~]]     | Collector                           |
+   | [[http://id.loc.gov/vocabulary/relators/cre][~loc:cre~]]     | Creator                             |
+   | [[http://id.loc.gov/vocabulary/relators/ctb][~loc:ctb~]]     | Contributor                         |
+   | [[http://id.loc.gov/vocabulary/relators/drm][~loc:drm~]]     | Draftsman                           |
+   | [[http://id.loc.gov/vocabulary/relators/drt][~loc:drt~]]     | Director                            |
+   | [[http://id.loc.gov/vocabulary/relators/dsr][~loc:dsr~]]     | Designer                            |
+   | [[http://id.loc.gov/vocabulary/relators/edc][~loc:edc~]]     | Editor of compilation               |
+   | [[http://id.loc.gov/vocabulary/relators/edt][~loc:edt~]]     | Editor                              |
+   | [[http://id.loc.gov/vocabulary/relators/egr][~loc:egr~]]     | Engraver                            |
+   | [[http://id.loc.gov/vocabulary/relators/ill][~loc:ill~]]     | Illustrator                         |
+   | [[http://id.loc.gov/vocabulary/relators/ivr][~loc:ivr~]]     | Interviewer                         |
+   | [[http://id.loc.gov/vocabulary/relators/orm][~loc:orm~]]     | Organizer                           |
+   | [[http://id.loc.gov/vocabulary/relators/pht][~loc:pht~]]     | Photographer                        |
+   | [[http://id.loc.gov/vocabulary/relators/scl][~loc:scl~]]     | Sculptor                            |
+   | [[http://id.loc.gov/vocabulary/relators/spk][~loc:spk~]]     | Speaker                             |
