@@ -1,0 +1,6 @@
+prefix bcc: <https://sites.google.com/a/ualberta.ca/rick-szostak/research/basic-concepts-classification-web-version-2013/the-classification-of-things-phenomena/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+
+bcc:artists skos:broader bcc:art .
+bcc:non-reproducible skos:broader bcc:art .
+bcc:painting skos:broader bcc:non-reproducible .
