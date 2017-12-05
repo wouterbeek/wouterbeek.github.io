@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Triple MVP - Layer 1 - Data Cleaning</title>
+    <meta name="author" content="Wouter Beek"/>
+    <meta name="description" content="The Data Cleaning layer of the Triply MVP"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/bootstrap-3.3.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="resource/css/triply.css"/>
+    <link rel="shortcut icon" href="resource/img/triply.svg">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="triply.html">
+            <img height="20px" src="resource/img/triply.svg"/>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="triply.html">Triply</a>
+            <li class="active"><a href="l1.html">L1</a></li>
+            <li><a href="l2.html">L2</a></li>
+            <li><a href="l3.html">L3</a></li>
+            <li><a href="l4.html">L4</a></li>
+            <li><a href="l5.html">L5</a></li>
+            <li><a href="l6.html">L6</a></li>
+            <li><a href="l7.html">L7</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="why_triply.html">Why Triply?</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron seethrough-header">
+      <h1>Layer 1: Data Cleaning</h1>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+        <p>This layer ensures that all your data is standards-compliant and meets the latest quality criteria.</p>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+	<h2>Based on LOD Laundromat</h2>
+	<a href="http://lodlaundromat.org/basket/">
+	  <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/">
+	  <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/wardrobe/">
+	  <img src="http://lodlaundromat.org/imgs/wardrobe.png" width="200">
+	</a>
+	<br/>
+	<a href="http://lodlaundromat.org/visualizations/">
+	  <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	  <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
+	</a>
+	<a href="http://lodlaundromat.org/about/">
+	  <img src="http://lodlaundromat.org/imgs/laundryLine.png" width="200">
+	</a>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+	<h2>Winner of the “Best LOD Application” Award 2015</h2>
+        <center>
+	  <iframe width="750" height="475" src="https://www.youtube.com/embed/nU2Yh8RXeow" frameborder="0" allowfullscreen>
+          </iframe>
+        </center>
+      </div>
+    </div>	
+    <div class="jumbotron">
+      <div class="container">
+        <center>
+          <h2>Accolades</h2>
+          <h3><a href="http://iswc2015.semanticweb.org/program/awards">Best research Paper Award at ISWC 2015</a></h3>
+          <blockquote class="twitter-tweet" lang="en"><p>A LOD game-changer! &gt;600k datasets, &gt;21B triples, cleaned &amp; queryable from a single endpoint. Add your data too: <a href="http://t.co/E3vem0Acac">http://t.co/E3vem0Acac</a></p>&mdash; Frank van Harmelen (@FrankVanHarmele) <a href="https://twitter.com/FrankVanHarmele/status/561180218048913408">January 30, 2015</a></blockquote>
+          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </center>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+	<h2>LOD Laundromat in numbers</h2>
+	<p>4,343 unique users</p>
+	<p>12,696,797 questions</p>
+	<p>7,909,738 downloads</p>
+	<p>38,606,408,774 triples</p>
+	<p>650,000+ datasets</p>
+      </div>
+    </div>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) { t._e.push(f); };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

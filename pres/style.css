@@ -1,0 +1,59 @@
+table.cake {
+  border-collapse: collapse;
+  border-color: white;
+  border-style: solid;
+  border-width: 3px;
+  color: black;
+  font-size: 60% !important;
+}
+
+table tbody tr td {
+  border-color: white;
+}
+
+table, tbody, tr, td, a {
+  height: 100%;
+}
+
+.twitter-tweet {
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.blue {background-color: #3498db;}
+.gray {background-color: #95a5a6;}
+.green {background-color: #1abc9c;}
+.lightblue {background-color: #99ccff;}
+.orange {background-color: #f39c12;}
+.purple {background-color: #cd88af;}
+.yellow {background-color: #f1c40f;}
+
+table td {
+  text-align: center;
+  test-style: normal;
+}
+
+table a, table a:active, table a:visited {
+  color: black;
+  padding: 8px;
+}
+
+td {
+  border: 2px solid black;
+}
+
+table h3 {
+  color: black;
+  margin: 8px;
+}
+
+table h3::after {
+  border-color: black;
+}
+
+table th {
+  color: #666;
+}
+
+.vertical-text {
+  transform: rotate(-90deg);
+}
