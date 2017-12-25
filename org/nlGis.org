@@ -17,8 +17,8 @@ close collaboration between Wouter Beek (Triply) and Richard Zijdeman
 (IISH).
 
 Note: this documentation contains a few conversion mistakes (e.g., the
-SVG versions of the UML-like diagrams) on Githib.  The correct HTML
-version can be read [[https://wouterbeek.github.io/org/nlGis.html][here]].
+SVG versions of the UML-like diagrams) when viewed on Github.  The
+correct HTML version can be read [[https://wouterbeek.github.io/org/nlGis.html][here]].
 
 The datasets can be visited online:
   - [[https://druid.datalegend.net/dataLegend/cshapes][CShapes]]

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-25 Mon 20:50 -->
+<!-- 2017-12-25 Mon 20:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>nlGis</title>
@@ -240,46 +240,46 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5951a92">1. Installing the ETL</a>
+<li><a href="#orgea793af">1. Installing the ETL</a>
 <ul>
-<li><a href="#org5e9f17b">1.1. Install GDAL</a></li>
-<li><a href="#orga524df7">1.2. Install GraphViz</a></li>
-<li><a href="#org957bf29">1.3. Install SWI-Prolog</a></li>
-<li><a href="#org51c1e31">1.4. Install Prolog libraries</a></li>
-<li><a href="#orgc6ca929">1.5. Add a Triply configuration file</a></li>
-<li><a href="#orgd912196">1.6. Running an ETL script</a></li>
+<li><a href="#org348e477">1.1. Install GDAL</a></li>
+<li><a href="#org92161f2">1.2. Install GraphViz</a></li>
+<li><a href="#orgebd7182">1.3. Install SWI-Prolog</a></li>
+<li><a href="#org32300f3">1.4. Install Prolog libraries</a></li>
+<li><a href="#orgbddc6f7">1.5. Add a Triply configuration file</a></li>
+<li><a href="#org63a2b3e">1.6. Running an ETL script</a></li>
 </ul>
 </li>
-<li><a href="#org91a356e">2. Generic ETL process</a></li>
-<li><a href="#org91dd16c">3. <i>CShapes</i> ETL</a>
+<li><a href="#orge160a02">2. Generic ETL process</a></li>
+<li><a href="#org2cccd23">3. <i>CShapes</i> ETL</a>
 <ul>
-<li><a href="#orge9e9d28">3.1. Downloading the latest version</a></li>
-<li><a href="#orgdba6f03">3.2. Transform the source data to RDF</a>
+<li><a href="#orgfeff54d">3.1. Downloading the latest version</a></li>
+<li><a href="#org3006d1d">3.2. Transform the source data to RDF</a>
 <ul>
-<li><a href="#orgda2e7b0">3.2.1. ZIP → ShapeFile</a></li>
-<li><a href="#org16363c9">3.2.2. ShapeFile → GML</a></li>
-<li><a href="#org16c476d">3.2.3. GML → RDF</a></li>
+<li><a href="#org910072e">3.2.1. ZIP → ShapeFile</a></li>
+<li><a href="#org832ab4e">3.2.2. ShapeFile → GML</a></li>
+<li><a href="#orgcaee7bf">3.2.3. GML → RDF</a></li>
 </ul>
 </li>
-<li><a href="#orgcf7175e">3.3. Generating the schema overview</a></li>
-<li><a href="#org66b9646">3.4. Uploading the dataset</a></li>
+<li><a href="#org9c8eef4">3.3. Generating the schema overview</a></li>
+<li><a href="#org274db48">3.4. Uploading the dataset</a></li>
 </ul>
 </li>
-<li><a href="#orgef18b62">4. <i>Mint Authorities of the Low Countries</i> ETL</a>
+<li><a href="#org2024204">4. <i>Mint Authorities of the Low Countries</i> ETL</a>
 <ul>
-<li><a href="#orgf7b5abb">4.1. Downloading the latest version</a></li>
-<li><a href="#org4046f83">4.2. GeoJSON → RDF</a>
+<li><a href="#org8d5a3ce">4.1. Downloading the latest version</a></li>
+<li><a href="#orgaf27d57">4.2. GeoJSON → RDF</a>
 <ul>
-<li><a href="#org121dded">4.2.1. Authority</a></li>
-<li><a href="#orga035a05">4.2.2. Date cleanup</a></li>
+<li><a href="#orgf0a9a4e">4.2.1. Authority</a></li>
+<li><a href="#org9178f08">4.2.2. Date cleanup</a></li>
 </ul>
 </li>
-<li><a href="#org3720189">4.3. Generating the schema overview</a></li>
-<li><a href="#org2cdaa47">4.4. Uploading the dataset</a></li>
+<li><a href="#org0ce4f14">4.3. Generating the schema overview</a></li>
+<li><a href="#orgdc31ac1">4.4. Uploading the dataset</a></li>
 </ul>
 </li>
-<li><a href="#org755f690">5. Gemeentegeschiedenis ETL</a></li>
-<li><a href="#orge7d9df0">6. <i>nlGis</i>: combining multiple datasets</a></li>
+<li><a href="#orge7b0060">5. Gemeentegeschiedenis ETL</a></li>
+<li><a href="#orgd1e25f6">6. <i>nlGis</i>: combining multiple datasets</a></li>
 </ul>
 </div>
 </div>
@@ -294,8 +294,8 @@ close collaboration between Wouter Beek (Triply) and Richard Zijdeman
 
 <p>
 Note: this documentation contains a few conversion mistakes (e.g., the
-SVG versions of the UML-like diagrams) on Githib.  The correct HTML
-version can be read <a href="https://wouterbeek.github.io/org/nlGis.html">here</a>.
+SVG versions of the UML-like diagrams) when viewed on Github.  The
+correct HTML version can be read <a href="https://wouterbeek.github.io/org/nlGis.html">here</a>.
 </p>
 
 <p>
@@ -308,12 +308,12 @@ The datasets can be visited online:
 <li><a href="https://druid.datalegend.net/dataLegend/nlGis">nlGis</a></li>
 </ul>
 
-<div id="outline-container-org5951a92" class="outline-2">
-<h2 id="org5951a92"><span class="section-number-2">1</span> Installing the ETL</h2>
+<div id="outline-container-orgea793af" class="outline-2">
+<h2 id="orgea793af"><span class="section-number-2">1</span> Installing the ETL</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org5e9f17b" class="outline-3">
-<h3 id="org5e9f17b"><span class="section-number-3">1.1</span> Install GDAL</h3>
+<div id="outline-container-org348e477" class="outline-3">
+<h3 id="org348e477"><span class="section-number-3">1.1</span> Install GDAL</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt install gdal-bin <span style="color: #b22222;"># </span><span style="color: #b22222;">Ubuntu</span>
@@ -323,8 +323,8 @@ $ sudo dnf install gdal     <span style="color: #b22222;"># </span><span style="
 </div>
 </div>
 
-<div id="outline-container-orga524df7" class="outline-3">
-<h3 id="orga524df7"><span class="section-number-3">1.2</span> Install GraphViz</h3>
+<div id="outline-container-org92161f2" class="outline-3">
+<h3 id="org92161f2"><span class="section-number-3">1.2</span> Install GraphViz</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-sh">$ sudo apt install graphviz <span style="color: #b22222;"># </span><span style="color: #b22222;">Ubuntu</span>
@@ -334,8 +334,8 @@ $ sudo dnf install graphviz <span style="color: #b22222;"># </span><span style="
 </div>
 </div>
 
-<div id="outline-container-org957bf29" class="outline-3">
-<h3 id="org957bf29"><span class="section-number-3">1.3</span> Install SWI-Prolog</h3>
+<div id="outline-container-orgebd7182" class="outline-3">
+<h3 id="orgebd7182"><span class="section-number-3">1.3</span> Install SWI-Prolog</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 The following works on Ubuntu:
@@ -354,8 +354,8 @@ For Fedora or other distros, see <a href="http://www.swi-prolog.org/build/unix.h
 </div>
 </div>
 
-<div id="outline-container-org51c1e31" class="outline-3">
-<h3 id="org51c1e31"><span class="section-number-3">1.4</span> Install Prolog libraries</h3>
+<div id="outline-container-org32300f3" class="outline-3">
+<h3 id="org32300f3"><span class="section-number-3">1.4</span> Install Prolog libraries</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 <pre class="src src-sh">$ cd ~/lib/swipl/pack
@@ -367,8 +367,8 @@ $ git clone https://github.com/wouterbeek/tapir
 </div>
 </div>
 
-<div id="outline-container-orgc6ca929" class="outline-3">
-<h3 id="orgc6ca929"><span class="section-number-3">1.5</span> Add a Triply configuration file</h3>
+<div id="outline-container-orgbddc6f7" class="outline-3">
+<h3 id="orgbddc6f7"><span class="section-number-3">1.5</span> Add a Triply configuration file</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Add configuration file (e.g., <code>druid.datalegend.net</code>) with the
@@ -386,8 +386,8 @@ following contents:
 </div>
 </div>
 
-<div id="outline-container-orgd912196" class="outline-3">
-<h3 id="orgd912196"><span class="section-number-3">1.6</span> Running an ETL script</h3>
+<div id="outline-container-org63a2b3e" class="outline-3">
+<h3 id="org63a2b3e"><span class="section-number-3">1.6</span> Running an ETL script</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Once everything is installed, each of the ETL scripts (<code>run.pl</code>) can
@@ -403,8 +403,8 @@ $ swipl -g <span style="color: #8b2252;">'run.'</span> run.pl --conf=~/druid.dat
 </div>
 </div>
 
-<div id="outline-container-org91a356e" class="outline-2">
-<h2 id="org91a356e"><span class="section-number-2">2</span> Generic ETL process</h2>
+<div id="outline-container-orge160a02" class="outline-2">
+<h2 id="orge160a02"><span class="section-number-2">2</span> Generic ETL process</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The ETL process is automated to the extent possible.  This includes
@@ -426,8 +426,8 @@ a SHACL specification file.</li>
 </div>
 </div>
 
-<div id="outline-container-org91dd16c" class="outline-2">
-<h2 id="org91dd16c"><span class="section-number-2">3</span> <i>CShapes</i> ETL</h2>
+<div id="outline-container-org2cccd23" class="outline-2">
+<h2 id="org2cccd23"><span class="section-number-2">3</span> <i>CShapes</i> ETL</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The script <code>cshapes/run.pl</code> creates the Linked Data version of the
@@ -442,8 +442,8 @@ to the community.
 </p>
 </div>
 
-<div id="outline-container-orge9e9d28" class="outline-3">
-<h3 id="orge9e9d28"><span class="section-number-3">3.1</span> Downloading the latest version</h3>
+<div id="outline-container-orgfeff54d" class="outline-3">
+<h3 id="orgfeff54d"><span class="section-number-3">3.1</span> Downloading the latest version</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Different versions of <i>CShapes</i> are published online
@@ -509,8 +509,8 @@ links from any number of weakly structured HTML pages.
 </div>
 </div>
 
-<div id="outline-container-orgdba6f03" class="outline-3">
-<h3 id="orgdba6f03"><span class="section-number-3">3.2</span> Transform the source data to RDF</h3>
+<div id="outline-container-org3006d1d" class="outline-3">
+<h3 id="org3006d1d"><span class="section-number-3">3.2</span> Transform the source data to RDF</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 From the last step we have an input stream <code>In</code> from which we can now
@@ -518,8 +518,8 @@ read the source data.
 </p>
 </div>
 
-<div id="outline-container-orgda2e7b0" class="outline-4">
-<h4 id="orgda2e7b0"><span class="section-number-4">3.2.1</span> ZIP → ShapeFile</h4>
+<div id="outline-container-org910072e" class="outline-4">
+<h4 id="org910072e"><span class="section-number-4">3.2.1</span> ZIP → ShapeFile</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 The source data is compressed using ZIP.  We first unarchive this ZIP,
@@ -538,8 +538,8 @@ At the end of this step we have the following ShapeFile files locally:
 </div>
 </div>
 
-<div id="outline-container-org16363c9" class="outline-4">
-<h4 id="org16363c9"><span class="section-number-4">3.2.2</span> ShapeFile → GML</h4>
+<div id="outline-container-org832ab4e" class="outline-4">
+<h4 id="org832ab4e"><span class="section-number-4">3.2.2</span> ShapeFile → GML</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 While it may be possible to convert a ShapeFile into RDF directly, it
@@ -581,8 +581,8 @@ At the end of this step we have the local file <code>data.gml</code>.
 </div>
 </div>
 
-<div id="outline-container-org16c476d" class="outline-4">
-<h4 id="org16c476d"><span class="section-number-4">3.2.3</span> GML → RDF</h4>
+<div id="outline-container-orgcaee7bf" class="outline-4">
+<h4 id="orgcaee7bf"><span class="section-number-4">3.2.3</span> GML → RDF</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 For this step we are going to stream through the GML file (<code>data.gml</code>)
@@ -624,7 +624,7 @@ dataset's instances (<code>resource</code>).  We also have specified a data grap
 </div>
 
 <ol class="org-ol">
-<li><a id="org511d7fc"></a>Country resource<br />
+<li><a id="orgd52cd7b"></a>Country resource<br />
 <div class="outline-text-5" id="text-3-2-3-1">
 <p>
 Let's look at a simple conversion from XML to RDF: from the DOM record
@@ -652,7 +652,7 @@ The code is as follows:
 </div>
 </li>
 
-<li><a id="orgf0c0896"></a>Country label<br />
+<li><a id="orgf031631"></a>Country label<br />
 <div class="outline-text-5" id="text-3-2-3-2">
 <p>
 Other RDF triples are created in a similar way.  For example, the
@@ -666,7 +666,7 @@ country name is also also asserted as an <code>rdfs:label</code>:
 </div>
 </li>
 
-<li><a id="org6278320"></a>Correlates of War / Gleditsch &amp; Ward state list dates<br />
+<li><a id="org7839732"></a>Correlates of War / Gleditsch &amp; Ward state list dates<br />
 <div class="outline-text-5" id="text-3-2-3-3">
 <p>
 The Correlates of War, as well and the Gleditsch &amp; Ward state list
@@ -690,7 +690,7 @@ in case date information is absent.  Here is an example for one date
 </div>
 </li>
 
-<li><a id="orgbeee37e"></a>Country &amp; country-slice<br />
+<li><a id="orgecc2d6e"></a>Country &amp; country-slice<br />
 <div class="outline-text-5" id="text-3-2-3-4">
 <p>
 Since the properties of a country change over time, we introduce the
@@ -706,7 +706,7 @@ notion of a time-slice:
 </div>
 </li>
 
-<li><a id="org38184e4"></a>Capital city geolocation<br />
+<li><a id="orgdbfc79a"></a>Capital city geolocation<br />
 <div class="outline-text-5" id="text-3-2-3-5">
 <p>
 Another example of combine multiple source properties is the
@@ -727,8 +727,8 @@ and latitude separately, we combine them into one Well-Known Text
 </div>
 </div>
 
-<div id="outline-container-orgcf7175e" class="outline-3">
-<h3 id="orgcf7175e"><span class="section-number-3">3.3</span> Generating the schema overview</h3>
+<div id="outline-container-org9c8eef4" class="outline-3">
+<h3 id="org9c8eef4"><span class="section-number-3">3.3</span> Generating the schema overview</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Besides the data generated in the previous step (<code>data.nq.gz</code>), we
@@ -750,8 +750,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org66b9646" class="outline-3">
-<h3 id="org66b9646"><span class="section-number-3">3.4</span> Uploading the dataset</h3>
+<div id="outline-container-org274db48" class="outline-3">
+<h3 id="org274db48"><span class="section-number-3">3.4</span> Uploading the dataset</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Once we have converted the source data to RDF (<code>data.nq.gz</code>) and have
@@ -802,8 +802,8 @@ Weidmann (<code>data.txt</code>), and the UML-like schema export
 </div>
 </div>
 
-<div id="outline-container-orgef18b62" class="outline-2">
-<h2 id="orgef18b62"><span class="section-number-2">4</span> <i>Mint Authorities of the Low Countries</i> ETL</h2>
+<div id="outline-container-org2024204" class="outline-2">
+<h2 id="org2024204"><span class="section-number-2">4</span> <i>Mint Authorities of the Low Countries</i> ETL</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 The <i>Mint Authorities of the Low Countries</i>
@@ -817,8 +817,8 @@ this dataset to the community.
 </p>
 </div>
 
-<div id="outline-container-orgf7b5abb" class="outline-3">
-<h3 id="orgf7b5abb"><span class="section-number-3">4.1</span> Downloading the latest version</h3>
+<div id="outline-container-org8d5a3ce" class="outline-3">
+<h3 id="org8d5a3ce"><span class="section-number-3">4.1</span> Downloading the latest version</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The latest version can be download from the IISH Dataverse instance
@@ -831,8 +831,8 @@ this dataset is reused by the community.)
 </div>
 </div>
 
-<div id="outline-container-org4046f83" class="outline-3">
-<h3 id="org4046f83"><span class="section-number-3">4.2</span> GeoJSON → RDF</h3>
+<div id="outline-container-orgaf27d57" class="outline-3">
+<h3 id="orgaf27d57"><span class="section-number-3">4.2</span> GeoJSON → RDF</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 The script at <code>mint/run.pl</code> assumes the following files are present:
@@ -873,8 +873,8 @@ features to RDF:
 </div>
 </div>
 
-<div id="outline-container-org121dded" class="outline-4">
-<h4 id="org121dded"><span class="section-number-4">4.2.1</span> Authority</h4>
+<div id="outline-container-orgf0a9a4e" class="outline-4">
+<h4 id="orgf0a9a4e"><span class="section-number-4">4.2.1</span> Authority</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 We extract the geometry for each authority feature set (<code>Features</code>),
@@ -892,8 +892,8 @@ asserted as Well-Known Text (WKT).
 </div>
 </div>
 
-<div id="outline-container-orga035a05" class="outline-4">
-<h4 id="orga035a05"><span class="section-number-4">4.2.2</span> Date cleanup</h4>
+<div id="outline-container-org9178f08" class="outline-4">
+<h4 id="org9178f08"><span class="section-number-4">4.2.2</span> Date cleanup</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 In the GeoJSON source files, dates are specified as <code>YYYY/MM/DD</code>.  We
@@ -919,8 +919,8 @@ datatype IRI <code>xsd:gYear</code>.  See the script for more details.
 </div>
 </div>
 
-<div id="outline-container-org3720189" class="outline-3">
-<h3 id="org3720189"><span class="section-number-3">4.3</span> Generating the schema overview</h3>
+<div id="outline-container-org0ce4f14" class="outline-3">
+<h3 id="org0ce4f14"><span class="section-number-3">4.3</span> Generating the schema overview</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 As with the <i>CShapes</i> dataset, we have specified metadata
@@ -939,8 +939,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2cdaa47" class="outline-3">
-<h3 id="org2cdaa47"><span class="section-number-3">4.4</span> Uploading the dataset</h3>
+<div id="outline-container-orgdc31ac1" class="outline-3">
+<h3 id="orgdc31ac1"><span class="section-number-3">4.4</span> Uploading the dataset</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 Once we have converted the source data to RDF (<code>data.nq.gz</code>) and have
@@ -992,8 +992,8 @@ to Druid.  The dataset consists of the following components:
 </div>
 </div>
 
-<div id="outline-container-org755f690" class="outline-2">
-<h2 id="org755f690"><span class="section-number-2">5</span> Gemeentegeschiedenis ETL</h2>
+<div id="outline-container-orge7b0060" class="outline-2">
+<h2 id="orge7b0060"><span class="section-number-2">5</span> Gemeentegeschiedenis ETL</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The script <code>gg/run.pl</code> creates the Linked Data version of the latest
@@ -1038,8 +1038,8 @@ zipped N-Quads (<code>data.nq.gz</code>).
 </div>
 </div>
 
-<div id="outline-container-orge7d9df0" class="outline-2">
-<h2 id="orge7d9df0"><span class="section-number-2">6</span> <i>nlGis</i>: combining multiple datasets</h2>
+<div id="outline-container-orgd1e25f6" class="outline-2">
+<h2 id="orgd1e25f6"><span class="section-number-2">6</span> <i>nlGis</i>: combining multiple datasets</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 The three converted datasets are grouped together into the overall
@@ -1051,7 +1051,7 @@ The three converted datasets are grouped together into the overall
 <div id="postamble" class="status">
 <p class="date">Date: 2017-12-25</p>
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2017-12-25 Mon 20:50</p>
+<p class="date">Created: 2017-12-25 Mon 20:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
