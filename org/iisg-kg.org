@@ -27,11 +27,11 @@
 
 * Schema overview
 
-  A preliminary version of the IISG Knwoledge Graph schema ([[./shacl.svg][download]]):
+  The IISG Knowledge Graph schema ([[./schema.svg][download]]):
 
   #+CAPTION: Schema of the IISG Knowledge Graph, showing classes as boxes, value properties as rows in boxes, and object properties as arcs between boxes.
   #+NAME: fig:shacl
-  [[./shacl.svg]]
+  [[./schema.svg]]
 
 ** Class hierarchy
 
@@ -44,9 +44,9 @@
 ** Property hierarchy
 
    There is a more detailed property hierarchy underneath ~loc:role~.
-   It has the following subproperties (relation ~rdfs:subPropertyOf~):
+   It has the following sub-properties (relation ~rdfs:subPropertyOf~):
 
-   | *Subproperty* | *Label*                             |
+   | *Sub-property* | *Label*                             |
    |---------------+-------------------------------------|
    | [[http://id.loc.gov/vocabulary/relators/aft][~loc:aft~]]     | Author of afterword, colophon, etc. |
    | [[http://id.loc.gov/vocabulary/relators/art][~loc:art~]]     | Artist                              |
@@ -66,3 +66,11 @@
    | [[http://id.loc.gov/vocabulary/relators/pht][~loc:pht~]]     | Photographer                        |
    | [[http://id.loc.gov/vocabulary/relators/scl][~loc:scl~]]     | Sculptor                            |
    | [[http://id.loc.gov/vocabulary/relators/spk][~loc:spk~]]     | Speaker                             |
+
+* Graph overview
+
+  The graphs and the links between them ([[./graphs.svg][download]]):
+
+  #+CAPTION: Graphs that compose the IISG Knowledge Graph
+  #+NAME: fig:graphs
+  [[./graphs.svg]]
