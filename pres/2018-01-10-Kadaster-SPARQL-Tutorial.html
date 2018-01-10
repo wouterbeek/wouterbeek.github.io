@@ -249,7 +249,7 @@ limit 100
           </section>
             
           <section>
-            <h2><a href="">BAG status</a></h2>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwoonplaats+%3Fstatus+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fwoonplaats+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B%0A++++++++++++++bag%3Astatus+%3Fstatus+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+status&headers=%7B%7D&outputFormat=leaflet">BAG status</a></h2>
             <pre><code data-trim data-noescape>
 prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -344,7 +344,12 @@ select ?wkt ?wktLabel {
 limit 100
             </code></pre>
           </section>
+        </section>
 
+        <section>
+          <section>
+            <h2>Deel IV:<br>Aggregatie</h2>
+          </section>
           <section>
             <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+begrip%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fid%2Fbegrip%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fwoonplaats+bag%3AnaamWoonplaats+%22Apeldoorn%22+.%0A++filter+not+exists+%7B%0A++++%3Fwoonplaats+bag%3Astatus+begrip%3AWoonplaatsIngetrokken+.%0A++%7D%0A++%3FopenbareRuimte+bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+%3B%0A+++++++++++++++++++rdfs%3AisDefinedBy+%3Fvoorkomen+.%0A++filter+not+exists+%7B%0A++++%3Fvoorkomen+bag%3AeindGeldigheid+%3Feind%0A++%7D%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FwktLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+%3B%0A++++++++rdfs%3AisDefinedBy+%3Fvoorkomen2+.%0A++filter+not+exists+%7B%0A++++%3Fvoorkomen2+bag%3AeindGeldigheid+%3Feind2+.%0A++%7D%0A%7D%0Aorder+by+asc(%3FwktLabel)%0Alimit+5%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oudste+panden+in+Apeldoorn&headers=%7B%7D&outputFormat=leaflet">Oudste pand in Apeldoorn</a></h2>
             <pre><code data-trim data-noescape>
