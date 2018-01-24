@@ -19,9 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
-    <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
@@ -82,6 +79,93 @@
           <img src="../img/triply-text.svg" height="125">
         </section>
 
+        <section>
+          <section>
+            <h1>SPARQL</h1>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+*+%7B%0A++%3Fs+%3Fp+%3Fo+.%0A%7D%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fbeta.openphacts.org%3A8890%2Fsparql&requestMethod=POST&tabTitle=Something&headers=%7B%7D&outputFormat=table">The first query</a></h2>
+            <pre><code data-trim data-noescape>
+select * {
+  ?s ?p ?o .
+}
+limit 10
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+wp%3A+%3Chttp%3A%2F%2Fvocabularies.wikipathways.org%2Fwp%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+wp%3AorganismName+%22Homo+sapiens%22%5E%5Exsd%3Astring+.%0A%7D%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fbeta.openphacts.org%3A8890%2Fsparql&requestMethod=POST&tabTitle=Select+by+label&headers=%7B%7D&outputFormat=table">Search by label</a></h2>
+            <pre><code data-trim data-noescape>
+prefix wp: &lt;http://vocabularies.wikipathways.org/wp#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+select ?s {
+  ?s wp:organismName "Homo sapiens"^^xsd:string .
+}
+limit 10
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+dct%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix+wp%3A+%3Chttp%3A%2F%2Fvocabularies.wikipathways.org%2Fwp%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+dct%3AisPartOf%2Fwp%3AorganismName+%22Homo+sapiens%22%5E%5Exsd%3Astring+.%0A%7D%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fbeta.openphacts.org%3A8890%2Fsparql&requestMethod=POST&tabTitle=Property+path&headers=%7B%7D&outputFormat=table">Property path</a></h2>
+            <pre><code data-trim data-noescape>
+prefix dct: &lt;http://purl.org/dc/terms/&gt;
+prefix wp: &lt;http://vocabularies.wikipathways.org/wp#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+select ?s {
+  ?s dct:isPartOf/wp:organismName "Homo sapiens"^^xsd:string .
+}
+limit 10
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+dct%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix+obo%3A+%3Chttp%3A%2F%2Fpurl.obolibrary.org%2Fobo%2F%3E%0Aprefix+path%3A+%3Chttp%3A%2F%2Fidentifiers.org%2Fwikipathways%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+wp%3A+%3Chttp%3A%2F%2Fvocabularies.wikipathways.org%2Fwp%23%3E%0Aselect+*+%7B%0A++%3Finteraction+dct%3AisPartOf+%3Forganism+%3B%0A+++++++++++++++wp%3Asource+%3Fsource+%3B%0A+++++++++++++++wp%3Atarget+%3Ftarget+.%0A++%3Fsource+rdfs%3Alabel+%3FsourceName+.%0A++%3Ftarget+rdfs%3Alabel+%3FtargetName+%3B%0A++++++++++wp%3AbdbWikidata+%3Fwikidata+.%0A++%3Forganism+wp%3Aorganism+obo%3ANCBITaxon_9606+%3B%0A++++++++++++wp%3AorganismName+%3ForganismName+.%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fbeta.openphacts.org%3A8890%2Fsparql&requestMethod=POST&tabTitle=Interaction&headers=%7B%7D&outputFormat=table">Match <i>any</i> graph structure</a></h2>
+            <pre><code data-trim data-noescape>
+prefix dct: &lt;http://purl.org/dc/terms/&gt;
+prefix obo: &lt;http://purl.obolibrary.org/obo/&gt;
+prefix path: &lt;http://identifiers.org/wikipathways/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix wp: &lt;http://vocabularies.wikipathways.org/wp#&gt;
+select * {
+  ?interaction dct:isPartOf ?organism ;
+               wp:source ?source ;
+               wp:target ?target .
+  ?source rdfs:label ?sourceName .
+  ?target rdfs:label ?targetName ;
+          wp:bdbWikidata ?wikidata .
+  ?organism wp:organism obo:NCBITaxon_9606 ;
+            wp:organismName ?organismName .
+}
+limit 1
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+direct%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+wikidata%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E%0Aselect+*+%7B%0A++wikidata%3AQ27102800+direct%3AP274+%3Fmolecule+%3B%0A+++++++++++++++++++++direct%3AP2067+%3Fmass+%3B%0A+++++++++++++++++++++rdfs%3Alabel+%3Flabel+.%0A%7D%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fquery.wikidata.org%2Fsparql&requestMethod=POST&tabTitle=Wikidata&headers=%7B%7D&outputFormat=table">Link to Wikidata</a></h2>
+            <pre><code data-trim data-noescape>
+prefix direct: &lt;http://www.wikidata.org/prop/direct/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix wikidata: &lt;http://www.wikidata.org/entity/&gt;
+select * {
+  wikidata:Q27102800 direct:P274 ?molecule ;
+                     direct:P2067 ?mass ;
+                     rdfs:label ?label .
+}
+limit 10
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+dct%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%3Flabel+(count(%3Farticle)+as+%3Fn)+%7B%0A++%3Fs+dct%3AbibliographicCitation+%3Farticle+%3B%0A+++++rdfs%3Alabel+%3Flabel%0A%7D%0Agroup+by+%3Fs+%3Flabel%0Aorder+by+desc(%3Fn)%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fbeta.openphacts.org%3A8890%2Fsparql&requestMethod=POST&tabTitle=Citation&headers=%7B%7D&outputFormat=table">Aggregate query</a></h2>
+            <pre><code data-trim data-noescape>
+prefix dct: &lt;http://purl.org/dc/terms/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?s ?label (count(?article) as ?n) {
+  ?s dct:bibliographicCitation ?article ;
+     rdfs:label ?label
+}
+group by ?s ?label
+order by desc(?n)
+limit 10
+            </code></pre>
+          </section>
+        </section>
+        
         <section>
           <section>
             <h1>What is LOD?</h1>
