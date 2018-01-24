@@ -1,10 +1,54 @@
+/*
+h2 {
+  font-size: 28pt;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+*/
+
+.jumbotron {
+  margin: 75px 0;
+  text-align: center;
+}
+
+.jumbotron .wide-container {
+  background-color: #eee;
+  padding: 1px 0 20px 0;
+}
+
+.jumbotron h1 {
+  font-size: 36pt;
+}
+
+.jumbotron h2 {
+  font-size: 28pt;
+}
+
+.jumbotron p {
+  font-size: 16pt;
+  margin: 10px 10%;
+}
+
+.jumbotron ul {
+  font-size: 16pt;
+  list-style-type: square;
+  text-align: center;
+}
+
+.jumbotron ul.halfway {
+  margin: 25% 0 10% 0;
+}
+
 table.cake {
   border-collapse: collapse;
   border-color: white;
   border-style: solid;
   border-width: 3px;
-  color: black;
-  font-size: 60% !important;
 }
 
 table tbody tr td {
@@ -32,13 +76,16 @@ table td {
   test-style: normal;
 }
 
-table a, table a:active, table a:visited {
+table a {
   color: black;
   padding: 8px;
 }
 
-td {
+table a:hover, table a:focus {
   border: 2px solid black;
+  padding: 6px;
+  color: black;
+  text-decoration: none;
 }
 
 table h3 {

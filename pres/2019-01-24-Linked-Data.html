@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linked Data</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="LOD Workshop">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      .reveal h1 , .reveal  h2 , .reveal  h3 , .reveal h4 , .reveal h5 , .reveal h6 { color: black; }
+      * { color: black; }
+      img {
+      border: 0px !important;
+      box-shadow: 0 0 0 !important;
+      }
+      td a img {
+      transition: unset !important;
+      max-height: 40px !important;
+      margin: 5px 0px 5px 0px !important;
+      padding: 0px !important;
+      }
+      .cody {
+      font-family: monospace !important;
+      font-size: 14pt !important;
+      }
+      .left {
+      left:-8.33%;
+      text-align: left;
+      float: left;
+      width:50%;
+      z-index:-10;
+      }
+      .right {
+      left:31.25%;
+      top: 75px;
+      float: right;
+      text-align: left;
+      z-index:-10;
+      width:50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Linked Data</h1>
+          <hr/>
+          <p>Wouter Beek
+            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+            <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)
+          </p>
+          <p>January 24<sup>th</sup>, 2018</p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="125">
+          <img src="../img/triply-text.svg" height="125">
+        </section>
+
+        <section>
+          <section>
+            <h1>What is LOD?</h1>
+          </section>
+          <section>
+            <h2>WWW (Web of documents)</h2>
+            <a href="../img/before_sw_conversion.png">
+              <img height="500" src="../img/before_sw_conversion.png">
+            </a>
+          </section>
+          <section>
+            <h2>LOD (Web of data)</h2>
+            <a href="../img/after_sw_conversion.png">
+              <img height="500" src="../img/after_sw_conversion.png">
+            </a>
+          </section>
+          <section>
+            <h2>The 5 stars of LOD</h2>
+            <a href="http://5stardata.info">
+              <img src="../img/5star.png">
+            </a>
+            <small>Source: Tim Berners-Lee
+              (<a href="http://5stardata.info">http://5stardata.info</a>)</small>
+          </section>
+          <section>
+            <h2>
+              <a href="http://en.lodlive.it/?http://dbpedia.org/resource/University_of_Amsterdam">
+                Let's look at some Linked Open Data
+              </a>
+            </h2>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>What is the LOD Cloud?</h1>
+          </section>
+          <section>
+            <h2>Who uses Linked Data? (1/2)</h2>
+            <center>
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">
+                  Where
+                  is <a href="https://twitter.com/hashtag/semweb?src=hash&amp;ref_src=twsrc%5Etfw">#semweb</a>
+                  / <a href="https://twitter.com/hashtag/linkeddata?src=hash&amp;ref_src=twsrc%5Etfw">#linkeddata</a>
+                  used? Challenged at work today and hoping to make a
+                  point with one tweet.
+                </p>
+                &mdash; Tim Lebo
+                (@timrdf) <a href="https://twitter.com/timrdf/status/925470421566320640?ref_src=twsrc%5Etfw">October
+                  31, 2017</a>
+              </blockquote>
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">
+                  Facebook, Google, Bing, BBC, NYT, Renault,
+                  Accenture, Deloitte, Wallmart, Getty, NXP,
+                  Europeana, Springer, Elsevier, ..only
+                  140chars... <a href="https://t.co/oeMRQyDLLt">https://t.co/oeMRQyDLLt</a>
+                </p>
+                &mdash; Frank van Harmelen
+                (@FrankVanHarmele) <a href="https://twitter.com/FrankVanHarmele/status/925475076081901569?ref_src=twsrc%5Etfw">October
+                  31, 2017</a>
+              </blockquote>
+            </center>
+          </section>
+          <section>
+            <h2>Who uses Linked Data? (2/2)</h2>
+            <p>Schema.org:<p>
+            <ul>
+              <li>20M web sites</li>
+              <li>35% of pages in search index</li>
+              <li>50% of US/EU eCommerce emails</li>
+              <li>800B small graphs of ~25 statements</li>
+            </ul>
+            <small>Source: A.W.Moore &amp; R.V. Gua, Google
+              Research</small>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2014</h3>
+            <a href="../img/lod_cloud_2014.png">
+              <img src="../img/lod_cloud_2014.png" height="500">
+            </a>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2017</h3>
+            <a href="../img/lod_cloud_2017.png">
+              <img src="../img/lod_cloud_2017.png" height="500">
+            </a>
+          </section>
+          <!--
+          <section>
+            <h2>Vocabularies</h2>
+            <h2><a href="http://lov.okfn.org/dataset/lov">LOV</a></h2>
+          </section>
+          -->
+        </section>
+
+        <section>
+          <section>
+            <h1>LOD Laundromat</h1>
+          </section>
+          <section>
+            <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="../img/basket.png" width="175">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="../img/laundry.png" width="175">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="../img/wardrobe.png" width="175">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="../img/analysis.png" width="175">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="../img/labels.png" width="175">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="../img/laundryLine.png" width="175">
+            </a>
+            <br>
+            <small>
+              L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab:
+              Experiments at LOD Scale”, <em>International Semantic
+              Web Conference</em>, 2015 (Best Paper Award).
+            </small>
+            <hr>
+            <small>Best Linked Open Data Application, 2015</small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+            <a href="../img/pet_sounds.png">
+              <img src="../img/pet_sounds.png" height="475">
+            </a>
+            <small>F. Ilievski, W. Beek, M. van Erp, L. Rietveld,
+              S. Schlobach, “LOTUS: Adaptive Text Search for Big Linked Data”,
+              <i>ESWC</i> 2016.</small>
+          </section>
+          <section>
+            <h2>Nice, but expensive to scale<br>to the full web.</h2>
+          </section>
+        </section>
+        
+        <section>
+          <section data-background-image="../img/observatory.jpg">
+            <h2 style="color: white; font-size: 80pt; margin-bottom: 75%;">
+              Scalable Knowledge Graph Solutions
+            </h2>
+          </section>
+          <!--
+          <section>
+            <h2>Scrape a huge Knowledge Graph</h2>
+            <a href="http://lodlaundromat.org">
+              <img src="../img/lod_laundromat_homepage.png">
+            </a>
+          </section>
+          <section data-background-image="../img/lod_cloud_2017.png"
+                   data-background-size="contain">
+          </section>
+          -->
+          <section>
+            <h2>
+              <a href="http://lod-a-lot.lod.labs.vu.nl" data-preview-link>
+                Query a Large Knowledge Graph Using Commodity Hardware
+              </a>
+            </h2>
+          </section>
+          <section>
+            <h2>Lowering the cost of access</h2>
+            <ul>
+              <li>Store Linked Data in 1 file</li>
+              <li>28,362,198,927 triples (&gt;650K data
+                documents)</li>
+              <li>€305,- hardware cost (524GB disk; 15.7GB RAM)</li>
+            </ul>
+            <p><small>J.D. Fernández, W. Beek, M.A. Martínez-Prieto,
+              M. Arias, “LOD-a-lot”, <i>International Semantic Web
+              Conference</i>, 2017</small></p>
+          </section>
+          <section data-background-image="../img/db.png"
+                   data-background-repeat="repeat"
+                   data-background-size="70px">
+            <h1 style="color: white;
+                       text-shadow: -12px 0 black, 0 12px black, 12px 0 black, 0 -12px black;
+                       font-size: 450%;">
+              Up to 1K HDT files
+            </h1>
+          </section>
+          <section>
+            <h3>Header Dictionary Triples (HDT)</h3>
+            <img src="../img/hdt_logo.png">
+            <p>
+              <small>
+                Fernández &amp; Martínez-Prieto &amp; Gutiérrez,
+                “Binary RDF representation for publication and
+                exchange (HDT)”, <em>ISWC</em>, 2013.
+              </small>
+            </p>
+          </section>
+          <section data-background-image="../img/graph-example.png"
+                   data-background-size="contain">
+          </section>
+          <section data-background-image="../img/hdt-architecture.png"
+                   data-background-size="contain">
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <!-- FAIR: Interpret -->
+            <h1>Empirical Semantics</h1>
+          </section>
+          <section>
+            <h3>‘Barak Obama’ in the LOD Cloud</h3>
+            <a href="../img/obama-1.png">
+              <img src="../img/obama-1.png" height="475">
+            </a>
+            <p><small><code>owl:sameAs</code> links</small></p>
+          </section>
+          <section>
+            <h3>Data cleaning (<code>owl:sameAs</code>)</h3>
+            <pre>
+http://als.dbpedia.org/resource/Barack_Obama
+http://am.dbpedia.org/resource/ባራክ_ኦባማ
+http://data.nytimes.com/obama_barack_per
+http://nl.dbpedia.org/resource/Barack_Obama
+http://rdf.freebase.com/ns/m.02mjmr
+http://viaf.org/viaf/52010985
+http://yago-knowledge.org/resource/Barack_Obama</pre>
+            <pre>
+http://dbpedia.org/resource/Administration_of_Barack_Obama
+http://dbpedia.org/resource/Barack_Obama_Cabinet
+http://dbpedia.org/resource/Barack_Obama_presidency
+http://rdf.freebase.com/ns/m.05b6w1g
+http://wikidata.dbpedia.org/resource/Q1379733
+http://yago-knowledge.org/resource/Presidency_of_Barack_Obama</pre>
+          </section>
+          <section>
+            <h3>‘Barak Obama’ after community detection</h3>
+            <a href="../img/obama-2-labels.svg">
+              <img src="../img/obama-2.png" height="500">
+            </a>
+            <small>purple: person; orange: government; green:
+              president; blue: senator</small>
+          </section>
+        </section>
+
+        <section>
+          <h1>Thank you!</h1>
+          <p>
+            Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>
+            <br>
+            Mail: <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>
+          </p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="125">
+          <img src="../img/triply-text.svg" height="125">
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
