@@ -100,7 +100,7 @@
 
         <section>
           <section>
-            <h2>Deel I:<br>De eerste SPARQL vraag</h2>
+            <h1>Deel I: De eerste SPARQL vraag</h1>
           </section>
           <section>
             <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%3Fo+%7B%0A++%3Fs+%3Fp+%3Fo%0A%7D%0Alimit+5&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=De+eerste+SPARQL+vraag&headers=%7B%7D&outputFormat=table">De eerste SPARQL vraag</a></h2>
@@ -110,12 +110,14 @@ select ?s ?p ?o {
 }
 limit 5
             </code></pre>
-            <p>Onderdelen:</p>
-            <ol>
-              <li>projectie: <code>select ?s ?p ?o</code></li>
-              <li>patroon: <code>?s ?p ?o .</code></li>
-              <li>limiet: <code>limit 5</code></li>
-            </ol>
+            <p>
+              <small>
+                Onderdelen:<br>
+                projectie: <code>select ?s ?p ?o</code><br>
+                patroon: <code>?s ?p ?o .</code><br>
+                limiet: <code>limit 5</code>
+              </small>
+            </p>
           </section>
 
           <section>
@@ -152,7 +154,7 @@ limit 5
 
         <section>
           <section>
-            <h2>Deel II: Naamgeving &amp; Ambiguïteit</h2>
+            <h1>Deel II: Naamgeving &amp; Ambiguïteit</h1>
           </section>
           <section>
             <h2>Alles heeft een naam</h2>
@@ -167,13 +169,13 @@ limit 5
             <pre><code data-trim data-noescape>select ?s {
   ?s ?p "De Brug"^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
             <p>
               <small>
                 <code>"De
                   Brug"^^&lt;http://www.w3.org/2001/XMLSchema#string&gt;</code>
-                  is
-                een <b>literal</b>.
+                  is een <b>literal</b>.
               </small>
             </p>
             <p>
@@ -185,11 +187,13 @@ limit 100</code></pre>
           </section>
           <section>
             <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Wat+is+‘De+Brug’%3F&headers=%7B%7D&outputFormat=table">🌉 Wat is ‘De Brug’?</a></h2>
-            <pre><code data-trim data-noescape>prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+            <pre><code data-trim data-noescape>
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 select ?s {
   ?s ?p "De Brug"^^xsd:string .
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
             <p>
               <small>
                 URI kunnen worden afgekort met <code>prefix</code>
@@ -198,8 +202,9 @@ limit 100</code></pre>
             </p>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+.%0A++%7D+union+%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%40nl+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Nog+meer+dingen+die+%E2%80%98‘De+Brug’%E2%80%99+heten%E2%80%A6&headers=%7B%7D&outputFormat=table">🌉 Nog meer dingen die ‘De Brug’ heten…</a></h2>
-            <pre><code data-trim data-noescape>prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+.%0A++%7D+union+%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%40nl+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Nog+meer+dingen+die+%E2%80%98‘De+Brug’%E2%80%99+heten%E2%80%A6&headers=%7B%7D&outputFormat=table">Nog meer dingen die ‘De Brug’ heten…</a></h2>
+            <pre><code data-trim data-noescape>
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 select ?s {
   {
     ?s ?p "De Brug"^^xsd:string .
@@ -207,7 +212,8 @@ select ?s {
     ?s ?p "De Brug"@nl .
   }
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
             <p>
               <small>
                 <code>"De Brug"@nl</code> is een <b>language-tagged
@@ -225,8 +231,9 @@ limit 100</code></pre>
             </p>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+distinct+%3Fklasse+%7B%0A++%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+%3B+a+%3Fklasse+.%0A++%7D+union+%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%40nl+%3B+a+%3Fklasse+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%8C%89+Wat+iets+is+kunnen+we+zien+aan+de+klasse&headers=%7B%7D&outputFormat=table">🌉 Wat iets is kunnen we zien aan de <i>klasse</i></a></h2>
-            <pre><code data-trim data-noescape>prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+distinct+%3Fklasse+%7B%0A++%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+%3B+a+%3Fklasse+.%0A++%7D+union+%7B%0A++++%3Fs+%3Fp+%22De+Brug%22%40nl+%3B+a+%3Fklasse+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Wat+iets+is+kunnen+we+zien+aan+de+klasse&headers=%7B%7D&outputFormat=table">Wat iets is kunnen we zien aan de <i>klasse</i></a></h2>
+            <pre><code data-trim data-noescape>
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 select distinct ?klasse {
   {
     ?s ?p "De Brug"^^xsd:string ; a ?klasse .
@@ -234,41 +241,110 @@ select distinct ?klasse {
     ?s ?p "De Brug"@nl ; a ?klasse .
   }
 }
-limit 100</code></pre>
-          <p>
-            <small>
-              ‘<code>a</code>’ duidt de relatie aan tussen een
-              instantie en een klasse.
-            </small>
-          </p>
-          <p>
-            <small>
-              ‘<code>a</code>’ is een afkorting
-              voor <code>rdf:type</code>, wat een afkorting is
-              voor <code>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code>.
-            </small>
-          </p>
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                ‘<code>a</code>’ duidt de relatie aan tussen een
+                instantie en een klasse.  ‘<code>a</code>’ is een
+                afkorting voor <code>rdf:type</code>, wat een
+                afkorting is
+                voor <code>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code>.
+              </small>
+            </p>
+            <p>
+              <small>
+                <code>distinct</code> laat alleen unieke resultaten zien.
+              </small>
+            </p>
+            <p>
+              <small>
+                ‘<code>;</code>’ is een afkorting die de subject term herhaalt.
+              </small>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Deel III: Linked Geodata</h1>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=prefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Finstantie+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B%0A+++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++a%2Frdfs%3Alabel+%3FwktLabel+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🏙+Wat+is+Apeldoorn%3F&headers=%7B%7D&outputFormat=table">🏙 Wat is Apeldoorn?</a></h2>
-            <pre><code data-trim data-noescape>prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+            <h2><a href="http://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+rdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%8F%99+Wat+is+Apeldoorn%3F&headers=%7B%7D&outputFormat=table">🏙 Wat is Apeldoorn?</a></h2>
+            <pre><code data-trim data-noescape>
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select ?wkt ?wktLabel {
-  ?instantie rdfs:label "Apeldoorn"@nl ;
-             geo:hasGeometry/geo:asWKT ?wkt ;
-             a/rdfs:label ?wktLabel .
+select ?s {
+  ?s rdfs:label "Apeldoorn"@nl .
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
             <p>
               <small>
                 <code>rdfs:label</code> geeft een menselijk
                 interpreteerbare naam van een ding.
               </small>
             </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%3Flabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B+a+%3Fklasse+.%0A++%3Fklasse+rdfs%3Alabel+%3Flabel+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Ook+klasses+hebben+een+label&headers=%7B%7D&outputFormat=table">Ook klasses hebben een label</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?s ?label {
+  ?s rdfs:label "Apeldoorn"@nl ; a ?klasse .
+  ?klasse rdfs:label ?label .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Merk op dat we <code>?klasse</code> niet gebruiken in
+                de projectie (zie volgende query).
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%3Flabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B+a%2Frdfs%3Alabel+%3Flabel+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Wat+we+niet+gebruiken+mogen+we+overslaan&headers=%7B%7D&outputFormat=table">Wat we niet gebruiken mogen we overslaan</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?s ?label {
+  ?s rdfs:label "Apeldoorn"@nl ; a/rdfs:label ?label .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                We slaan <code>?klasse</code> uit de vorige query over.
+              </small>
+            </p>
+            <p>
+              <small>
+                <code>X/Y</code> is een <b>property path</b>.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Finstantie+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B%0A+++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++a%2Frdfs%3Alabel+%3FwktLabel+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Ambigu%C3%AFteit+%2B+geografie&headers=%7B%7D&outputFormat=table">Ambiguïteit + geografie</a></h2>
+            <pre><code data-trim data-noescape>
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?wkt ?wktLabel {
+  ?s rdfs:label "Apeldoorn"@nl ;
+     geo:hasGeometry/geo:asWKT ?wkt ;
+     a/rdfs:label ?wktLabel .
+}
+limit 100
+            </code></pre>
             <p>
               <small>
                 <code>geo:hasGeometry/geo:asWKT</code> geeft de
                 Well-Known Text (WKT) representatie van een geometrie.
+              </small>
+            </p>
+            <p>
+              <small>
+                Merk op dat we verschillende vocabulaires door elkaar
+                heen gebruiken: <code>rdfs</code> van W3C
+                en <code>geo</code> van OGC.
               </small>
             </p>
           </section>
@@ -276,7 +352,8 @@ limit 100</code></pre>
             <h2>🏙 Welke Apeldoorn bedoel je?</h2>
             <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Finstantie+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B%0A+++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++a+brt%3ARegistratiefGebied+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Ik+bedoel+het+registratief+gebied&headers=%7B%7D&outputFormat=leaflet">Ik
             bedoel het registratief gebied</a></h2>
-            <pre><code data-trim data-noescape>prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+            <pre><code data-trim data-noescape>
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
 prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 select ?wkt ?wktLabel {
@@ -284,23 +361,25 @@ select ?wkt ?wktLabel {
              geo:hasGeometry/geo:asWKT ?wkt ;
              a brt:RegistratiefGebied .
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
           </section>
         </section>
         
         <section>
           <section>
-            <h2>Deel III: De BAG bevragen met SPARQL</h2>
+            <h1>Deel IV: De BAG bevragen met SPARQL</h1>
           </section>
           
           <section>
-            <h2><a href="https://yasgui.org/#query=select+%3Fs+%7B%0A++%3Fs+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23naamOpenbareRuimte%3E+%22Hofstraat%22%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+openbare+ruimte&headers=%7B%7D&outputFormat=table">BAG openbare ruimte</a></h2>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aselect+%3FopenbareRuimte+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+openbare+ruimte&headers=%7B%7D&outputFormat=table">BAG openbare ruimte</a></h2>
             <pre><code data-trim data-noescape>
 prefix &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
-select ?s {
-  ?s bag:naamOpenbareRuimte "Hofstraat" .
+select ?openbareRuimte {
+  ?openbareRuimte bag:naamOpenbareRuimte "Hofstraat"
 }
-limit 100</code></pre>
+limit 100
+            </code></pre>
             <p>Openbare ruimtes die ‘Hofstraat’ heten.</p>
           </section>
 
@@ -328,6 +407,11 @@ select ?openbareRuimte ?woonplaats ?label {
 }
 limit 100
             </code></pre>
+            <p>
+              <small>
+                Weer ambiguïteit: er zijn heel veel openbare ruimtes die ‘Hofstraat’ heten.
+              </small>
+            </p>
           </section>
 
           <section>
@@ -342,7 +426,7 @@ select ?openbareRuimte ?woonplaats {
 }
 limit 100
             </code></pre>
-            <p>De Hofstraat in Apeldoorn.</p>
+            <p>De Hofstraat in <i>Apeldoorn</i>.</p>
             <small>(Merk op: er zijn 2 openbare ruimtes; hierover later meer.)</small>
           </section>
           
@@ -359,7 +443,12 @@ select ?nummeraanduiding ?openbareRuimte {
 }
 limit 100
             </code></pre>
-            <p>Property path notatie (<code>/</code>)</p>
+            <p>
+              <small>
+                Met property path notatie (<code>/</code>) slaan we de
+                niet gebruikte <code>?woonplaats</code> over.
+              </small>
+            </p>
           </section>
           
           <section>
@@ -379,7 +468,6 @@ select <mark>?wkt</mark> {
 }
 limit 100
             </code></pre>
-            <p>Well-Known Text (WKT)</p>
           </section>
 
           <section>
@@ -398,12 +486,41 @@ select ?wkt <mark>?wktLabel</mark> {
 }
 limit 100
             </code></pre>
+            <p>
+              <small>
+                Waarom zien we sommige panden dubbel?
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FwktVerblijfsobject+%3FwktVerblijfsobjectColor+%3FwktVerblijfsobjectLabel+%3FwktPand+%3FwktPandLabel+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats%2Frdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Apostcode+%3Fpostcode+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+%3Fhuisnummer+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3FwktVerblijfsobject+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+%3B%0A+++++++++++++++++++a%2Frdfs%3Alabel+%3Flabel+.%0A++%3Fpand+bag%3AgeometriePand%2Fgeo%3AasWKT+%3FwktPand+.%0A++bind+(concat('Hofstraat+'%2Cstr(%3Fhuisnummer))+as+%3FwktPandLabel)%0A++bind+(concat(%3FwktPandLabel%2C'+'%2Cstr(%3Fpostcode)%2C'%3Cbr%3E'%2Cstr(%3Flabel))+as+%3FwktVerblijfsobjectLabel)%0A++bind+(%22red%22+as+%3FwktVerblijfsobjectColor)%0A%7D%0Alimit+1000%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=%C3%89%C3%A9n+pand+kan+meerdere+verblijfsobjecten+hebben&headers=%7B%7D&outputFormat=leaflet">Één pand kan meerdere verblijfsobjecten hebben</a></h2>
+            <pre><code data-trim data-noescape>
+prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?wktVerblijfsobject ?wktVerblijfsobjectColor ?wktVerblijfsobjectLabel ?wktPand ?wktPandLabel {
+  ?openbareRuimte bag:naamOpenbareRuimte "Hofstraat" ;
+                  bag:bijbehorendeWoonplaats/rdfs:label "Apeldoorn"@nl .
+  ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte ;
+                    bag:postcode ?postcode ;
+                    bag:huisnummer ?huisnummer .
+  ?verblijfsobject bag:hoofdadres ?nummeraanduiding ;
+                   geo:hasGeometry/geo:asWKT ?wktVerblijfsobject ;
+                   bag:pandrelatering ?pand ;
+                   a/rdfs:label ?label .
+  ?pand bag:geometriePand/geo:asWKT ?wktPand .
+  bind (concat('Hofstraat ',str(?huisnummer)) as ?wktPandLabel)
+  bind (concat(?wktPandLabel,' ',str(?postcode),'<br>',str(?label)) as ?wktVerblijfsobjectLabel)
+  bind ("red" as ?wktVerblijfsobjectColor)
+}
+limit 1000
+            </code></pre>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Deel III: Federatie</h2>
+            <h1>Deel IV: Federatie</h1>
           </section>
           <section>
             <h3>LOD Cloud: 2014</h3>
@@ -418,7 +535,7 @@ limit 100
             </a>
           </section>
           <section>
-            <h2><a href="">BRT gemeente → DBpedia 🕸</a></h2>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Swalmen%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+.%0A++++optional+%7B+%3Fplaats2+foaf%3Adepiction+%3Fvlag+.+%7D%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=Ambigu%C3%AFteit+%2B+geografie&headers=%7B%7D&outputFormat=leaflet">BRT gemeente → DBpedia 🕸</a></h2>
             <pre><code data-trim data-noescape>
 prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
 prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
@@ -429,21 +546,22 @@ select ?wkt ?wktLabel {
   ?plaats1 rdfs:label "Swalmen"^^xsd:string ;
            brt:isBAGwoonplaats true ;
            geo:hasGeometry/geo:asWKT ?wkt .
-  service &lt;https://dbpedia.org/sparql&gt; {
+  <mark>service &lt;https://dbpedia.org/sparql&gt; {</mark>
     ?plaats2 rdfs:label "Swalmen"@nl .
     optional { ?plaats2 foaf:depiction ?vlag . }
-  }
+  <mark>}</mark>
 }
-limit 1</code></pre>
+limit 1
+            </code></pre>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Deel IV:<br>Aggregatie</h2>
+            <h1>Deel V:<br>Aggregatie</h1>
           </section>
           <section>
-            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FwktLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A%7D%0Aorder+by+asc(%3FwktLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oudste+panden+in+Apeldoorn+👵&headers=%7B%7D&outputFormat=leaflet">Oudste panden in Apeldoorn 👵</a></h2>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FwktLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A%7D%0Aorder+by+asc(%3FwktLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oudste+pand+in+Apeldoorn+👵👴&headers=%7B%7D&outputFormat=leaflet">Oudste pand in Apeldoorn 👵👴</a></h2>
             <pre><code data-trim data-noescape>
 prefix bag: <http://bag.basisregistraties.overheid.nl/def/bag#>
 prefix geo: <http://www.opengis.net/ont/geosparql#>
@@ -461,7 +579,7 @@ limit 50
 
         <section>
           <section>
-            <h2>Deel V:<br>Versies in de BAG</h2>
+            <h1>Deel VI: Versies in de BAG</h1>
           </section>
             
           <section>
