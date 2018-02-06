@@ -701,14 +701,14 @@ select ?wkt ?begin ?eind {
   }
   ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte ;
                     bag:huisnummer 110 .
-  graph ?voorkomen {
+  <mark>graph ?voorkomen {
     ?verblijfsobject bag:hoofdadres ?nummeraanduiding .
   }
   ?verblijfsobject bag:pandrelatering/bag:geometriePand/geo:asWKT ?wkt .
   ?voorkomen bag:beginGeldigheid ?begin .
   optional {
     ?voorkomen bag:eindGeldigheid ?eind .
-  }
+  }</mark>
 }
 limit 100
             </code></pre>
