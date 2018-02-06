@@ -293,8 +293,7 @@ select ?s ?label {
   ?s rdfs:label "Apeldoorn"@nl ; a ?klasse .
   ?klasse rdfs:label ?label .
 }
-limit 100
-            </code></pre>
+limit 100</code></pre>
             <p>
               <small>
                 Merk op dat we <code>?klasse</code> niet gebruiken in
@@ -687,13 +686,13 @@ limit 100
           </section>
 
           <section>
-            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+begrip%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fid%2Fbegrip%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3Fbegin+%3Feind+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fwoonplaats+rdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++filter+not+exists+%7B%0A++++%3Fwoonplaats+bag%3Astatus+begrip%3AWoonplaatsIngetrokken+.%0A++%7D%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+110+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++bag%3Apandrelatering%2Fbag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++++++++rdfs%3AisDefinedBy+%3Fvoorkomen+.%0A++%3Fvoorkomen+bag%3AbeginGeldigheid+%3Fbegin+.%0A++optional+%7B%0A++++%3Fvoorkomen+bag%3AeindGeldigheid+%3Feind+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+voorkomen&headers=%7B%7D&outputFormat=table">BAG voorkomen</a></h2>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+begrip%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fid%2Fbegrip%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3Fbegin+%3Feind+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fwoonplaats+rdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++filter+not+exists+%7B%0A++++%3Fwoonplaats+bag%3Astatus+begrip%3AWoonplaatsIngetrokken+.%0A++%7D%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+110+.%0A++graph+%3Fvoorkomen+%7B%0A++++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+.%0A++%7D%0A++%3Fverblijfsobject+bag%3Apandrelatering%2Fbag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A++%3Fvoorkomen+bag%3AbeginGeldigheid+%3Fbegin+.%0A++optional+%7B%0A++++%3Fvoorkomen+bag%3AeindGeldigheid+%3Feind+.%0A++%7D%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+voorkomen&headers=%7B%7D&outputFormat=table">BAG voorkomen</a></h2>
             <pre><code data-trim data-noescape>
 prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
 prefix begrip: &lt;http://bag.basisregistraties.overheid.nl/id/begrip/&gt;
 prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select ?wkt <mark>?begin ?eind</mark> {
+select ?wkt ?begin ?eind {
   ?openbareRuimte bag:naamOpenbareRuimte "Hofstraat" ;
                   bag:bijbehorendeWoonplaats ?woonplaats .
   ?woonplaats rdfs:label "Apeldoorn"@nl .
@@ -702,25 +701,33 @@ select ?wkt <mark>?begin ?eind</mark> {
   }
   ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte ;
                     bag:huisnummer 110 .
-  ?verblijfsobject bag:hoofdadres ?nummeraanduiding ;
-                   bag:pandrelatering/bag:geometriePand/geo:asWKT ?wkt <mark>;
-                   rdfs:isDefinedBy ?voorkomen .
+  graph ?voorkomen {
+    ?verblijfsobject bag:hoofdadres ?nummeraanduiding .
+  }
+  ?verblijfsobject bag:pandrelatering/bag:geometriePand/geo:asWKT ?wkt .
   ?voorkomen bag:beginGeldigheid ?begin .
   optional {
     ?voorkomen bag:eindGeldigheid ?eind .
-  }</mark>
+  }
 }
 limit 100
             </code></pre>
+            <p>
+              <small>
+                <code>graph <URI> { A }</code> betekent: voer
+                query <code>A</code> uit binnen
+                deelgraaf <code>URI</code>.
+              </small>
+            </p>
           </section>
           <section>
-            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+begrip%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fid%2Fbegrip%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fwoonplaats+rdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++filter+not+exists+%7B%0A++++%3Fwoonplaats+bag%3Astatus+begrip%3AWoonplaatsIngetrokken+.%0A++%7D%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+110+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++bag%3Apandrelatering%2Fbag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++++++++rdfs%3AisDefinedBy+%3Fvoorkomen+.%0A++%3Fvoorkomen+bag%3AbeginGeldigheid+%3FwktLabel+.%0A++filter+not+exists+%7B%0A++++%3Fvoorkomen+bag%3AeindGeldigheid+%3Feind+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Huidig+voorkomen&headers=%7B%7D&outputFormat=leaflet">Huidig voorkomen</a></h2>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+begrip%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fid%2Fbegrip%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3Fbegin+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats+%3Fwoonplaats+.%0A++%3Fwoonplaats+rdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++filter+not+exists+%7B%0A++++%3Fwoonplaats+bag%3Astatus+begrip%3AWoonplaatsIngetrokken+.%0A++%7D%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+110+.%0A++graph+%3Fvoorkomen+%7B%0A++++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+.%0A++%7D%0A++%3Fverblijfsobject+bag%3Apandrelatering%2Fbag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A++%3Fvoorkomen+bag%3AbeginGeldigheid+%3Fbegin+.%0A++filter+not+exists+%7B%0A++++%3Fvoorkomen+bag%3AeindGeldigheid+%3Feind+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=BAG+voorkomen&headers=%7B%7D&outputFormat=table">Huidig voorkomen</a></h2>
             <pre><code data-trim data-noescape>
 prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
 prefix begrip: &lt;http://bag.basisregistraties.overheid.nl/id/begrip/&gt;
 prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select ?wkt ?wktLabel {
+select ?wkt ?begin {
   ?openbareRuimte bag:naamOpenbareRuimte "Hofstraat" ;
                   bag:bijbehorendeWoonplaats ?woonplaats .
   ?woonplaats rdfs:label "Apeldoorn"@nl .
@@ -729,10 +736,11 @@ select ?wkt ?wktLabel {
   }
   ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte ;
                     bag:huisnummer 110 .
-  ?verblijfsobject bag:hoofdadres ?nummeraanduiding ;
-                   bag:pandrelatering/bag:geometriePand/geo:asWKT ?wkt ;
-                   rdfs:isDefinedBy ?voorkomen .
-  ?voorkomen bag:beginGeldigheid ?wktLabel .
+  graph ?voorkomen {
+    ?verblijfsobject bag:hoofdadres ?nummeraanduiding .
+  }
+  ?verblijfsobject bag:pandrelatering/bag:geometriePand/geo:asWKT ?wkt .
+  ?voorkomen bag:beginGeldigheid ?begin .
   <mark>filter not exists</mark> {
     ?voorkomen bag:eindGeldigheid ?eind .
   }
