@@ -77,13 +77,13 @@
             <h1>Wat is Linked Data?</h1>
           </section>
           <section>
-            <h2>🖺 World Wide Web: Web of Documents</h2>
+            <h2>World Wide Web: Web of Documents 🖺</h2>
             <a href="../img/before_sw_conversion.png">
               <img height="550" src="../img/before_sw_conversion.png">
             </a>
           </section>
           <section>
-            <h2>🖼 Linked Data: Web of data</h2>
+            <h2>Linked Data: Web of data 🖼</h2>
             <a href="../img/after_sw_conversion.png">
               <img height="550" src="../img/after_sw_conversion.png">
             </a>
@@ -165,7 +165,7 @@ limit 5
               naam…</h2>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=select+%3Fs+%7B%0A++%3Fs+%3Fp+%22De+Brug%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23string%3E+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Wat+is+‘De+Brug’%3F&headers=%7B%7D&outputFormat=table">🌉 Wat is ‘De Brug’?</a></h2>
+            <h2><a href="http://yasgui.org/#query=select+%3Fs+%7B%0A++%3Fs+%3Fp+%22De+Brug%22%5E%5E%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23string%3E+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Wat+is+‘De+Brug’%3F&headers=%7B%7D&outputFormat=table">Wat is ‘De Brug’? 🌉</a></h2>
             <pre><code data-trim data-noescape>select ?s {
   ?s ?p "De Brug"^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; .
 }
@@ -186,7 +186,7 @@ limit 100
             </p>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Wat+is+‘De+Brug’%3F&headers=%7B%7D&outputFormat=table">🌉 Wat is ‘De Brug’?</a></h2>
+            <h2><a href="http://yasgui.org/#query=prefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+%3Fp+%22De+Brug%22%5E%5Exsd%3Astring+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=🌉+Wat+is+‘De+Brug’%3F&headers=%7B%7D&outputFormat=table">Wat is ‘De Brug’? 🌉</a></h2>
             <pre><code data-trim data-noescape>
 prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 select ?s {
@@ -520,22 +520,24 @@ limit 1000
 
         <section>
           <section>
-            <h1>Deel IV: Federatie</h1>
+            <h1>Deel V: Federatie</h1>
           </section>
           <section>
             <h3>LOD Cloud: 2014</h3>
             <a href="../img/lod_cloud_2014.png">
-              <img src="../img/lod_cloud_2014.png" height="500">
+              <img src="../img/lod_cloud_2014.png" height="450">
             </a>
+            <p>Er zijn heel veel andere Linked Datasets op het web.</p>
           </section>
           <section>
             <h3>LOD Cloud: 2017</h3>
             <a href="../img/lod_cloud_2017.png">
-              <img src="../img/lod_cloud_2017.png" height="500">
+              <img src="../img/lod_cloud_2017.png" height="450">
             </a>
+            <p>We kunnen al deze Datasets bevragen met SPARQL.</p>
           </section>
           <section>
-            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Swalmen%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+.%0A++++optional+%7B+%3Fplaats2+foaf%3Adepiction+%3Fvlag+.+%7D%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=Ambigu%C3%AFteit+%2B+geografie&headers=%7B%7D&outputFormat=leaflet">BRT gemeente → DBpedia 🕸</a></h2>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Amsterdam%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+%3B+foaf%3Adepiction+%3Fvlag+.%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%95%B8+BRT%2FBAG+gemeente+%E2%86%92+DBpedia&headers=%7B%7D&outputFormat=leaflet">BRT/BAG gemeente → DBpedia 🕸</a></h2>
             <pre><code data-trim data-noescape>
 prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
 prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
@@ -547,18 +549,57 @@ select ?wkt ?wktLabel {
            brt:isBAGwoonplaats true ;
            geo:hasGeometry/geo:asWKT ?wkt .
   <mark>service &lt;https://dbpedia.org/sparql&gt; {</mark>
-    ?plaats2 rdfs:label "Swalmen"@nl .
-    optional { ?plaats2 foaf:depiction ?vlag . }
+    ?plaats2 rdfs:label "Swalmen"@nl ; foaf:depiction ?vlag . }
   <mark>}</mark>
 }
 limit 1
             </code></pre>
+            <p>
+              <small>
+                <code>service &lt;URL&gt; { A }</code> betekent: voer
+                query <code>A</code> uit op SPARQL
+                endpoint <code>URL</code>, en voeg de resultaten
+                samen.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Apeldoorn%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+.%0A++++optional+%7B+%3Fplaats2+foaf%3Adepiction+%3Fvlag+.+%7D%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=Apeldoorn+heeft+geen+vlag&headers=%7B%7D&outputFormat=leaflet">Apeldoorn heeft geen vlag</a></h2>
+            <pre><code data-trim data-noescape>
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+select ?wkt ?wktLabel {
+  ?plaats1 rdfs:label "Apeldoorn"^^xsd:string ;
+           brt:isBAGwoonplaats true ;
+           geo:hasGeometry/geo:asWKT ?wkt .
+  service &lt;https://dbpedia.org/sparql&gt; {
+    ?plaats2 rdfs:label "Apeldoorn"@nl .
+    <mark>optional { ?plaats2 foaf:depiction ?vlag . }</mark>
+  }
+}
+limit 1
+            </code></pre>
+            <p>
+              <small>
+                <code>optional { A }</code> betekent:
+                voer <code>A</code> uit, indien mogelijk.
+              </small>
+            </p>
+            <p>
+              <small>
+                Met name nuttig voor ontbrekende waardes (data op het
+                web is vaak onvolledig).
+              </small>
+            </p>
           </section>
         </section>
 
         <section>
           <section>
-            <h1>Deel V:<br>Aggregatie</h1>
+            <h1>Deel VI:<br>Aggregatie</h1>
           </section>
           <section>
             <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FwktLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A%7D%0Aorder+by+asc(%3FwktLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oudste+pand+in+Apeldoorn+👵👴&headers=%7B%7D&outputFormat=leaflet">Oudste pand in Apeldoorn 👵👴</a></h2>
@@ -579,7 +620,7 @@ limit 50
 
         <section>
           <section>
-            <h1>Deel VI: Versies in de BAG</h1>
+            <h1>Deel VII: Versies in de BAG</h1>
           </section>
             
           <section>
