@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kadaster SPARQL Tutorial</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Kadaster SPARQL Tutorial">
+    <meta name="author" content="Wouter Beek and Jesse Bakker">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+      .reveal h1 , .reveal  h2 , .reveal  h3 , .reveal h4 , .reveal h5 , .reveal h6 { color: black; }
+      * { color: black; }
+      img {
+      border: 0px !important;
+      box-shadow: 0 0 0 !important;
+      }
+      td a img {
+      transition: unset !important;
+      max-height: 40px !important;
+      margin: 5px 0px 5px 0px !important;
+      padding: 0px !important;
+      }
+      .cody {
+      font-family: monospace !important;
+      font-size: 14pt !important;
+      }
+      .left {
+      left:-8.33%;
+      text-align: left;
+      float: left;
+      width:50%;
+      z-index:-10;
+      }
+      .right {
+      left:31.25%;
+      top: 75px;
+      float: right;
+      text-align: left;
+      z-index:-10;
+      width:50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Kadaster SPARQL Tutorial</h2>
+          <hr>
+          <p>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></p>
+          <p>Laurens Rietveld <a href="mailto:laurens@triply.cc">laurens@triply.cc</a></p>
+          <p>15 Februari, 2018</p>
+          <img src="../img/kadaster.jpg" height="200">
+        </section>
+
+        <section>
+          <section>
+            <h1>Deployment updates</h1>
+          </section>
+          
+          <section>
+            <h2>Spatial base registries of the Netherlands</h2>
+            <p>Use cases:</p>
+            <ul>
+              <li>Data quality</li>
+              <li>Data enrichment</li>
+            </ul>
+            <p>Components:</p>
+            <ul>
+              <li><a href="https://data.labs.pdok.nl/stories/Kwaliteit%20BGTBAG2/index.html">Data Stories</a></li>
+              <li><a href="https://bgt.triply.cc/">FacetCheck</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>AdamNet</h2>
+            <p>Partners:</p>
+            <ul>
+              <li>Amsterdam Public Library (OBA)</li>
+              <li>Amsterdam Museum</li>
+              <li>Amsterdam Municipality Archive</li>
+            </ul>
+            <p>Features:</p>
+            <ul>
+              <li>Transfer dataset</li>
+              <li>Delete account</li>
+            </ul>
+            <p>(<a href="https://data.adamlink.nl/AdamNet">deployment</a>)</p>
+          </section>
+          
+          <section>
+            <h2>Internatioal Institute for Social History (IISG)</h2>
+            <p><a href="https://druid.datalegend.net/Hack-a-LOD">IISG Knowledge Graph</a></p>
+            <p><a href="https://druid.datalegend.net/Hack-a-LOD">Linked Open Maps</a></p>
+          </section>
+
+          <section>
+            <h2>CLARIAH: Research Infrastructure for Dutch Humanities Research</h2>
+            <p>Features:</p>
+            <ul>
+              <li>Web hooks</li>
+            </ul>
+          </section>
+
+        </section>
+
+        <section>
+          <section>
+            <h2>Read-only deployment</h2>
+            <p>Goals:</p>
+            <ul>
+              <li>Allow Linked Open Datasets to be <i>found</i></li>
+              <li>Allow LOD to be <i>browsed</i></li>
+              <li>Preserve Linked Open Datasets that may otherwise disappear</li>
+            </ul>
+            <p>Early examples:</p>
+            <ul>
+              <li><a href="https://krr.triply.cc/lod-cloud">Datahub scrape</a></li>
+              <li><a href="https://dev.triply.cc/wouter">Oorlogsbronnen scrape</a></li>
+            </ul>
+          </section>
+          
+        </section>
+          
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
