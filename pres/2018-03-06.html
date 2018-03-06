@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Kadaster SPARQL Tutorial</title>
+    <title>3D Linked Geodata</title>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
       tex2jax: {
@@ -12,8 +12,8 @@
       });
     </script>
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <meta name="description" content="Kadaster SPARQL Tutorial">
-    <meta name="author" content="Wouter Beek and Jesse Bakker">
+    <meta name="description" content="3D Linked Geodata">
+    <meta name="author" content="Wouter Beek">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -64,17 +64,70 @@
     <div class="reveal">
       <div class="slides">
 
-        <!--
         <section>
-          <h2>Kadaster SPARQL Tutorial</h2>
+          <h2>3D Linked Geodata</h2>
           <hr>
-          <p>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></p>
-          <p>Laurens Rietveld <a href="mailto:laurens@triply.cc">laurens@triply.cc</a></p>
-          <p>15 Februari, 2018</p>
+          <p>March 6<sup>th</sup>, 2018</p>
           <img src="../img/kadaster.jpg" height="200">
+          <img src="../img/triply.svg" height="200">
         </section>
-        -->
 
+        <section>
+          <a href="../img/lod-kdp.svg">
+            <img src="../img/lod-kdp.svg" height="650">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h2>Linked Geodata Representation</h2>
+          </section>
+          <section>
+            <h3>Simple example</h3>
+            <a href="../img/3d-simple.png">
+              <img src="../img/3d-simple.png" height="400">
+            </a>
+          </section>
+          <section>
+            <h3>Simple example + implied type information</h3>
+            <a href="../img/3d-implied.png">
+              <img src="../img/3d-implied.png" height="500">
+            </a>
+          </section>
+          <section>
+            <h3>Complex example</h3>
+            <a href="../img/3d-complex.png">
+              <img src="../img/3d-complex.png">
+            </a>
+            <p>2D ánd 3D<br>WKT ánd GML<br>WGS84 ánd RD</p>
+          </section>
+          <section>
+            <h3>Simple exmaple in Turtle</h3>
+            <pre><code data-trim data-noescape>
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+_:deBrug geo:hasGeometry [ geo:asWKT "MultiPolygon (((…)))"^^geo:wktLiteral ] .
+            </code></pre>
+          </section>
+          <section>
+            <h3>Complex example in Turtle</h3>
+            <pre><code data-trim data-noescape>
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+_:deBrug
+  geo:hasDefaultGeometry [
+    geo:asGML """&lt;gml:Polygon xmlns:gml="http://www.opengis.net/ont/gml"&gt;…&lt;/gml:Polygon&gt;"""^^geo:gmlLiteral ;
+    geo:asWKT "Polygon ((…))"^^geo:wktLiteral ;
+    geo:dimension "3"^^xsd:integer
+  ] ;
+  geo:hasGeometry [
+    geo:asGML """&lt;gml:Polygon srsName="http://www.opengis.net/def/crs/OGC/1.3/EPSG:28992" xmlns:gml="http://www.opengis.net/ont/gml"&gt;…&lt;/gml:Polygon&gt;"""^^geo:gmlLiteral ;
+    geo:asWKT "&lt;http://www.opengis.net/def/crs/OGC/1.3/EPSG:28992&gt; Polygon ((…))"^^geo:wktLiteral ;
+    geo:dimension "3"^^xsd:integer
+] .
+            </code></pre>
+          </section>
+        </section>
+        
+        <!--
         <section>
           <section>
             <h1>Deployment updates</h1>
@@ -143,6 +196,7 @@
           </section>
           
         </section>
+        -->
           
       </div>
     </div>
