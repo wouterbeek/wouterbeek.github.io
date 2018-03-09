@@ -135,6 +135,11 @@
         </section>
 
         <section>
+          <h2>Verblijfsobjecten in één pand</h2>
+          <p><a href="http://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%3FwktName+%7B%0A++%7B%0A++++select+%3Fverblijfsobject+%3Fwkt+%7B%0A++++++graph+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-bim%3E+%7B%0A++++++++%3Fverblijfsobject+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++++++%7D%0A++++%7D%0A++%7D%0A++service+%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E+%7B%0A++++%3Fverblijfsobject+bag%3Aoppervlakte+%3Foppervlakte+%3B%0A+++++++++++++++++++++bag%3Astatus+%3FverblijfsobjectStatus+.%0A++++%3FverblijfsobjectStatus+rdfs%3Alabel+%3FverblijfsobjectStatusLabel+.%0A++%7D%0A++bind+(concat('%3Ch2%3EOppervlakte%3A+'%2Cstr(%3Foppervlakte)%2C'm%C2%B2%3C%2Fh2%3E%3Ch2%3EStatus%3A+'%2Cstr(%3FverblijfsobjectStatusLabel)%2C'%3C%2Fh2%3E%3Cp%3E%3Ca+href%3D%22'%2Cstr(%3Fverblijfsobject)%2C'%22%3Elink%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A++bind+(substr(str(%3Fverblijfsobject)%2C+65)+as+%3FwktName)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=test&headers=%7B%7D&outputFormat=leaflet" target="_blank">query</a></p>
+        </section>
+
+        <section>
           <a href="../img/lod-kdp.svg">
             <img src="../img/lod-kdp.svg" height="650">
           </a>
