@@ -1,0 +1,9 @@
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+graph <https://example.org/graph/circular-iri> {
+  rdfs:Class a rdfs:Class .
+}
+
+graph <https://example.org/graph/circular-bnode> {
+  _:1 a _:2
+}

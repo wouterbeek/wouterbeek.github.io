@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SPARQL By Example</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="SPARQL By Example">
+    <meta name="author" content="Wouter Beek and Stefan Schlobach">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+      .reveal h1 , .reveal  h2 , .reveal  h3 , .reveal h4 , .reveal h5 , .reveal h6 { color: black; }
+      * { color: black; }
+      img {
+      border: 0px !important;
+      box-shadow: 0 0 0 !important;
+      }
+      td a img {
+      transition: unset !important;
+      max-height: 40px !important;
+      margin: 5px 0px 5px 0px !important;
+      padding: 0px !important;
+      }
+      .cody {
+      font-family: monospace !important;
+      font-size: 14pt !important;
+      }
+      .left {
+      left:-8.33%;
+      text-align: left;
+      float: left;
+      width:50%;
+      z-index:-10;
+      }
+      .right {
+      left:31.25%;
+      top: 75px;
+      float: right;
+      text-align: left;
+      z-index:-10;
+      width:50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>SPARQL By Example</h2>
+          <hr>
+          <p>Wouter Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>Stefan Schlobach <a href="mailto:k.s.schlobach@vu.nl">k.s.schlobach@vu.nl</a></p>
+          <p>April 5<sup>th</sup>, 2018</p>
+        </section>
+
+        <section>
+          <section>
+            <h1>Part I: The first SPARQL query</h1>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%3Fo+%7B%0A++%3Fs+%3Fp+%3Fo%0A%7D%0Alimit+5&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=The+first+SPARQL+query&headers=%7B%7D&outputFormat=table">The first SPARQL query</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s ?p ?o {
+  ?s ?p ?o
+}
+limit 5
+            </code></pre>
+            <p>
+              <small>
+                Components:<br>
+                projection: <code>select ?s ?p ?o</code><br>
+                graph pattern: <code>?s ?p ?o .</code><br>
+                limit: <code>limit 5</code>
+              </small>
+            </p>
+          </section>
+
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fo+%3Fp+%3Fs+%7B%0A++%3Fs+%3Fp+%3Fo%0A%7D%0Alimit+5%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Change+the+projection&headers=%7B%7D&outputFormat=table">Change the projection</a></h2>
+            <pre><code data-trim data-noescape>
+select <mark>?o ?p ?s</mark> {
+  ?s ?p ?o
+}
+limit 5
+            </code></pre>
+          </section>
+
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%3Fo+%7B%0A++%3Fs+%3Fp+%3Fo%0A%7D%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Change+the+limit&headers=%7B%7D&outputFormat=table">Change the limit</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s ?p ?o {
+  ?s ?p ?o
+}
+limit <mark>10</mark>
+            </code></pre>
+          </section>
+
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%3Fo+%7B%0A++%3Fs+%3Fp+%3Fo%0A%7D%0Alimit+5%0Aoffset+5&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Add+an+offset+toe&headers=%7B%7D&outputFormat=table">Add an offset</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s ?p ?o {
+  ?s ?p ?o
+}
+limit 5
+<mark>offset 5</mark>
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Part II: Naming &amp; Ambiguity</h1>
+          </section>
+          <section>
+            <h2>In Linked Data, everything gets a name</h2>
+            <img height="500px" src="../img/naming.jpg">
+          </section>
+          <section>
+            <h2>But sometimes 2 different things carry the same
+              name</h2>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%7B%0A++%3Fs+%3Fp+%22Amsterdam%22+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Which+things+are+called+‘Amsterdam’%3F&headers=%7B%7D&outputFormat=table">Which things are called ‘Amsterdam’?</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s {
+  ?s ?p "Amsterdam" .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                <code>"Amsterdam"</code> is a <b>literal</b>.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%3Fp+%7B%0A++%3Fs+%3Fp+%22Amsterdam%22%40nl+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=There+are+more+things+called+%E2%80%98Amsterdam%E2%80%99%E2%80%A6&headers=%7B%7D&outputFormat=table">There are more things called ‘Amsterdam’…</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s ?p {
+  ?s ?p "Amsterdam"@nl .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                <code>"Amsterdam"@nl</code> is a <b>language-tagged
+                string</b>.  This means that <code>"Amsterdam"</code>
+                must be interpreted in the Dutch language
+                (<code>nl</code>).
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fs+%7B%0A++%3Fs+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E+%22Amsterdam%22%40nl+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Human-readable+labels&headers=%7B%7D&outputFormat=table">Human-readable labels</a></h2>
+            <pre><code data-trim data-noescape>
+select ?s {
+  ?s &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; "Amsterdam"@nl .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                The
+                IRI <code><a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a></code>
+                is commonly used to denote human-readable labels.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Abbreviate+IRIs&headers=%7B%7D&outputFormat=table">Abbreviate IRIs</a></h2>
+            <pre><code data-trim data-noescape>
+<mark>prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;</mark>
+select ?s {
+  ?s <mark>rdfs:label</mark> "Amsterdam"@nl .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                IRIs can be optionally abbreviated by aliases declared
+                with the <code>prefix</code> keyword.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fs+%7B%0A++%7B%0A++++%3Fs+%3Fp+%22Amsterdam%22+.%0A++%7D+union+%7B%0A++++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+.%0A++%7D%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Query+both+patterns&headers=%7B%7D&outputFormat=table">Query both patterns</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?s {
+  {
+    ?s ?p "Amsterdam" .
+  } <mark>union</mark> {
+    ?s rdfs:label "Amsterdam"@nl .
+  }
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                <code>{ A } union { B }</code> gives the results of BGP
+                <code>A</code> ánd the results of BGP <code>B</code>.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FaltLabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+.%0A++%3Fs+rdfs%3Alabel+%3FaltLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Other+labels+for+the+same+thing&headers=%7B%7D&outputFormat=table">Other labels for the same thing</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?altLabel {
+  ?s rdfs:label "Amsterdam"@nl .
+  ?s rdfs:label ?altLabel .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                This is the first BGP that is not a (simple) Triple
+                Pattern.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FaltLabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+%3B%0A+++++rdfs%3Alabel+%3FaltLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Do+not+repeat+subject&headers=%7B%7D&outputFormat=table">Do not repeat subject</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?altLabel {
+  ?s rdfs:label "Amsterdam"@nl <mark>;</mark>
+     rdfs:label ?altLabel .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                BGPs with repeating subject terms can be optionally
+                abbreviated (<code>;</code>).
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FaltLabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+%2C+%3FaltLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Do+not+repeat+subject+%26+predicate&headers=%7B%7D&outputFormat=table">Do not repeat subject &amp; predicate</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?altLabel {
+  ?s rdfs:label "Amsterdam"@nl <mark>,</mark> ?altLabel .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                BGPs with repeating subject/predicate pairs can be
+                optionally abbreviated (<code>,</code>).
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FaltLabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+%2C+%3FaltLabel+.%0A++filter+(lang(%3FaltLabel)+%3D+%22ja%22)%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Find+a+specific+translation&headers=%7B%7D&outputFormat=table">Find a specific translation</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?altLabel {
+  ?s rdfs:label "Amsterdam"@nl , ?altLabel .
+  <mark>filter (lang(?altLabel) = "ja")</mark>
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Solutions for a BGP are excluded when they do not
+                adhere to the expression in the <code>filter</code>
+                clause.
+              </small>
+            </p>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>Part III: Classes &amp; Ambiguity</h1>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aselect+%3Fclass+%7B%0A++%3Finstance+%3Fp+%22Amsterdam%22%40nl+%3B%0A++++++++++++rdf%3Atype+%3Fclass+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Instances+%26+classes&headers=%7B%7D&outputFormat=table">Instances &amp; classes</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+select ?class {
+  ?instance ?p "Amsterdam"@nl ;
+            <mark>rdf:type</mark> ?class .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"><code>rdf:type</code></a>
+                denotes the relationship between an instance and one
+                of its classes.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+%3Fclass+%7B%0A++%3Finstance+%3Fp+%22Amsterdam%22%40nl+%3B%0A++++++++++++a+%3Fclass+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Abbreviation+‘a’&headers=%7B%7D&outputFormat=table">Abbreviation ‘a’</a></h2>
+            <pre><code data-trim data-noescape>
+select ?class {
+  ?instance ?p "Amsterdam"@nl ;
+            <mark>a</mark> ?class .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Optionally abbreviate <code>rdf:type</code> with
+                ‘<code>a</code>’.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=select+distinct+%3Fclass+%7B%0A++%3Finstance+%3Fp+%22Amsterdam%22%40nl+%3B%0A++++++++++++a+%3Fclass+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Distinct+classes&headers=%7B%7D&outputFormat=table">Distinct classes</a></h2>
+            <pre><code data-trim data-noescape>
+select <mark>distinct</mark> ?class {
+  ?instance ?p "Amsterdam"@nl ;
+            a ?class .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Only include unique results in the projection by using
+                the <code>distinct</code> keyword.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+distinct+%3FclassLabel+%7B%0A++%3Finstance+%3Fp+%22Amsterdam%22%40nl+%3B%0A++++++++++++a+%3Fclass+.%0A++%3Fclass+rdfs%3Alabel+%3FclassLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Distinct+class+labels&headers=%7B%7D&outputFormat=table">Distinct class labels</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select distinct ?classLabel {
+  ?instance ?p "Amsterdam"@nl ;
+            a ?class .
+  <mark>?class rdfs:label ?classLabel .</mark>
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Notice that bindings for <code>?class</code> are not
+                included in the projection.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+distinct+%3FclassLabel+%7B%0A++%3Finstance+%3Fp+%22Amsterdam%22%40nl+%3B%0A++++++++++++a%2Frdfs%3Alabel+%3FclassLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Skip+unused+nodes&headers=%7B%7D&outputFormat=table">Skip unused nodes</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select distinct ?classLabel {
+  ?instance ?p "Amsterdam"@nl ;
+            a<mark>/rdfs:label ?classLabel</mark> .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Use Property Path notation to skip
+                the <code>?class</code> node.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fs+rdfs%3Alabel+%22Amsterdam%22%40nl+%3B%0A+++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++a%2Frdfs%3Alabel+%3FwktLabel+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Ambiguity+%2B+classes+%2B+geography&headers=%7B%7D&outputFormat=leaflet">Ambiguity + classes + geography</a></h2>
+            <pre><code data-trim data-noescape>
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?wkt ?wktLabel {
+  ?s rdfs:label "Amsterdam"@nl ;
+     geo:hasGeometry/geo:asWKT ?wkt ;
+     a/rdfs:label ?wktLabel .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                Properties <a href="http://www.opengis.net/ont/geosparql#hasGeometry"><code>geo:hasGeometry</code></a>
+                and <a href="http://www.opengis.net/ont/geosparql#asWKT"><code>geo:asWKT</code></a>
+                are standardized by
+                the <a href="http://www.opengeospatial.org/">Open
+                Geospatial Consortium (OGC)</a>.
+              </small>
+            </p>
+            <p>
+              <small>
+                Well-Known Text (WKT) is a standardized serialization
+                for shapes.  Literals that encoded WKT shapes are not
+                plain strings, they have datatype
+                IRI <a href="http://www.opengis.net/ont/geosparql#wktLiteral"><code>geo:wktLiteral</code></a>.
+              </small>
+            </p>
+            <p>
+              <small>
+                Notice that we use different vocabularies/ontologies
+                within one query.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Finstantie+rdfs%3Alabel+%22Apeldoorn%22%40nl+%3B%0A+++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A+++++++++++++a+brt%3ARegistratiefGebied+.%0A%7D%0Alimit+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%8F%99+Which+Amsterdam+do+you+mean%3F&headers=%7B%7D&outputFormat=leaflet">🏙 Which Amsterdam do you mean?</a></h2>
+            <pre><code data-trim data-noescape>
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?wkt ?wktLabel {
+  ?instantie rdfs:label "Apeldoorn"@nl ;
+             geo:hasGeometry/geo:asWKT ?wkt ;
+             a brt:RegistratiefGebied .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                I mean the ‘registrational area’ (‘registratief
+                gebied’ in Dutch).
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FwktVerblijfsobject+%3FwktVerblijfsobjectColor+%3FwktVerblijfsobjectLabel+%3FwktPand+%3FwktPandLabel+%7B%0A++bind+(%22Science+Park%22+as+%3FstreetName)%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%3FstreetName+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats%2Frdfs%3Alabel+%22Amsterdam%22%40nl+.%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Apostcode+%3Fpostcode+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+%3Fhuisnummer+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3FwktVerblijfsobject+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+%3B%0A+++++++++++++++++++a%2Frdfs%3Alabel+%3Flabel+.%0A++%3Fpand+bag%3AgeometriePand%2Fgeo%3AasWKT+%3FwktPand+.%0A++bind+(concat(str(%3FstreetName)%2C'+'%2Cstr(%3Fhuisnummer))+as+%3FwktPandLabel)%0A++bind+(concat(%3FwktPandLabel%2C'+'%2Cstr(%3Fpostcode)%2C'%3Cbr%3E'%2Cstr(%3Flabel))+as+%3FwktVerblijfsobjectLabel)%0A++bind+(%22red%22+as+%3FwktVerblijfsobjectColor)%0A%7D%0Alimit+1000%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=eGov%3A+Buildings+Base+Registry&headers=%7B%7D&outputFormat=leaflet">eGov: Buildings Base Registry</a></h2>
+            <p>
+              <small>
+                With these ingredients, your can already write queries
+                that are useful.
+              </small>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Part IV: Federation</h1>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2014</h3>
+            <a href="../img/lod_cloud_2014.png">
+              <img src="../img/lod_cloud_2014.png" height="450">
+            </a>
+            <p>
+              <small>
+                There are many SPARQL endpoints out there.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2017</h3>
+            <a href="../img/lod_cloud_2017.png">
+              <img src="../img/lod_cloud_2017.png" height="450">
+            </a>
+            <p>
+              <small>
+                And more SPARQL endpoints are becoming available each
+                year.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Amsterdam%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+%3B+foaf%3Adepiction+%3Fvlag+.%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%95%B8+BRT%2FBAG+gemeente+%E2%86%92+DBpedia&headers=%7B%7D&outputFormat=leaflet">Dutch municipality → DBpedia 🕸</a></h2>
+            <pre><code data-trim data-noescape>
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+select ?wkt ?wktLabel {
+  ?plaats1 rdfs:label "Swalmen"^^xsd:string ;
+           brt:isBAGwoonplaats true ;
+           geo:hasGeometry/geo:asWKT ?wkt .
+  <mark>service &lt;https://dbpedia.org/sparql&gt; {</mark>
+    ?plaats2 rdfs:label "Swalmen"@nl ; foaf:depiction ?vlag . }
+  <mark>}</mark>
+}
+limit 1
+            </code></pre>
+            <p>
+              <small>
+                <code>service &lt;URL&gt; { A }</code> means that
+                subquery <code>A</code> is executed on a different
+                SPARQL endpoint.  The results are received from that
+                endpoint, and integrated within the overall query
+                results.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++bind+(%22Apeldoorn%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplaats1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplaats2+rdfs%3Alabel+%3Fy+.%0A++++optional+%7B+%3Fplaats2+foaf%3Adepiction+%3Fvlag+.+%7D%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplaats2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=Apeldoorn+does+not+have+a+flag&headers=%7B%7D&outputFormat=leaflet">Apeldoorn does not have a flag</a></h2>
+            <pre><code data-trim data-noescape>
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+select ?wkt ?wktLabel {
+  ?plaats1 rdfs:label "Apeldoorn"^^xsd:string ;
+           brt:isBAGwoonplaats true ;
+           geo:hasGeometry/geo:asWKT ?wkt .
+  service &lt;https://dbpedia.org/sparql&gt; {
+    ?plaats2 rdfs:label "Apeldoorn"@nl .
+    <mark>optional { ?plaats2 foaf:depiction ?vlag . }</mark>
+  }
+}
+limit 1
+            </code></pre>
+            <p>
+              <small>
+                When you query the web, not all information is there
+                all the time.  With <code>optional { A }</code> you
+                make your queries resilient against potentially
+                missing information.
+              </small>
+            </p>
+            <p>
+              <small>
+                Also useful for local databases that are incomplete
+                and/or have missing values.
+              </small>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Part V:<br>Aggregation</h1>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FwktLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fwkt+.%0A%7D%0Aorder+by+asc(%3FwktLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oldest+buildings+in+Apeldoorn+👵👴&headers=%7B%7D&outputFormat=leaflet">Oldest buildings in Apeldoorn 👵👴</a></h2>
+            <pre><code data-trim data-noescape>
+prefix bag: <http://bag.basisregistraties.overheid.nl/def/bag#>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+select ?wkt ?wktLabel {
+  ?verblijfsobject bag:hoofdadres/bag:bijbehorendeOpenbareRuimte/bag:bijbehorendeWoonplaats/bag:naamWoonplaats "Apeldoorn" ;
+                   bag:pandrelatering ?pand .
+  ?pand bag:oorspronkelijkBouwjaar ?wktLabel ;
+        bag:geometriePand/geo:asWKT ?wkt .
+}
+order by asc(?wktLabel)
+limit 50
+            </code></pre>
+            <p>
+              <small>
+                You can try out ‘Amsterdam’, but the results…
+              </small>
+            </p>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h2>
+              Part VI: Semantics is important for complex query
+              writing
+            </h2>
+          </section>
+          <section>
+            <h2>RDF semantics</h2>
+            <ul>
+              <li>IRIs I</li>
+              <li>Literals L</li>
+              <li>Names N := I ∪ L
+              <li>Blank nodes B</li>
+              <li>Terms T := B ∪ N</li>
+              <li>Graph G ⊆ (B ∪ I) ⨯ I ⨯ T</li>
+              <li>Instance mapping σ: B → T</li>
+            </ul>
+          </section>
+          <section>
+            <h2>SPARQL algebra</h2>
+            <ul>
+              <li>Variables V</li>
+              <li>Solution mapping μ:V → T</li>
+              <li>Pattern instance mapping P := μ ∘ σ</li>
+              <li>Basic Graph Pattern (BGP) x</li>
+              <li>μ is a <b>solution</b> for x from G, if (∃P)(P(x) ⊆
+                G and μ is the restriction of P to V(x)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Example 1</h2>
+            <p>Dataset</p>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+rdfs:Class a rdfs:Class .
+            </code></pre>
+            <p>BGP</p>
+            <pre><code>?x a ?y .</code></pre>
+            <p class="fragment">Solution μ =
+              {(<code>?x</code>,<code>rdfs:Class</code>),(<code>?y</code>,<code>rdfs:Class</code>)}</p>
+          </section>
+          <section>
+            <h2>Example 2</h2>
+            <p>Dataset</p>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+rdfs:Class a rdfs:Class .
+            </code></pre>
+            <p>BGP</p>
+            <pre><code>_:1 a _:2 .</code></pre>
+            <div class="fragment">
+              <p>Solution μ = ∅</p>
+              <p >σ = {(<code>_:1</code>,<code>rdfs:Class</code>),
+                (<code>_:2</code>,<code>rdfs:Class</code>)}</p>
+            </div>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Finstance+%3Fclass+%3FclassLabel+%7B%0A++%3Finstance+rdfs%3Alabel+%22Amsterdam%22%40nl+%3B+a+%3Fclass+.%0A++%3Fclass+rdfs%3Alabel+%3FclassLabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Classes+of+instaces+called+‘Amsterdam’&headers=%7B%7D&outputFormat=table">Classes of instances called ‘Amsterdam’</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?instance ?class ?classLabel {
+  ?instance rdfs:label "Amsterdam"@nl ; a ?class .
+  ?class rdfs:label ?classLabel .
+}
+limit 100
+            </code></pre>
+            <p>
+              <small>
+                It is not so useful to learn that something called
+                ‘Amsterdam’ is “a thing”
+                (<a href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a>).
+                We only want the most specific classes.
+              </small>
+            </p>
+          </section>
+          <section>
+            <h2><a href="https://yasgui.org/#query=prefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Fi+%3Fc+%3Flabel+%7B%0A++%3Fi+%3Fp+%22Amsterdam%22%40en+%3B%0A++++a+%3Fc+.%0A++optional+%7B%0A++++%3Fd+rdfs%3AsubClassOf+%3Fc+.%0A++%7D%0A++filter+(!bound(%3Fd))%0A++%3Fc+rdfs%3Alabel+%3Flabel+.%0A%7D%0Alimit+100%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdbpedia.org%2Fsparql&requestMethod=POST&tabTitle=Negation+As+Failure+(NAF)&headers=%7B%7D&outputFormat=table">Negation As Failure (NAF)</a></h2>
+            <pre><code data-trim data-noescape>
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?i ?c ?label {
+  ?i ?p "Amsterdam"@en ;
+    a ?c .
+  optional {
+    ?d rdfs:subClassOf ?c .
+  }
+  filter (!bound(?d))
+  ?c rdfs:label ?label .
+}
+limit 100
+</code></pre>
+            <p>
+              <small>
+                Only retrieve the <em>minimal</em> classes for
+                instances called ‘Amsterdam’.
+              </small>
+            </p>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
