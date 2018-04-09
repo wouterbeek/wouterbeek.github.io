@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Real Estate Market Use Case</title>
+    <meta name="description" content="Real Estate Market Use Case">
+    <meta name="author" content="Wouter Beek and Stefan Schlobach">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Real Estate Market Use Case</h2>
+        </section>
+        <section>
+          <h2>Average value of real estate in Amsterdam</h2>
+          <p>The Dutch government publishes the average value of real
+            estate throughout the Netherlands each year.  The
+            statistics are aggregates to the level of municipalities
+            (level 1), larger neighborhoods (level 2), and smaller
+            neighborhoods (level 3).</p>
+          <ul>
+            <li><a href="https://demo.triply.cc/kadaster/cbs">Dataset online</a></li>
+            <li><a href="https://demo.triply.cc/kadaster/cbs/services/cbs#query=prefix+cbs%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fdef%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+geof%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Fdef%2Ffunction%2Fgeosparql%2F%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++bind+(%22Amsterdam%22%5E%5Exsd%3Astring+as+%3Fname1)%0A++graph+graph%3Awijkbuurt-2016+%7B%0A++++%3Ffeature2+cbs%3Awoz+%3FaverageValue+%3B%0A++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fshape+%3B%0A++++++++++++++geo%3AsfWithin%2Frdfs%3Alabel+%3Fname1+%3B%0A++++++++++++++rdfs%3Alabel+%3Fname2+.%0A++++bind+(concat('%3Ch3%3E'%2Cstr(%3Fname1)%2C'+%C2%BB%3Cbr%3E'%2Cstr(%3Fname2)%2C'%3C%2Fh3%3E%3Ch4%3EAverage+house+value%3A+%E2%82%AC+'%2Cstr(%3FaverageValue)%2C'.000%2C-%3C%2Fh4%3E')+as+%3FshapeLabel)%0A++%7D%0A%7D%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fkadaster%2Fcbs%2Fservices%2Fcbs%2Fsparql&requestMethod=POST&tabTitle=Level+2&headers=%7B%7D&outputFormat=leaflet">Level 2 statistics</a></li>
+            <li><a href="https://demo.triply.cc/kadaster/cbs/services/cbs#query=prefix+cbs%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fdef%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+geof%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Fdef%2Ffunction%2Fgeosparql%2F%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++bind+(%22Amsterdam%22%5E%5Exsd%3Astring+as+%3Fname1)%0A++graph+graph%3Awijkbuurt-2016+%7B%0A++++%3Ffeature2+geo%3AsfWithin%2Frdfs%3Alabel+%3Fname1+%3B%0A++++++++++++++rdfs%3Alabel+%3Fname2+.%0A++++%3Ffeature3+a+cbs%3ABuurt+%3B%0A++++++++++++++++cbs%3Awoz+%3FaverageValue+%3B%0A++++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fshape+%3B%0A++++++++++++++++geo%3AsfWithin+%3Ffeature2+%3B%0A++++++++++++++++rdfs%3Alabel+%3Fname3+.%0A++++bind+(concat('%3Ch3%3E'%2Cstr(%3Fname1)%2C'+%C2%BB%3Cbr%3E'%2Cstr(%3Fname2)%2C'+%C2%BB%3Cbr%3E'%2Cstr(%3Fname3)%2C'%3C%2Fh3%3E%3Ch4%3EAverage+house+value%3A+%E2%82%AC+'%2Cstr(%3FaverageValue)%2C'.000%2C-%3C%2Fh4%3E')+as+%3FshapeLabel)%0A++%7D%0A%7D%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fkadaster%2Fcbs%2Fservices%2Fcbs%2Fsparql&requestMethod=POST&tabTitle=Level+3&headers=%7B%7D&outputFormat=leaflet">Level 3 statistics</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Determine min/max</h2>
+          <p>In order to properly compare these statistics, we must
+            first obtain the minimum and maximum average real estate
+            value.</p>
+          <p>This can be obtained with an aggregate query, using the
+            functions <code>min/1</code> and <code>max/1</code>.</p>
+          <p><a href="https://demo.triply.cc/kadaster/cbs/services/cbs#query=prefix+cbs%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fdef%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+(min(%3FaverageValue)+as+%3Fmin)+(max(%3FaverageValue)+as+%3Fmax)+%7B%0A++bind+(%22Amsterdam%22%5E%5Exsd%3Astring+as+%3Fname1)%0A++graph+graph%3Awijkbuurt-2016+%7B%0A++++%3Ffeature3+cbs%3Awoz+%3FaverageValue+%3B%0A++++++++++++++geo%3AsfWithin%2Fgeo%3AsfWithin%2Frdfs%3Alabel+%3Fname1+.%0A++%7D%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fkadaster%2Fcbs%2Fservices%2Fcbs%2Fsparql&requestMethod=POST&tabTitle=Min%2Fmax&headers=%7B%7D&outputFormat=table">Example query</a></p>
+        </section>
+        <section>
+          <h2>Putting it all together</h2>
+          <p>We can now create a so-called ‘thematic map’, where the
+            theme is real estate value prices, and the coloring of
+            polygons is based on the average real estate price
+            statistic.  Notice how the min/max values are calculated
+            in a sub-query (a <code>select</code> clause within
+            a <code>select</code> clause).  This query looks
+            (relatively) complex, but it is basically integrating the
+            two previous queries.</p>
+          <p><a href="https://demo.triply.cc/kadaster/cbs/services/cbs#query=prefix+cbs%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fdef%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+*+%7B%0A%23select+%3Fshape+%3FshapeColor+%3FshapeLabel+%7B%0A++bind+(%22Amsterdam%22%5E%5Exsd%3Astring+as+%3Fname1)%0A++%7B%0A++++select+(min(%3FaverageValue)+as+%3Fmin)+(max(%3FaverageValue)+as+%3Fmax)+%7B%0A++++++graph+graph%3Awijkbuurt-2016+%7B%0A++++++++%3Ffeature3+cbs%3Awoz+%3FaverageValue+%3B%0A++++++++++++++++++geo%3AsfWithin%2Fgeo%3AsfWithin%2Frdfs%3Alabel+%3Fname1+.%0A++++++%7D%0A++++%7D%0A++%7D%0A++graph+graph%3Awijkbuurt-2016+%7B%0A++++%3Ffeature3+cbs%3Awoz+%3FaverageValue+%3B%0A++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fshape+%3B%0A++++++++++++++geo%3AsfWithin+%5B%0A++++++++++++++++geo%3AsfWithin%2Frdfs%3Alabel+%3Fname1+%3B%0A++++++++++++++++rdfs%3Alabel+%3Fname2%0A++++++++++++++%5D+%3B%0A++++++++++++++rdfs%3Alabel+%3Fname3+.%0A++%7D%0A++bind+((xsd%3Afloat(%3FaverageValue)+-+xsd%3Afloat(%3Fmin))+%2F+(xsd%3Afloat(%3Fmax)+-+xsd%3Afloat(%3Fmin))+as+%3Fnormalized)%0A++bind+(concat('jet%2C'%2Cstr(%3Fnormalized))+as+%3FshapeColor)%0A++bind+(concat(%0A++++'%3Ch3%3E'%2Cstr(%3Fname1)%2C'+%C2%BB%3Cbr%3E'%2Cstr(%3Fname2)%2C'+%C2%BB%3Cbr%3E'%2Cstr(%3Fname3)%2C'%3C%2Fh3%3E'%2C%0A++++'%3Ch4%3EAverage+house+value%3A+%E2%82%AC+'%2Creplace((1000+*+%3FaverageValue)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%2C-%3C%2Fh4%3E')+as+%3FshapeLabel)%0A%7D%0Aorder+by+desc(%3FaverageValue)%0Alimit+30%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fkadaster%2Fcbs%2Fservices%2Fcbs%2Fsparql&requestMethod=POST&tabTitle=Putting+it+all+together&headers=%7B%7D&outputFormat=leaflet">Example query</a></p>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
