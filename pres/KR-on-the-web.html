@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>KR on the web</title>
+    <meta name="description" content="KR on the web">
+    <meta name="author" content="Wouter Beek and Stefan Schlobach">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>KR on the web: Practical info</h2>
+          <hr>
+          <p>Wouter Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>Stefan Schlobach <a href="mailto:k.s.schlobach@vu.nl">k.s.schlobach@vu.nl</a></p>
+          <p>April 10<sup>th</sup>, 2018</p>
+        </section>
+        
+        <section>
+          <h2>1. How to find a vocabulary?</h2>
+          <p>Use Linked Open
+            Vocabularies: <a href="https://lov.okfn.org">https://lov.okfn.org</a></p>
+        </section>
+
+        <section>
+          <h2>2. How to find a dataset?</h2>
+          <p>Use
+            Datahub: <a href="https://old.datahub.io">https://old.datahub.io</a></p>
+          <p>Use another CKAN data
+            catalog: <a href="https://ckan.org/about/instances">https://ckan.org/about/instances</a></p>
+          <p>Use LOD
+            Laundromat: <a href="http://lodlaundromat.org/wardrobe/">http://lodlaundromat.org/wardrobe/</a></p>
+          <p>Use Google to find the HTML page that corresponds to a
+            Linked Dataset through regular text search.</p>
+        </section>
+
+        <section>
+          <h2>3. How to find an IRI that denotes a certain
+            resource?</h2>
+          <p>Use the DBpedia text
+            index: <a href="https://dbpedia.org/fct">https://dbpedia.org/fct</a></p>
+          <p>Use the LOD Laundromat text
+            index: <a href="http://lodsearch.org">http://lodsearch.org</a></p>
+        </section>
+
+        <section>
+          <section>
+            <h2>4. When you encounter a SPARQL endpoint, how do you figure out what's in there?</h2>
+          </section>
+          <section>
+            <h2><a href="https://krr.triply.cc/zhisheng/biocaddie/services/biocaddie#query=select+(count(*)+as+%3Fn)+%7B%0A++%3Fs+%3Fp+%3Fo+.%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fkrr.triply.cc%2F_api%2Fdatasets%2Fzhisheng%2Fbiocaddie%2Fservices%2Fbiocaddie%2Fsparql&requestMethod=POST&tabTitle=Number+of+triples&headers=%7B%7D&outputFormat=table">4a. Ask for the number of triples</a></h2>
+            <pre><code data-trim data-noescape>
+select (count(*) as ?n) {
+  ?s ?p ?o .
+}
+            </code></pre>
+          </section>
+          <section>
+            <h2><a href="https://krr.triply.cc/zhisheng/biocaddie/services/biocaddie#query=select+%3Flabel+%3Fn+%7B%0A++%7B%0A++++select+%3Fp+(count(%3Fs)+as+%3Fn)+%7B%0A++++++%3Fs+%3Fp+%3Fo+.%0A++++%7D%0A++++group+by+%3Fp%0A++%7D%0A++bind+(replace(str(%3Fp)%2C+%22.*%5C%5C%2F%22%2C+%22%22)+as+%3Flabel)%0A++filter+(%3Fn+%3E+1000)%0A%7D%0Aorder+by+%3Fp%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fkrr.triply.cc%2F_api%2Fdatasets%2Fzhisheng%2Fbiocaddie%2Fservices%2Fbiocaddie%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%93%88+Predicate+histogram&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22is3D%22%3Atrue%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A1000%2C%22height%22%3A600%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%2C%22containerId%22%3A%22yasq_wn3rmj_gchartWrapper%22%7D%2C%22motionChartState%22%3Anull%7D">4b. Ask for the predicate histogram 📈</a></h2>
+            <pre><code data-trim data-noescape>
+select ?label ?n {
+  {
+    select ?p (count(?s) as ?n) {
+      ?s ?p ?o .
+    }
+    group by ?p
+  }
+  bind (replace(str(?p), ".*\\/", "") as ?label)
+  filter (?n > 1000)
+}
+order by ?p
+            </code></pre>
+            <p>
+              <small>
+                Notice that I count the number of occurrences
+                (<code>(count(?s) as ?n)</code>) for each bound
+                predicate term (<code>?p</code>).  Because the dataset
+                does not contain human readable labels for the
+                predicates, I use a regular expression
+                (<code>".*\\/"</code>) in order to obtain the IRI
+                local name as a ‘label’.  Finally, I'm not interested
+                in predicates that occur very infrequently
+                (<code>filter (?n &gt; 1000)</code>).
+              </small>
+            </p>
+          </section>
+        </section>
+          
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+  </body>
+</html>
