@@ -1,0 +1,11 @@
+select ?label ?n {
+  {
+    select ?p (count(?s) as ?n) {
+      ?s ?p ?o .
+    }
+    group by ?p
+  }
+  bind (replace(str(?p), ".*\\/", "") as ?label)
+  filter (?n > 1000)
+}
+order by ?p

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="KR on the web">
+    <meta name="author" content="Wouter Beek">
+    <title>KR on the web</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
+    <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container story" data-query-endpoint="https://api.krr.triply.cc/datasets/zhisheng/biocaddie/services/biocaddie/sparql">
+      <h1>KR on the web</h1>
+
+      <h2>How to find things on the Semantic Web?</h2>
+      <ul>
+        <li>Find vocabularies: <a href="https://lov.okfn.org">Linked
+          Open Vocabularies</a></li>
+        <li>Find datasets:
+          <ul>
+            <li><a href="https://old.datahub.io">Datahub</a></li>
+            <li><a href="https://ckan.org/about/instances">Other CKAN catalogs</a></li>
+            <li><a href="http://lodlaundromat.org/wardrobe/">LOD Laundromat</a></li>
+            <li>Use Google to find the HTML page that corresponds to a
+              Linked Dataset through regular text search.</li>
+          </ul>
+        </li>
+        <li>Find IRIs that denote certain resources:
+          <ul>
+            <li><a href="https://dbpedia.org/fct">DBpedia text index</a></li>
+            <li><a href="http://lodsearch.org">LOD Search</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h2>How to figure out what's in a SPARQL endpoint</h2>
+      <p>When you encounter a SPARQL endpoint, it is often not clear
+        what you can query for within that endpoint.  Use the follow
+        queries to figure this out.  These queries run
+        over <a href="https://krr.triply.cc/zhisheng/biocaddie/">the
+        Biocaddie dataset.</a></p>
+
+      <h3>Ask for the number of triples</h3>
+      <div data-query data-query-sparql="number-of-triples.rq"></div>
+
+      <h3>Ask for the predicate histogram 📈</h3>
+      <div data-query="http://localhost:8080/#query=select+%3Flabel+%3Fn+%7B%0A++%7B%0A++++select+%3Fp+(count(%3Fs)+as+%3Fn)+%7B%0A++++++%3Fs+%3Fp+%3Fo+.%0A++++%7D%0A++++group+by+%3Fp%0A++%7D%0A++bind+(replace(str(%3Fp)%2C+%22.*%5C%5C%2F%22%2C+%22%22)+as+%3Flabel)%0A++filter+(%3Fn+%3E+1000)%0A%7D%0Aorder+by+%3Fp%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2Fzhisheng%2Fbiocaddie%2Fservices%2Fbiocaddie%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22is3D%22%3Atrue%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A600%2C%22height%22%3A371%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%7D%2C%22motionChartState%22%3Anull%7D" data-query-output="gchart" data-query-sparql="predicate-histogram.rq"></div>
+    </div>
+    
+    <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
+    <script type="text/javascript">YASGUI.sparqlStories();</script>
+  </body>
+</html>
