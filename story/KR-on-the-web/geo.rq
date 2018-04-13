@@ -1,0 +1,7 @@
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+select ?wkt1 ?wkt2 ?distance {
+  ?feature1 geo:hasGeometry/geo:asWKT ?wkt1 .
+  ?feature2 geo:hasGeometry/geo:asWKT ?wkt2 .
+  filter (?wkt1 != ?wkt2 && bif:st_intersects(?wkt1, ?wkt2, 100.0))
+  bind (bif:st_distance(?wkt1, ?wkt2) as ?distance)
+}

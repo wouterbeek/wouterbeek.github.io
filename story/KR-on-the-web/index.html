@@ -34,6 +34,27 @@
           </ul>
         </li>
       </ul>
+
+      <h2>How to use GeoSPARQL</h2>
+      <p><a href="http://www.opengeospatial.org/standards/geosparql">GeoSPARQL</a>
+        is implemented in slightly different ways by different triple
+        stores.  The example below uses Virtuoso.  (If you want to try
+        this out yourself you can
+        send <a href="mailto:w.g.j.beek@vu.nl">me</a> your RDF and I
+        will upload it into a Virtuoso triple store for you.)</p>
+      <p>The following query filters based on whether two geometries
+        intersect or not.  The <code>100.0</code> number denotes the
+        proximity in number of kilometers.  Geometries that lie within
+        this proximity from each other are considered to intersect as
+        well.</p>
+      <p>The query also calculates the exact distance between two
+        points.</p>
+      <p>Notice that the query gives two results: (pointA,pointB) and
+        (pointB,pointA).  We do not get back the less useful results
+        (pointA,pointA) and (pointB,pointB) becaus of the
+        additional <code>!=</code> filter.  If you do not want
+        symmetric results, you can use <code>&lt;</code> instead.</p>
+      <div data-query data-query-endpoint="https://api.demo.triply.cc/datasets/wouter/geo-query-example/services/endpoint/sparql" data-query-output="leaflet" data-query-sparql="geo.rq"></div>
       
       <h2>How to figure out what's in a SPARQL endpoint</h2>
       <p>When you encounter a SPARQL endpoint, it is often not clear
