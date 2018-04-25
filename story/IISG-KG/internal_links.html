@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
+    <title>Internal links</title>
+  </head>
+  <body data-query-endpoint="https://api.demo.triply.cc/datasets/wouter/iisg-kg/services/iisg-kg/sparql">
+    
+    <h1 class="header">Internal links</h1>
+
+    <h2>Shared nodes</h2>
+    <p>The number of nodes that are shared between IISG graphs.</p>
+    <div data-query="https://demo.triply.cc/wouter/iisg-kg/services/iisg-kg#query=select+%3Fg1+%3Fg2+%3Fclass+(count(%3Fshared)+as+%3Fn)+%7B%0A++%3Fshared+a+%3Fclass+.%0A++graph+%3Fg1+%7B+%3Fs1+%3Fp1+%3Fshared+%7D%0A++graph+%3Fg2+%7B+%3Fshared+%3Fp2+%3Fo2+%7D%0A++filter+(%3Fg1+!%3D+%3Fg2)%0A%7D%0Agroup+by+%3Fg1+%3Fg2+%3Fclass%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg%2Fservices%2Fiisg-kg%2Fsparql&requestMethod=POST&tabTitle=Shared+between+graphs&headers=%7B%7D&outputFormat=table"></div>
+    <p>Example of a person that appears in archives and collections: <a href="https://demo.triply.cc/wouter/iisg-kg/table?object=%22Goldman%2C%20Emma%22%5E%5Ehttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23string">link</a>.</p>
+    <hr>
+
+    <h2>Multiple roles (LoC)</h2>
+    <p>One person can appear in multiple roles.  How many roles does each person have?</p>
+    <div data-query="https://demo.triply.cc/wouter/iisg-kg/services/iisg-kg#query=prefix+loc%3A+%3Chttp%3A%2F%2Fid.loc.gov%2Fvocabulary%2Frelators%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aselect+%3Fperson+%3Fname+(count(distinct+%3Frole)+as+%3Fn)+(group_concat(distinct+%3Flabel%3Bseparator%3D'+')+as+%3Flabel)+%7B%0A++%3Fitem+%3Frole+%3Fperson+.%0A++%3Frole+rdfs%3AsubPropertyOf*+loc%3Arole+%3B%0A++++++++rdfs%3Alabel+%3Flabel+.%0A++%3Fperson+schema%3Aname+%3Fname+.%0A%7D%0Agroup+by+%3Fperson+%3Fname%0Aorder+by+desc(%3Fn)%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg%2Fservices%2Fiisg-kg%2Fsparql&requestMethod=POST&tabTitle=Multiple+roles&headers=%7B%7D&outputFormat=table"></div>
+    
+    <p>What are the LoC roles in which Albert Hahn appears?</p>
+    <div data-query="https://demo.triply.cc/wouter/iisg-kg/services/iisg-kg#query=prefix+loc%3A+%3Chttp%3A%2F%2Fid.loc.gov%2Fvocabulary%2Frelators%2F%3E%0Aprefix+person%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fauthority%2Fperson%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Flabel+(count(%3Fitem)+as+%3Fn)+%7B%0A++%3Fitem+%3Frole+person%3A136339+.%0A++%3Frole+rdfs%3AsubPropertyOf*+loc%3Arole+%3B%0A++++++++rdfs%3Alabel+%3Flabel+.%0A%7D%0Agroup+by+%3Flabel%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg%2Fservices%2Fiisg-kg%2Fsparql&requestMethod=POST&tabTitle=Albert+Hahn&headers=%7B%7D&outputFormat=table"></div>
+    <hr>
+    
+    <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
+    <script type="text/javascript">YASGUI.sparqlStories();</script>
+  </body>
+</html>
