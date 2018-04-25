@@ -30,10 +30,6 @@
     <a href="schema.svg"><img src="schema.svg"></a>
     <hr>
 
-    <h2>Most popular topics</h2>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-context#query=prefix+iisg%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fvocab%2F%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3Ftopic+%3Flabel+(count(%3Fitem)+as+%3Fn)+%7B%0A++%3Fitem+iisg%3Atopic+%3Ftopic%0A++optional+%7B%0A++++%3Ftopic+rdfs%3Alabel+%3Flabel%0A++%7D%0A%7D%0Agroup+by+%3Ftopic+%3Flabel%0Aorder+by+desc(%3Fn)%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-context%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table"></div>
-    <hr>
-
     <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
     <script type="text/javascript">YASGUI.sparqlStories();</script>
   </body>
