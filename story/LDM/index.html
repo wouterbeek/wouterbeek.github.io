@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1 class="header">Linked Data for Mathematics (LDM)</h1>
+    <h2>Class hierarchy</h2>
+    <p>The class hierarchy of Wikidata's theorem concept
+    (<a href="http://www.wikidata.org/entity/Q65943"><code>wde:Q65943</code></a>)
+    has multiple subsclasses.  Most subclasses have no instances in
+    DBpedia, but they may have instances elsewhere, e.g., in the
+    Wikidata endpoint.</p>
+    <div data-query data-query-sparql="rdfs_subclassof.rq"></div>
+    <h2>Subjects hierarchy</h2>
+    <p>There is also a subjects hierarchy.  While its semantics are
+    less formal
+    (<a href="http://www.w3.org/2004/02/skos/core#boarder"><code>skos:broader</code></a>),
+    the hierarchy is large and related to many instances of classes in
+    the class hierarchy.  For example, these are the recursive
+    children
+      of <a href="http://dbpedia.org/resource/Category:Theorems"><code>dbc:Theorems</code></a>.</p>
+    <div data-query data-query-sparql="skos_broader.rq"></div>
+    <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
+    <script type="text/javascript">YASGUI.sparqlStories();</script>
+  </body>
+</html>
