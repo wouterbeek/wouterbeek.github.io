@@ -1,0 +1,17 @@
+prefix dbc: <http://dbpedia.org/resource/Category:>
+prefix dct: <http://purl.org/dc/terms/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+select ?i
+       (group_concat(distinct ?cLabel;separator=" --- ") as ?cLabel)
+       (group_concat(distinct ?sLabel;separator=" --- ") as ?sLabel)
+{
+  ?s owl:sameAs*/skos:broader*/owl:sameAs* dbc:Mathematical_theorems .
+  ?i owl:sameAs*/dct:subject/owl:sameAs* ?s ;
+     owl:sameAs*/a/owl:sameAs* ?c .
+  ?c rdfs:label ?cLabel . filter(lang(?cLabel) = "en")
+  ?s rdfs:label ?sLabel . filter(lang(?sLabel) = "en")
+}
+group by ?i
+order by ?i
