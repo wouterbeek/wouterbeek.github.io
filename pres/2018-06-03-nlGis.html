@@ -72,7 +72,7 @@
           </h2>
           <hr>
           <small>
-          <p>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>, Triply, VU University Amsterdam</p>
+          <p>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>, VU University Amsterdam, Triply</p>
           <p>Richard Zijdeman <a href="mailto:richard.zijdeman@iisg.nl">richard.zijdeman@iisg.nl</a>, International Institute for Social History</p>
           <p>June 3<sup>rd</sup>, 2018</p>
           </small>
@@ -96,6 +96,10 @@
         
         <section>
           <h2>nlGis datasets</h2>
+          <p>
+            <a href="https://druid.datalegend.net/nlgis/"
+            target="_blank">https://druid.datalegend.net/nlgis</a>
+          </p>
           <small>
           <table>
             <thead>
@@ -295,10 +299,11 @@ place:Athens a lawd:Place ;
     geo:asWKT "LineString(5.16 52.05,…)" ;
   ] ;
             </code></pre>
-            <p>When LOD does not follow standards:</p>
+            <p>Without interoperable representations:</p>
             <ul>
-              <li>triples store cannot index Pleiades geometries</li>
-              <li>reasoners arrive at a contradiction</li>
+              <li>clients do not know what to do with your data</li>
+              <li>triple store cannot index your geometries</li>
+              <li>reasoners arrive at contradictions</li>
             </ul>
             <p><a href="https://demo.triply.cc/wouter/pleiades/services/pleiades#query=prefix+def%3A+%3Chttps%3A%2F%2Fpleiades.stoa.org%2Fplaces%2Fvocab%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+spatial%3A+%3Chttp%3A%2F%2Fdata.ordnancesurvey.co.uk%2Fontology%2Fspatialrelations%2F%3E%0Aselect+%3Fwkt+%3FwktColor+%3FwktLabel+%7B%0A++%7B%0A++++select+%3Fwkt+(count(%3Fplace)+as+%3Fn)+%7B%0A++++++%3Fplace+def%3AhasLocation%2Fspatial%3ApartiallyOverlaps%2Fgeo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++++%7D%0A++++group+by+%3Fwkt%0A++++order+by+desc(%3Fn)%0A++++limit+125%0A++%7D%0A++bind+(concat('Number+of+places%3A+'%2C%3Fn)+as+%3FwktLabel)%0A++bind+(concat(%22bluered%2C%22%2C%3Fn%2F104.0)+as+%3FwktColor)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fpleiades%2Fservices%2Fpleiades%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=leaflet" target="_blank">After applying standards…</a></p>
           </section>
@@ -337,7 +342,7 @@ place:Athens a lawd:Place ;
                   <tr><td><code>geo:hasGeometry</code></td><td>28,366,268</td><td>7</td></tr>
                 </tbody>
               </table>
-              <p>Based on the LOD-a-lot data collection (Fernández 2017).</p>
+              <p>Based on the LOD-a-lot data collection (Fernández et al. 2017).</p>
             </small>
           </section>
           <section>
