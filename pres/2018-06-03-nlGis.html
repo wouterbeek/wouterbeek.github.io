@@ -68,43 +68,23 @@
         <section>
           <h2>nlGis: A Use Case in Linked Historic Geodata</h2>
           <hr>
-          <p>Wouter Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>Wouter Beek <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></p>
           <p>Richard Zijdeman <a href="mailto:richard.zijdeman@iisg.nl">richard.zijdeman@iisg.nl </a></p>
           <p>June 3<sup>rd</sup>, 2018</p>
         </section>
 
         <section>
-          <h2>Examples of artifacts with poor geodata</h2>
-          <ul>
-            <li><a href="https://demo.triply.cc/wouter/iisg-kg-plus-context/browser?resource=https%3A%2F%2Fiisg.amsterdam%2Fid%2Fitem%2F1000024">poster</a></li>
-            <li><a href="">publications</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Geodata on todays LOD Cloud…</h2>
+          <h2>Problem statement</h2>
+          <p>
+            Example of an artifacts with poor geodata:
+            <a href="https://druid.datalegend.net/Hack-a-LOD/iisg-kg/browser?resource=https%3A%2F%2Fiisg.amsterdam%2Fid%2Fitem%2F1248712" target="_blank">link</a>
+          </p>
+          <p>Geodata in today's LOD Cloud…</p>
           <a href="../img/crete_geo.png">
-            <img src="../img/create_geo.png">
+            <img src="../img/crete_geo.png">
           </a>
         </section>
         
-        <section>
-          <h2>Pleiades</h2>
-            <pre><code data-trim>
-prefix geo: &lt;http://data.ordnancesurvey.co.uk/ontology/geometry/&gt;
-place:Athens a lawd:Place ;
-  geo:hasGeometry [
-    geo:asWKT "LineString(5.16 52.05,…)" ;
-  ] ;
-            </code></pre>
-          <p>When LOD does not follow standards:</p>
-          <ul>
-            <li>triples store cannot index Pleiades geometries</li>
-            <li>reasoners arrive at a contradiction</li>
-          </ul>
-          <p><a href="https://demo.triply.cc/wouter/pleiades/services/pleiades#query=prefix+def%3A+%3Chttps%3A%2F%2Fpleiades.stoa.org%2Fplaces%2Fvocab%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+spatial%3A+%3Chttp%3A%2F%2Fdata.ordnancesurvey.co.uk%2Fontology%2Fspatialrelations%2F%3E%0Aselect+%3Fwkt+%3FwktColor+%3FwktLabel+%7B%0A++%7B%0A++++select+%3Fwkt+(count(%3Fplace)+as+%3Fn)+%7B%0A++++++%3Fplace+def%3AhasLocation%2Fspatial%3ApartiallyOverlaps%2Fgeo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++++%7D%0A++++group+by+%3Fwkt%0A++++order+by+desc(%3Fn)%0A++++limit+125%0A++%7D%0A++bind+(concat('Number+of+places%3A+'%2C%3Fn)+as+%3FwktLabel)%0A++bind+(concat(%22bluered%2C%22%2C%3Fn%2F104.0)+as+%3FwktColor)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fpleiades%2Fservices%2Fpleiades%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=leaflet" target="_blank">After applying standards…</a></p>
-        </section>
-
         <section>
           <h2>nlGis datasets</h2>
           <small>
@@ -196,7 +176,7 @@ place:Athens a lawd:Place ;
             year.</p>
           <p class="fragment">In the context of CShapes (countries
             after 1920) this makes sense.</p>
-          <p class="fragment">But on the web I can query CShapes ánd
+          <p class="fragment">But on the web we can query CShapes ánd
             Pleiades.</p>
         </section>
 
@@ -282,6 +262,22 @@ place:Athens a lawd:Place ;
               <li>GeoJSON + JSON-LD</li>
             </ul>
           </section>
+          <section>
+            <h2>Pleiades</h2>
+            <pre><code data-trim>
+prefix geo: &lt;http://data.ordnancesurvey.co.uk/ontology/geometry/&gt;
+place:Athens a lawd:Place ;
+  geo:hasGeometry [
+    geo:asWKT "LineString(5.16 52.05,…)" ;
+  ] ;
+            </code></pre>
+            <p>When LOD does not follow standards:</p>
+            <ul>
+              <li>triples store cannot index Pleiades geometries</li>
+              <li>reasoners arrive at a contradiction</li>
+            </ul>
+            <p><a href="https://demo.triply.cc/wouter/pleiades/services/pleiades#query=prefix+def%3A+%3Chttps%3A%2F%2Fpleiades.stoa.org%2Fplaces%2Fvocab%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+spatial%3A+%3Chttp%3A%2F%2Fdata.ordnancesurvey.co.uk%2Fontology%2Fspatialrelations%2F%3E%0Aselect+%3Fwkt+%3FwktColor+%3FwktLabel+%7B%0A++%7B%0A++++select+%3Fwkt+(count(%3Fplace)+as+%3Fn)+%7B%0A++++++%3Fplace+def%3AhasLocation%2Fspatial%3ApartiallyOverlaps%2Fgeo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+.%0A++++%7D%0A++++group+by+%3Fwkt%0A++++order+by+desc(%3Fn)%0A++++limit+125%0A++%7D%0A++bind+(concat('Number+of+places%3A+'%2C%3Fn)+as+%3FwktLabel)%0A++bind+(concat(%22bluered%2C%22%2C%3Fn%2F104.0)+as+%3FwktColor)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fpleiades%2Fservices%2Fpleiades%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=leaflet" target="_blank">After applying standards…</a></p>
+          </section>
           <section data-background-image="../img/observatory.jpg">
             <h3 style="color: white; font-size: 80pt;">
               LOD-a-lot
@@ -355,28 +351,29 @@ place:Athens a lawd:Place ;
             </thead>
             <tbody>
               <tr>
-                <td>CShapes</td>
+                <td><a href="https://druid.datalegend.net/nlgis/cshapes"
+                target="_blank">CShapes</a></td>
                 <td>6,120</td>
                 <td>countries, cities</td>
                 <td>510</td>
                 <td>1920-present</td>
               </tr>
               <tr>
-                <td>Mint Authorities</td>
+                <td><a href="https://druid.datalegend.net/nlgis/mint" target="_blank">Mint Authorities</a></td>
                 <td>6,987</td>
                 <td>authorities, houses</td>
                 <td>950</td>
                 <td>565-present</td>
               </tr>
               <tr>
-                <td>Gemeentegeschiedenis</td>
+                <td><a href="https://druid.datalegend.net/nlgis/gemeentegeschiedenis" target="_blank">Gemeentegeschiedenis</a></td>
                 <td>46,929</td>
                 <td>municipalities, provinces</td>
                 <td>3,219</td>
                 <td>1813-present</td>
               </tr>
               <tr>
-                <td>nlGis</td>
+                <td><a href="https://druid.datalegend.net/nlgis/nlgis" target="_blank">nlGis</a></td>
                 <td>60,036</td>
                 <td>features, geometries</td>
                 <td>4,679</td>
@@ -400,7 +397,7 @@ place:Athens a lawd:Place ;
               change through time.</li>
             <li>Improve GeoSPARQL support in triple stores.</li>
             <li>Explore new ways of displaying Cultural Heritage
-              objects in space and time (<a href="http://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20beeldbank%3A%20%3Chttps%3A%2F%2Fcultureelerfgoed.nl%2Fvocab%2F%3E%0Aprefix%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix%20dct%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix%20energie%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fenergie%23%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20gemeente%3A%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fcbs%2Fid%2Fgemeente%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20kvk%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fbedrijf%23%3E%0Aprefix%20monumenten%3A%20%3Chttp%3A%2F%2Flod.kb.nl%2Frce%2Fvocab%2Fid%2F01%2Fceo%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aprefix%20vcard%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23%3E%0Aselect%20%3Fwkt%20%3FwktColor%20%3FwktHeight%20%3FwktName%20(sample(%3FwktLabel)%20as%20%3FwktLabel)%20%7B%0A%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-bag%3E%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AnaamOpenbareRuimte%20%3FopenbareRuimteNaam%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%20.%0A%20%20%20%20%3Fwoonplaats%20bag%3AnaamWoonplaats%20%3FwoonplaatsNaam%20.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3Fhuisnummer%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fpostcode%20.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Aoppervlakte%20%3Foppervlakte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FverblijfsobjectStatus%20.%0A%20%20%20%20%3FverblijfsobjectStatus%20rdfs%3Alabel%20%3FverblijfsobjectStatusLabel%20.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fwkt%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3AoorspronkelijkBouwjaar%20%3Fbouwjaar%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FpandStatus%20.%0A%20%20%20%20%3FpandStatus%20rdfs%3Alabel%20%3FpandStatusLabel%20.%0A%20%20%7D%0A%20%20%3Fpand%20schema%3Aheight%20%3FwktHeight%20.%0A%20%20optional%20%7B%0A%20%20%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-rce%3E%20%7B%0A%20%20%20%20%20%20%3Fmonument%20monumenten%3AhasLink%20%3FmonumentUrl%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasPostCode%20%3Fpostcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentNumber%20%3Fcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentDefinition%20%3Fbeschrijving%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasStreetNumber%20%3Fhuisnummer%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(IRI(concat('https%3A%2F%2Fcultureelerfgoed.nl%2Fid%2Fmonument%2F'%2Cstr(%3Fcode)))%20as%20%3Fx)%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafbeelding%20foaf%3Adepicts%20%3Fx%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20beeldbank%3Alocator%20%3FafbeeldingUrl%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(concat('%3Ca%20href%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20target%3D%22_blank%22%3E%3Cimg%20src%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20style%3D%22max-height%3A%20100px%3B%22%3E%3C%2Fa%3E')%20as%20%3FafbeeldingLabel)%0A%20%20%7D%0A%20%20bind%20(if(bound(%3FafbeeldingLabel)%2Cconcat('%3Ch5%3E%F0%9F%96%BC%20Beelden%20uit%20de%20beeldbank%3A%3C%2Fh5%3E%3Cdiv%20style%3D%22max-height%3A125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2C%3FafbeeldingLabel%2C'%3C%2Fdiv%3E')%2C'')%20as%20%3FmonumentString1)%0A%20%20bind%20(if(bound(%3Fcode)%2Cconcat('%3Ch5%3E%E2%9B%AA%20%3Ca%20href%3D%22'%2Cstr(%3FmonumentUrl)%2C'%22%20target%3D%22_blank%22%3EMonument%20'%2Cstr(%3Fcode)%2C'%3C%2Fa%3E%3C%2Fh5%3E%3Cp%20style%3D%22max-height%3A%20125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2Cstr(%3Fbeschrijving)%2C'%3C%2Fp%3E'%2C%3FmonumentString1)%2C'')%20as%20%3FmonumentString2)%0A%20%20bind(if(bound(%3FafbeeldingLabel)%2C%22red%22%2Cif(bound(%3Fmonument)%2C%22green%22%2C%22%234169e133%22))%20as%20%3FwktColor)%0A%20%20bind%20(if(%3Fpand%3D%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fbag%2Fid%2Fpand%2F0193100000000169%3E%2Cconcat('%3Cvideo%20src%3D%22https%3A%2F%2Fwouterbeek.github.io%2Fvid%2Fgrote-kerk-zwolle.mp4%22%20autoplay%20height%3D%22250%22%20loop%3E%3C%2Fvideo%3E')%2C'')%20as%20%3Fvid)%0A%20%20bind%20(concat('%3Ch4%3E'%2Cstr(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3Fpostcode)%2C'%20'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fh4%3E'%2C%3Fvid%2C%3FmonumentString2%2C'%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fverblijfsobject)%2C'%22%3EVerblijfsobject%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EWoonplaats%3A%20%3Ca%20href%3D%22'%2Cstr(%3Fwoonplaats)%2C'%22%3E'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fa%3E%3C%2Fli%3E%3Cli%3EOppervlakte%3A%20'%2Cstr(%3Foppervlakte)%2C'm%C2%B2%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FverblijfsobjectStatus)%2C'%22%3E'%2Cstr(%3FverblijfsobjectStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fpand)%2C'%22%3EPand%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EBouwjaar%3A%20'%2Cstr(%3Fbouwjaar)%2C'%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FpandStatus)%2C'%22%3E'%2Cstr(%3FpandStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E')%20as%20%3FwktLabel)%0A%20%20bind%20(concat(str(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3FwoonplaatsNaam))%20as%20%3FwktName)%0A%7D%0Agroup%20by%20%3Fwkt%20%3FwktColor%20%3FwktHeight%20%3FwktName%0Alimit%20250%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3gd">example</a>).</li>
+              objects in space and time (<a href="http://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20beeldbank%3A%20%3Chttps%3A%2F%2Fcultureelerfgoed.nl%2Fvocab%2F%3E%0Aprefix%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix%20dct%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix%20energie%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fenergie%23%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20gemeente%3A%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fcbs%2Fid%2Fgemeente%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20kvk%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fbedrijf%23%3E%0Aprefix%20monumenten%3A%20%3Chttp%3A%2F%2Flod.kb.nl%2Frce%2Fvocab%2Fid%2F01%2Fceo%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aprefix%20vcard%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23%3E%0Aselect%20%3Fwkt%20%3FwktColor%20%3FwktHeight%20%3FwktName%20(sample(%3FwktLabel)%20as%20%3FwktLabel)%20%7B%0A%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-bag%3E%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AnaamOpenbareRuimte%20%3FopenbareRuimteNaam%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%20.%0A%20%20%20%20%3Fwoonplaats%20bag%3AnaamWoonplaats%20%3FwoonplaatsNaam%20.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3Fhuisnummer%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fpostcode%20.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Aoppervlakte%20%3Foppervlakte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FverblijfsobjectStatus%20.%0A%20%20%20%20%3FverblijfsobjectStatus%20rdfs%3Alabel%20%3FverblijfsobjectStatusLabel%20.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fwkt%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3AoorspronkelijkBouwjaar%20%3Fbouwjaar%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FpandStatus%20.%0A%20%20%20%20%3FpandStatus%20rdfs%3Alabel%20%3FpandStatusLabel%20.%0A%20%20%7D%0A%20%20%3Fpand%20schema%3Aheight%20%3FwktHeight%20.%0A%20%20optional%20%7B%0A%20%20%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-rce%3E%20%7B%0A%20%20%20%20%20%20%3Fmonument%20monumenten%3AhasLink%20%3FmonumentUrl%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasPostCode%20%3Fpostcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentNumber%20%3Fcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentDefinition%20%3Fbeschrijving%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasStreetNumber%20%3Fhuisnummer%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(IRI(concat('https%3A%2F%2Fcultureelerfgoed.nl%2Fid%2Fmonument%2F'%2Cstr(%3Fcode)))%20as%20%3Fx)%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafbeelding%20foaf%3Adepicts%20%3Fx%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20beeldbank%3Alocator%20%3FafbeeldingUrl%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(concat('%3Ca%20href%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20target%3D%22_blank%22%3E%3Cimg%20src%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20style%3D%22max-height%3A%20100px%3B%22%3E%3C%2Fa%3E')%20as%20%3FafbeeldingLabel)%0A%20%20%7D%0A%20%20bind%20(if(bound(%3FafbeeldingLabel)%2Cconcat('%3Ch5%3E%F0%9F%96%BC%20Beelden%20uit%20de%20beeldbank%3A%3C%2Fh5%3E%3Cdiv%20style%3D%22max-height%3A125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2C%3FafbeeldingLabel%2C'%3C%2Fdiv%3E')%2C'')%20as%20%3FmonumentString1)%0A%20%20bind%20(if(bound(%3Fcode)%2Cconcat('%3Ch5%3E%E2%9B%AA%20%3Ca%20href%3D%22'%2Cstr(%3FmonumentUrl)%2C'%22%20target%3D%22_blank%22%3EMonument%20'%2Cstr(%3Fcode)%2C'%3C%2Fa%3E%3C%2Fh5%3E%3Cp%20style%3D%22max-height%3A%20125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2Cstr(%3Fbeschrijving)%2C'%3C%2Fp%3E'%2C%3FmonumentString1)%2C'')%20as%20%3FmonumentString2)%0A%20%20bind(if(bound(%3FafbeeldingLabel)%2C%22red%22%2Cif(bound(%3Fmonument)%2C%22green%22%2C%22%234169e133%22))%20as%20%3FwktColor)%0A%20%20bind%20(if(%3Fpand%3D%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fbag%2Fid%2Fpand%2F0193100000000169%3E%2Cconcat('%3Cvideo%20src%3D%22https%3A%2F%2Fwouterbeek.github.io%2Fvid%2Fgrote-kerk-zwolle.mp4%22%20autoplay%20height%3D%22250%22%20loop%3E%3C%2Fvideo%3E')%2C'')%20as%20%3Fvid)%0A%20%20bind%20(concat('%3Ch4%3E'%2Cstr(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3Fpostcode)%2C'%20'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fh4%3E'%2C%3Fvid%2C%3FmonumentString2%2C'%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fverblijfsobject)%2C'%22%3EVerblijfsobject%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EWoonplaats%3A%20%3Ca%20href%3D%22'%2Cstr(%3Fwoonplaats)%2C'%22%3E'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fa%3E%3C%2Fli%3E%3Cli%3EOppervlakte%3A%20'%2Cstr(%3Foppervlakte)%2C'm%C2%B2%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FverblijfsobjectStatus)%2C'%22%3E'%2Cstr(%3FverblijfsobjectStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fpand)%2C'%22%3EPand%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EBouwjaar%3A%20'%2Cstr(%3Fbouwjaar)%2C'%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FpandStatus)%2C'%22%3E'%2Cstr(%3FpandStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E')%20as%20%3FwktLabel)%0A%20%20bind%20(concat(str(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3FwoonplaatsNaam))%20as%20%3FwktName)%0A%7D%0Agroup%20by%20%3Fwkt%20%3FwktColor%20%3FwktHeight%20%3FwktName%0Alimit%20250%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3gd" target="_blank">example</a>).</li>
           </ul>
         </section>
 
