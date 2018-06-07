@@ -67,11 +67,11 @@
       <div class="slides">
 
         <section>
-          <h2>
+          <p style="font-size:160%; font-weight:bold;">
             <a href="https://sameAs.cc"
-               target="_blank"><code>sameAs.cc</code></a>: The Closure of
+               target="_blank"><code style="font-size:130%;">sameAs.cc</code></a>: The Closure of
             500M <code>owl:sameAs</code> Statements
-          </h2>
+          </p>
           <hr>
           <small>
             <p>
@@ -240,7 +240,8 @@
             </div>
           </section>
           <section>
-            <h1>Where do we find the explicit identity relation?</h1>
+            <p style="font-size:150%; font-weight:bold;">Where do we
+              find the explicit identity relation?</p>
           </section>
           <section data-background-image="../img/observatory.jpg">
             <h1>
@@ -311,42 +312,33 @@
           <section>
             <p style="font-size:130%; font-weight:bold;">Explicit identity statements per term</p>
             <a href="../img/term-links.png">
-              <img src="../img/term-links.png" height="500">
+              <img src="../img/term-links.png">
             </a>
           </section>
           <section>
             <p style="font-size:130%; font-weight:bold;">Aggregation by namespace</p>
-            <p>2,618 namespaces, 10,791 edges, 142 components</p>
-            <a href="https://sameas.cc/explicit/img">
-              <img src="https://sameas.cc/explicit/img" height="300">
-            </a>
-            <!-- While the majority of namespaces have incoming links,
-                 far fewer namespaces have outgoing links. -->
-            <!-- These namespaces are responsible for interlinking in
-                 the LOD Cloud. -->
-            <small>
+            <div style="float: left; width: 40%;">
+              <a href="https://sameas.cc/explicit/img">
+                <img src="https://sameas.cc/explicit/img">
+              </a>
+            </div>
+            <div style="float: right; font-size: 80%; width: 60%;">
+              <p>2,618 namespaces, 10,791 edges, 142 components</p>
               <p class="fragment">Relatively few namespaces have
                 internal links.  (RDF datasets may enforce the UNA
                 internally.)</p>
-              <p class="fragment">A relatively small number of
-                namespaces is linking to a relatively large number of
-                namespaces.</p>
-            </small>
-          </section>
-          <section>
-            <a href="https://sameas.cc/explicit/img">
-              <img src="https://sameas.cc/explicit/img" height="300">
-            </a>
-            <p>Domain-specific datasets act as ‘yellow pages’ to other
-              datasets in that domain:</p>
-            <small>
-              <ul>
-                <li>Bibliographic datasets: <code>www.bibsonomy.org</code></li>
-                <li>Geographic datasets: <code>geonames.org</code></li>
-                <li>Biochemistry datasets: <code>bio2rdf.org</code></li>
-                <li>Online reviews: <code>revyu.com</code></li>
-              </ul>
-            </small>
+              <div class="fragment">
+                <p>Domain-specific identity hubs:</p>
+                <small>
+                  <ul>
+                    <li>Bibliographic datasets: <code>www.bibsonomy.org</code></li>
+                    <li>Geographic datasets: <code>geonames.org</code></li>
+                    <li>Biochemistry datasets: <code>bio2rdf.org</code></li>
+                    <li>Online reviews: <code>revyu.com</code></li>
+                  </ul>
+                </small>
+              </div>
+            </div>
           </section>
           <section>
             <h2>Analysis: implicit identity relation</h2>
