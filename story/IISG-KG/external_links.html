@@ -4,14 +4,15 @@
     <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
     <title>External links</title>
   </head>
-  <body data-query-endpoint="https://api.demo.triply.cc/datasets/wouter/iisg-kg-plus-context/services/iisg-kg-plus-context/sparql">
+  <body data-query-endpoint="https://demo.triply.cc/iisg/iisg-kg-context/services/sparql">
 
     <h2>Links to other datasets</h2>
     <p>
       When the external datasets are loaded as well, it is possible to
       traverse the interconnected graph: from an IISG collection item
       to VIAF, OCLC, Lexvo,
-      etc. (<a href="https://demo.triply.cc/wouter/iisg-kg-plus-context" target="_blank">example</a>).
+      etc. (<a href="https://demo.triply.cc/iisg/iisg-kg-context"
+      target="_blank">example</a>).
     </p>
 
     <h2>Links to OCLC</h2>
@@ -19,24 +20,34 @@
       The number of IISG collection items that are linked to OCLC
       data:
     </p>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-contex#query=prefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aselect+(count(distinct+%3Fitem)+as+%3Fn)+%7B%0A++graph+graph%3Acollection+%7B+%3Fitem+%3Fp+%3Fshared+%7D%0A++graph+graph%3Aoclc+%7B+%3Fshared+%3Fq+%3Fo+%7D%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-contex%2Fsparql&requestMethod=POST&tabTitle=Items+linked+to+OCLC&headers=%7B%7D&outputFormat=table"></div>
+    <div data-query
+         data-query-sparql="links-with-oclc.rq">
+    </div>
     <p>
       The number of triples added to IISG collection item records
       through OCLC links:
     </p>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-contex#query=prefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aselect+(count(*)+as+%3Fn)+%7B%0A++graph+graph%3Acollection+%7B+%3Fitem+%3Fp+%3Fshared+%7D%0A++graph+graph%3Aoclc+%7B+%3Fshared+%3Fq+%3Fo+%7D%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-contex%2Fsparql&requestMethod=POST&tabTitle=Triples+added+by+OCLC+links&headers=%7B%7D&outputFormat=table"></div>
+    <div data-query
+         data-query-sparql="number-of-triples-due-to-oclc.rq">
+    </div>
     <p>
       Example of an IISG collection item that links to OCLC:
-      (<a href="https://demo.triply.cc/wouter/iisg-kg-plus-context/table?subject=https%3A%2F%2Fiisg.amsterdam%2Fid%2Fitem%2F1078375"
+      (<a href="https://demo.triply.cc/iisg/iisg-kg-context/table?subject=https%3A%2F%2Fiisg.amsterdam%2Fid%2Fitem%2F1078375"
       target="_blank">link</a>).
     </p>
     <hr>
 
     <h2>Geodata</h2>
     <p>The number of IISG collection items per country.</p>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-contex#query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aprefix+iisg%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fvocab%2F%3E%0Aprefix+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fwkt+%3FwktLabel+%3Fn+%7B%0A++%7B%0A++++select+%3Fcountry+(count(%3Fitem)+as+%3Fn)+%7B%0A++++++%3Fcountry+a+iisg%3ACountry+.%0A++++++%3Fplace+owl%3AsameAs+%3Fcountry+.%0A++++++graph+%3Fg+%7B+%3Fitem+%3Fp+%3Fplace+%7D%0A++++%7D%0A++++group+by+%3Fcountry%0A++%7D%0A++%3Fcountry+rdfs%3Alabel+%3Flabel+%3B%0A+++++++++++iisg%3AhasTemporalSlice+%3Fslice1+.%0A++%3Fslice1+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%3B%0A++++++++++iisg%3AcowEnd+%3Fdate1+.%0A++filter+not+exists+%7B%0A++++%3Fcountry+iisg%3AhasTemporalSlice+%3Fslice2+.%0A++++%3Fslice2+iisg%3AcowEnd+%3Fdate2+.%0A++++filter+(%3Fdate2+%3E+%3Fdate1)%0A++%7D%0A++bind+(concat('%3Ch4%3E'%2Cstr(%3Flabel)%2C'%3C%2Fh4%3E%3Cp%3E'%2Creplace(%3Fn%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'+IISG+collection+items.%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0Aorder+by+desc(%3Fn)%0Alimit+10%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-contex%2Fsparql&requestMethod=POST&tabTitle=Countries&headers=%7B%7D&outputFormat=leaflet"></div>
+    <div data-query
+         data-query-sparql="country.rq"
+         data-query-output="leaflet">
+    </div>
     <p>The number of IISG collection items per municipality.</p>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-context#query=prefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+gg%3A+%3Chttp%3A%2F%2Fwww.gemeentegeschiedenis.nl%2Fgg-schema%23%3E%0Aprefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aprefix+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aselect+%3Fwkt+%3FwktColor+%3FwktLabel+%7B%0A++%7B%0A++++select+%3Fplace+%3Fmunicipality+(count(%3Fitem)+as+%3Fn)+%7B%0A++++++graph+graph%3Acollection+%7B%0A++++++++%3Fitem+schema%3Aabout+%3Fplace%0A++++++%7D%0A++++++%3Fplace+owl%3AsameAs+%3Fmunicipality+.%0A++++++%3Fmunicipality+a+gg%3AMunicipality+.%0A++++%7D%0A++++group+by+%3Fplace+%3Fmunicipality%0A++%7D%0A++%3Fmunicipality+geo%3AhasGeometry+%3Fgeometry1+%3B%0A++++++++++++++++rdfs%3Alabel+%3Flabel+.%0A++%3Fgeometry1+gg%3Ayear+%3Fyear1+%3B%0A+++++++++++++geo%3AasWKT+%3Fwkt+.%0A++filter+not+exists+%7B%0A++++%3Fmunicipality+geo%3AhasGeometry+%3Fgeometry2+.%0A++++%3Fgeometry2+gg%3Ayear+%3Fyear2+.%0A++++filter+(%3Fyear2+%3E+%3Fyear1)%0A++%7D%0A++bind+(concat('jet%2C'%2C%3Fn+%2F+23583)+as+%3FwktColor)%0A++bind+(concat('%3Ch4%3E'%2C%3Flabel%2C'%3C%2Fh4%3E%3Cp%3E'%2Cstr(%3Fn)%2C'%3C%2Fp%3E')+as+%3FwktLabel)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-context%2Fsparql&requestMethod=POST&tabTitle=Items+per+municipality&headers=%7B%7D&outputFormat=table"></div>
+    <div data-query
+         data-query-sparql="municipality.rq"
+         data-query-output="leaflet">
+    </div>
     <hr>
 
     <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>

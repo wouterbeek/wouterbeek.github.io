@@ -1,0 +1,9 @@
+prefix graph: <https://iisg.amsterdam/graph/>
+select (count(distinct ?item) as ?n) {
+  graph graph:collection {
+    ?item ?p ?shared
+  }
+  graph graph:oclc {
+    ?shared ?q ?o
+  }
+}

@@ -12,20 +12,16 @@
     <div data-query data-query-sparql="most-popular-topics.rq"></div>
     <hr>
     
-    <h2>Images</h2>
-    <p>For each location associated with a game in the IISG
-      collection, display one such game with an open access image.</p>
-    <div data-query="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-context#query=prefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+iisg%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fvocab%2F%3E%0Aprefix+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aselect+%3Fplace1+(sample(%3Fwkt)+as+%3Fwkt)+(sample(%3FwktLabel)+as+%3FwktLabel)+%7B%0A++%3Fgame+a+schema%3AGame+%3B%0A++++++++foaf%3Adepiction%2Ffoaf%3Athumbnail+%3Furl+%3B%0A++++++++schema%3Aabout+%3Fplace1+%3B%0A++++++++schema%3Aname+%3Fname+.%0A++filter+not+exists+%7B+%3Furl+iisg%3Aaccess+%22closed%22%40en+%7D%0A++%3Fplace1+a+schema%3APlace+%3B%0A++++++++++schema%3Aname+%3Flabel+%3B%0A++++++++++owl%3AsameAs+%3Fplace2+.%0A++optional+%7B+%3Fplace2+iisg%3AhasTemporalSlice%2Fgeo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%7D%0A++optional+%7B+%3Fplace2+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fwkt+%7D%0A++bind+(concat('%3Ch4%3E'%2Cstr(%3Fname)%2C'%3C%2Fh4%3E%3Cp%3ELocation%3A+'%2Cstr(%3Flabel)%2C'%3C%2Fp%3E%3Ca+href%3D%22'%2Cstr(%3Furl)%2C'%22%3E%3Cimg+src%3D%22'%2Cstr(%3Furl)%2C'%22+width%3D%22300%22%3E%3C%2Fa%3E')+as+%3FwktLabel)%0A%7D%0Agroup+by+%3Fplace1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-context%2Fsparql&requestMethod=POST&tabTitle=Images+of+games&headers=%7B%7D&outputFormat=leaflet">
-    </div>
+    <h2>Games with images and geo-locations</h2>
+    <p>For each geolocation associated with at least one game in the
+      IISG collection, display one such a game, together with an open
+      access depiction.</p>
+    <div data-query
+         data-query-endpoint="https://demo.triply.cc/iisg/iisg-kg-context/services/sparql"
+         data-query-output="leaflet"
+         data-query-sparql="games.rq"></div>
     <hr>
 
-    <!--
-    <h2>Access restrictions</h2>
-    <div data-quality="https://demo.triply.cc/wouter/iisg-kg-plus-context/services/iisg-kg-plus-context#query=prefix+iisg%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fvocab%2F%3E%0Aselect+%3Faccess+(count(%3Fimage)+as+%3Fn)+%7B%0A++%3Fimage+iisg%3Aaccess+%3Faccess%0A%7D%0Agroup+by+%3Faccess%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fiisg-kg-plus-context%2Fservices%2Fiisg-kg-plus-context%2Fsparql&requestMethod=POST&tabTitle=SOR+access&headers=%7B%7D&outputFormat=table">
-    </div>
-    <hr>
-    -->
-    
     <h2>Data quality</h2>
     <p>Datatypes of the date of publication property.</p>
     <div data-query data-quality-sparql="data-quality-date-of-publication-datatypes"></div>
