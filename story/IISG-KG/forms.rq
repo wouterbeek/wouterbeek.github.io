@@ -1,0 +1,10 @@
+prefix iisg: <https://iisg.amsterdam/vocab/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?form ?formLabel (count(?work) as ?numberOfWorks) {
+  ?work iisg:form ?form .
+  ?form a iisg:Form ;
+        rdfs:label ?formLabel .
+}
+group by ?form ?formLabel
+order by desc(?numberOfWorks)
