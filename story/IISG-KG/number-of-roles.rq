@@ -1,0 +1,12 @@
+prefix loc: <http://id.loc.gov/vocabulary/relators/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix schema: <http://schema.org/>
+select ?person ?name (count(distinct ?role) as ?n) (group_concat(distinct ?label;separator=' ') as ?label) {
+  ?item ?role ?person .
+  ?role rdfs:subPropertyOf* loc:role ;
+        rdfs:label ?label .
+  ?person schema:name ?name .
+}
+group by ?person ?name
+order by desc(?n)
+limit 10

@@ -1,0 +1,10 @@
+prefix loc: <http://id.loc.gov/vocabulary/relators/>
+prefix person: <https://iisg.amsterdam/authority/person/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?label (count(?item) as ?n) {
+  ?item ?role person:136339 .
+  ?role rdfs:subPropertyOf* loc:role ;
+        rdfs:label ?label .
+}
+group by ?label
+order by desc(?n)

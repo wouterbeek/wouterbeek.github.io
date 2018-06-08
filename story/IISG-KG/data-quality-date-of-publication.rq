@@ -1,0 +1,8 @@
+prefix iisg: <https://iisg.amsterdam/vocab/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select distinct ?date {
+  ?item iisg:dateOfPublication ?date
+  filter (datatype(?date) = xsd:string)
+}
+order by desc(?date)
+limit 100
