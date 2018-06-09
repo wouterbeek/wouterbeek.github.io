@@ -1,0 +1,7 @@
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+select ?type (count(?feature) as ?n) {
+  ?feature geo:hasGeometry/geo:asWKT ?shape .
+  bind(bif:GeometryType(bif:st_geomfromtext(?shape)) as ?type)
+}
+group by ?type
+order by desc(?n)
