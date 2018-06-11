@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Near sameness is somewhat the same as sameness</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Near sameness is somewhat the same as sameness">
+    <meta name="author" content="Wouter Beek and Joe Raad and Jan Wielemaker and Frank van Harmelen">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+      .reveal h1 , .reveal  h2 , .reveal  h3 , .reveal h4 , .reveal h5 , .reveal h6 { color: black; }
+      * { color: black; }
+      img {
+      border: 0px !important;
+      box-shadow: 0 0 0 !important;
+      }
+      td a img {
+      transition: unset !important;
+      max-height: 40px !important;
+      margin: 5px 0px 5px 0px !important;
+      padding: 0px !important;
+      }
+      .cody {
+      font-family: monospace !important;
+      font-size: 14pt !important;
+      }
+      .left {
+      left:-8.33%;
+      text-align: left;
+      float: left;
+      width:50%;
+      z-index:-10;
+      }
+      .right {
+      left:31.25%;
+      top: 75px;
+      float: right;
+      text-align: left;
+      z-index:-10;
+      width:50%;
+      }
+      pre { font-size: 80% !important; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <p style="font-size:160%; font-weight:bold;">
+            Near sameness is somewhat the same as sameness
+          </p>
+          <hr>
+          <small>
+            <p>
+              Wouter Beek
+              (<a href="mailto:w.g.j.beek@vu.nl">w.b.j.beek@vu.nl</a>)
+              Joe Raad
+              (<a href="mailto:joe.raad@agroparistech.fr">joe.raad@agroparistech.fr</a>),
+              Jan Wielemaker, and Frank van Harmelen
+            </p>
+            <p>June 7<sup>th</sup>, 2018</p>
+          </small>
+        </section>
+
+        <section>
+          <section>
+            <h1>Motivation</h1>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">
+              Linked Data <u>requires</u> a formal understanding of
+              identity<br>(i.e. <code>owl:sameAs</code>).
+            </p>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">You <u>must</u> have both</p>
+            <div style="float: left; width: 48%;">
+              <h3>Formal meaning</h3>
+              <p>
+                <code>〈x, owl:sameAs, y〉</code>
+                <br>
+                means that
+                <br>
+                <code>(∀P)(Px ↔ Py)</code>
+              </p>
+            </div>
+            <div style="float: right; width: 52%;">
+              <h3>Linked Data</h3>
+              <p>“Include links to other URIs, to discover more
+                things.” Linked Data principle 4, TBL</p>
+            </div>
+          </section>
+          <!--
+          <section>
+            <pre><code data-trim data-noescape style="font-size: 80%;">
+                louvre:monaLisa
+                dc:created "1503"^^xsd:gYear ;
+                dc:creator "Da Vinci" .
+            </code></pre>
+            <h4 class="fragment">
+              <code>louvre:monaLisa owl:sameAs sothebys:somePainting</code>
+            </h4>
+            <pre><code data-trim data-noescape style="font-size: 80%;">
+                sothebys:somePainting
+                sothebys:auctionDate "2018-06-07"^^xsd:date ;
+                sothebys:price "€1.000,-" ;
+                sothebys:contact "mailto:bidding@sothebys.com"^^xsd:anyURI .
+            </code></pre>
+            <p class="fragment">Without <code>owl:sameAs</code> we
+              cannot <u>link</u> our data.</p>
+          </section>
+          -->
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Similarity is not good enough</p>
+            <blockquote>“SKOS exactMatch indicates a high degree of
+              confidence that two concepts can be used interchangeably
+              across a wide range of information retrieval
+              applications”<br>SKOS specification, 2009</blockquote>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">The only thing worse
+              than <code style="font-size:80%;">owl:sameAs</code> is
+              ‘clever’ replacements for <code style="font-size:
+              80%;">owl:sameAs</code></p>
+            <hr>
+            <p class="fragment" style="font-size: 80%;">
+              <code>lexvo:nearlySameAs lexvo:somewhatSameAs owl:sameAs</code>
+            </p>
+            <p class="fragment" style="font-size: 80%;">
+              <code>lexvo:nearlySameAs lexvo:nearlySameAs lexvo:somewhatSameAs</code> ?
+            </p>
+            <p class="fragment" style="font-size: 80%;">
+              <code>owl:sameAs lexvo:somewhatSameAs bbc:sameAs</code> ?
+            </p>
+          </section>
+          <section>
+            <p style="font-size:125%; font-weight:bold;">(Identity
+              shenanigans is not a new thing)</p>
+            <a href="../img/shield-of-the-holy-trinity.jpg">
+              <img src="../img/shield-of-the-holy-trinity.jpg">
+            </a>
+          </section>
+          <!--
+              <section>
+                <h2>Use cases</h2>
+                <ul>
+                  <li>Findability through backlinks</li>
+                  <li>Query Answering under OWL entailment</li>
+                  <li>Ontology Alignment</li>
+                  <li>Empirical Semantics</li>
+                </ul>
+              </section>
+              -->
+          <section>
+            <p style="font-size:150%; font-weight:bold;">We need an
+              enabler for <u>empirical</u> research into
+              how <code style="font-size:80%;">owl:sameAs</code> is
+              actually being used.</p>
+            <p class="fragment">The <u>analytic</u> approach: “people
+              make mistakes” / “it's just noise” is not enough.</p>
+          </section>
+          <!--
+          <section>
+            <table>
+              <thead>
+                <tr><th></th><th>sameas.org</th><th>sameas.cc</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>№ terms</td><td>203M</td><td>180M</td></tr>
+                <tr><td>№ statements</td><td>345M</td><td>559M</td></tr>
+                <tr><td>№ identity sets</td><td>63M</td><td>49M</td></tr>
+              </tbody>
+            </table>
+          </section>
+          -->
+          <section>
+            <p style="font-size:150%; font-weight:bold;">
+              <a href="https://sameAs.cc"><code>sameAs.cc</code></a> requirements
+            </p>
+            <p class="fragment">A performant and cost-effective
+              solution for determining whether two things are (claimed
+              to be) the same.</p>
+            <p class="fragment">This solution must scale to the LOD
+              Cloud.</p>
+            <p class="fragment">This solution must be formally
+              interpretable
+              (no <code>skos:exactMatch</code>, <code>rdfs:seeAlso</code>).</p>
+            <p class="fragment">It must be calculated
+              incrementally.</p>
+          </section>
+        </section>
+
+        <section> 
+          <section>
+            <h1>Approach</h1>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Formal properties of Identity</p>
+            <p>Identity is the smallest equivalence relation, it is:</p>
+            <ul>
+              <li>reflexive (x,x)</li>
+              <li>symmetric (x,y) → (y,x)</li>
+              <li>transitive (x,y) ∧ (y,z) → (x,z)</li>
+            </ul>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Example</p>
+            <p>Explicit identity relation over
+              <code>{:a,:b,:c,:d}</code>:</p>
+            <div style="float: left; width: 50%;">
+              <pre><code data-trim data-noescape style="font-size: 80%;">
+                  :a owl:sameAs :b
+              </code></pre>
+            </div>
+            <div style="float: right; width: 50%;">
+              <pre><code data-trim data-noescape style="font-size: 80%;">
+                  :d owl:sameAs :b
+              </code></pre>
+            </div>
+            <div class="fragment">
+              <p>Then the implicit identity relation is:</p>
+              <div style="float: left; width: 50%;">
+                <pre><code data-trim data-noescape style="font-size: 80%;">
+                    :a owl:sameAs :a
+                    :a owl:sameAs :b
+                    :a owl:sameAs :d
+                    :b owl:sameAs :a
+                    :b owl:sameAs :b
+                </code></pre>
+              </div>
+              <div style="float: right; width: 50%;">
+                <pre><code data-trim data-noescape style="font-size: 80%;">
+                    :b owl:sameAs :d
+                    :c owl:sameAs :c
+                    :d owl:sameAs :a
+                    :d owl:sameAs :b
+                    :d owl:sameAs :d
+                </code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Where do we
+              go for the explicit identity relation?</p>
+          </section>
+          <section data-background-image="../img/observatory.jpg">
+            <h1>
+              <a href="http://lod-a-lot.lod.labs.vu.nl" style="color: white;">LOD-a-lot</a>
+            </h1>
+            <h4 style="color: white;">Fernández et al. 2017</h4>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Extract the
+              explicit identity relation</p>
+            <pre><code data-trim data-noescape style="font-size: 80%; line-height: 100%;">
+                prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                construct {
+                  ?s owl:sameAs ?o
+                } where {
+                  {
+                    select distinct ?s ?o {
+                      ?s owl:sameAs ?o
+                      filter(?s < ?o)
+                    }
+                  }
+                }
+            </code></pre>
+            <p><span style="text-decoration: line-through;">558.9M</span> → 331M triples</p>
+            <p>Compaction: 2.8M reflexive and 225M duplicate symmetric triples</p>
+            <p>Create <a href="https://krr.triply.cc/wouter/sameAs/table">HDT</a>: 4 hours (1 CPU core); 4.5GB + 2.2GB index</p>
+          </section>
+          <section>
+            <p style="font-size:140%; font-weight:bold;">Calculate the
+              implicit identity relation</p>
+            <p style="font-size: 75%;">
+              RDF nodes N<br>
+              key : ID ↦ Ƥ(N)<br>
+              val : N ↦ ID<br>
+              Identity closure for x := key(val(x))
+            </p>
+            <hr>
+            <div class="fragment">
+              <p>Add explicit identity pair (x,y):</p>
+              <ol>
+                <li class="fragment">Both are new: x ↦ id, y ↦ id, id ↦ {x,y}</li>
+                <li class="fragment">Only y is new: y ↦ val(x), val(x) ↦ key(val(x)) ∪
+                  {y}</lI>
+                <li class="fragment">Both are old: val(x) ↦ key(val(x)) ∪
+                  key(val(y)),<br>∀ y'∈key(val(y)) . y' ↦ val(x)</li>
+              </ol>
+            </div>
+            <p class="fragment">5 hours (2 CPU cores); 9.3GB disk
+              (RocksDB)</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Analysis</h1>
+          </section>
+          <section>
+            <h2>Analysis: explicit identity relation</h2>
+          </section>
+          <!--
+          <section>
+            <h3>Terms in explicit identity relation</h3>
+            <a href="../img/term-partition.png">
+              <img src="../img/term-partition.png" height="500">
+            </a>
+          </section>
+          -->
+          <!--
+          <section>
+            <p style="font-size:130%; font-weight:bold;">Explicit identity statements per term</p>
+            <a href="../img/term-links.png">
+              <img src="../img/term-links.png">
+            </a>
+          </section>
+          -->
+          <section>
+            <p style="font-size:130%; font-weight:bold;">Aggregation by namespace</p>
+            <div style="float: left; width: 40%;">
+              <a href="https://sameas.cc/explicit/img">
+                <img src="https://sameas.cc/explicit/img">
+              </a>
+            </div>
+            <div style="float: right; font-size: 80%; width: 60%;">
+              <p>Aggregate 558.9M <code>owl:sameAs</code> statements
+                into 2,618 namespaces, 10,791 edges, 142
+                components</p>
+              <p class="fragment">Relatively few namespaces have
+                internal links.  (Indicator that RDF datasets enforce
+                UNA internally.)</p>
+              <div class="fragment">
+                <p>Domain-specific identity hubs:</p>
+                <small>
+                  <ul>
+                    <li>Bibliographic datasets: <code>www.bibsonomy.org</code></li>
+                    <li>Geographic datasets: <code>geonames.org</code></li>
+                    <li>Biochemistry datasets: <code>bio2rdf.org</code></li>
+                    <li>Online reviews: <code>revyu.com</code></li>
+                  </ul>
+                </small>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Analysis: implicit identity relation</h2>
+          </section>
+          <!--
+          <section>
+            <h2>Terms in implicit identity relation</h2>
+            <p>3,543,226,266 unique IRIs</p>
+            <p>Most popular IRI: <code>rdf:type</code> (639,478
+              documents, 3,321,354,308 triples)</p>
+            <p>‘Plateau’ between IRI 100 and 10K: European
+              Environment Information and Observation Network
+              (Eionet)</p>
+            <p>2,981,438,990 IRIs (84%) appear in exactly one
+              documenta</p>
+            <a href="../img/iriLongtail.svg">
+              <img src="../img/iriLongtail.svg">
+            </a>
+          </section>
+          -->
+          <section>
+            <p style="font-size:130%; font-weight:bold;">№ Identity sets in implicit identity relation</p>
+            <p>5,044,948,869 singleton identity sets</p>
+            <p>48,999,148 non-singleton identity sets</p>
+          </section>
+          <section>
+            <p style="font-size:130%; font-weight:bold;">Non-singleton identity sets</p>
+            <div style="float: left; width: 45%;">
+              <a href="../img/partition.svg">
+                <img src="../img/partition.svg">
+              </a>
+            </div>
+            <div style="float: right; width: 55%;">
+                <p class="fragment">31,337,556 identity sets (63.96%)
+                  have cardinality 2</p>
+                <p class="fragment">The largest identity set has
+                  cardinality 177,794.  It includes Albert Einstein,
+                  the countries of the world, and the empty string.
+                  Responsible for 31,610,706,436 (90%) of the implicit
+                  identity relation.</p>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:130%; font-weight:bold;">Kernel calculation</p>
+            <p>The minimum number of <code>owl:sameAs</code> triples
+              that would be needed in order to express the full
+              materialization.</p>
+            <p class="fragment">Nice use case: stream through the full
+              identity closure.</p>
+            <p class="fragment">Processing time: 55.6 seconds (3 CPU
+              cores)</p>
+            <p class="fragment">Kernel size: 130,673,158 triples</p>
+            <p class="fragment">0.37% of the implicit identity relation</p>
+            <p class="fragment">23.4% of the explicit identity
+              relation</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Use cases / Why are we doing this?</h2>
+          </section>
+          <section>
+            <p style="font-size:125%; font-weight:bold;">
+              <code>owl:sameAs</code> triples about ‘Barack Obama’
+            </p>
+            <a href="../img/obama-1.png">
+              <img src="../img/obama-1.png" height="475">
+            </a>
+            <small>Formal semantics: all these identifiers denote the
+              exact same thing.</small>
+          </section>
+          <section>
+            <p style="font-size:120%; font-weight:bold;">But are they
+              really the same thing?</p>
+            <pre><code data-trim data-noescape>
+                http://als.dbpedia.org/resource/Barack_Obama
+                http://am.dbpedia.org/resource/ባራክ_ኦባማ
+                http://data.nytimes.com/obama_barack_per
+                http://viaf.org/viaf/52010985
+                http://yago-knowledge.org/resource/Barack_Obama
+                http://rdf.freebase.com/ns/m.02mjmr
+            </code></pre>
+            <div class="fragment">
+              <pre><code data-trim data-noescape>
+                  http://dbpedia.org/resource/Administration_of_Barack_Obama
+                  http://dbpedia.org/resource/Barack_Obama_Cabinet
+                  http://dbpedia.org/resource/Barack_Obama_presidency
+                  http://yago-knowledge.org/resource/Presidency_of_Barack_Obama
+                  http://rdf.freebase.com/ns/m.05b6w1g
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:120%; font-weight:bold;">‘Barack
+              Obama’ after community detection</p>
+            <div style="float: left; width: 60%;">
+              <a href="../img/obama-2-labels.svg">
+                <img src="../img/obama-2.png">
+              </a>
+            </div>
+            <div style="float: right; width: 40%;">
+              <p>
+                purple: person<br>
+                green: president<br>
+                blue: senator<br>
+                orange: government
+              </p>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Future work</p>
+            <ul>
+              <li>Close IRIs under syntactic equivalence?
+                <small>
+                  <ul>
+                    <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E"><code>ar.dbr:2001:_أوديسة_الفضاء</code></a></li>
+                    <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%25D8%25A3%25D9%2588%25D8%25AF%25D9%258A%25D8%25B3%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2581%25D8%25B6%25D8%25A7%25D8%25A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E"><code>ar.dbr:2001:_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1</code></a></li>
+                  </ul>
+                </small>
+              </li>
+              <li>Close IRIs under protocol equivalence?
+                <small>
+                  <ul>
+                    <li><code>http://dbpedia.org/resource/Crete</code></li>
+                    <li><code>https://dbpedia.org/resource/Crete</code></li>
+                  </ul>
+                </small>
+              </li>
+              <li>New LOD Laundromat scrape + LOD-a-lot file</li>
+              <li>Study the LOD Cloud / LOD-a-lot (i.o. only DBpedia,
+                Wordnet, and Freebase).</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Thank you!</h2>
+          <p>Try it yourself: <a href="https://sameas.cc">https://sameAs.cc</a></p>
+          <hr>
+          <small>
+            <p>Wouter Beek
+              (<a href="mailto:w.g.j.beek@vu.nl">w.b.j.beek@vu.nl</a>)
+              Joe Raad
+              (<a href="mailto:joe.raad@agroparistech.fr">joe.raad@agroparistech.fr</a>),
+              Jan Wielemaker, and Frank van Harmelen</p>
+            <p>June 7<sup>th</sup>, 2018</p>
+          </small>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>
