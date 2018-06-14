@@ -1,0 +1,6 @@
+prefix schema: <http://schema.org/>
+select ?p (count(?o) as ?n) {
+  ?i a schema:ScholarlyArticle ; ?p ?o
+}
+group by ?p
+order by desc(?n)
