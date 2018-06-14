@@ -7,6 +7,13 @@
   <body data-query-endpoint="https://nightly.triply.cc/ysg/pure/services/pure">
 
     <h1 class="header">KNAW Pure API → RDF</h1>
+    
+    <h2>IISG auteurs</h2>
+    <p>De auteurs die namens het IISG aan ten minste één publicatie
+      hebben meegewerkt.  Voor elke auteur tonen we de Pure ID, de
+      naam, en het aantal publicaties die in dienst van het IISG zijn
+      gemaakt.</p>
+    <div data-query data-query-sparql="iisg.rq">
 
     <h2>Number of triples</h2>
     <div data-query data-query-sparql="number_of_triples.rq"></div>
@@ -33,13 +40,6 @@
     <h3>Organization</h3>
     <div data-query="http://localhost:8080/#query=prefix+dbr%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0Aselect+%3Fp+(count(%3Fo)+as+%3Fn)+%7B%0A++%3Fi+a+dbr%3AOrganization+%3B+%3Fp+%3Fo%0A%7D%0Agroup+by+%3Fp%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fnightly.triply.cc%2Fysg%2Fpure%2Fservices%2Fpure&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22is3D%22%3Afalse%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A600%2C%22height%22%3A371%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%7D%2C%22motionChartState%22%3Anull%7D"
          data-query-sparql="class5.rq"></div>
-
-    <h2>IISG auteurs</h2>
-    <p>De auteurs die namens het IISG aan ten minste één publicatie
-      hebben meegewerkt.  Voor elke auteur tonen we de Pure ID, de
-      naam, en het aantal publicaties die in dienst van het IISG zijn
-      gemaakt.</p>
-    <div data-query data-query-sparql="iisg.rq">
 
     <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
     <script type="text/javascript">YASGUI.sparqlStories();</script>
