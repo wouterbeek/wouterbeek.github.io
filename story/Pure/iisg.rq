@@ -1,12 +1,11 @@
 prefix dbr: <http://dbpedia.org/resource/>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix schema: <http://schema.org/>
-select ?author ?label (count(?article) as ?n) {
+select ?label (count(?article) as ?n) {
   ?article <https://nightly.triply.cc/ysg/TODO/authorList>/rdf:rest*/rdf:first [
       schema:sponsor <https://pureacc.knaw.nl/ws/api/510/organisational-units/f4917ef0-4916-414b-a39c-ec1be91b6465> ;
-      schema:participant ?author
-  ] .
-  ?author rdf:label ?label
+      schema:participant/rdf:label ?label
+  ]
 }
-group by ?author ?label
+group by ?label
 order by desc(?n)
