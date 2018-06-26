@@ -1,0 +1,4 @@
+prefix schema: <http://schema.org/>
+select ?title {
+  <https://pureacc.knaw.nl/ws/api/510/persons/e250d487-0607-4604-81ca-9a285162ee5c> schema:contributor/schema:name ?title
+}

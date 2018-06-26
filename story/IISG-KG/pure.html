@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
+    <title>External links</title>
+  </head>
+  <body data-query-endpoint="https://demo.triply.cc/iisg/iisg-kg-context/services/sparql">
+
+    <a href="./index.html">《 Back to index</a>
+
+    <h1 class="header">Pure</h1>
+    <h2>Authors who published while working for IISG</h2>
+    <p>This quantifies the number of publications on which a person
+      appears as a co-author while being employed by IISG.</p>
+    <div data-query="https://demo.triply.cc/iisg/pure/services/sparql#query=prefix+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aselect+%3Fname+%3Fnumber_of_articles+%7B%0A++%7B%0A++++select+%3Fauthor+(sample(%3Fname)+as+%3Fname)+(count(%3Farticle)+as+%3Fnumber_of_articles)+%7B%0A++++++%3Farticle+schema%3Acreator%2Frdf%3Arest*%2Frdf%3Afirst+%5B%0A++++++++schema%3Asponsor+%3Chttps%3A%2F%2Fpureacc.knaw.nl%2Fws%2Fapi%2F510%2Forganisational-units%2Ff4917ef0-4916-414b-a39c-ec1be91b6465%3E+%3B%0A++++++++schema%3Aparticipant+%3Fauthor%0A++++++%5D+.%0A++++++%3Fauthor+rdfs%3Alabel+%3Fname%0A++++%7D%0A++++group+by+%3Fauthor%0A++%7D%0A%7D%0Aorder+by+desc(%3Fnumber_of_articles)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fiisg%2Fpure%2Fservices%2Fsparql%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3Anull%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22viewWindowMode%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22isStacked%22%3Afalse%2C%22booleanRole%22%3A%22certainty%22%2C%22legend%22%3A%22right%22%2C%22width%22%3A600%2C%22height%22%3A371%2C%22annotations%22%3A%7B%22domain%22%3A%7B%7D%7D%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22ColumnChart%22%7D%2C%22motionChartState%22%3Anull%7D"
+         data-query-sparql="iisg-authors.rq"
+         data-query-output="gchart">
+    </div>
+    <h2>Titles of publications by Sjaak van der Velden</h2>
+    <div data-query-sparql="iisg-author-sjaak"></div>
+
+    <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
+    <script type="text/javascript">YASGUI.sparqlStories();</script>
+  </body>
+</html>

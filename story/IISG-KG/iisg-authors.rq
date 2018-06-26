@@ -1,0 +1,16 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix schema: <http://schema.org/>
+select ?name ?number_of_articles {
+  {
+    select ?author (sample(?name) as ?name) (count(?article) as ?number_of_articles) {
+      ?article schema:creator/rdf:rest*/rdf:first [
+        schema:sponsor <https://pureacc.knaw.nl/ws/api/510/organisational-units/f4917ef0-4916-414b-a39c-ec1be91b6465> ;
+        schema:participant ?author
+      ] .
+      ?author rdfs:label ?name
+    }
+    group by ?author
+  }
+}
+order by desc(?number_of_articles)
