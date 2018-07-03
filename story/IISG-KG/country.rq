@@ -4,25 +4,28 @@ prefix graph: <https://iisg.amsterdam/graph/>
 prefix iisg: <https://iisg.amsterdam/vocab/>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-select ?wkt ?wktLabel ?n {
+select ?shape ?shapeLabel ?n {
   {
     select ?country (count(?item) as ?n) {
       ?country a iisg:Country .
       ?place owl:sameAs ?country .
-      graph ?g { ?item ?p ?place }
+      graph graph:collection {
+        ?item ?p ?place .
+      }
     }
     group by ?country
   }
   ?country rdfs:label ?label ;
            iisg:hasTemporalSlice ?slice1 .
-  ?slice1 geo:hasGeometry/geo:asWKT ?wkt ;
+  ?slice1 geo:hasGeometry/geo:asWKT ?shape ;
           iisg:cowEnd ?date1 .
   filter not exists {
     ?country iisg:hasTemporalSlice ?slice2 .
     ?slice2 iisg:cowEnd ?date2 .
-    filter (?date2 > ?date1)
+    filter(?date2 > ?date1)
   }
-  bind (concat('<h4>',str(?label),'</h4><p>',replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.'),' IISG collection items.</p>') as ?wktLabel)
+  bind(concat('<h4>',str(?label),'</h4>',
+              '<p>',replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.'),' IISG collection items.</p>') as ?shapeLabel)
 }
 order by desc(?n)
 limit 10
