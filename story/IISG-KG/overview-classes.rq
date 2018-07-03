@@ -1,0 +1,14 @@
+prefix graph: <https://iisg.amsterdam/graph/>
+select ?label ?n {
+  {
+    select ?c (count(?i) as ?n) {
+      graph ?g {
+        ?i a ?c .
+      }
+      filter(?g != graph:oclc && ?g != graph:viaf)
+    }
+    group by ?c
+  }
+  bind(replace(str(?c), ".*\\/", "") as ?label)
+}
+order by desc(?n)

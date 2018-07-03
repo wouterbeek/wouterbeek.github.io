@@ -2,13 +2,39 @@
 <html>
   <head>
     <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css" rel="stylesheet" type="text/css">
-    <title>External links</title>
+    <title>Links</title>
   </head>
   <body data-query-endpoint="https://demo.triply.cc/iisg/iisg-kg-context/services/sparql">
 
     <a href="./index.html">《 Back to index</a>
 
-    <h1 class="header">External links</h1>
+    <h1 class="header">Links</h1>
+
+    <h2>Shared nodes</h2>
+    <p>Example of a person that appears in archives and
+      collections: <a href="https://demo.triply.cc/iisg/iisg-kg/table?object=%22Goldman%2C%20Emma%22^^http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23string"
+      target="_blank">link</a>.</p>
+    <hr>
+
+    <h2>Geodata</h2>
+    <p>The number of IISG collection items per country.</p>
+    <div data-query
+         data-query-sparql="country.rq"
+         data-query-output="leaflet">
+    </div>
+    <p>The number of IISG collection items per municipality.</p>
+    <div data-query
+         data-query-sparql="municipality.rq"
+         data-query-output="leaflet">
+    </div>
+    <hr>
+
+    <h2>Multiple roles (LoC)</h2>
+    <p>One person can appear in multiple roles.  How many roles does each person have?</p>
+    <div data-query data-query-sparql="number-of-roles.rq"></div>
+
+    <p>What are the LoC roles in which Albert Hahn appears?</p>
+    <div data-query data-query-sparql="Albert-Hahn-roles.rq"></div>
 
     <h2>Links to other datasets</h2>
     <p>
@@ -39,19 +65,6 @@
       (<a href="https://demo.triply.cc/iisg/iisg-kg-context/table?subject=https%3A%2F%2Fiisg.amsterdam%2Fid%2Fitem%2F1078375"
       target="_blank">link</a>).
     </p>
-    <hr>
-
-    <h2>Geodata</h2>
-    <p>The number of IISG collection items per country.</p>
-    <div data-query
-         data-query-sparql="country.rq"
-         data-query-output="leaflet">
-    </div>
-    <p>The number of IISG collection items per municipality.</p>
-    <div data-query
-         data-query-sparql="municipality.rq"
-         data-query-output="leaflet">
-    </div>
     <hr>
 
     <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
