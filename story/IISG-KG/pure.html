@@ -7,6 +7,22 @@
   <body data-query-endpoint="https://api.demo.triply.cc/datasets/iisg/pure/services/sparql/sparql">
     <a href="./index.html">《 Back to index</a>
     <h1 class="header">Pure</h1>
+    <h2>Class frequencies</h2>
+    <p>The following diagram shows the classes that occur in the Pure
+      dataset, where the size of each class represents the number of
+      instances.</p>
+    <div data-query="https://demo.triply.cc/iisg/pure/services/sparql#query=prefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aselect+%3Fc+(count(%3Fi)+as+%3Fn)+%7B%0A++graph+graph%3Apure-data+%7B%0A++++%3Fi+a+%3Fc+.%0A++%7D%0A%7D%0Agroup+by+%3Fc%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fiisg%2Fpure%2Fservices%2Fsparql%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22is3D%22%3Afalse%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A600%2C%22height%22%3A371%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%7D%2C%22motionChartState%22%3Anull%7D"
+         data-query-sparql="class-frequencies.rq"
+         data-query-output="gchart">
+    </div>
+    <h2>Property frequencies</h2>
+    <p>The following diagram shows the properties that occur in the Pure
+      dataset, where the size of each property represents the number of
+      instances.</p>
+    <div data-query="http://localhost:8080/pure.html#query=prefix+graph%3A+%3Chttps%3A%2F%2Fiisg.amsterdam%2Fgraph%2F%3E%0Aselect+%3Fp+(count(%3Fs)+as+%3Fn)+%7B%0A++graph+graph%3Apure-data+%7B%0A++++%3Fs+%3Fp+%3Fo+.%0A++%7D%0A%7D%0Agroup+by+%3Fp%0Aorder+by+desc(%3Fn)%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.demo.triply.cc%2Fdatasets%2Fiisg%2Fpure%2Fservices%2Fsparql%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22title%22%3Anull%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22useFormatFromData%22%3Atrue%7D%2C%7B%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22useFormatFromData%22%3Atrue%7D%5D%2C%22is3D%22%3Atrue%2C%22pieHole%22%3A0%2C%22booleanRole%22%3A%22certainty%22%2C%22width%22%3A600%2C%22height%22%3A371%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22PieChart%22%7D%2C%22motionChartState%22%3Anull%7D"
+         data-query-sparql="property-frequencies.rq"
+         data-query-output="gchart">
+    </div>
     <h2>Authors who published while working for IISG</h2>
     <p>This quantifies the number of publications on which a person
       appears as a co-author while being employed by IISG.</p>
