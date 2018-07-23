@@ -1,6 +1,0 @@
-prefix dbr: <http://dbpedia.org/resource/>
-select ?p (count(?o) as ?n) {
-  ?i a dbr:Organization ; ?p ?o
-}
-group by ?p
-order by desc(?n)
