@@ -6,10 +6,12 @@
   </head>
   <body data-endpoint="https://data.lodlaundromat.org/_api/datasets/wouter/meta/services/meta/sparql">
     <h1>LOD Laundromat</h1>
+    <h2>Statements</h2>
+    <query data-query-ref="statements.rq"></query>
     <h2>Errors classes</h2>
-    <query data-query-ref="error.rq" data-output="gchart"></query>
+    <query data-config="https://api.data.lodlaundromat.org/s/HJlOEwvrm" data-query-ref="error.rq" data-output="gchart"></query>
     <h2>HTTP status codes</h2>
-    <query data-query-ref="http-status.rq"></query>
+    <query data-config="https://api.data.lodlaundromat.org/s/By6iVvvrX" data-query-ref="http-status.rq"></query>
     <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
     <script type="text/javascript">window.onload = function () { Yasgui.stories(); }</script>
   </body>
