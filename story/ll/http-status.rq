@@ -1,0 +1,6 @@
+prefix ll: <https://lodlaundromat.org/def/>
+select ?status (count(?id) as ?n) {
+  ?id ll:status ?status.
+}
+group by ?status
+order by desc(?n)
