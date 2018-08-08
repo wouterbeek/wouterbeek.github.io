@@ -6,11 +6,25 @@
   </head>
   <body data-endpoint="https://data.lodlaundromat.org/_api/datasets/wouter/meta/services/meta/sparql">
     <h1>LOD Laundromat</h1>
-    <h2>Statements</h2>
+    <h2>Basic statistics</h2>
+    <h3>Number of RDF documents</h3>
+    <p>This is the number of documents that are cleaned and stored by
+      the LOD Laundromat, and that include at least one RDF statements
+      (triple or quadruple).
+    <query data-query-ref="documents.rq"></query>
+    <h3>Number of RDF statements</h3>
+    <p>This is the number of statements (triples and quadruples) that
+      are cleaned and stored by the LOD Laundromat.</p>
     <query data-query-ref="statements.rq"></query>
-    <h2>Errors classes</h2>
+    <h2>RDF serialization formats</h2>
+    <p>The number of documents for each RDF serialization format:</p>
+    <query data-query-ref="formats-by-document.rq"></query>
+    <p>The number of statements for each RDF serialization format:</p>
+    <query data-query-ref="formats-by-statement.rq"></query>
+    <h2>Errors</h2>
+    <p>The most common errors:</p>
     <query data-config="https://api.data.lodlaundromat.org/s/HJlOEwvrm" data-query-ref="error.rq" data-output="gchart"></query>
-    <h2>HTTP status codes</h2>
+    <h3>HTTP status codes</h2>
     <query data-config="https://api.data.lodlaundromat.org/s/By6iVvvrX" data-query-ref="http-status.rq"></query>
     <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
     <script type="text/javascript">window.onload = function () { Yasgui.stories(); }</script>
