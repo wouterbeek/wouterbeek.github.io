@@ -21,11 +21,28 @@
     <query data-query-ref="formats-by-document.rq"></query>
     <p>The number of statements for each RDF serialization format:</p>
     <query data-query-ref="formats-by-statement.rq"></query>
+    <h2>Archives</h2>
+    <h3>Errors</h3>
+    <query data-query-ref="archive-errors.rq"></query>
+    <h3>Permissions</h3>
+    <query data-query-ref="permissions.rq"></query>
     <h2>Errors</h2>
     <p>The most common errors:</p>
-    <query data-config="https://api.data.lodlaundromat.org/s/HJlOEwvrm" data-query-ref="error.rq" data-output="gchart"></query>
-    <h3>HTTP status codes</h2>
-    <query data-config="https://api.data.lodlaundromat.org/s/By6iVvvrX" data-query-ref="http-status.rq"></query>
+    <query data-query-ref="error.rq"></query>
+    <h3>HTTP status codes</h3>
+    <query data-query-ref="http-status.rq"></query>
+    <!--
+    <h2>TODO</h2>
+    <p>The queries in this section are under development and do not
+    work yet.</p>
+    <query data-config="https://api.data.lodlaundromat.org/s/HkLAjPuHX"
+           data-query-ref="formats-by-document.rq"></query>
+    <query data-config="https://api.data.lodlaundromat.org/s/HJlOEwvrm"
+           data-query-ref="error.rq"
+           data-output="gchart"></query>
+    <query data-config="https://api.data.lodlaundromat.org/s/By6iVvvrX"
+           data-query-ref="http-status.rq"></query>
+    -->
     <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
     <script type="text/javascript">window.onload = function () { Yasgui.stories(); }</script>
   </body>

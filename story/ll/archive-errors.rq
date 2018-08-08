@@ -1,0 +1,8 @@
+prefix ll: <https://lodlaundromat.org/def/>
+select ?code ?message (count(?error) as ?errors) {
+  ?error a <https://lodlaundromat.org/error/def/ArchiveError>;
+    ll:code ?code;
+    ll:message ?message.
+}
+group by ?code ?message
+order by desc(?errors)
