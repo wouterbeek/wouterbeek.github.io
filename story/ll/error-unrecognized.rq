@@ -1,0 +1,5 @@
+prefix ll: <https://lodlaundromat.org/def/>
+select ?document ?error {
+  ?document ll:error ?error.
+  filter(isLiteral(?error))
+}

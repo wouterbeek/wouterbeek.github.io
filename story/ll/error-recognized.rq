@@ -1,0 +1,7 @@
+prefix ll: <https://lodlaundromat.org/def/>
+select ?c (count(?error) as ?errors) {
+  ?document ll:error ?error.
+  ?error a ?c.
+}
+group by ?c
+order by desc(?errors)

@@ -1,6 +1,7 @@
 prefix ll: <https://lodlaundromat.org/def/>
-select ?permissions (count(?document) as ?documents) {
-  ?document ll:permissions ?permissions.
+select ?permissions (count(?entry) as ?entries) {
+  ?entry a ll:Entry;
+    ll:permissions ?permissions.
 }
 group by ?permissions
-order by desc(?documents)
+order by desc(?entries)
