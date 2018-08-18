@@ -1,5 +1,6 @@
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix iisg: <https://iisg.amsterdam/vocab/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 select ?voornaame ?tussenvoegsel ?achternaam ?geboortePlaats ?geboorteDatum {
   ?student a iisg:Student.
   optional { ?student foaf:givenName ?voornaame. }
