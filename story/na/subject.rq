@@ -5,7 +5,7 @@ select ?image ?widget {
   {
     select ?image ?date ?description ?title ?url (group_concat(?location;separator=', ') as ?locations) {
       ?image a schema:Photograph;
-        dce:subject "paleis soestdijk"^^xsd:string;
+        dce:subject "kerken"^^xsd:string;
         schema:thumbnail ?url;
         schema:contentLocation ?location.
       filter(isLiteral(?location))
