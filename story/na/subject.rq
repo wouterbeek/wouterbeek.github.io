@@ -1,0 +1,27 @@
+prefix dce: <http://purl.org/dc/elements/1.1/>
+prefix schema: <http://schema.org/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?image ?widget {
+  {
+    select ?image ?date ?description ?title ?url (group_concat(?location;separator=', ') as ?locations) {
+      ?image a schema:Photograph;
+        dce:subject "paleis soestdijk"^^xsd:string;
+        schema:thumbnail ?url;
+        schema:contentLocation ?location.
+      filter(isLiteral(?location))
+      optional { ?image dce:date ?date. }
+      optional { ?image dce:description ?description. }
+      optional { ?image dce:title ?title. }
+    }
+    group by ?image ?date ?description ?title ?url
+  }
+  bind(concat(
+      if(bound(?title),concat('<h3>',?title,'</h3>'),''),
+      '<img src="',?url,'">',
+      '<dl>',
+      if(bound(?date),concat('<dt>Datum<dt><dd>',?date,'</dd>'),''),
+      if(bound(?description),concat('<dt>Description</dt><dd>',?description,'</dd>'),''),
+      '<dt>Locations</dt><dd>',?locations,'</dd>',
+      '<dt>IRI</dt><dd>',?image,'</dd>',
+      '</dl>') as ?widget)
+}

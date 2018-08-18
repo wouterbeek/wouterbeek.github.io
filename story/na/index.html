@@ -9,12 +9,15 @@
     <p>Triple table: <a href="https://demo.triply.cc/nationaal-archief/beeldbank/table" target="_blank">link</a></p>
     <p>SPARQL editor: <a href="https://demo.triply.cc/nationaal-archief/beeldbank/sparql/sparql" target="_blank">link</a></p>
     <h2>Subjects</h2>
-    <query data-output="gchart"
-           data-query-ref="subjects.rq"></query>
+    <query data-query-ref="subjects.rq"></query>
+    <h2>A specific subject</h2>
+    <query data-output="gallery" data-query-ref="subject.rq"></query>
     <h2>Swimming pools</h2>
     <query data-endpoint="https://data.pdok.nl/sparql"
            data-output="geo"
            data-query-ref="swimming-pools.rq"></query>
+    <h2>Beeldbank properties</h2>
+    <query data-query-ref="properties.rq"></query>
     <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
     <script type="text/javascript">window.onload = function () { Yasgui.stories(); }</script>
   </body>
