@@ -1,7 +1,8 @@
 prefix iisg: <https://iisg.amsterdam/vocab/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?place (count(?address) as ?n) {
-  ?address iisg:place/rdfs:label ?place.
+select ?placeName (count(?s) as ?n) {
+  ?place a iisg:Place; rdfs:label ?placeName.
+  ?s ?p ?place.
 }
-group by ?place
+group by ?placeName
 order by desc(?n)
