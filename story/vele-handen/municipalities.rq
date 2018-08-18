@@ -1,0 +1,13 @@
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix iisg: <https://iisg.amsterdam/vocab/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+select ?shape (count(?student) as ?leerlingen) (count(?parent) as ?ouders) {
+  {
+    ?student a iisg:Student; iisg:birthPlace ?place1.
+  } union {
+    ?parent a iisg:Parent; iisg:birthPlace ?place1.
+  }
+  ?place1 owl:sameAs ?place2.
+  ?place2 geo:hasGeometry/geo:asWKT ?shape.
+}
+group by ?shape
