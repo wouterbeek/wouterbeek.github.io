@@ -1,0 +1,10 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix iisg: <https://iisg.amsterdam/vocab/>
+select ?voornaame ?tussenvoegsel ?achternaam ?geboortePlaats ?geboorteDatum {
+  ?student a iisg:Student.
+  optional { ?student foaf:givenName ?voornaame. }
+  optional { ?student foaf:familyName ?achternaam. }
+  optional { ?student iisg:tussenvoegsel ?tussenvoegsel. }
+  optional { ?student iisg:birthPlace/rdfs:label ?geboortePlaats. }
+  optional { ?student iisg:birthDate ?geboorteDatum. }
+}

@@ -1,9 +1,0 @@
-prefix foaf: <http://xmlns.com/foaf/0.1/>
-prefix iisg: <https://iisg.amsterdam/vocab/>
-select ?familyName ?tussenvoegsel ?givenName (count(?person) as ?persons) {
-  ?person foaf:givenName ?givenName;
-          foaf:familyName ?familyName;
-          iisg:tussenvoegsel ?tussenvoegsel.
-}
-group by ?familyName ?tussenvoegsel ?givenName
-order by ?familyName ?tussenvoegsel ?givenName ?persons
