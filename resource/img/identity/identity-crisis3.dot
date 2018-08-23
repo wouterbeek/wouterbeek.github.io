@@ -1,0 +1,37 @@
+digraph identity_crisis3 {
+  edge [fontsize=11.0];
+  node [fontsize=11.0];
+
+  subgraph cluster_ns1 {
+    label=<ns1>;
+    node [color=lightblue,style=filled];
+    
+    c9h8o4 [label=<C<SUB>9</SUB>H<SUB>8</SUB>O<SUB>4</SUB>>];
+    ns1 [label=<ns1:Aspirin>];
+    headache [label=<headache>];
+
+    ns1 -> c9h8o4 [label=<chemical>];
+    ns1 -> headache [label=<cures>];
+  }
+  
+  subgraph cluster_ns2 {
+    label=<ns2>;
+    node [color=orange,style=filled];
+    
+    ns2 [label=<ns2:Aspirin>];
+    binc [label=<B Inc.>];
+    bprice [label=<€10,->];
+    
+    ns2 -> binc [label=<sold by>];
+    ns2 -> bprice [label=<price>];
+  }
+
+  ns1 -> ns2 [dir="both",label=<owl:sameAs>];
+
+  {
+    edge [color="red",style="dotted"];
+    
+    ns2 -> c9h8o4 [label=<chemical>];
+    ns2 -> headache [label=<cures>];
+  }
+}

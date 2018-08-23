@@ -1,0 +1,14 @@
+digraph buurtcode {
+  iBuurt [label="BU00030002"];
+  iGemeente [label="GM0003 ≡ Appingedam"];
+  iWijk [label="WK000300"];
+  cBuurt [label="Buurt"];
+  cGemeente [label="Gemeente"];
+  cWijk [label="Wijk"];
+
+  iBuurt -> cBuurt [label="is-een"];
+  iGemeente -> iWijk [dir="back",label="ligt-in"];
+  iGemeente -> cGemeente [label="is-een"];
+  iWijk -> iBuurt [dir="back",label="ligt-in"];
+  iWijk -> cWijk [label="is-een"];
+}

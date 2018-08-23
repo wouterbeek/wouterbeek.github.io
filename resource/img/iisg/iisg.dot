@@ -1,0 +1,19 @@
+graph dot {
+  edge [fontsize=11.0];
+  node [fontsize=11.0,shape=box];
+
+  website [label=<<B>Website</B><BR/>Drupal<BR/>Tekst>];
+  dataverse [label=<<B>Dataverse</B><BR/>CSV<BR/>Key/value>];
+  collectie [label=<<B>Collectie</B><BR/>Solr<BR/>Tekst index>];
+
+  r1 [style=invisible];
+  r2 [style=invisible];
+
+  website -- dataverse;
+  dataverse -- collectie;
+  collectie -- website;
+  
+  {rank=same; r1; website; dataverse;}
+  {rank=same; r2; collectie;}
+  r1 -- r2 [style=invisible];  
+}
