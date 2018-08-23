@@ -531,6 +531,7 @@ limit 1</code></pre>
         </section>
 
         <section>
+        <section>
           <h2>Thank you for your attention!</h2>
           <ul>
             <li>WWW: <a href="http://test.triply.cc">test.triply.cc</a></li>
@@ -544,6 +545,29 @@ limit 1</code></pre>
           <a href="https://krr.cs.vu.nl/" target="_blank">
             <img src="/resource/img/logo/krr.png" height="100">
           </a>
+        </section>
+        <section>
+          <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%7B%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fwoonplaats%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%22De%20Boelelaan%22.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%201105%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%221081HV%22.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Vinden woonadres in de BAG</a></h3>
+          <figure>
+            <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?shape {
+  service &lt;https://data.pdok.nl/sparql&gt; {
+    ?woonplaats rdfs:label "Amsterdam"@nl.
+    ?openbareRuimte bag:bijbehorendeWoonplaats ?woonplaats;
+                    bag:naamOpenbareRuimte "De Boelelaan".
+    ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte;
+                      bag:huisnummer 1105;
+                      bag:postcode "1081HV".
+    ?verblijfsobject bag:hoofdadres ?nummeraanduiding;
+                     bag:pandrelatering ?pand.
+    ?pand geo:hasGeometry/geo:asWKT ?shape.
+  }
+}
+limit 1</code></pre>
+          </figure>
+        </section>
         </section>
 
       </div>
