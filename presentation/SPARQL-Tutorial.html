@@ -265,6 +265,32 @@ prefix rce: &lt;https://triply.cc/rce/def/&gt;
 prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 select * {
   ?image rce:locator ?url<mark>;</mark>
+         <mark>foaf:</mark>depicts ?monument.
+  ?monument rdfs:label ?label;
+            rce:bouwjaar ?year.
+}
+order by desc(?year)
+limit 5</code></pre>
+              <figcaption class="small">
+                <dl>
+                  <dt><code>prefix ALIAS: &lt;IRI&gt;</code></dt>
+                  <dd>Allows <code>IRI</code> to be abbreviated
+                    with <code>ALIAS</code> + colon.</dd>
+                  <dt><code>;</code> after an object term</dt>
+                  <dd>Means that we implicitly repeat the subject term.</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </section>
+          <!--
+          <section>
+            <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rce%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fimage%20rce%3Alocator%20%3Furl%3B%0A%20%20%20%20%20%20%20%20%20foaf%3Adepicts%20%3Fmonument.%0A%20%20%3Fmonument%20rdfs%3Alabel%20%3Flabel%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20rce%3Abouwjaar%20%3Fyear.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20desc(%3Fyear)%0Alimit%205%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.6&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Use abbreviations</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim><mark>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</mark>
+prefix rce: &lt;https://triply.cc/rce/def/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select * {
+  ?image rce:locator ?url<mark>;</mark>
          <mark>foaf:</mark>depicts <mark>[</mark>
              rdfs:label ?label;
              rce:bouwjaar ?year<mark>]</mark>.
@@ -285,6 +311,7 @@ limit 5</code></pre>
               </figcaption>
             </figure>
           </section>
+          -->
         </section>
 
 
@@ -566,7 +593,7 @@ select ?shape {
   }
 }
 limit 1</code></pre>
-          </figure>
+            </figure>
         </section>
         </section>
 
