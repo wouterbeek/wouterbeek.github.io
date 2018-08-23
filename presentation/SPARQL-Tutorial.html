@@ -420,14 +420,15 @@ limit 1</code></pre>
               </figcaption>
             </figure>
           </section>
-          <!--
+
           <section>
-            <h3><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FshapeLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fshape+.%0A%7D%0Aorder+by+asc(%3FshapeLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oldest+buildings+in+Apeldoorn+👵👴&headers=%7B%7D&outputFormat=leaflet" target="_blank">Complex data models</a></h3>
+            <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect%20%3Fshape%20%3FshapeLabel%20%7B%0A%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats%20%22Apeldoorn%22%5E%5Exsd%3Astring%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%20.%0A%20%20%3Fpand%20bag%3AoorspronkelijkBouwjaar%20%3FshapeLabel%20%3B%0A%20%20%20%20%20%20%20%20bag%3AgeometriePand%2Fgeo%3AasWKT%20%3Fshape%20.%0A%7D%0Aorder%20by%20asc(%3FshapeLabel)%0Alimit%2050%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Query%201&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Large-scale queries</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
 prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 select ?shape ?shapeLabel {
-  ?verblijfsobject bag:hoofdadres/bag:bijbehorendeOpenbareRuimte/bag:bijbehorendeWoonplaats/bag:naamWoonplaats "Apeldoorn";
+  ?verblijfsobject bag:hoofdadres/bag:bijbehorendeOpenbareRuimte/bag:bijbehorendeWoonplaats/bag:naamWoonplaats "Apeldoorn"^^xsd:string;
                    bag:pandrelatering ?pand.
   ?pand bag:geometriePand/geo:asWKT ?shape;
         bag:oorspronkelijkBouwjaar ?shapeLabel.
@@ -435,7 +436,7 @@ select ?shape ?shapeLabel {
 order by asc(?shapeLabel)
 limit 50</code></pre>
               <figcaption class="small">
-                Data model of the Dutch Base Registry for Buildings (BAG).
+                Show the 50 oldest buildings in Apeldoorn.
               </figcaption>
             </figure>
           </section>
