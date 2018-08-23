@@ -396,6 +396,29 @@ select * {
           </section>
 
           <section>
+            <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%7B%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fwoonplaats%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%22De%20Boelelaan%22.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%201105%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%221081HV%22.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Complex data model</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+select ?shape {
+  service &lt;https://data.pdok.nl/sparql&gt; {
+    ?woonplaats rdfs:label "Amsterdam"@nl.
+    ?openbareRuimte bag:bijbehorendeWoonplaats ?woonplaats;
+                    bag:naamOpenbareRuimte "De Boelelaan".
+    ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte;
+                      bag:huisnummer 1105;
+                      bag:postcode "1081HV".
+    ?verblijfsobject bag:hoofdadres ?nummeraanduiding;
+                     bag:pandrelatering ?pand.
+    ?pand geo:hasGeometry/geo:asWKT ?shape.
+  }
+}
+limit 1</code></pre>
+            </figure>
+          </section>
+          <!--
+          <section>
             <h3><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++%3Fverblijfsobject+bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats+%22Apeldoorn%22+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+.%0A++%3Fpand+bag%3AoorspronkelijkBouwjaar+%3FshapeLabel+%3B%0A++++++++bag%3AgeometriePand%2Fgeo%3AasWKT+%3Fshape+.%0A%7D%0Aorder+by+asc(%3FshapeLabel)%0Alimit+50%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Oldest+buildings+in+Apeldoorn+👵👴&headers=%7B%7D&outputFormat=leaflet" target="_blank">Complex data models</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
@@ -413,6 +436,7 @@ limit 50</code></pre>
               </figcaption>
             </figure>
           </section>
+          -->
 
           <section>
             <h3><a href="https://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeLabel%20%7B%0A%20%20bind(%22De%20Boelelaan%22%20as%20%3FstreetName)%0A%20%20%3Fplace%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20graph%20%3Fgraph1%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fplace%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%3FstreetName.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph1%20bag%3AeindGeldigheid%20%3Fend1.%20%7D%0A%20%20graph%20%3Fgraph2%20%7B%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3FhouseNumber%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fzipcode.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph2%20bag%3AeindGeldigheid%20%3Fend2.%20%7D%0A%20%20graph%20%3Fgraph3%20%7B%0A%20%20%20%20%3Fverblijfsobject%20a%20%3Fc%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3FshapeVerblijfsobject.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph3%20bag%3AeindGeldigheid%20%3Fend3.%20%7D%0A%20%20filter(%3Fc!%3Dbag%3AVerblijfsobject)%0A%20%20%3Fc%20rdfs%3Alabel%20%3FcLabel.%0A%20%20graph%20%3Fgraph4%20%7B%0A%20%20%20%20%3Fpand%20bag%3AgeometriePand%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph4%20bag%3AeindGeldigheid%20%3Fend4.%20%7D%0A%20%20bind(if(%3Fc%3Dbag%3AVerblijfsobjectWoonfunctie%2C%22green%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectWinkelfunctie%2C%22red%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectKantoorfunctie%2C%22blue%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectOnderwijsfunctie%2C%22yellow%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectGezondheidszorgfunctie%2C%22orange%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectSportfunctie%2C%22violet%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22orange%22))))))%20as%20%3FshapeColor)%0A%20%20bind(25%20as%20%3FshapeHeight)%0A%20%20bind(concat('%3Ch2%3E'%2C%3FstreetName%2C'%20'%2C%3FhouseNumber%2C'%2C%20'%2C%3Fzipcode%2C'%3C%2Fh2%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch2%20style%3D%22color%3A%20'%2C%3FshapeColor%2C'%3B%22%3E'%2C%3FcLabel%2C'%3C%2Fh2%3E')%20as%20%3FshapeLabel)%0A%7D%0Alimit%20500%0A&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query%203.4&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3d" target="_blank">Geo-3D query</a></h3>
@@ -558,7 +582,6 @@ limit 1</code></pre>
         </section>
 
         <section>
-        <section>
           <h2>Thank you for your attention!</h2>
           <ul>
             <li>WWW: <a href="http://test.triply.cc">test.triply.cc</a></li>
@@ -572,29 +595,6 @@ limit 1</code></pre>
           <a href="https://krr.cs.vu.nl/" target="_blank">
             <img src="/resource/img/logo/krr.png" height="100">
           </a>
-        </section>
-        <section>
-          <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%7B%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fwoonplaats%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%22De%20Boelelaan%22.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%201105%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%221081HV%22.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Vinden woonadres in de BAG</a></h3>
-          <figure>
-            <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
-prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select ?shape {
-  service &lt;https://data.pdok.nl/sparql&gt; {
-    ?woonplaats rdfs:label "Amsterdam"@nl.
-    ?openbareRuimte bag:bijbehorendeWoonplaats ?woonplaats;
-                    bag:naamOpenbareRuimte "De Boelelaan".
-    ?nummeraanduiding bag:bijbehorendeOpenbareRuimte ?openbareRuimte;
-                      bag:huisnummer 1105;
-                      bag:postcode "1081HV".
-    ?verblijfsobject bag:hoofdadres ?nummeraanduiding;
-                     bag:pandrelatering ?pand.
-    ?pand geo:hasGeometry/geo:asWKT ?shape.
-  }
-}
-limit 1</code></pre>
-            </figure>
-        </section>
         </section>
 
       </div>
