@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linked Data Lab</title>
+    <script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="Linked Data Lab Workshop.  Part of the Web Reasoning and Rule Systems Conference 2016.">
+    <meta name="author" content="Wouter Beek; Stefan Schlobach">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      h1, h2, h3, h4, h5 { text-transform: none !important;}
+      figure { float: left; height: 150px; margin: 55px !important; width: 150px; }
+      figure figcaption { font-size: 20px !important; }
+      html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; max-width: 900px; }
+      sup { font-size: 40pt !important; }
+      .snippet { font-family: monospace; font-size: 90%; text-align: center; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>Linked Data Lab</h1>
+          <h3>September 9<sup>th</sup>, 2016</h3>
+	  <h4>Stefan Schlobach &amp; Wouter Beek</h4>
+          <img src="../img/vu-krr-logo-print-600dpi.png">
+        </section>
+
+        <section>
+          <p class="snippet">
+            frank statements -p foaf:knows |<br>
+            grep last-fm | nt2gml &gt; last-fm.gml
+          </p>
+          <img height="600" src="../img/lastfm_foaf_knows.png">
+        </section>
+	
+        <section>
+          <h1>Program</h1>
+          <ul>
+            <li>09:00-09:10 Introduction round</li>
+            <li>09:10-09:40 <a href="#/linked-data-lab">Linked Data Lab</a> (presentation)</li>
+            <li>09:40-10:00 <a href="#/find-iris-with-lotus">Find IRIs with <em>LOTUS</em></a> (hands-on)</li>
+            <li>10:00-10:30 <a href="#/find-documents-with-lod-laundromat">Find documents</a> (hands-on)</li>
+            <li>10:30-11:00 Coffee break</li>
+            <li>11:00-11:30 <a href="#/find-statements-with-frank">Find statements</a> (hands-on)</li>
+            <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
+          </ul>
+        </section>
+        <section>
+
+          <blockquote>
+            “As long as there was no data, reasoning was no problem at
+            all; when we had a little data, reasoning became a mild
+            problem, and now we have Big Data, reasoning has become an
+            equally Big Problem.”
+          </blockquote>
+        </section>
+
+	<section>
+	  <h3>An old AI dream come true?</h3>
+	  <ul>
+	    <li>Semantic Web = Well curated knowledge (ontologies)</li>
+	    <li>Web of Data = Unlimitted Data</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Publishing Paradigms</h3>
+	  <ul>
+	    <li>Data dumps</li>
+	    <li>Triple stores </li>
+	    <li>The things inbetween (LDF,HDT)</li>
+	  </ul>
+        </section> 
+
+        <section id="linked-data-lab">
+          <h1><em>Linked Data Lab</em> overview</h1>
+        </section>
+
+        <section>
+	  <p>After 15 years most data cannot be automatically:</p>
+	  <ul>
+	    <li>found</li>
+	    <li>read</li>
+	    <li>queried</li>
+	    <li>reasoned over (only implicit in this presentation)</li>
+	  </ul>
+	  <p>Many PhD students' worse nightmare... </p>
+	  <!--
+	      <li>Clash between semantics and pragmatics</li>
+	      <ul>
+		<li>Theory of identity vs practice of linking</li>
+		<li>Formal meaning vs social meaning</li>
+		<li>Universal statements vs trivia</li>
+	      </ul>
+	      -->
+	</section>
+	
+	<section>
+	  <h2>Problem 1</h2>
+	  <h3>Most data cannot be <i>found</i></h3>
+	  <ul>
+	    <li>SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
+	    <li>Most SW datasets are not available online.</li>
+	    <li>Most online datasets are not registered in any catalogue.</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h2>Problem 2</h2>
+	  <h3>Most data cannot be <i>read</i></h3>
+          <p><a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a> (&lt; 10% syntactically correct)</p>
+        </section>
+
+        <section>
+          <img src="../img/screen.png">
+        </section>
+        
+	<section>
+	  <h3>The WWW is not standards-compliant either, but:</h3>
+	  <ul>
+	    <li>WWW tools optimized for common errors</li>
+	    <li>WWW consumers have human-level intelligence</li>
+	  </ul>
+	</section>
+        
+        <section>
+	  <h2>Why is data dirty?</h2>
+	  <div style="float: left;">
+	    <ul>
+	      <li>Character encoding issues</li>
+	      <li>Socket errors</li>
+	      <li>Protocol errors</li>
+	      <li>Corrupted archives</li>
+	      <li>Authentication problems</li>
+	      <li>Syntax errors</li>
+	      <li>Wrong metadata</li>
+	    </ul>
+	  </div>
+	  <div style="float: right;">
+	    <ul>
+	      <li>Lexical form ≠ value</li>
+	      <li>Non-canonical lexical form</li>
+	      <li>Logically inconsistent</li>
+	      <li>...</li>
+	    </ul>
+	  </div>
+        </section>
+	
+	<section>
+	  <h2>Problem 3</h2>
+	  <h3>Most data cannot be <i>queried</i></h3>
+	  <ul>
+	    <li>Data dumps are the most popular deployment strategy</li>
+	    <li>Many live queriable datasets have a custom API</li>
+	    <li>Most custom APIs are not self-describing</li>
+	    <li>Many SPARQL endpoints enforce restrictions</li>
+	    <li>Most SPARQL endpoints that do not enforce restrictions have low availability</li>
+	    <li>Different SPARQL endpoints enforce different restrictions</li>
+	    <li>Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
+	    <li>Web-scale federated querying has not even been considered</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h4>Query endpoint availablility according to <em>LODStats</em></h4>
+	  <img src="../img/availability2015.png" style="max-height: 625px;">
+	</section>
+
+	<section>
+	  <h3>SPARQL cannot fulfill the role of SW query language</h3>
+	  <p>There are millions of data documents but
+	    only hundreds of live query endpoints with reasonable
+	    availability.</p>
+	  <p>Existing deployment techniques are
+	    unable to close the gap between downloadable data dumps and
+	    live queryable data.</p>
+	  <p>Data is growing faster than SPARQL
+	    deployment uptake.</p>
+	</section>
+
+	<section>
+	  <h2>Problem 4</h2>
+	  <h3>Most data cannot be <i>reasoned over</i></h3>
+	  <ul>
+	    <li>No standardized way of selecting the
+	      entailment regime in SPARQL</li>
+	    <li>Some entailment results cannot be
+	      expressed in RDF</li>
+	    <li>Most triple stores only implement
+	      subsets of RDF(S) and OWL entailment</li>
+	    <li>Different triple stores implement
+	      different subsets of different version of RDF(S) and
+	      OWL</li>
+	    <li>Web-scale reasoning has only been
+	      performed in the lab</li>
+            <li>Federation does not scale to hundreds
+              of thousands of endpoints</li>
+	  </ul>
+	</section>
+
+        <section>
+	  <h1>Why is it not working?</h1>
+	</section>
+        
+	<section>
+	  <h2>[1] Distributed approach</h2>
+	  <p>Coordination techniques:</p>
+	  <ul>
+            <li>Standards</li>
+	    <li>Guidelines</li>
+	    <li>Best practices</li>
+	    <li>Tools</li>
+	  </ul>
+	  <p>Targeted towards humans</p>
+	  <p>Inherently slow</p>
+	  <p>Mixed results after 15 years</p>
+	</section>
+        
+	<section>
+	  <h2>[2] Data navigation broken by design</h2>
+	  <img src="../img/navigation1.jpg" height="400">
+	</section>
+        
+	<section>
+	  <h2>[3] Broken cost-benefit model</h2>
+	  <img src="../img/sparql.svg" height="400">
+        </section>
+
+        <section>
+	  <h2>[3] Broken cost-benefit model</h2>
+	  <p>Allocative efficiency: the price a consumer pays should
+	    equal the marginal cost of producing the consumed service.
+	    Since a client pays nothing and the marginal cost of
+	    production is relatively high, the SPARQL paradigm is
+	    inherently far removed from allocative efficiency.</p>
+	  <ul>
+	    <li>Publishing large volumes of
+	      high-quality data is penalized.</li>
+	    <li>Consuming large volumes of data /
+	      asking DDOS-like queries is free.</li>
+	  </ul>
+	</section>
+
+        <section>
+	  <h2>[4] Complex Usefullness/Cost Balance</h2>
+	  <ul>
+	    <li>Useful publishing is expensive</li>
+	    <li>Cheep publishing often not useful</li>
+	  </ul>
+	</section>
+
+        <!--
+	    <section>
+	      <h2>LOD Laundromat approach</h2>
+	      <dl>
+		<dt>Distribution</dt>
+		<dd>Centralises the gathering, cleaning, querying and (re)publishing of Linked Open Data</dd>
+		<dt>Re-use</dt>
+		<dd>Does not use SPARQL for disseminating data</dd>
+		<dt>Navigation</dt>
+		<dd>Drop the dereferenceability requirement for IRIs</dd>
+	      </dl>
+	    </section>
+            -->
+
+        <section>
+	  <h1>How to redeploy the Semantic Web?</h1>
+	  <ol>
+	    <li>Data collection</li>
+	    <li>Data cleaning</li>
+	    <li>Data publishing</li>
+	    <li>Data consumption</li>
+	    <li>Text-based search</li>
+	    <li>Web-scale BGP answering</li>
+	    <li>Web-scale backwards chaining</li>
+	  </ol>
+        </section>
+
+        <section>
+	  <h1>[1] Data collection</h1>
+	</section>
+        
+	<section>
+	  <ul>
+	    <li>Scrape catalogues
+	      <ul>
+		<li>Custom API (CKAN)</li>
+		<li>HTML (VoID Store, LOV)</li>
+	    </ul></li>
+	    <li>Interpret metadata vocabularies (VoID,DCAT)</li>
+	    <li>Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+	    <li>Craw dereferenceable IRIs</li>
+	    <li>Hard-craft a seed list</li>
+	    <li>Crowd-source the seed list</li>
+	  </ul>
+	</section>
+
+        <section>
+          <h1>[2] Data cleaning</h1>
+	</section>
+        
+	<section>
+	  <h2>New solution for data cleaning</h2>
+	  <div>
+	    <p>(1) Automate conformity to standards</p>
+	    <p>"Days not decades"</p>
+	  </div>
+	  <br>
+	  <br>
+	  <div>
+	    <p>(2) Tools → Web Service</p>
+	  </div>
+	</section>
+	
+        <section>
+          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="../img/basket.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="../img/laundry.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="../img/lod-wardrobe.png" width="200">
+          </a>
+          <br>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="../img/analysis.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+            <img src="../img/labels.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/about/">
+            <img src="../img/laundry-line.png" width="200">
+          </a>
+          <br>
+          <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker &amp; Schlobach “LOD laundromat: A Uniform Way of Publishing Other People’s Dirty Data” <em>ISWC 2014</em></small>
+        </section>
+        
+        <section>
+	  <h1>[3] Data publishing</h1>
+        </section>
+	
+	<section>
+	  <h2>Fix the cost/benefit model</h2>
+	  <p>(1) Publishing data is free</p>
+	  <p>(2a) Asking more questions increases client costs</p>
+	  <p>(2b) Asking more complex questions increases client costs</p>
+	</section>
+        
+	<section>
+          <h3>How to query &gt;30B statements</h3>
+	  <img src="../img/sparql.svg" height="350">
+	  <img src="../img/ldf.svg" height="350">
+          <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander
+            Sande &amp; Schlobach, “Linked Data-as-a-Service: The
+            Semantic Web Redeployed” <em>ESWC</em> 2015</small>
+	</section>
+        
+        <section>
+          <h2>SW layer cake</h2>
+          <img height="500" src="../img/swcake.gif">
+        </section>
+
+        <section>
+          <h2>Alt. SW layer cake</h2>
+          <img height="500" src="../img/llcake.png">
+          <small>
+            Beek &amp; Rietveld &amp; Schlobach &amp; Van Harmelen
+            “LOD Laundromat: Why the Semantic Web Needs
+            Centralization (Even If We Don't Like It)” <em>IEEE
+              Internet Computing</em> 20 (2) p.78-81, 2016
+          </small>
+        </section>
+
+	<section>
+	  <h2>Why it works: HDT + SSD + LDF</h2>
+	  <br>
+	  <p><b>HDT</b>: Disk-based, efficient yet queryable storage</p>
+	  <br>
+	  <br>
+	  <p><b>SSD</b>: Disks become faster and cheaper</p>
+	  <!-- 6TB SSD in the new LOD Laundromat. -->
+	  <br>
+	  <br>
+	  <p><b>LDF</b>: BGP queries require client-side joins</p>
+	</section>
+
+	<section>
+	  <h2>Data consumption tools</h2>
+	  <ul>
+	    <li>From Natural language to Resources (Lotus)</li>
+	    <li>From Resources to documents (Index)</li>
+	    <li>Resources in the knowledge graph (LDF)</li>
+	    <li>Properties of the graphs (Metadata)</li>
+	    <li>Glue between LOD Laundromat service, Meta-Data and Indexes (Frank)</li>
+	  </ul>
+	</section>
+
+	
+        <section>
+	  <h1>[4] Data consumption</h1>
+	</section>
+        
+	<section>
+	  <h2>Data navigation fixed</h2>
+	  <img src="../img/navigation2.jpg">
+	</section>
+
+        <section>
+	  <h1>[5] Natural language text search</h1>
+	</section>
+        
+        <section>
+          <h1>LOTUS</h1>
+          <p>Natural language entry point to LOD Laundromat</p>
+          <p><b>Large-scale</b>: 4,334,672,073 natural language
+            literals</p>
+          <p><b>Configurable</b>: Filtering based on original
+            language, auto-detected language, subject, predicate, 32
+            retrieval options</p>
+          <br>
+          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+            Search for Big Linked Data”, <em>ESWC 2016</em></small>
+        </section>
+
+        <section>
+          <img src="../img/lotus_architecture.png">
+          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+            Search for Big Linked Data”, <em>ESWC 2016</em></small>
+        </section>
+
+        <section>
+	  <h2>LOTUS in numbers</h2>
+	  <table>
+	    <thead>
+	      <tr><th>Metric</th><th>Number</th></tr>
+	    </thead>
+	    <tbody>
+	      <tr><td># literals</td><td>12,018,939,378</td></tr>
+	      <tr><td># integers and dates</td><td>6,699,148,542</td></tr>
+	      <tr><td># indexed strings</td><td>5,319,790,836</td></tr>
+	      <tr><td># distinct sources</td><td>508,244</td></tr>
+	      <tr><td># distinct languages</td><td>713</td></tr>
+	      <tr><td># hours to create index</td><td>56</td></tr>
+	      <tr><td>disk space use</td><td>484.77 GB</td></tr>
+	    </tbody>
+	  </table>
+	</section>
+        <!-- 
+	     <section>
+               <h2>[6] Streamed BGP answering</h2>
+	       <ul>
+		 <li>LOD Cloud-wide triple pattern selectivity estimates</li>
+		 <li>Client-side query reordering</li>
+		 <li>Client-side symmetric hash joins</li>
+		 <li>Culprit 1: Identity closure (800M)</li>
+		 <li>Culprit 2: Natural language index (1.5-2B)</li>
+	       </ul>
+	     </section>
+	     -->
+
+        <section>
+	  <h1>Why bother? LOD Lab</h1>	 
+	  <h2>Web-scale evaluation (and reasoning)</h2>
+	  <b>An example for scaling up to Web Size.</b>
+	</section>
+        
+        <section>
+          <h3>How generalizable is SW research?</h3>
+          <img height="350" src="../img/iswc-2014-evaluations.png">
+          <p>ISWC 2014 Research Track:</p>
+          <ul>
+            <li>17 datasets used in total</li>
+            <li>1-6 datasets used per paper (avg. 2)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>The ‘economics’ of WoD evaluations</h3>
+          <br>
+          <ul>
+            <li>Dataset cleaning is manual and wasteful</li>
+            <li>Cleaning the next dataset requires a comparable amount of work</li>
+          </ul>
+          <br>
+          <br>
+          <hr>
+          <br>
+          <ul>
+            <li><b>High cost per evaluation:</b> Disincentivizes reproducibility</li>
+            <li><b>High cost per dataset:</b> Disinsentivizes generalizability</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>The WoD is a poor evaluation platform</h3>
+          <ul>
+            <li>Datasets cannot be found</li>
+            <li>IRI dereferening is broken</li>
+            <li>SPARQL enforces restrictions</li>
+            <li>Bulk downloads cannot be queried online</li>
+            <li>Bulk downloads are not standards conform</li>
+            <li>Corrections cannot be written back to the WoD</li>
+          </ul>
+          <h3>Result</h3>
+          <ul>
+            <li>Evaluations are run locally</li>
+            <li>Data cleaning is performed on local copy</li>
+            <li>Results of data cleaning are removed with the local copy</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Reproducing “RDF Vault” (Bazoobandi 2015)</h3>
+          <table class="comparisonTable" style="width: 1150px;">
+            <thead>
+              <tr>
+                <th>RDF Vault</th>
+                <th>LOD Lab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img src="../img/vault_original.png">
+                </td>
+                <td>
+                  <img src="../img/vault_lodlab.png">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <small>
+            L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD Lab:
+            Experiments at LOD Scale”, <em>International Semantic
+              Web Conference</em>, 2015 (Best Paper Award)
+          </small>
+        </section>
+
+        <section>
+          <p>Rerun the experiment per bin (e.g., 1,000-100,000):</p>
+          <pre style="font-size: 90%; width: 1300px;">
+            <code>
+              frank documents --downloadUri \
+              --minTriples 1000 --maxTriples 100000 |
+              ./runVaultExperimentForFile
+            </code></pre>
+        </section>
+
+        <section>
+          <h4>
+            Reproducing “Linked Data Best Practices” (Schmachtenberg
+            2014)
+          </h4>
+          <table class="bestPractices" style="font-size: 80%">
+            <thead>
+              <tr>
+                <th style="text-align: center; border-bottom: 0px solid;border-right: 1px solid;" colspan="3">Original</th>
+                <th style="text-align: center; border-bottom: 0px solid;" colspan="3">LOD Lab</th>
+              </tr>
+              <tr>
+                <th>Prefix</th>
+                <th>#datasets</th>
+                <th style="border-right: 1px solid;">%datasets</th>
+                <th>Prefix</th>
+                <th>#documents</th>
+                <th>%documents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>rdf</td>
+                <td>996</td>
+                <td>98.22%</td>
+                <td>rdf</td>
+                <td>639,575</td>
+                <td>98.40%</td>
+              </tr>
+              <tr>
+                <td>rdfs</td>
+                <td>736</td>
+                <td>72.58%</td>
+                <td>time</td>
+                <td>443,222</td>
+                <td>68.19%</td>
+              </tr>
+              <tr>
+                <td>foaf</td>
+                <td>701</td>
+                <td>69.13%</td>
+                <td>cube</td>
+                <td>155,460</td>
+                <td>23.92%</td>
+              </tr>
+              <tr>
+                <td>dcterm</td>
+                <td>568</td>
+                <td>56.01%</td>
+                <td>sdmxdim</td>
+                <td>154,940</td>
+                <td>23.84%</td>
+              </tr>
+              <tr>
+                <td>owl</td>
+                <td>370</td>
+                <td>36.49%</td>
+                <td>worldbank</td>
+                <td>147,362</td>
+                <td>22.67%</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <p>Rerun for all documents:</p>
+          <pre style="font-size: 90%; width: 1300px;">
+            <code>
+              frank documents --downloadUri |
+              ./countNamespacesForDocument
+            </code></pre>
+        </section>
+
+        <section>
+          <h3>Large-scale Data Quality Improvement (1/2): Datatypes</h3>
+          <img src="../img/dhier.png">
+        </section>
+
+        <section>
+          <h3>Large-scale Data Quality Improvement (2/2): Language tags</h3>
+          <img src="../img/ltag.png" style="width: 100%;">
+        </section>
+
+        <section>
+          <h3>Evaluation results for ±600,000 datasets (1/2)</h3>
+          <img src="../img/logp_comparison_zoom_pb.png">
+        </section>
+
+        <section>
+          <h3>Evaluation results for ±600,000 datasets (2/2)</h3>
+          <img src="../img/histogram.png">
+          <small>de Rooij &amp; Beek &amp; Bloem &amp; van Harmelen &amp; Schlobach, “Are Names Meaningful? Quantifying Social Meaning on the Semantic Web” <em>ISWC</em> 2016 (to appear).</small>
+        </section>
+
+        <section>
+          <h1>LOTUS</h1>
+          <p>Natural language entry point to LOD Laundromat</p>
+          <p><b>Large-scale</b>: 4,334,672,073 natural language
+            literals</p>
+          <p><b>Configurable</b>: Filtering based on original
+            language, auto-detected language, subject, predicate, 32
+            retrieval options</p>
+          <br>
+          <small>F. Ilievski &amp; W. Beek &amp M. Van Erp &amp;
+            L. Rietveld &amp; S. Schlobach, “LOTUS: Adaptive Text
+            Search for Big Linked Data”, <em>ESWC 2016</em></small>
+        </section>
+
+        <section>
+	  <h2>Anytime Reasoning based on adding axioms</h2>
+	  <img src="../img/graphicsReasoning.png" class="blank" height="450">
+        </section>
+	
+	
+        
+
+        <section>
+          <h1>Program</h1>
+          <ul>
+            <li>09:00-09:10 Introduction round</li>
+            <li>09:10-09:40 <a href="#/linked-data-lab">Linked Data Lab</a> (presentation)</li>
+            <li>09:40-10:00 <a href="#/find-iris-with-lotus">Find IRIs with <em>LOTUS</em></a> (hands-on)</li>
+            <li>10:00-10:30 <a href="#/find-statements-with-frank">Find statements</a> (hands-on)</li>
+            <li>10:30-11:00 Coffee break</li>
+            <li>11:00-11:30 <a href="#/find-documents-with-lod-laundromat">Find documents</a> (hands-on)</li>
+            <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
+          </ul>
+        </section>
+
+        <section id="find-iris-with-lotus">
+	  <h1>Find IRIs with <em>LOTUS</em></h1>
+        </section>
+
+        <section>
+	  <center>
+            <img src="../img/lotus.svg"/ height="300">
+	  </center>
+          <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
+        </section>
+
+        <section>
+          <h3>Find ‘monkey’</h3>
+          <p><a href="http://lotus.lodlaundromat.org/retrieve?string=monkey">http://lotus.lodlaundromat.org/retrieve?string=monkey</a></p>
+        </section>
+
+        <section>
+          <h2>“Exclude blank nodes”</h2>
+          <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
+        </section>
+
+        <section>
+          <h2>Filter by subject: “Resources from OpenCyc”</h2>
+          <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
+        </section>
+
+        <section>
+          <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
+          <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
+        </section>
+
+        <section>
+          <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
+          <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
+        </section>
+
+        <section>
+          <h3>Overview of all options</h3>
+          <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
+        </section>
+
+        <section id="find-documents-with-lod-laundromat">
+	  <h2>Find documents with<br><em>LOD Laundromat</em></h2>
+        </section>
+
+        <section>
+          <h3>With resource &amp; namespace index</h3>
+          <p><a href="http://index.lodlaundromat.org">index.lodlaundromat.org</a></p>
+          <hr>
+          <h3>With SPARQL</h3>
+          <p><a href="http://lodlaundromat.org/sparql">lodlaundromat.org/sparql</a></p>
+          <hr>
+          <h3>With <em>Frank</em></h3>
+	  <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>          
+        </section>
+
+        <section>
+          <h2>Find documents by resource (index)</h2>
+          <p>“Documents with resource ‘owl:inverseFunctionalProperty’.”</p>
+          <p><a href="http://index.lodlaundromat.org/r2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23InverseFunctionalProperty">http://index.lodlaundromat.org/r2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23InverseFunctionalProperty</a></p>
+        </section>
+
+        <section>
+          <h2>Find documents by namespace (index)</h2>
+          <p>“Documents with namespace ‘owl’.”</p>
+          <p><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23</a></p>
+        </section>
+
+        <section>
+          <h2>Find documents by metadata (SPARQL)</h2>
+          <p>“Documents of size 880-900.”</p>
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            SELECT ?doc WHERE {<br>
+            &nbsp;&nbsp;?doc llo:triples ?n<br>
+            &nbsp;&nbsp;FILTER(?n &gt;= 880)<br>
+            &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
+            }
+          </p>
+          <p>(<a href="http://lodlaundromat.org/sparql/#query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+%3Fdoc+WHERE+%7B%0A++%3Fdoc+llo%3Atriples+%3Fn%0A++FILTER(%3Fn+%3E%3D+880)%0A++FILTER(%3Fn+%3C%3D+900)%0A%7D%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fsparql.backend.lodlaundromat.org&requestMethod=POST&tabTitle=&headers=%7B%7D&defaultGraph=http%3A%2F%2Flodlaundromat.org%2312&defaultGraph=http%3A%2F%2Flodlaundromat.org%23seedlist&defaultGraph=http%3A%2F%2Flodlaundromat.org%23metrics-12&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23error&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23http&outputFormat=table">link</a>)</p>
+        </section>
+
+        <section>
+          <h2>Find documents by metadata (<em>Frank</em>)</h2>
+          <p>“Documents of size 880-900.”</p>
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 110%;">
+            frank documents --minTriples 880 --maxTriples 900
+          </p>
+        </section>
+
+        <section>
+          <h2>Find documents by degree (SPARQL)</h2>
+          <p>“Documents with average in-degree 3 or higher.”
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            SELECT ?doc ?x WHERE {<br>
+            &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
+            &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
+            } LIMIT 100
+          </p>
+          <p>(<a href="http://lodlaundromat.org/sparql/#query=PREFIX+llm%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fmetrics%2Fontology%2F%3E%0ASELECT+%3Fdoc+%3Fx+WHERE+%7B%0A++%3Fdoc+llm%3Ametrics%2Fllm%3AinDegree%2Fllm%3Amean+%3Fx%0A++FILTER(%3Fx+%3E%3D+3)%0A%7D+LIMIT+100&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=http%3A%2F%2Fsparql.backend.lodlaundromat.org&requestMethod=POST&tabTitle=Query&headers=%7B%7D&defaultGraph=http%3A%2F%2Flodlaundromat.org%2312&defaultGraph=http%3A%2F%2Flodlaundromat.org%23seedlist&defaultGraph=http%3A%2F%2Flodlaundromat.org%23metrics-12&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23error&defaultGraph=http%3A%2F%2Flodlaundromat.org%2Fontology%23http&outputFormat=table">link</a>)</p>
+        </section>
+
+        <section>
+          <h2>Find documents by degree (<em>Frank</em>)</h2>
+          <p>“Documents with average in-degree 3 or higher.”
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            frank documents --minAvgInDegree 3
+          </p>
+        </section>
+
+        <section>
+          <h2>Find documents by namespace (<em>Frank</em>)</h2>
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            frank documents --namespace http://www.w3.org/2006/vcard/ns#
+          </p>
+        </section>
+
+        <section id="find-statements-with-frank">
+	  <h2>Find statements with <em>Frank</em></h2>
+	  <!--<h4>(Federated Resource Architecture for Networked Knowledge)</h4>-->
+	  <img src="../img/openDoor.png" class="blank" height="350">
+	  <p><a href="https://github.com/LOD-Laundromat/Frank">github.com/LOD-Laundromat/Frank</a></p>
+	  <small>Beek &amp; Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+        </section>
+
+        <section>
+          <h2>Without <em>Frank</em></h2>
+          <ol>
+            <li>Find a document in the index (<a href="http://index.lodlaundromat.org">index.lodlaundromat.org</a>)</li>
+            <li>Follow the Linked Data Fragments ‘Browse’ link (<img height="20" src="../img/ldf_logo.svg">)</li>
+            <li>Send a Linked Data Fragments request (subject/predicate/object)</li>
+          </ol>
+          <hr>
+          <p>Example “Info about ‘dbr:Monkey’ from one document”:</p>
+	  <p><a href="http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey">http://ldf.lodlaundromat.org/004914dbacaffe046f93277da62de337?subject=http%3A%2F%2Fdbpedia.org%2Fresource%2FMonkey</a></p>
+        </section>
+
+        <section>
+          <h2>With <em>Frank</em></h2>
+          <p>Info about ‘dbr:Monkey’ from <em>any</em> document:</p>
+	  <p style="font-family: monospace; font-size: 100%;">
+            frank statements -s dbr:Monkey
+          </p>
+          <br>
+          <div>
+            <h4>+ show the document</h4>
+	    <p style="font-family: monospace; font-size: 100%;">
+              frank statements -s dbr:Monkey <span style="color: red;">-g</span>
+            </p>
+          </div>
+        </section>
+
+
+        <section>
+          <h2>Combine multiple <em>Frank</em> calls</h2>
+          <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+            frank documents --namespace void --minTriples 1000 |<br>
+            frank statements --predicate foaf:name |<br>
+            head -n 5
+          </p>
+          <hr>
+          <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+            europa:Eurostat foaf:name "Eurostat".<br>
+            tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
+            sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
+            sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
+            sw:tom-minka foaf:name "Tom Minka".
+          </p>
+        </section>
+
+        <section>
+          <h2>Combine <em>Frank</em> with external programs</h2>
+          <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+            frank statements -p foaf:knows |<br>
+            grep last-fm | ./ntriplesToGml &gt; last-fm.gml
+          </p>
+        </section>
+
+
+        <section>
+          <h1>Program</h1>
+          <ul>
+            <li>09:00-09:10 Introduction round</li>
+            <li>09:10-09:40 <a href="#/linked-data-lab">Linked Data Lab</a> (presentation)</li>
+            <li>09:40-10:00 <a href="#/find-iris-with-lotus">Find IRIs with <em>LOTUS</em></a> (hands-on)</li>
+            <li>10:00-10:30 <a href="#/find-documents-with-lod-laundromat">Find documents</a> (hands-on)</li>
+            <li>10:30-11:00 Coffee break</li>
+            <li>11:00-11:30 <a href="#/find-statements-with-frank">Find statements</a> (hands-on)</li>
+            <li>11:30-12:30 <a href="#/discussion">The future of reasoning on the web</a> (discussion)</li>
+          </ul>
+        </section>
+
+        <section id="discussion">
+          <h2>Discussion</h2>
+          <ul>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

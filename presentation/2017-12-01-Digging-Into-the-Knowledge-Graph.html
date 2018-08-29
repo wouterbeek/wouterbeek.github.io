@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Digging Into the Knowledge Graph: LOD Workshop</title>
+    <meta name="description" content="Digging Into the Knowledge Graph: LOD Workshop">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Digging Into the Knowledge Graph</h2>
+          <hr>
+          <p>Wouter Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+          <p>December 1<sup>st</sup>, 2017</p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+
+        <section>
+          <section>
+            <h1>What is LOD?</h1>
+          </section>
+          <section>
+            <h2>Web of documents</h2>
+            <a href="../img/before_sw_conversion.png">
+              <img height="600" src="../img/before_sw_conversion.png">
+            </a>
+          </section>
+          <section>
+            <h2>Web of data / Semantic Web / LOD</h2>
+            <a href="../img/after_sw_conversion.png">
+              <img height="600" src="../img/after_sw_conversion.png">
+            </a>
+          </section>
+          <section>
+            <h2>The 5 stars of LOD</h2>
+            <a href="http://5stardata.info">
+              <img src="../img/5star.png">
+            </a>
+            <small>Source: Tim Berners-Lee
+              (<a href="http://5stardata.info">http://5stardata.info</a>)</small>
+          </section>
+          <section>
+            <h2>The 5 stars of LOD</h2>
+            <ol>
+              <li>Data is available on the Web under an open license</li>
+              <li>Data is available as structured data</li>
+              <li>Data is available in a non-proprietary open format</li>
+              <li>Data uses URIs to denote things</li>
+              <li>Data links to other data</li>
+            </ol>
+          </section>
+          <section>
+            <h2><a href="http://en.lodlive.it">LOD in practice</a></h2>
+          </section>
+          <section>
+            <h2>Infinite domains: XSD datatypes</h2>
+            <a href="../img/xsd.gif">
+              <img src="../img/xsd.gif">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Let's Publish LOD</h1>
+          </section>
+          <section>
+            <h2>Publishing LOD</h2>
+            <p>Some simple steps:</p>
+            <ol>
+              <li>Obtain or create an RDF file
+                (<a href="../data/bcc.ttl">BCC</a>, <a href="../data/udc.ttl.gz">UDC</a>)</li>
+              <li>Login at the KR&amp;R web server</li>
+              <li>Create a dataset (name, description, access,
+                upload)</li>
+              <li>Add dataset metadata (license, example)</li>
+              <li>Browse the data</li>
+              <li>Query the data</li>
+              <li>Optional: federated query
+                (<a href="../data/q1.rq">local</a>, <a href="../data/q2.rq">remote</a>)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>LOD Cloud</h1>
+          </section>
+          <section>
+            <h2>Who uses Linked Data? (1/2)</h2>
+            <center>
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">
+                  Where
+                  is <a href="https://twitter.com/hashtag/semweb?src=hash&amp;ref_src=twsrc%5Etfw">#semweb</a>
+                  / <a href="https://twitter.com/hashtag/linkeddata?src=hash&amp;ref_src=twsrc%5Etfw">#linkeddata</a>
+                  used? Challenged at work today and hoping to make a
+                  point with one tweet.
+                </p>
+                &mdash; Tim Lebo
+                (@timrdf) <a href="https://twitter.com/timrdf/status/925470421566320640?ref_src=twsrc%5Etfw">October
+                  31, 2017</a>
+              </blockquote>
+              <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">
+                  Facebook, Google, Bing, BBC, NYT, Renault,
+                  Accenture, Deloitte, Wallmart, Getty, NXP,
+                  Europeana, Springer, Elsevier, ..only
+                  140chars... <a href="https://t.co/oeMRQyDLLt">https://t.co/oeMRQyDLLt</a>
+                </p>
+                &mdash; Frank van Harmelen
+                (@FrankVanHarmele) <a href="https://twitter.com/FrankVanHarmele/status/925475076081901569?ref_src=twsrc%5Etfw">October
+                  31, 2017</a>
+              </blockquote>
+            </center>
+          </section>
+          <section>
+            <h2>Who uses Linked Data? (2/2)</h2>
+            <p>Schema.org:<p>
+            <ul>
+              <li>20M web sites</li>
+              <li>35% of pages in search index</li>
+              <li>50% of US/EU eCommerce emails</li>
+              <li>800B small graphs of ~25 statements</li>
+            </ul>
+            <small>Source: A.W.Moore &amp; R.V. Gua, Google
+              Research</small>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2014</h3>
+            <a href="../img/lod_cloud_2014.png">
+              <img src="../img/lod_cloud_2014.png" height="500">
+            </a>
+          </section>
+          <section>
+            <h3>LOD Cloud: 2017</h3>
+            <a href="../img/lod_cloud_2017.png">
+              <img src="../img/lod_cloud_2017.png" height="500">
+            </a>
+          </section>
+          <section>
+            <h2>Vocabularies</h2>
+            <h2><a href="http://lov.okfn.org/dataset/lov">LOV</a></h2>
+          </section>
+          <section>
+            <h2>Ontologies</h2>
+            <h2><a href="http://www.adampease.org/OP/">SUMO</a></h2>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>LOD Laundromat</h1>
+          </section>
+          <section>
+            <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="../img/basket.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="../img/laundry.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="../img/lod-wardrobe.png" width="200">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="../img/analysis.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="../img/labels.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="../img/laundry-line.png" width="200">
+            </a>
+            <br>
+            <small>Beek &amp; Rietveld &amp; Bazoobandi &amp;
+              Wielemaker &amp; Schlobach “LOD laundromat: A Uniform
+              Way of Publishing Other People’s Dirty
+              Data” <em>ISWC</em>, 2014.</small>
+          </section>
+          <section>
+            <h3>How generalizable is SW research?</h3>
+            <a href="../img/iswc-2014-evaluations.png">
+              <img height="300" src="../img/iswc-2014-evaluations.png">
+            </a>
+            <img height="100" src="../img/lodLab.png">
+            <small>L. Rietveld &amp; W. Beek &amp; S. Schlobach, “LOD
+              Lab: Experiments at LOD Scale”, <em>International
+                Semantic Web Conference</em>, 2015 (Best Paper
+              Award).</small>
+          </section>
+          <section>
+            <h3>Evaluation results for ±600,000 datasets</h3>
+            <a href="../img/logp_comparison_zoom_pb.png">
+              <img height="500" src="../img/logp_comparison_zoom_pb.png">
+            </a>
+            <small>De Rooij &amp; Beek &amp; Bloem &amp; Schlobach
+              &amp; Van Harmelen, ‘Are Names Meaningful?  Quantifying
+              Social Meaning on the Semantic Web’ in <em>ISWC</em>,
+              2016.</small>
+          </section>
+          <section>
+            <h2>Semantic Search Engine</h2>
+            <img src="../img/lotus_cropped.png">
+            <small>Ilievski &amp; Beek &amp Van Erp &amp; Rietveld
+              &amp; Schlobach, ‘LOTUS: Adaptive Text Search for Big
+              Linked Data’, <em>ESWC 2016.</em></small>
+          </section>
+          <section>
+            <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+            <img src="../img/pet_sounds.png">
+          </section>
+          <section>
+            <h2>
+              <a href="http://lod-a-lot.lod.labs.vu.nl">LOD-a-lot</a>
+            </h2>
+            <a href="../img/LOD-a-lot.jpg">
+              <img src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+          <section>
+            <h2>The cost of access</h2>
+            <ul>
+              <li>1 file</li>
+              <li>28,362,198,927 unique triples</li>
+              <li>&gt;650K data documents</li>
+              <li>524 GB of disk space</li>
+              <li>15.7 GB of RAM</li>
+              <li>€305,- hardware cost</li>
+            </ul>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h2>Empirical Semantics</h2>
+          </section>
+          <section>
+            <h3>bbc:sameAs</h3>
+            <h3>bbc:sameAs</h3>
+            <h3>owl:sameAs</h3>
+            <h3><a href="https://krr.triply.cc/wbeek">?</a></h3>
+          </section>
+          <section>
+            <h2>owl:sameAs has 2 meanings</h2>
+            <div style="float: left; width: 45%;">
+              <h3>Formal meaning</h3>
+              <img height="350" src="../img/barad_dur.jpg">
+              <p>$$a = b \,\longleftrightarrow\, (\forall P)(Pa = Pb)$$</p>
+            </div>
+            <div style="float: right; width: 55%;">
+              <h3>Social meaning</h3>
+              <img height="350" src="../img/babel.png">
+              <p>“Include links to other URIs, to discover more things.”</p>
+            </div>
+          </section>
+          <section>
+            <h2>Example: Identity closure</h2>
+            <p>558,943,116 <code>owl:sameAs</code> triples</p>
+            <a href="../img/identity-partitions-2.png">
+              <img src="../img/identity-partitions-2.png">
+            </a>
+          </section>
+          <section>
+            <h2>Cleaning <code>owl:sameAs</code></h2>
+            <h3>Community 1: Obama, the person</h3>
+            <pre>
+              http://als.dbpedia.org/resource/Barack_Obama
+              http://am.dbpedia.org/resource/ባራክ_ኦባማ
+              http://data.nytimes.com/obama_barack_per
+              http://nl.dbpedia.org/resource/Barack_Obama
+              http://rdf.freebase.com/ns/m.02mjmr
+              http://viaf.org/viaf/52010985
+              http://yago-knowledge.org/resource/Barack_Obama</pre>
+            <div class="fragment">
+              <h3>Community 2: Obama, the administration</h3>
+              <pre>
+                http://dbpedia.org/resource/Administration_of_Barack_Obama
+                http://dbpedia.org/resource/Barack_Obama_Cabinet
+                http://dbpedia.org/resource/Barack_Obama_presidency
+                http://rdf.freebase.com/ns/m.05b6w1g
+                http://wikidata.dbpedia.org/resource/Q1379733
+                http://yago-knowledge.org/resource/Presidency_of_Barack_Obama</pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>UDC ↔ LOD</h1>
+          </section>
+          <section>
+            <small>
+              <table>
+                <tr><th>UDC<th><th>LOD</th></tr>
+                <tr>
+                  <td>Coordination/addition (<code>+</code>)</td>
+                  <td>Concept intersection (<code>C ⊓ D</code>)</td>
+                </tr>
+                <tr>
+                  <td>Subgrouping <code>[…]</code></td>
+                  <td>Precedence</td>
+                </tr>
+                <tr>
+                  <td>Common auxiliaries of language (<code>=…</code>)</td>
+                  <td>Language tag (<code>"Բարև ձեզ"@hy-am</code>)</td>
+                </tr>
+                <tr>
+                  <td>Date/time <code>"YYYY.MM.DD"</code></td>
+                  <td>Datatype <code>xsd:dateTime</code></td>
+                </tr>
+                <tr>
+                  <td>Reduced precision<br>
+                    <code>2017-12</code></td>
+                  <td>Datatype<br>
+                    <code>"2017-12"^^xsd:gYearMonth</code></td>
+                </tr>
+                <tr>
+                  <td>Non-UDC notation (<code>*</code>)</td>
+                  <td>Vocabulary reuse, OWL import</td>
+                </tr>
+                <tr>
+                  <td>relation between 2 or more
+                    subjects (<code>:</code>)</td>
+                  <td>reification (<code>n</code>-ary relationship)</td>
+                </tr>
+                <tr>
+                  <td>Concept extension<br><code>(DUTCH) =
+                      DUTCH-SPEAKERS</code></td>
+                  
+                  <td>Range restriction<br>
+                    <code>Person ⊓ (∃ speaks.{dutch})</code></td>
+                </tr>
+                <tr>
+                  <td>Order fixing<br><code>77.04::355.4</code>, “war
+                    photography”)</td>
+                  <td>Range restriction
+                    <br><code>Photograph ⊓ (∃ subject.{war})</code></td>
+                </tr>
+              </table>
+            </small>
+          </section>
+          <section>
+            <h2>UDC features not in LOD</h2>
+            <ol>
+              <li>Order carries meaning (<code>x.y.z</code>); grouping
+                of documents; used for indexing/shelving</li>
+              <li>‘Phase’ <code>37-042.4:004</code> “use of computers
+                in education”</li>
+              <li>Distinction between common &amp; special auxiliaries
+                <ul>
+                  <li>Common: apply all classes</li>
+                  <li>Special: apply to certain classes</li>
+                </ul>
+              </li>
+              <li>Special notation for certain properties, e.g.,
+                form <code>(0…)</code>, country <code>(n…)</code></li>
+              <li>Special notation for temporal
+                ranges <code>"BEGIN/END"</code></li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <h1>Thank you!</h1>
+          <p>
+            Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>
+            <br>
+            WWW: <a href="http://wouterbeek.com">wouterbeek.com</a>
+          </p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

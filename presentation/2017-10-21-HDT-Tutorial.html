@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HDT Tutorial: LOD Laundromat</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+          }
+      });
+    </script>
+    <style>
+      .cody {
+          font-family: monospace !important;
+          font-size: 14pt !important;
+      }
+      .left {
+          left:-8.33%;
+          text-align: left;
+          float: left;
+          width:50%;
+          z-index:-10;
+      }
+      .right {
+          left:31.25%;
+          top: 75px;
+          float: right;
+          text-align: left;
+          z-index:-10;
+          width:50%;
+      }
+    </style>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="HDT Tutorial: LOD Laundromat">
+    <meta name="author" content="Wouter Beek and John Walker">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+         <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>
+            HDT Tutorial:
+            <br>
+            LOD Laundromat
+          </h1>
+          <hr>
+	        <h6>Wouter
+	          Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	          Javier
+	          Fernández <a href="mailto:javier.fernandez@wu.ac.at">javier.fernandez@wu.ac.at</a>,
+	          Ruben
+	          Verborgh <a href="mailto:ruben.verborgh@ugent.be">ruben.verborgh@ugent.be</a></h6>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="110">
+          <img src="../img/wu.jpg" height="140">
+          <img src="../img/ghent_logo.png" height="150">
+        </section>
+
+        <section>
+          <h2>Data scientists spend N% of their time on data
+            cleaning</h2>
+          <ul>
+            <li class="fragment">N = 60
+              (<a href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#5669f5816f63">Forbes</a>)</li>
+            <li class="fragment">60 ≤ N ≤ 80
+              (<a href="https://www.google.at/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwiChLb2hYHXAhULthoKHf9DAHkQFgg7MAI&url=https%3A%2F%2Fwww.ercim.eu%2Fpublication%2Fws-proceedings%2F12th-EDRG%2FEDRG12_JeDiRe.pdf&usg=AOvVaw1ifAAAQiIghnZyU7O2QPLt">ERCIM</a>)</li>
+            <!-- European Research Consortium for Informatics and
+                 Mathematics -->
+            <li class="fragment">N = 80
+              (<a href="https://www.ibm.com/blogs/bluemix/2017/08/ibm-data-catalog-data-scientists-productivity/">IBM</a>)</li>
+            <li class="fragment">N = 99
+              (<a href="https://twitter.com/BigDataBorat">@BigDataBorat</a>)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="../img/basket.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="../img/laundry.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="../img/lod-wardrobe.png" width="200">
+          </a>
+          <br>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="../img/analysis.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+            <img src="../img/labels.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/about/">
+            <img src="../img/laundry-line.png" width="200">
+          </a>
+          <br>
+          <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker
+            &amp; Schlobach “LOD laundromat: A Uniform Way of
+            Publishing Other People’s Dirty Data”, <em>International
+              Semantic Web Conference</em>, 2014.</small>
+          <small style="margin-top: 15px;">Best Linked Open Data Application Award 2015</small>
+        </section>
+
+	      <section>
+          <h2>Data cleaning</h2>
+	        <ul>
+	          <li>Character encoding issues</li>
+	          <li>Socket errors</li>
+	          <li>Protocol errors</li>
+	          <li>Corrupted archives</li>
+	          <li>Authentication problems</li>
+	          <li>Syntax errors</li>
+	          <li>Incorrect metadata</li>
+	        </ul>
+	      </section>
+
+        <section>
+          <h3>How to query &gt;30B statements (1/2)</h3>
+	        <img src="../img/sparql.svg" height="400">
+        </section>
+
+        <section>
+          <h3>How to query &gt;30B statements (2/2)</h3>
+	        <img src="../img/ldf.svg" height="400">
+          <small>Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
+            &amp; Schlobach, “Linked Data-as-a-Service: The Semantic
+            Web Redeployed”, <em>European Semantic Web
+              Conference</em>, 2015.</small>
+        </section>
+
+        <section>
+          <h2>A Future Laundromat?</h2>
+          <ul>
+            <li>More data (> 100B triples)</li>
+	          <li>Lexical forms must map to their value space</li>
+	          <li>Canonical lexical forms</li>
+	          <!-- <li>Enforce IRI grammar?</li> -->
+            <li>IRI Closure over percent encoding and HTTP(S)?</li>
+            <li>Snapshots over time</li>
+            <li>What is a dataset?</li>
+	        </ul>
+        </section>
+        
+        <section>
+          <section>
+            <h2>
+              <a href="http://purl.org/HDT/lod-a-lot">LOD-a-lot</a>
+            </h2>
+            <a href="../img/LOD-a-lot.jpg">
+              <img src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+          <section>
+            <h2>LOD-a-lot: Obtaining statistics</h2>
+            <table>
+              <tr>
+                <td>triples</td>
+                <td>28,362,198,927</td>
+              </tr>
+              <tr>
+                <td>subject</td>
+                <td>3,214,347,198</td>
+              </tr>
+              <tr>
+                <td>predicates</td>
+                <td>1,168,932</td>
+              </tr>
+              <tr>
+                <td>objects</td>
+                <td>3,178,409,386</td>
+              </tr>
+              <tr>
+                <td>subject &amp; object</td>
+                <td>1,298,808,567</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+        
+        <section>
+          <h2>Low-cost LOD access</h2>
+          <ul>
+            <li>1 file</li>
+            <li>28,362,198,927 unique triples</li>
+            <li>&gt;650K data documents</li>
+            <li>524 GB of disk space</li>
+            <!-- 304GB + 133GB index -->
+            <li>15.7 GB of RAM</li>
+            <li>€305,- hardware cost</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>
+            HDT: Go Where No SPARQL Endpoint Has Gone Before
+            <a href="http://hdt.lod.labs.vu.nl">…</a>
+          </h2>
+          <ul>
+            <li>Term enumerators</li>
+            <li>Triple enumerators</li>
+            <li>Triple pattern cardinalities</li>
+            <li>Random triples from triple pattern</li>
+            <li>Random terms (by position / by type)</li>
+            <li>Exact prefix match</li>
+          </ul>
+        </section>
+        
+        <section>
+          <section>
+            <h2>Example: Enumerating schema</h2>
+            <!--
+                select distinct ?p { ?s ?p ?o }
+                ?- predicate(P).
+              -->
+            <a href="http://lod.openlinksw.com/sparql">comparison</a>
+          </section>
+          <section>
+            <h2>Example: Identity closure</h2>
+            <p>558,943,116 <code>owl:sameAs</code> triples</p>
+            <a href="../img/identity-partitions-2.png">
+              <img src="../img/identity-partitions-2.png">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <h1>Try it out yourself</h1>
+          <ul>
+            <li><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></li>
+            <li><a href="http://purl.org/HDT/lod-a-lot">http://purl.org/HDT/lod-a-lot</a></li>
+          </ul>
+          <hr>
+	        <p>
+            Wouter
+	          Beek <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,<br>
+	          Javier
+	          Fernández <a href="mailto:javier.fernandez@wu.ac.at">javier.fernandez@wu.ac.at</a>,<br>
+	          Ruben
+	          Verborgh <a href="mailto:ruben.verborgh@ugent.be">ruben.verborgh@ugent.be</a>
+          </p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="90">
+          <img src="../img/wu.jpg" height="110">
+          <img src="../img/ghent_logo.png" height="120">
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          // Optional reveal.js plugins
+          dependencies: [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/zoom-js/zoom.js', async: true },
+              { src: 'plugin/notes/notes.js', async: true }
+          ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+              t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+          t._e = [];
+          t.ready = function(f) {
+              t._e.push(f);
+          };
+          return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

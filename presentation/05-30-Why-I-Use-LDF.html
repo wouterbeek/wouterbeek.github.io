@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Why I Use LDF (&amp; Why You Should Do So Too!)</title>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="A presentation in which I explain what I see as the main benefits of using Linked Data Fragments (LDF).">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+	<section>
+          <h1>Why I Use LDF</h1>
+          <h3>&amp; Why You Should Do So Too!</h3>
+          <h4>May 30<sup>th</sup>, 2016</h4>
+	  <h5>Wouter Beek (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h5>
+	  <a href="#">http://wouterbeek.github.io</a>
+	</section>
+
+        <section>
+          <img src="../img/photojournalism.jpg">
+        </section>
+
+        <section>
+          <section>
+            <h2>Why does not everybody use the SW all day long today?</h2>
+          </section>
+
+          <section>
+            <h1>Metcalfe's Law</h1>
+            <p class="fragment">The value of a network is proportional to the square of the number of connected nodes</p>
+          </section>
+          <section data-background="../img/metcalfe.png" data-background-size="225">
+          </section>
+          <section>
+            <img src="../img/hosts.svg" height="600">
+          </section>
+          <section>
+            <img src="../img/fb.jpg" height="600">
+          </section>
+          <section>
+            <h1>So... how many connected nodes does the SW have?</h1>
+          </section>
+          <section>
+            <img src="../img/sparqles.png" height="600">
+          </section>
+          <section>
+            <h2>Data growth is <em>exponential</em></h2>
+            <h2>SW growth is <em>linear</em></h2>
+          </section>
+          <section>
+            <h2>Allocative Efficiency</h2>
+            <div class="fragment">
+              <p>What the consumer is willing to pay should equal the marginal cost of production</p>
+            </div>
+            <img class="fragment" src="../img/sparql.svg" height="400">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>LOD Laundromat</h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="../img/basket.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="../img/laundry.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="../img/lod-wardrobe.png" width="200">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="../img/analysis.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="../img/labels.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="../img/laundry-line.png" width="200">
+            </a>
+            <br>
+            <h5><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h5>
+            <small>Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker &amp; Schlobach “LOD laundromat: A Uniform Way of Publishing Other People’s Dirty Data” <em>ISWC 2014</em></small>
+          </section>
+
+          <section>
+            <h1>LOD Laundromat stats</h1>
+            <ul>
+              <li>&gt;650K LDF endpoints</li>
+              <li>Millions of LDF queries each month</li>
+              <li>Hundreds of users</li>
+              <li>All served from disk!</li>
+            </ul>
+            <br>
+            <br>
+            <small>L. Rietveld &amp; R. Verborgh &amp; W. Beek &amp; M. Vander Sande &amp; S. Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed”, ESWC 2015</small>
+          </section>
+          
+          <section>
+            <h2>SW layer cake</h2>
+            <img height="500" src="../img/swcake.gif">
+          </section>
+          
+          <section>
+            <h2>Alt. SW layer cake</h2>
+            <img height="500" src="../img/llcake.png">
+            <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h1>Why LDF is great</h1>
+            <h4>(According to Wouter)</h4>
+          </section>
+
+          <section>
+            <h2>(1/2) Trade-off</h2>
+            <ul>
+              <li class="fragment">For many use cases, SPARQL is too difficult &amp; expensive</li>
+              <li class="fragment">LDF is single-line SPARQL</li>
+              <li class="fragment">Single-line SPARQL is easy &amp; cheap</li>
+            </ul>
+          </section>
+          <section>
+            <h2>(2/2) Honesty</h2>
+            <ul>
+              <li class="fragment">SPARQL gives you 10,000 results describing <code>dbp:London</code></li>
+              <li class="fragment">SPARQL does not tell you that 10,000 is an arbitrary restriction that is enforced by the data publisher because SPARQL is too difficult &amp; expensive</li>
+              <li class="fragment">(Luckily the data publisher did not set the limit to 67!)</li>
+              <li class="fragment">LDF tells you how many results there are (query optimization)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Current challenges</h1>
+          </section>
+          <section>
+            <h2>(1/3) Findability</h2>
+            <p>LDF ≠ dereferencing</p>
+            <p>LDF decouples naming from locating (like SPARQL)</p>
+          </section>
+          <section>
+            <h2>(2/3) Federation</h2>
+            Will federation scale to millions of endpoints?
+          </section>
+          <section>
+            <h2>(3/3) Hydra</h2>
+            <ul>
+              <li>More complicated than a ‘dumb’ API</li>
+              <li>But... benefit rises when more endpoints are queried</li>
+            </ul>
+            <img class="fragment" height="450" src="../img/hydra_benefit_curve.svg">
+          </section>
+        </section>
+        
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

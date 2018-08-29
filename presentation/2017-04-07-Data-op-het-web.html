@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Data on the Web Community Event</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Data on the Web Community Event">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Groepjes</h2>
+          <ul>
+            <li>Modulariteit van LDT: van totaaloplossing naar
+            ontvlechting</li>
+            <li>Read/write web: Semantic MediaWiki en andere
+            oplossingen</li>
+            <li>Hoe leg je LOD uit?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Wat is Linked Data?</h1>
+        </section>
+
+        <section>
+          <h3>Wikipedia</h3>
+          <blockquote>Linked data is een digitale methode voor het
+          publiceren van gestructureerde gegevens, zodanig dat deze
+          vrij beschikbaar komen op het internet en daardoor ook beter
+          bruikbaar zijn.</blockquote>
+          <p class="fragment"><a href="https://nl.wikipedia.org/w/index.php?title=Linked_data&diff=prev&oldid=48926856">edit</a></p>
+        </section>
+
+        <section>
+          <h3>PLDN</h3>
+          <blockquote>Met linked data breng je samenhang aan in
+          informatie. Linked data maakt van woorden of dingen, zoals
+          de stad ‘Den Haag’, unieke concepten. Elk concept wint aan
+          betekenis als er meer beschrijvingen aan gelinkt
+          worden. Daardoor krijgt de inhoud van webdocumenten meer
+          betekenis (context) en worden zoekresultaten nauwkeuriger
+          (relevanter).</blockquote>
+        </section>
+        
+         <section>
+          <h3>NORA</h3>
+          <blockquote>Met Linked Data hebben we vooral heel veel los
+          gelaten: We hebben het niet langer meer over databases. Ook
+          niet meer over tabellen.</blockquote>
+        </section>
+        
+        <section>
+          <h2>LOD elevator pitch</h2>
+          <ol>
+            <li class="fragment">Goedkope heterogene data integratie</li>
+            <li class="fragment">Ultieme vorm van MDM (100% hergebruik vanuit de bron)</li>
+            <li class="fragment">Near real-time BI</li>
+            <li class="fragment">URI habet ergo sum</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>LOD Stappenplan (PLDN)</h2>
+          <ul>
+            <li class="fragment">Step 1: Select data</li>
+            <li class="fragment">Step 2: Prepare the data</li>
+            <li class="fragment">Step 3: Model the data</li>
+            <li class="fragment">Step 4: Define a naming scheme</li>
+            <li class="fragment">Step 5: Convert the data</li>
+            <li class="fragment">Step 6: Organize Governance</li>
+            <li class="fragment">Step 7: Add metadata</li>
+            <li class="fragment">Step 8: Publish the data</li>
+            <li class="fragment">Step 9: Link the data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>LOD Stappenplan (Ordina)</h2>
+          <a href="ordina.jpg"><img src="ordina.jpg"></a>
+        </section>
+        
+        <section>
+          <h2>LOD TODO</h2>
+          <ul>
+            <li>Read/write web</li>
+            <li>Educational material &amp; elevator pitch</li>
+            <li>User Interface (UI) &amp; User eXperience (UX)</li>
+            <li>Data streaming</li>
+            <li>Privacy, provenance, quality &amp; trust</li>
+            <li>Open + non-Open data</li>
+            <li>Entity linking</li>
+            <li>Online &amp; offline world (IoT, geodata)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Data on the Web Community Event</h2>
+          <!--
+          <br>
+	  <h5>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+          -->
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+          <!--<img src="../img/triply.svg" height="150">-->
+        </section>
+
+        <section>
+          <section>
+            <h2>YASGUI (Laurens)</h2>
+            <p><a href="http://yasgui.org/">YASGUI</a> (<a href="https://github.com/OpenTriply/YASGUI">Github</a>)</p>
+            <p><a href="http://static.triply.cc/sparql/">SPARQL Stories</a></p>
+          </section>
+          <section>
+            <h2>grlc (Laurens)</h2>
+            <p><a href="http://grlc.io/">grlc</a></p>
+          </section>
+        </section>
+
+        <section>
+          <h2>LD-R (Ali)</h2>
+          <p><a href="http://demo.ld-r.org/">LD-R</a></p>
+          <p><a href="https://kadaster.triply.cc/">Kadaster FacetCheck</a></p>
+        </section>
+        
+        <section>
+          <h2>Sustainability pitfalls</h2>
+          <ul>
+            <li>Developsment stalls (FOSS)</li>
+            <li class="fragment">Breaking changes without upgrade path (FOSS)</li>
+            <li class="fragment">Vendor lock-in</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Sustainability solutions</h2>
+          <ul>
+            <li>Be part of the FOSS community (e.g. hdt-cpp)</li>
+            <li class="fragment">Be part of the LOD community (e.g. PLDN)</li>
+            <li class="fragment">Support contract</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Sustainable development</h2>
+          <ul>
+            <li>Continuous Integration (CI)</li>
+            <li class="fragment">Regression tests &amp; unit tests</li>
+            <li class="fragment">Modularity (<a href="https://github.com/OpenTriply">bijv.</a>)</li>
+            <li class="fragment">Container “a box that works” (e.g. Docker)</li>
+            <li class="fragment">Instant utility (out-of-the-box)</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <img src="../img/kadaster.jpg" height="200">
+            <h2>Properties of Cadastral Big Data</h2>
+            <ul>
+              <li>Over 1,000,000,000 graph edges</li>
+              <li>Over 100,000,000 geo shapes</li>
+              <li>Precision</li>
+              <li>Performance</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Implementations of GeoSPARQL</h2>
+            <a href="../img/geosparql.png">
+              <img src="../img/geosparql.png">
+            </a>
+          </section>
+          
+          <section>
+            <h2>GeoSPARQL: Executive summary</h2>
+            <ol>
+              <li class="fragment">Only few implementations to choose
+                from.</li>
+              <li class="fragment">FOSS implementations do not
+                perform.</li>
+              <li class="fragment">Commercial vendors cannot deliver
+                an open endpoint.</li>
+              <li class="fragment">Commercial solutions do not work
+                out-of-the-box.</li>
+            </ol>
+          </section>
+          
+          <section>
+            <h3>“Nobody has complained about this before”</h3>
+            <a class="fragment" href="../img/delft.png">
+              <img src="../img/delft.png">
+            </a>
+            <a class="fragment" href="../img/lodlaundromat_home.png">
+              <img src="../img/lodlaundromat_home.png">
+            </a>
+          </section>
+        </section>
+        
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

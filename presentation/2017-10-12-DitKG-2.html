@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Digging Into the Knowledge Graph</title>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="Digging Into the Knowldge Graph">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      h1, h2, h3, h4, h5 { text-transform: none !important;}
+      figure { float: left; height: 150px; margin: 55px !important; width: 150px; }
+      figure figcaption { font-size: 20px !important; }
+      html.img-right { position: relative; margin: 0% 20% 0% 20%; max-height: 900px; max-width: 900px; }
+      sup { font-size: 40pt !important; }
+      .snippet { font-family: monospace; font-size: 90%; text-align: center; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h2>Digging Into the Knowledge Graph</h2>
+          <h3>Infrastructure</h3>
+          <br>
+          <h5>October 12<sup>th</sup>, 2017</h5>
+	        <h5>Wouter Beek
+	          (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h5>
+	        <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+
+        <section>
+          <section>
+            <h2>The global Knowledge Graph is <em>diverse</em></h2>
+          </section>
+          <section data-background-image="../img/lod_cloud_2017.png"
+                   data-background-size="contain">
+          </section>
+          <section>
+            <a href="../img/lod_cloud_2017.png">
+              <img height="650" src="../img/lod_cloud_2017.png">
+            </a>
+          </section>
+        </section>
+        
+        <section>
+          <section>
+            <h2>The global Knowledge Graph is diverse</h2>
+            <ul>
+              <li>Folksonomies</li>
+              <ul>
+                <li>SHOE, Microformats/Microdata/RSS</li>
+                <li>Schema.org</li>
+                <li>SKOS</li>
+              </ul>
+              <li>Frame languages</li>
+              <ul>
+                <li>KL-ONE, LOOM</li>
+                <li>KIF, SUO-KIF</li>
+              </ul>
+              <li>Formal languages</li>
+              <ul>
+                <li>CycL, DAML+OIL</li>
+                <li>Common Logic, RDF/OWL/RIF</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2>This divesity is needed</h2>
+            <ul>
+              <li>Loose structure (Schema.org,SKOS)</li>
+              <li>Facts (RDFS,OWL)</li>
+              <li>Rules (RIF,KIF)</li>
+              <li>Example: <a href="http://dbpedia.org/describe/?url=http%3A%2F%2Fdbpedia.org%2Fresource%2FBoiling&distinct=1&p=4&sid=3544&lp=3&first=&op=2&gp=4">boiling water in RDF/OWL</a></li>
+              <li>Example: <a href="http://sigma.ontologyportal.org:8080/sigma/Browse.jsp?flang=SUO-KIF&lang=EnglishLanguage&kb=SUMO&term=Boiling">boiling water in SUO-KIF</a></li>
+            </ul>
+          </section>
+          <section>
+            <h3>The Knowledge Graph is (even more) diverse</h3>
+            <ul>
+              <li>Authority files</li>
+              <li>Prototypes</li>
+              <li>Thesauri</li>
+              <li>Taxonomies</li>
+              <li>Topic maps</li>
+              <li>Typology</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Tap Into the Knowledge Graph</h2>
+          <ul>
+            <li><a href="http://lov.okfn.org/dataset/lov/">LOV</a>,
+              <a href="https://datahub.io">Datahub</a> (RDF/OWL)</li>
+            <li><a href="https://github.com/gruninger/colore/tree/master/ontologies">COLORE</a> (CL)</li>
+            <li><a href="http://www.adampease.org/OP/">SUMO/MILO</a>
+              (SUO-KIF)</li>
+            <li><a href="https://ontohub.org/bfo">BFO</a></li>
+            <li>Cyc</li>
+            <li>DOLCE</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="../img/basket.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="../img/laundry.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="../img/lod-wardrobe.png" width="200">
+          </a>
+          <br>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="../img/analysis.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+            <img src="../img/labels.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/about/">
+            <img src="../img/laundry-line.png" width="200">
+          </a>
+        </section>
+
+        <section>
+          <section data-background-image="../img/LOD-a-lot.jpg"
+                   data-background-size="contain">
+          </section>
+          <section>
+            <a href="../img/LOD-a-lot.jpg">
+              <img height="650" src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <h2>Current indexing approaches</h2>
+          <p>Example: <a href="http://lov.okfn.org/dataset/lov/terms?q=boiling">boiling water in LOV</a>:</p>
+          <ul>
+            <li>No quantification of (re)use.</li>
+            <li>No compositionality: boiling ⊕ water</li>
+            <li>No understanding of the encoded knowledge (e.g.,
+              subsumption relation)</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Indexing dimensions</h2>
+            <ul>
+              <li>versions</li>
+              <li>size</li>
+              <li>(re)use</li>
+              <li>distribution</li>
+              <li>naming</li>
+              <li>structure</li>
+              <li>expressiveness</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Example: naming</h3>
+            <h4>Descriptivism (Schema.org)</h4>
+            <pre>
+&lt;div vocab="http://schema.org/" typeof="Movie"&gt;
+  &lt;h1 property="name"&gt;Avatar&lt;/h1&gt;
+  &lt;div property="director" typeof="Person"&gt;
+    Director: &lt;span property="name"&gt;James Cameron&lt;/span&gt;
+    (born &lt;time property="birthDate" datetime="1954-08-16"&gt;August 16, 1954&lt;/time&gt;)
+  &lt;/div&gt;
+  &lt;span property="genre"&gt;Science fiction&lt;/span&gt;
+  &lt;a href="../movies/avatar-theatrical-trailer.html" property="trailer"&gt;Trailer&lt;/a&gt;
+&lt;/div&gt;
+            </pre>
+            <h4>Rigid designation (RDF/OWL)</h4>
+            <code>http://www.imdb.com/title/tt0499549/</code>
+          </section>
+        </section>
+
+        <section>
+          <h2>Make it affordable to archive KOS</h2>
+          <p>We need to significantly lower the cost of storing and
+            disseminating structured data.</p>
+          <p><em>LOD-a-lot</em>:
+            <a href="http://purl.org/HDT/lod-a-lot">
+              http://purl.org/HDT/lod-a-lot
+            </a>
+          </p>
+        </section>
+          
+        <section>
+          <h1>Thank you!</h1>
+          <p>
+            Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>
+            <br>
+            WWW: <a href="http://wouterbeek.com">wouterbeek.com</a>
+          </p>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+        
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

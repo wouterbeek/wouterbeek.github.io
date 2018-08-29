@@ -1,0 +1,102 @@
+            <a href="http://sparqles.ai.wu.ac.at/">sparqles.ai.wu.ac.at</a>
+            <small>P. Vandenbussche &amp; J. Umbrich &amp; L. Matteis
+              &amp; A. Hogan &amp; C. Buil-Aranda, “SPARQLES:
+              Monitoring public SPARQL endpoints”, <em>Semantic Web
+              Journal</em>, prepublication.</small>
+        <section>
+          <section>
+            <h1>[2] Web-Scale Data Quality</h1>
+          </section>
+          <section>
+            <h3>Web-Scale Data Quality Improvement</h3>
+            <a href="../img/ltag_before.png">
+              <img height="550" src="../img/ltag_before.png">
+            </a>
+          </section>
+          <section>
+            <h3>Web-scale Data Quality Improvement</h3>
+            <a href="../img/ltag_after.png">
+              <img height="500" src="../img/ltag_after.png">
+            </a>
+            <small>W. Beek &amp; F. Ilievski &amp; J. Debattista &amp;
+              S. Sclobach &amp; J. Wielemaker, “<em>Literally</em>
+              Better: Analyzing and Improving the Quality of
+              Literals”, to appear in <em>Semantic Web
+              Journal</em>.</small>
+          </section>
+          <section>
+            <h3>Web-scale Data Quality Improvement</h3>
+            <a href="../img/dhier.png">
+              <img height="550" src="../img/dhier.png">
+            </a>
+          </section>
+        </section>
+          <section>
+            <h3>Reproducibility &amp; generalizability</h3>
+            <ul>
+              <li class="fragment">Data cleaning is largely manual</li>
+              <li class="fragment">Data cleaning effort is linear in
+                terms of the number of datasets</li>
+              <li class="fragment">High cost per evaluation,
+                disincentivizing reproducibility</li>
+              <li class="fragment">High cost per dataset,
+                disincentivizing generalizability</li>
+            </ul>
+          </section>
+	        <section>
+            <h2>Linked Data [1/3]</h2>
+	          <img src="../../resource/img/linked-data/1.png">
+	        </section>
+	        <section>
+            <h2>Linked Data [2/3]</h2>
+	          <img src="../../resource/img/linked-data/2.png">
+	        </section>
+	        <section>
+            <h2>Linked Data [3/3]</h2>
+	          <img src="../../resource/img/linked-data/3.png">
+	        </section>
+          <section>
+            <h2>How much Linked Data is there?</h2>
+            <ul>
+              <li>44.2B statements from Microdata, Embedded JSON-LD,
+                RDFa and Microformats (5.6M PLDs)
+                [<em>WebDataCommons</em>].</li>
+              <li>Millions of data documents containing at least 100B
+                statements</li>
+              <li>~600 SPARQL endpoints [<em>Sparqles</em>]</li>
+              <li>We know there is <em>much</em> more out there</li>
+            </ul>
+          </section>
+        </section>
+            <section>
+              <h3>Close the SPARQL/API gap (1/2)</h3>
+              <pre><code>
+                  > GET /geoInfo?country=Nederland
+                  > Accept: application/json
+                  > Host: https://example.com
+
+                  {
+                  "capital": "Amsterdam",
+                  "provinces": ["Limburg","Brabant",…],
+                  "population": 16000000
+                  }
+              </code></pre>
+              <p>That's a nice Web API!</p>
+            </section>
+
+            <section>
+              <h3>Close the SPARQL/API gap (2/2)</h3>
+              <pre><code>
+                  SELECT ?country
+                  PROJECTION {
+                  "capital": ?capital,
+                  "provinces": [?province],
+                  "population": ?population
+                  } WHERE {
+                  ?country def:hasCapital ?capital ;
+                  def:hasProvince ?province ;
+                  def:hasPopulation ?population .
+                  }
+              </code></pre>
+              <p>It's actually SPARQL…</p>
+            </section>

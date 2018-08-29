@@ -1,5 +1,7 @@
 prefix ll: <https://lodlaundromat.org/def/>
-select (replace(?documents,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?documents) {
+select
+  (replace(?documents,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?documents)
+{
   {
     select (count(?document) as ?documents) {
       ?document ll:quadruples ?quadruples; ll:triples ?triples.

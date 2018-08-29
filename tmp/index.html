@@ -1,0 +1,403 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>LOD Laundromat (archival package 2016/06)</title>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>LOD Laundromat (archival package 2016/06)</h1>
+        <p>
+          <em>
+            This is a stub for the LOD Laundromat archival package
+            2016/06.  The actual data is published in DANS's Dark
+            Archive.
+          </em>
+        </p>
+      </header>
+      <section>
+        <h2>Abstract</h2>
+        <p>
+          The LOD Laundromat Archival Package contains a snapshot of
+          the LOD Laundromat data collection, itself a snapshot of the
+          so-called Linked Open Data (LOD) Cloud.  The LOD Laundromat
+          is a framework that provides access to a large subset of LOD
+          that can be found, scraped and cleaned at a given moment.
+          LOD documents that are scraped are automatically cleaned
+          (thus the washing machine metaphor) and converted to a
+          standards-compliant format (i.e., gzipped
+          N-Triples/N-Quads).  The data cleaning process includes
+          removing ‘stains’ such as syntax errors, duplicate
+          statements, blank nodes and more.
+        </p>
+      </section>
+      <section>
+        <h2>Contents of this archive</h2>
+        <p>
+          The LOD Laundromat data collection is comprised of LOD
+          documents.  Each LOD document has a unique name that
+          consists of a 32-character long MD5 hash code.  For each
+          document, the LOD Laundromat stores a data file if some data
+          remained after cleaning.  For each document, the LOD
+          Laundromat stores metadata about the crawling and cleaning
+          process.  The metadata also contains metrics that are
+          calculated about the data, if any.
+        </p>
+        <p>
+          It regularly occurs that a LOD document that is scraped by
+          the LOD Laundromat is completely empty.  It also regularly
+          occurs that the document only contains syntactically
+          malformed data.  In such circumstances there is no data
+          file.  The metadata file is always present, since it
+          describes where the empty/buggy document was downloaded
+          from, which errors were encountered while cleaning it,
+          etc.
+        </p>
+        <p>The archive is structured as follows:</p>
+        <ul>
+          <li>
+            The archive consists of a single file
+            called <tt>lodlaundromat.tar</tt>.  This is a TAR archive
+            file.  TAR is a POSIX-compliant software utility for
+            collecting many files into one file.
+          </li>
+          <li>
+            The TAR file contains a file called <tt>index.html</tt>.
+            This file contains a human-readable description of the
+            archival package.  The file is formatted in HTML5.  This
+            is the file that you are currently reading.
+          </li>
+          <li>
+            The TAR file contains a file called <tt>VoID.ttl</tt>.
+            This file contains a machine-readable description of the
+            archival package.  The file is formatted in Turtle 1.1, a
+            standardized RDF serialization format.
+          </li>
+          <li>The TAR file contains a directory called <tt>img</tt>
+            that contains images linked to within the readme file.
+            These images are in the JPG or JPEG format.</li>
+
+          <li>The TAR file contains 256 directories called <tt>00</tt>
+            through <tt>ff</tt>, i.e., all 2-character long
+            hexadecimal strings.  These are the first two characters
+            of the MD5 document names.  Each of these directories
+            contains the following:</li>
+
+          <ul>
+
+            <li>A list of subdirectories whose name consists of 32
+              hexadecimal characters, i.e., the full MD5 document
+              names.  The first two characters are the same as the two
+              hexadecimal characters that appear in the name of the
+              enclosing directory.  Each subdirectory contains the
+              following:</li>
+
+            <ul>
+
+              <li>A file called <tt>meta.nq.gz</tt> containing the
+                metadata about the LOD document identified by the MD5
+                hash.  The <tt>nq</tt> extension indicates that this
+                file is serialized according to the N-Quads 1.1
+                grammar.  This is one of the standardized grammars for
+                serializing LOD or RDF data.  The <tt>gz</tt>
+                extension indicates that this file is compressed using
+                gzip, an Open Source file format and software
+                application used for file compression and
+                decompression.</li>
+
+              <li>A file called <tt>data.nq.gz</tt> containing the
+                data, if any, that remained after cleaning the LOD
+                document identified by the MD5 hash.</li>
+
+            </ul>
+
+          </ul>
+
+        </ul>
+
+        <p>The overall structure of the archive file is as
+          follows:</p>
+
+        <pre>
+          lodlaundromat.tar
+          | - index.html
+          | - VoID.ttl
+          | - img
+          |   | - basket.png
+          |   | - homepage.png
+          |   ...
+          | - 00
+          |   | - 000a145bb345
+          |   |   | - data.nq.gz
+          |   |   | - meta.nq.gz
+          |   | - 00189394dd34
+          |   |   | - meta.nq.gz
+          |   | - 00aaa45353e3
+          |   |   | - data.nq.gz
+          |   |   | - meta.nq.gz
+          |   |   ...
+          |   ...
+          | - 01
+          |   ...
+          | - ff
+          |   |- ff12a3333
+          |   |  | - meta.nq.gz
+          |   ...
+          ...
+        </pre>
+      </section>
+
+      <section>
+
+        <h2>About LOD Laundromat</h2>
+
+        <p>In this section we explain briefly what LOD Laundromat is,
+          how it came into being, how it collects data, and where you
+          can find more information about it.</p>
+        
+        <h3>LOD Laundromat</h3>
+
+        <p> The LOD Laundromat was created by Wouter Beek, Laurens
+          Rietveld and Stefan Schlobach in 2014.  We submitted the
+          first version to the International Semantic Web Conference
+          (ISWC) 2014.  The publication is:</p>
+
+        <blockquote>
+          
+          <p>Beek, W. & Rietveld, L. & Bazoobandi, H.R. & Wielemaker,
+            J. & Schlobach, S. “LOD Laundromat: A Uniform Way of
+            Publishing Other People's Dirty Data” In: <i>Proceedings
+              of the International Semantic Web Conference (ISWC)
+              2014</i>.</p>
+
+          <p>It is widely accepted that proper data publishing is
+            difficult. The majority of Linked Open Data (LOD) does not
+            meet even a core set of data publishing
+            guidelines. Moreover, datasets that are clean at creation,
+            can get stains over time. As a result, the LOD cloud now
+            contains a high level of dirty data that is difficult for
+            humans to clean and for machines to process.</p>
+
+          <p>Existing solutions for cleaning data (standards,
+            guidelines, tools) are targeted towards human data
+            creators, who can (and do) choose not to use them. This
+            paper presents the LOD Laundromat, which removes stains
+            from data without any human intervention. This fully
+            automated approach is able to make very large amounts of
+            LOD more easily available for further processing, <i>right
+              away</i>.</p>
+
+          <p>The LOD Laundromat is not a new dataset, but rather a
+            uniform point of entry to a collection of cleaned siblings
+            of existing datasets. It provides researchers and
+            application developers a wealth of data that is guaranteed
+            to conform to a specified set of best practices, thereby
+            greatly improving the chance of data actually being
+            (re)used.</p>
+          
+        </blockquote>
+
+        <p>The <em>entire</em> crawl, initiated by this first version
+          of the LOD Laundromat and iteratively updated throughout
+          most of 2015, is part of this archival package.  All crawled
+          documents in this packages were taken from the LOD
+          Laundromat data collection ‘as is’ in 2016-06.</p>
+        
+        <h3>LOD Laundromat + LDF + HDT</h3>
+        
+        <p>In the start of 2015 we collaborated with Ruben Verborgh
+          and Miel Vander Sande from the iMinds research group in
+          Ghent to add their innovative Linked Data Fragments (LDF)
+          technology to the online version of the LOD Laundromat.
+          These online Web Services allowed the entire LOD Laundromat
+          data collection to be queried at the level of Basic Graphs
+          Patterns (as defined in SPARQL 1.1).  The LDF Web API relies
+          on Header Dictionary Triples (HDT) as a back-end.  These
+          online services are, due to their online nature, not
+          included in this archival package.
+          If <a href="https://en.wikipedia.org/wiki/Isidore_of_Seville">Saint
+            Isidore</a>, who is the Catholic patron of the Internet,
+          takes our prayers then these Web Services may still be
+          online when you read this; over
+          at <a href="http://lodlaundromat.org/wardrobe">http://lodlaundromat.org/wardrobe</a>
+          The seminal papers about LDF and HDT are:</p>
+
+        <ul>
+          
+          <li>Fernández, J.D. & Martínez-Prieto, M.A. & Gutiérrez,
+            C. & Polleres, A. & Ariasa, M.  “Binary RDF Representation
+            for Publication and Exchange (HDT)” In: <i>Web Semantics:
+              Science, Services and Agents on the World Wide Web</i>,
+            Vol. 19, pp. 22-41.<li>
+            
+          <li>Verborgh, R. & Hartig, O. & De Meester, B. &
+            Haesendonck, G. & De Vocht, L. & Vander Sande, M. &
+            Cyganiak, R. & Colpaert, P. & Mannens, E. & Van de Walle,
+            R.  “Querying Datasets on the Web with High Availability”
+            In: <i>Proceedings of the International Semantic Web
+              Conference (ISWC) 2014</i>.</li>
+          
+        </ul>
+
+        <p>The work that was the result of our collaboration with the
+          iMinds group was published as:</p>
+
+        <blockquote>
+
+          <p>Rietveld, L. & Verborgh, R. & Beek, W. & Vander Sande,
+            M. & Schlobach, S.  “Linked Data-as-a-Service: The
+            Semantic Web Redeployed” In: <i>The Semantic Web. Latest
+              Advances and New Domains</i> Vol. 9088 of the series
+            Lecture Notes in Computer Science, pp. 471-487, 2015.</p>
+
+          <p>Ad-hoc querying is crucial to access information from
+            Linked Data, yet publishing queryable RDF datasets on the
+            Web is not a trivial exercise. The most compelling
+            argument to support this claim is that the Web contains
+            hundreds of thousands of data documents, while only 260
+            queryable SPARQL endpoints are provided. Even worse, the
+            SPARQL endpoints we do have are often unstable, may not
+            comply with the standards, and may differ in supported
+            features. In other words, hosting data online is easy, but
+            publishing Linked Data via a queryable API such as SPARQL
+            appears to be too difficult. As a consequence, in
+            practice, there is no single uniform way to query the LOD
+            Cloud today. In this paper, we therefore combine a
+            large-scale Linked Data publication project (LOD
+            Laundromat) with a low-cost server-side interface (Triple
+            Pattern Fragments), in order to bridge the gap between the
+            Web of downloadable data documents and the Web of live
+            queryable data. The result is a repeatable, low-cost,
+            open-source data publication process. To demonstrate its
+            applicability, we made over 650,000 data documents
+            available as data APIs, consisting of 30 billion
+            triples.</p>
+          
+        </blockquote>
+        
+        <h3>LOD Lab</h3>
+
+        <p>In 2015 we decided to do something useful with the LOD
+          Laundromat data collection (the same one that is included in
+          this archival package).  We noticed that State-of-the-Art
+          research papers in our field were evaluating their
+          algorithms on only a handful of dataset.  We decided to
+          rerun three research evaluations that have been published in
+          2014 and 2015, but now over the 650K data documents that
+          were in LOD Laundromat.  We submitted the results to ISWC
+          2015 ad were very happy to received the Best Research Paper
+          Award for our work.  This is the paper:</p>
+
+        <blockquote>
+
+          <p>Rietveld, L. & Beek, W. & Schlobach, S.  “LOD Lab:
+            Experiments at LOD Scale” In: <i>The Semantic Web - ISWC
+              2015</i>, Vol. 9367 of the series Lecture Notes in
+            Computer Science, pp. 339-355, 2015</p>
+
+          <p>Contemporary Semantic Web research is in the business of
+            optimizing algorithms for only a handful of datasets such
+            as DBpedia, BSBM, DBLP and only a few more. This means
+            that current practice does not generally take the true
+            variety of Linked Data into account. With hundreds of
+            thousands of datasets out in the world today the results
+            of Semantic Web evaluations are less generalizable than
+            they should and — this paper argues — can be. This paper
+            describes LOD Lab: a fundamentally different evaluation
+            paradigm that makes algorithmic evaluation against
+            hundreds of thousands of datasets the new norm. LOD Lab is
+            implemented in terms of the existing LOD Laundromat
+            architecture combined with the new open-source programming
+            interface <i>Frank</i> that supports Web-scale evaluations to be
+            run from the command-line. We illustrate the viability of
+            the LOD Lab approach by rerunning experiments from three
+            recent Semantic Web research publications and expect it
+            will contribute to improving the quality and
+            reproducibility of experimental work in the Semantic Web
+            community. We show that simply rerunning existing
+            experiments within this new evaluation paradigm brings up
+            interesting research questions as to how algorithmic
+            performance relates to (structural) properties of the
+            data.</p>
+
+        </blockquote>
+
+      </section>      
+
+      <section>
+
+        <h2>Impression</h2>
+        
+        <p>In this section we give an expression of how the LOD
+          Laundromat Web Service looks like.  This Web Service is not
+          part of this archive package, but it does contain the same
+          data and metadata contents.</p>
+
+        <figure>
+
+          <img src="img/homepage.png" width="600">
+
+          <figcaption>Figure 1. The homepage of the LOD Laundromat,
+            showing the number of currently crawled and cleaned ground
+            statements.</figcaption>
+
+        </figure>
+
+        <figure>
+          <img src="img/basket.png" width="600">
+          <figcaption>Figure 2. The LOD Basket, where new data sources
+            can be added to the LOD Laundromat.  This is can either be
+            done by submitting a URL to an online file or by uploading
+            a local file.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/wardrobe.png" width="600">
+          <figcaption>Figure 4. The LOD Wardrobe, where clean data can
+            be downloaded in a uniform, standards-compliant format.
+            This is also where data document-specific Web Services
+            such as Linked Data Fragments (LDF) can be
+            accessed.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/metadata.png" width="600">
+          <figcaption>Figure 5. The SPARQL editor that disseminates
+            the metadata describing the crawling and cleaning process,
+            as well as metrics that are calculated over the cleaned
+            data (e.g., structural graph properties).</figcaption>
+        </figure>
+        <figure>
+          <img src="img/widgets.png" width="600">
+          <figcaption>Figure 6. A couple of web widgets that show LOD
+            Cloud-wide properties of the LOD Laundromat data
+            collection.  For instance, one widget shows the
+            distribution of RDF serialization formats encountered;
+            another one shows the difference between the reported
+            content length (according to the
+            HTTP <tt>Content-Length</tt> field) and the actual content
+            length.</figcaption>
+        </figure>
+        <section>
+          <h2>Thanks!</h2>
+          <p>While building the LOD Laundromat we received a lot of help
+            from Jan Wielemaker.  He is the creator of SWI-Prolog, the
+            programming language in which the LOD Washing Machine was
+            written.  During the early stages of development we received
+            a lot of useful feedback from Hamid Bazoobandi, who was our
+            first user and who recognized very early on how an
+            infrastructure like LOD Laundromat could ease the Linked
+            Open Data publication and processing pipeline.  We have
+            received useful feedback from so many of our colleagues that
+            we cannot reasonable mention them all in this document.  We
+            do want to briefly mention Frank van Harmelen and Rinke
+            Hoekstra who provided senior supervision while Stefan
+            instilled his thoughtful arrogance in us.</p>
+        </section>
+        <footer>
+          <p>
+            This readme file was written
+            by <a href="mailto:me@wouterbeek.com">Wouter Beek</a>
+            on <time>2016-06-22</time>.
+          </p>
+        </footer>
+  </body>
+</html>

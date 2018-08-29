@@ -1,0 +1,7 @@
+prefix def: <http://na.metamatter.nl/NadereToegangen/ontology/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?film ?length {
+  ?film def:mediumLength ?string.
+  bind(xsd:float(replace(?string," meter$","")) as ?length)
+}
+limit 10

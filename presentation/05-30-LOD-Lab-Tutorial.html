@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOD Lab - ESWC 2016 Tutorial</title>
+    <script type="text/javascript" async
+	    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <meta name="description" content="A presentation on the Emprirical Turn in KR.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>LOD Lab Tutorial</h1>
+          <h3>May 30<sup>th</sup>, 2016</h3>
+	  <h4>Wouter Beek &amp; Javier Fernández &amp; Michael Lauruhn &amp; Filip Ilievski</h4>
+        </section>
+
+        <section>
+          <p style="font-family: monospace; font-size: 90%; text-align: center; width: 100%;">
+            frank statements -p foaf:knows |<br>
+            grep last-fm | nt2gml &gt; last-fm.gml
+          </p>
+          <img height="600" src="../img/lastfm_foaf_knows.png">
+        </section>
+
+        <section>
+          <h1>Program</h1>
+          <ul>
+            <li>14:00-14:10 Introduction round</li>
+            <li>14:10-14:30 <em>LOD Lab</em> (presentation)</li>
+            <li>14:30-14:50 Find IRIs with <em>LOTUS</em> (hands-on)</li>
+            <li>14:50-15:00 break</li>
+            <li>15:00-15:20 Scalable storage with <em>HDT</em> (presentation)</li>
+            <li>15:20-15:40 Find statements with <em>HDT</em>, <em>LDF</em> and <em>Frank</em></li>
+            <li>15:40-15:50 break</li>
+            <li>15:50-16:10 Reproducibility (presentation)</li>
+            <li>16:10-16:40 Find docs with <em>LOD Laundromat</em> (hands-on)</li>
+            <li>16:40-17:00 Future infra for LOD evaluations (discussion)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Introduction round</h3>
+          <div>Javier Fernández</div>
+          <img src="../img/wu.jpg" height="100">
+          <div>Michael Lauruhn</div>
+          <img src="../img/elsevier_logo.png" height="150">
+          <div>Wouter Beek &amp; Filip Ilievski</div>
+          <img src="../img/vu-krr-logo-print-600dpi.png" height="90">
+        </section>
+
+	<section>
+          <h1><em>LOD Lab</em> overview</h1>
+        </section>
+        
+	<section>
+	  <section>
+	    <h1>Find IRIs with <em>LOTUS</em></h1>
+	    <center>
+              <img src="../img/lotus.svg"/ height=300>
+	    </center>
+            <h3><a href="http://lotus.lodlaundromat.org/">lotus.lodlaundromat.org</a></h3>
+          </section>
+
+          <section>
+            <h3>Find ‘monkey’</h3>
+            <p><a href="http://lotus.lodlaundromat.org/retrieve?string=monkey">http://lotus.lodlaundromat.org/retrieve?string=monkey</a></p>
+          </section>
+          
+          <section>
+            <h2>“Exclude blank nodes”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true</a>
+            <br>
+            <h2>Filter by subject: “Only OpenCyc subjects”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org</a>
+          </section>
+          
+          <section>
+            <h2>Filter by predicate: “Exclude predicates containing ‘label’)”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label</a>
+            <br>
+            <h2>Filter by language tag: “Only literals with ‘en’ tag”</h2>
+            <a href="http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en">http://lotus.lodlaundromat.org/retrieve?string=monkey&noblank=true&subject=sw.opencyc.org&predicate=NOT%20label&langtag=en</a>
+          </section>
+
+          <section>
+            <h3>Overview of all options</h3>
+            <a href="http://lotus.lodlaundromat.org/docs">http://lotus.lodlaundromat.org/docs</a>
+          </section>
+        </section>
+
+        <section>
+          <h1>Header Dictionary Triples (HDT)</h1>
+          <h2>Scalable storage &amp; querying</h2>
+        </section>
+        
+	<section>
+	  <section>
+	    <h1>Find statements with <em>HDT</em>, <em>LDT</em> and <em>Frank</em></h1>
+	  </section>
+          
+          <section>
+            <h3>Sustainable querying with <em>HDT</em> &amp; <em>LDF</em></h3>
+            <div style="width: 1100px;">
+              <div style="float:left;">
+                <img src="../img/sparql.svg" height="250">
+              </div>
+              <div style="float:right;">
+                <img src="../img/ldf.svg" height="250">
+              </div>
+            </div>
+            <small>L. Rietveld &amp; R. Verborgh &amp; W. Beek &amp; M. Vander Sande &amp; S. Schlobach, “Linked Data-as-a-Service: The Semantic Web Redeployed”, ESWC 2015</small>
+          </section>
+          
+	  <section>
+            <h1>Authority</h1>
+	    <h4>AAA: Anyone can say anything about anything</h4>
+            <small>W. Beek &amp; L. Rietveld &amp; S. Schlobach &amp; F. Van Harmelen, “LOD Laundromat: Why the Semantic Web Needs Centralization (Even If We Don't Like It)”, <em>IEEE Internet Computing</em>, 20 (2), p.78-81, 2016</small>
+          </section>
+          
+	  <section>
+	    <h2><em>Frank</em></h2>
+	    <p>Federated Resource Architecture for Networked Knowledge</p>
+	    <img src="../img/openDoor.png" class="blank" height="350">
+	    <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+	    <small>W. Beek &amp; L. Rietveld. “Frank: The LOD Cloud at your Fingertips” <em>Extended Semantic Web Conference: Developers Workshop</em>, 2015.</small>
+          </section>
+          
+	  <section>
+            <h2><em>LDF</em>: Info about monkeys<br>from this document</h2>
+	    <p>
+              <a href="http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums%2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current%3Dmonkey.gif%26sort%3Dascending">http://ldf.lodlaundromat.org/2642254ff835bbae48848958a7a9a19f ?subject=http%3A%2F%2Fs211.photobucket.com%2Falbums %2Fbb151%2Fsilverhog01%2F%3Faction%3Dview%26current %3Dmonkey.gif%26sort%3Dascending</a>
+            </p>
+          </section>
+          
+	  <section>
+            <h2><em>Frank</em>: Info about monkeys<br>from everywhere</h2>
+	    <p style="font-family: monospace; font-size: 100%;">
+              frank statements -s dbr:Monkey
+            </p>
+            <br>
+            <div class="fragment">
+              <h3>+ show the document</h3>
+	      <p style="font-family: monospace; font-size: 100%;">
+                frank statements -s dbr:Monkey <span style="color: red;">-g</span>
+              </p>
+            </div>
+	  </section>
+        </section>
+
+        <section>
+          <h1>Reproducibility</h1>
+        </section>
+        
+	<section>
+	  <section>
+	    <h2>Find documents with<br><em>LOD Laundromat</em></h2>
+            <h3>LOD Laundromat Index</h3>
+            <p><a href="http://index.lodlaundromat.org">http://index.lodlaundromat.org</a></p>
+            <hr>
+            <h3><em>LOD Laundromat SPARQL endpoint</em></h3>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
+          </section>
+
+          <section>
+            <h2>Find documents by size</h2>
+            <h3>SPARQL</h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              SELECT ?doc WHERE {<br>
+              &nbsp;&nbsp;?doc llo:triples ?n<br>
+              &nbsp;&nbsp;FILTER(?n &gt;= 880)<br>
+              &nbsp;&nbsp;FILTER(?n &lt;= 900)<br>
+              }
+            </p>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
+            <hr>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --minTriples 880 --maxTriples 900
+            </p>
+	    <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+          </section>
+
+          <section>
+            <h2>Find documents by degree</h2>
+            <h3>SPARQL</h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              SELECT ?doc ?x WHERE {<br>
+              &nbsp;&nbsp;?doc llm:metrics/llm:inDegree/llm:mean ?x<br>
+              &nbsp;&nbsp;FILTER(?x &gt;= 3)<br>
+              }
+            </p>
+            <p><a href="http://lodlaundromat.org/sparql">http://lodlaundromat.org/sparql</a></p>
+            <hr>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --minAvgInDegree 3
+            </p>
+	    <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+          </section>
+
+          <section>
+            <h2>Find documents by namespace</h2>
+            <br>
+            <h4><a href="http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23">http://index.lodlaundromat.org/ns2d/http%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23</a></h4>
+            <br>
+            <hr>
+            <br>
+            <h3><em>Frank</em></h3>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank documents --namespace http://www.w3.org/2006/vcard/ns#
+            </p>
+	    <p><a href="https://github.com/LOD-Laundromat/Frank" target="_blank">https://github.com/LOD-Laundromat/Frank</a></p>
+          </section>
+
+          <section>
+            <h2>Combine multiple <em>Frank</em> calls</h2>
+            <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+              frank documents --namespace void --minTriples 1000 |<br>
+              frank statements --predicate foaf:name |<br>
+              head -n 5
+            </p>
+            <hr>
+            <p style="font-family: monospace; font-size: 80%; text-align: left; width: 110%;">
+              europa:Eurostat foaf:name "Eurostat".<br>
+              tw:ReviewCommission foaf:name "Review Commission"^^xsd::string.<br>
+              sw:gianluca-demartini foaf:name "Gianluca Demartini".<br>
+              sw:mohammad-mannan foaf:name "Mohammad Mannan".<br>
+              sw:tom-minka foaf:name "Tom Minka".
+            </p>
+          </section>
+
+          <section>
+            <h2>Combine <em>Frank</em> with external programs</h2>
+            <p style="font-family: monospace; font-size: 95%; padding-left: 10%; text-align: left; width: 100%;">
+              frank statements -p foaf:knows |<br>
+              grep last-fm | ./ntriplesToGml &gt; last-fm.gml
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Discussion</h2>
+            <ul>
+              <li class="fragment">Is centralization necessary to make the WoD a reproducibility platform?</li>
+              <li class="fragment">What about complex queries &amp; reasoning?</li>
+              <li class="fragment">Evaluations over real-time (e.g. sensor) data</li>
+              <li class="fragment">Current tooling is optimized for <em>files</em>, but most of the time the file is not the right granularity level</li>
+              <li class="fragment">The WoD is optimized for <em>human</em> interaction patterns</li>
+            </ul>
+          </section>
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+prefix ll: <https://lodlaundromat.org/def/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?label (sum(?statements) as ?statements) {
+  ?s ll:serializationFormat ?format ;
+     ll:triples ?triples ;
+     ll:quadruples ?quads
+  bind (if(?quads = 0 && ?format = "application/trig"^^xsd:string,
+           "text/turtle"^^xsd:string,
+           if(?quads = 0 && ?format = "application/n-quads"^^xsd:string,
+              "application/n-triples"^^xsd:string,
+              ?format)) as ?label)
+  bind (?triples + ?quads as ?statements)
+}
+group by ?label
+order by desc(?statements)

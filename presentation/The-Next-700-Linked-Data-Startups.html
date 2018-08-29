@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="The Next 700 Linked Data Startups">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>The Next 700 Linked Data Startups</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>The Next 700 Linked Data Startups</h1>
+          <p><a href="http://wouterbeek.com" target="_blank">Wouter
+            Beek</a>
+            (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</p>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="200">
+          </a>
+        </section>
+
+        <section>
+          <h2>“Anyone Can Say Anything About Anything”</h2>
+          <h2>
+            So why does not everybody publish on the Semantic Web
+            today?
+          </h2>
+        </section>
+
+        <section>
+          <h2>Metcalfe's Law</h2>
+          <figure>
+            <a href="/resource/img/triply/metcalfe.png" target="_blank">
+              <img src="/resource/img/triply/metcalfe.png">
+            </a>
+            <figcaption>
+              The value of a network is proportional to the square of
+              the number of connected nodes.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Exponential growth (1/2)</h2>
+          <figure>
+            <a href="/resource/img/empirical-semantics/hosts.svg" target="_blank">
+              <img src="/resource/img/empirical-semantics/hosts.svg">
+            </a>
+            <figcaption>
+              Exponential growth of the number of hosts on the Internet.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Exponential growth (2/2)</h2>
+          <figure>
+            <a href="/resource/img/triply/social-media.jpg" target="_blank">
+              <img src="/resource/img/triply/social-media.jpg">
+            </a>
+            <figcaption>
+              Exponential growth proceeds, but <em>within</em>
+              websites.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Does the Semantic Web show exponential growth?</h2>
+          <figure>
+            <a href="/resource/img/sparql/availability-2017.png" target="_blank">
+              <img src="/resource/img/sparql/availability-2017.png">
+            </a>
+            <figcaption>
+              Data growth is <em>exponential</em>, but SPARQL endpoint
+              growth is <em>linear</em>.
+            </figcaption>
+          </figure>
+        </section>
+
+	      <section>
+	        <h2>SPARQL nodes have low availability</h2>
+	        <h2>SPARQL nodes have low performance</h2>
+	        <h2>SPARQL nodes have low quality data</h2>
+	      </section>
+
+        <section data-background="#b5533c">
+          <h1>Most LOD is inert</h1>
+          <ul>
+            <li>Offline files</li>
+            <li>Online data dumps</li>
+            <li>Constrained query endpoints</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Allocative Efficiency (1/2)</h2>
+          <figure>
+            <blockquote>
+              The price a consumer pays equals the marginal cost of
+              production.
+            </blockquote>
+            <figcaption class="small">
+              Since a client pays nothing and the marginal cost of
+              production is relatively high, the SPARQL paradigm is
+              inherently far removed from allocative efficiency.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Allocative Efficiency (2/2)</h2>
+          <figure>
+            <a href="/resource/img/ldf/sparql.svg" target="_blank">
+              <img src="/resource/img/ldf/sparql.svg">
+            </a>
+            <figcaption>
+              What the consumer is willing to pay should equal the
+              marginal cost of production.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+	        <h2>Multi-tenancy</h2>
+	        <p>Easy to achieve in a centralized network.</p>
+          <p class="small">
+            Beek &amp; Rietveld &amp; Schlobach &amp; Van Harmelen.
+            2016.  “LOD Laundromat: Why the Semantic Web Needs
+            Centralization (Even If We Don't Like It)” <em>IEEE
+            Internet Computing</em> 20 (2) p.78-81.
+          </p>
+        </section>
+
+        <section>
+          <h2>How long does it take for technology to be picked up?</h2>
+          <dl>
+            <dt>1963</dt>
+            <dd>Hypertext, invented by Ted Nelson</dd>
+            <dt>1968</dt>
+            <dd>Videoconferencing, remote collaboration, Douglas
+              Engelbracht</dd>
+            <dt>1969</dt>
+            <dd>Large-scale networks, ARPANET</dd>
+            <dt>1991</dt>
+            <dd>The first Web site goes online, Tim Berners-Lee</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h3>SW innovation on one slide</h3>
+          <pre><code data-noescape data-trim>&lt; … &gt;</code></pre>
+          <pre><code data-noescape data-trim>{ … }</code></pre>
+        </section>
+
+        <section>
+          <h2>Thank you for your attention!</h2>
+          <ul>
+            <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
+            <li>Email: <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></li>
+            <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
+          </ul>
+          <br>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="200">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

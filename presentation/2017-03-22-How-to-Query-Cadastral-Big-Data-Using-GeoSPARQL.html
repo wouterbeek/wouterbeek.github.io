@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to Query Cadastral Big Data Using GeoSPARQL?</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="How to Query Cadastral Big Data?">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>How to Query Cadastral Big Data Using GeoSPARQL?</h2>
+          <br>
+	  <h5>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+          <img src="../img/triply.svg" height="150">
+        </section>
+
+        <section>
+          <h2>The Open Data Vision</h2>
+          <img src="../img/5star.png">
+          <p>Use (Geo)SPARQL endpoints i.o. copying data locally.</p>
+        </section>
+
+        <section>
+          <img src="../img/kadaster.jpg" height="200">
+          <h2>Properties of Cadastral Big Data</h2>
+          <ul>
+            <li>Over 1,000,000,000 graph edges</li>
+            <li>Over 100,000,000 geo shapes</li>
+            <li>Precision</li>
+            <li>Performance</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Implementations of GeoSPARQL</h2>
+          <a href="../img/geosparql.png">
+            <img src="../img/geosparql.png">
+          </a>
+        </section>
+
+        <section>
+          <h2>GeoSPARQL: Executive summary</h2>
+          <ol>
+            <li class="fragment">Only few implementations to choose from.</li>
+            <li class="fragment">FOSS implementations do not perform.</li>
+            <li class="fragment">Commercial vendors cannot deliver an
+            open endpoint.</li>
+            <li class="fragment">Commercial solutions do not work
+            out-of-the-box.</li>
+          </ol>
+        </section>
+        
+        <section>
+          <h3>“Nobody has complained about this before”</h3>
+          <a class="fragment" href="../img/delft.png">
+            <img src="../img/delft.png">
+          </a>
+          <a class="fragment" href="../img/lodlaundromat_home.png">
+            <img src="../img/lodlaundromat_home.png">
+          </a>
+        </section>
+
+        <!--
+        <section>
+          <ul>
+            <li>Online SPARQL (non-geo) works: DBpedia/Wikidata</li>
+            <li>Online GIS work: Solr</li>
+            <li>But SPARQL+GIS is still a problem</li>
+          </ul>
+        </section>
+        -->
+
+        <section>
+          <h2>Questions to you</h2>
+          <ul>
+            <li class="fragment">Should we drop the vision? (i.e., no
+            open endpoints)</li>
+            <li class="fragment">Is GeoSPARQL too demanding for the
+            web?</li>
+            <li class="fragment">Is there no market? (Open
+            Government)</li>
+            <li class="fragment">Can we --- commerce, FOSS, OGC,
+              academia --- work something out here?</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

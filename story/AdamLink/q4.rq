@@ -1,0 +1,20 @@
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix hg: <http://rdf.histograph.io/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+select ?widget {
+  _:1 dct:spatial [
+      a hg:Building ;
+      geo:hasGeometry/geo:asWKT ?buildingShape ;
+      skos:prefLabel ?buildingName
+    ] ;
+    foaf:depiction ?img .
+  <https://adamlink.nl/geo/district/grachtengordelzuid/623> geo:hasGeometry/geo:asWKT ?wijkShape
+  bind(bif:st_geomfromtext(?buildingShape) as ?x)
+  bind(bif:st_geomfromtext(?wijkShape) as ?y)
+  filter(bif:st_intersects(?x, ?y))
+  bind(concat('<img style="height:150px;" src="',?img,'">',
+              '<strong>',?buildingname,'</strong>') as ?widget)
+}
+limit 100

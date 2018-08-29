@@ -1,0 +1,110 @@
+          <section>
+            <p style="font-size:120%; font-weight:bold;">But are they
+              really the same thing?</p>
+            <pre><code data-noescape data-trim>
+                http://als.dbpedia.org/resource/Barack_Obama
+                http://am.dbpedia.org/resource/ባራክ_ኦባማ
+                http://data.nytimes.com/obama_barack_per
+                http://viaf.org/viaf/52010985
+                http://yago-knowledge.org/resource/Barack_Obama
+                http://rdf.freebase.com/ns/m.02mjmr
+            </code></pre>
+            <div class="fragment">
+              <pre><code data-noescape data-trim>
+                  http://dbpedia.org/resource/Administration_of_Barack_Obama
+                  http://dbpedia.org/resource/Barack_Obama_Cabinet
+                  http://dbpedia.org/resource/Barack_Obama_presidency
+                  http://yago-knowledge.org/resource/Presidency_of_Barack_Obama
+                  http://rdf.freebase.com/ns/m.05b6w1g
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:120%; font-weight:bold;">‘Barack
+              Obama’ after community detection</p>
+            <div style="float: left; width: 60%;">
+              <a href="../img/obama-2-labels.svg">
+                <img src="../img/obama-2.png">
+              </a>
+            </div>
+            <div style="float: right; width: 40%;">
+              <p>
+                purple: person<br>
+                green: president<br>
+                blue: senator<br>
+                orange: government
+              </p>
+            </div>
+          </section>
+          <section>
+            <p style="font-size:150%; font-weight:bold;">Future work</p>
+            <ul>
+              <li>Close IRIs under syntactic equivalence?
+                <small>
+                  <ul>
+                    <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E"><code>ar.dbr:2001:_أوديسة_الفضاء</code></a></li>
+                    <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%25D8%25A3%25D9%2588%25D8%25AF%25D9%258A%25D8%25B3%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2581%25D8%25B6%25D8%25A7%25D8%25A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E"><code>ar.dbr:2001:_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1</code></a></li>
+                  </ul>
+                </small>
+              </li>
+              <li>Close IRIs under protocol equivalence?
+                <small>
+                  <ul>
+                    <li><code>http://dbpedia.org/resource/Crete</code></li>
+                    <li><code>https://dbpedia.org/resource/Crete</code></li>
+                  </ul>
+                </small>
+              </li>
+              <li>New LOD Laundromat scrape + LOD-a-lot file</li>
+              <li>Study the LOD Cloud / LOD-a-lot (i.o. only DBpedia,
+                Wordnet, and Freebase).</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h2>Thank you!</h2>
+          <p>Try it yourself: <a href="https://sameas.cc">https://sameAs.cc</a></p>
+          <hr>
+          <small>
+            <p>Wouter Beek
+              (<a href="mailto:w.g.j.beek@vu.nl">w.b.j.beek@vu.nl</a>)
+              Joe Raad
+              (<a href="mailto:joe.raad@agroparistech.fr">joe.raad@agroparistech.fr</a>),
+              Jan Wielemaker, and Frank van Harmelen</p>
+            <p>June 7<sup>th</sup>, 2018</p>
+          </small>
+        </section>
+
+      </div>
+    </div>
+    <script src="../../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '../../resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '../../resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '../../resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '../../resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '../../resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '../../resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '../../resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

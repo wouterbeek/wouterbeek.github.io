@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redeploying the Semantic Web</title>
+    <meta name="description" content="Redeploying the Semantic Web">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../resource/reveal.js-3.7.0/"../resource/reveal.js-3.7.0/css/print/pdf.css' : '../resource/reveal.js-3.7.0/"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+      	  <h1>Redeploying the Semantic Web</h1>
+      	  <h3>Wouter Beek (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</h3>
+      	  <h4>Knowledge Representation & Reasoning Group</br>VU University Amsterdam</h4>
+      	</section>
+
+        <section>
+    	    <h1>The first deployment of the Semantic Web has failed</h1>
+    	  </section>
+
+	      <section>
+	        <ul>
+	          <h2>Proof that the SW failed</h2>
+	          <li class="fragment">After the first 15 years of SW deployment most data cannot be automatically:
+		          <ul>
+		            <li class="fragment">found</li>
+		            <li class="fragment">read</li>
+		            <li class="fragment">queried</li>
+		            <li class="fragment">reasoned over</li>
+		          </ul>
+	          </li>
+	          <li class="fragment">Clash between semantics and pragmatics</li>
+	          <ul>
+		          <li class="fragment">Theory of identity vs practice of linking</li>
+		          <li class="fragment">Formal meaning vs social meaning</li>
+		          <li class="fragment">Universal statements vs trivia</li>
+	          </ul>
+	        </ul>
+	      </section>
+
+	      <section>
+	        <h2>Problem 1</h2>
+	        <h3>Most data cannot be <i>found</i></h3>
+	        <ul>
+	          <li class="fragment">SotA comparable to Yahoo! index anno 1995: hierarchy of links / catalogues (CKAN, LOV, VoID-store)</li>
+	          <li class="fragment">Most SW datasets are not available online.</li>
+	          <li class="fragment">Most online datasets are not registered in any catalogue.</li>
+	        </ul>
+	      </section>
+
+	      <section>
+	        <h2>Problem 2</h2>
+	        <h3>Most data cannot be <i>read</i></h3>
+	        <ul>
+	          <li class="fragment">Most online data files are not fully standards-compliant.</li>
+	        </ul>
+	        <p class="fragment">Probably comparable to HTML/WWW, but that has:
+	          <ol>
+              <li class="fragment">tools optimized for common errors</li>
+              <li class="fragment">consumers with human-level intelligence</li>
+	          </ol>
+	        </p>
+	      </section>
+
+        <section>
+          <h2>(2/3) Most data cannot be <i>found</i></h2>
+          <center>
+            <blockquote class="twitter-tweet" lang="en">
+              <p lang="en" dir="ltr">
+                <a href="https://twitter.com/WGJBeek">@WGJBeek</a>
+                talks at our institute: &quot;‘Findability&#39; on the Semantic Web is at the same level where &#39;findability&#39; was in Web Search back in 1995&quot;
+              </p>
+              &mdash; Axel Polleres (@AxelPolleres)
+              <a href="https://twitter.com/AxelPolleres/status/644787851444531200">September 18, 2015</a>
+            </blockquote>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </center>
+          <center>Yahoo! search index</center>
+        </section>
+
+	      <section>
+          <section>
+	          <h2>Problem 3</h2>
+	          <h3>Most data cannot be <i>queried</i></h3>
+            <small>
+	            <p class="fragment">Millions of data documents versus
+	              hundreds of live query endpoints with reasonable
+	              availability.</p>
+	            <p class="fragment">Existing deployment techniques are
+	              unable to close the gap between downloadable data dumps
+	              and live queryable data: data is growing faster than
+	              SPARQL deployment uptake</p>
+            </small>
+          </section>
+          <section>
+	          <section>
+	            <h4>Query endpoint availablility according to LODStats</h4>
+	            <img src="../resource/img/sparql/lod-stats-2013.png" style="max-height: 625px;">
+	          </section>
+	          <section>
+	            <h4>Query endpoint availablility according to LODStats</h4>
+	            <img src="../resource/img/sparql/lod-stats-2015.png" style="max-height: 625px;">
+	          </section>
+            <section>
+              <p class="fragment">The incentive model for data publishing is the wrong way around:</p>
+              <ul>
+                <li class="fragment">Publishing large volumes of high-quality data is penalized.</li>
+                <li class="fragment">Consuming large volumes of data / asking DDOS-like queries is free.</li>
+              </ul>
+            </section>
+            <section>
+	            <ul>
+	              <li>Data dumps are the most popular deployment strategy</li>
+	              <li class="fragment">Many live queriable datasets have a custom API</li>
+	              <li class="fragment">Most custom APIs are not self-describing</li>
+	              <li class="fragment">Many SPARQL endpoints enforce restrictions</li>
+	              <li class="fragment">Most SPARQL endpoints that do not enforce restrictions have low availability</li>
+	              <li class="fragment">Different SPARQL endpoints enforce different restrictions</li>
+	              <li class="fragment">Different SPARQL endpoints implement different subsets of different versions of the SPARQL standard</li>
+	              <li class="fragment">Web-scale federated querying has not even been considered</li>
+	            </ul>
+	          </section>
+          </section>
+
+	        <section>
+	          <h2>Problem 4</h2>
+	          <h3>Most data cannot be <i>reasoned over</i></h3>
+	          <ul>
+	            <li class="fragment">No standardized way of selecting the entailment regime in SPARQL</li>
+	            <li class="fragment">Some entailment results cannot be expressed in RDF</li>
+	            <li class="fragment">Most triple stores only implement subsets of RDF(S) and OWL entailment</li>
+	            <li class="fragment">Different triple stores implement different subsets of different version of RDF(S) and OWL</li>
+	            <li class="fragment">Web-scale reasoning has only been performed in the lab</li>
+	          </ul>
+	        </section>
+
+	        <section>
+	          <h1>How to redeploy the Semantic Web?</h1>
+	          <ol>
+	            <li class="fragment">Data collection</li>
+	            <li class="fragment">Data cleaning</li>
+	            <li class="fragment">Data publishing</li>
+	            <li class="fragment">Web-scale BGP answering</li>
+	            <li class="fragment">Web-scale backwards chaining</li>
+	          </ol>
+	        </section>
+
+	        <section>
+	          <h2>[1] Data collection</h2>
+	          <ul>
+	            <li class="fragment">Scrape catalogues
+	              <ul>
+	                <li>Custom API (CKAN)</li>
+	                <li>HTML (VoID Store, LOV)</li>
+	            </ul></li>
+	            <li class="fragment">Interpret metadata vocabularies (VoID,DCAT)</li>
+	            <li class="fragment">Scrape the WWW for RDFa, Schema.org (Mika2012)</li>
+	            <li class="fragment">Craw dereferenceable IRIs</li>
+	            <li class="fragment">Hard-craft a seed list</li>
+	            <li class="fragment">Crowd-source the seed list</li>
+	          </ul>
+	        </section>
+
+	        <section>
+	          <section>
+              <h1>[2] Data cleaning</h1>
+	          </section>
+            <section>
+              <small>
+	              <a href="http://rdf.freebase.com/ns/m.08pbxl">Freebase 'Monkey'</a> &amp; Linked Musicbrainz labels
+                <br>
+	              &lt; 10% syntactically correct
+	            </small>
+	            <img src="../resource/img/data-quality/freebase-monkey.png" style="width:1300px;">
+	            LinkedBrainz
+            </section>
+            <section>
+              <h2>Why is data dirty?</h2>
+	            <div style="float: left;">
+                <ul>
+		              <li>Character encoding issues</li>
+		              <li>Socket errors</li>
+		              <li>Protocol errors</li>
+		              <li>Corrupted archives</li>
+		              <li>Authentication problems</li>
+		              <li>Syntax errors</li>
+		              <li>Wrong metadata</li>
+                </ul>
+	            </div>
+	            <div style="float: right;">
+	              <ul>
+		              <li>Lexical form ↛ value</li>
+		              <li>Logically inconsistent</li>
+		              <li>...</li>
+	              </ul>
+	            </div>
+            </section>
+	          <section>
+	            <h2>Previous solutions for data cleaning</h2>
+	            <ul>
+                <li>Standards</li>
+	              <li>Guidelines</li>
+	              <li>Best practices</li>
+	              <li>Tools</li>
+	            </ul>
+	            <p class="fragment">Targeted towards human data publishers</p>
+	            <p class="fragment">Inherently slow approaches</p>
+	            <p class="fragment">Mixed results after the first 15 years of deployment.</p>
+	            <!-- Who can (and do) choose not to use them. -->
+	          </section>
+
+	          <section>
+	            <h2>New solution for data cleaning</h2>
+	            <div class="fragment">
+	              <p>(1) Automate conformity to standards</p>
+	              <p>"Days not decades"</p>
+	            </div>
+	            <br>
+	            <br>
+	            <div class="fragment">
+	              <p>(2) Tools → Web Service</p>
+	              <p>Look at email</p>
+	            </div>
+	          </section>
+
+	          <section>
+              <h2>LOD Laundromat</h2>
+	            <h4>The Clean Linked Data programming platform</h4>
+	            <a href="http://lodlaundromat.org/basket/">
+	              <img src="http://lodlaundromat.org/imgs/basket.png" width="200">
+	            </a>
+	            <a href="http://lodlaundromat.org/">
+	              <img src="http://lodlaundromat.org/imgs/laundry.png" width="200">
+	            </a>
+	            <a href="http://lodlaundromat.org/wardrobe/">
+	              <img src="http://lodlaundromat.org/imgs/lod-wardrobe.png" width="200">
+	            </a>
+	            <br>
+	            <a href="http://lodlaundromat.org/visualizations/">
+	              <img src="http://lodlaundromat.org/imgs/analysis.png" width="200">
+	            </a>
+	            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	              <img src="http://lodlaundromat.org/imgs/labels.png" width="200">
+	            </a>
+	            <a href="http://lodlaundromat.org/about/">
+	              <img src="http://lodlaundromat.org/imgs/laundry-line.png" width="200">
+	            </a>
+	            <br>
+	            <h4><a href="http://lodlaundromat.org">http://lodlaundromat.org</a></h4>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>[3] Data publishing</h1>
+	            <p class="fragment">The cost/benefit model of SW data publishing is broken</p>
+	            <div>
+	              <p class="fragment">The incentive model for data publishing is the wrong way around:</p>
+	              <ul>
+		              <li class="fragment">Publishing large volumes of high-quality data is penalized.</li>
+		              <li class="fragment">Consuming large volumes of data / asking DDOS-like queries is free.</li>
+	              </ul>
+	            </div>
+       	    </section>
+
+	          <section>
+	            <h2>Fix the cost/benefit model of SW pubishing</h2>
+	            <p>(1) Publishing data should be (near) free</p>
+	            <p>(2a) Asking more questions should cost more (CPU)</p>
+	            <p>(2b) Asking complexer questions should cost more (CPU)</p>
+	          </section>
+
+	          <section>
+	            <h2>HDT + SSD + LDF</h2>
+	            <br>
+	            <p><b>HDT</b>: Disk-based, efficient yet queryable storage</p>
+	            <br>
+	            <br>
+	            <p><b>SSD</b>: Disks become faster and cheaper</p>
+	            <!-- 6TB SSD in the new LOD Laundromat. -->
+	            <br>
+	            <br>
+	            <p><b>LDF</b>: BGP queries require client-side joins</p>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>[4] Streamed BGP answering</h1>
+	          </section>
+	          <section>
+	            <ul>
+	              <li class="fragment">LOD Cloud-wide triple pattern selectivity estimates</li>
+	              <li class="fragment">Client-side query reordering</li>
+	              <li class="fragment">Client-side symmetric hash joins</li>
+	              <li class="fragment">Culprit 1: Identity closure (800M)</li>
+	              <li class="fragment">Culprit 2: Natural language index (1.5-2B)</li>
+	            </ul>
+	          </section>
+	          <section>
+	            <h2>LOTUS</h2><h3>Linked Open Text Unleashed</h3>
+	            <img src="img/lotus.png">
+	          </section>
+	          <section>
+	            <h2>LOTUS in numbers</h2>
+	            <table>
+	              <thead>
+		              <tr><th>Metric</th><th>Number</th></tr>
+	              </thead>
+	              <tbody>
+		              <tr><td># literals encountered</td><td>12,018,939,378</td></tr>
+		              <tr><td># integers and dates</td><td>6,699,148,542</td></tr>
+		              <tr><td># indexed lexical strings</td><td>5,319,790,836</td></tr>
+		              <tr><td># distinct sources</td><td>508,244</td></tr>
+		              <tr><td># distinct language tags</td><td>713</td></tr>
+		              <tr><td># hours to create index</td><td>56</td></tr>
+		              <tr><td>disk space use</td><td>484.77 GB</td></tr>
+	              </tbody>
+	            </table>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>[5] Streamed backwards chaining</h1>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>Redeploying the SW opens up a new research agenda</h1>
+	            <h2>[I] Redefinition of incentive model</h2>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>Redeploying the SW opens up a new research agenda</h1>
+	            <h2>[II] Better evaluations</h2>
+	          </section>
+	          <section>
+	            <h2>
+	              Semantic Web research
+	              <br>
+	              =
+	              <br>
+	              optimizing algorithms for DBpedia
+	            </h2>
+	          </section>
+	          <section>
+	            <p>Datasets used in ISWC 2014 research track papers</p>
+	            <img src="img/lodlab.png">
+	            <!-- Only includes papers that evaluate Linked Datasets.
+		               Excluded datasets that evaluate algorithms on relatively small ontologies, non-RDF datasets or streamed data.
+	              -->
+	            <small>
+	              <p class="fragment">17 datasets are used in total</p>
+	              <p class="fragment">1-6 datasets per article</p>
+	              <p class="fragment">2 datasets per article on average</p>
+	            </small>
+	          </section>
+	          <section>
+	            <h2>Rerunning RDF Vault (1/2)</h2>
+	            <img src="img/vault_original.png" width="100%">
+	          </section>
+	          <section>
+	            <h2>Rerunning RDF Vault (2/2)</h2>
+	            <img src="img/vault_lodlab.png" width="100%">
+	          </section>
+	          <section>
+	            <h2>Rerunning Fernandez 2013 (1/2)</h2>
+	            <!-- Original evaluation: Geonames, Wikipedia, DBTune, Uniprot, DBpedia-en, 400 BTC datasets
+		               Reproduce Uniprot experiment: HDT compression ration for 1M, 5M, 10M, 20M, 30M, 40M statements
+	              -->
+	            <table>
+	              <thead>
+		              <tr><th></th><th colspan="3">Original</th><th colspan="3">Rerun</th></tr>
+		              <tr><th>Triples (M)</th><th>Docs</th><th>Size (MB)</th><th>Compr. rate</th><th>Docs</th><th>Size (MB)</th><th>Compr. rate</th></tr>
+	              </thead>
+	              <tbody>
+		              <tr><td>1</td><td>1</td><td>89.07</td><td>3.73%</td><td>179</td><td>183.31</td><td>11.23%</tr>
+		              <tr><td>5</td><td>1</td><td>444.71</td><td>3.48%</td><td>74</td><td>799.98</td><td>4.99%</tr>
+		              <tr><td>10</td><td>1</td><td>893.39</td><td>3.27%</td><td>50</td><td>1,642.60</td><td>5.43%</tr>
+		              <tr><td>20</td><td>1</td><td>1,790.41</td><td>3.31%</td><td>17</td><td>3,328.57</td><td>4.15%</tr>
+		              <tr><td>30</td><td>1</td><td>2,680.51</td><td>3.27%</td><td>19</td><td>4,880.26</td><td>5.09%</tr>
+		              <tr><td>40</td><td>1</td><td>3,574.59</td><td>3.26%</td><td>8</td><td>6,586.95</td><td>7.25%</tr>
+	              </tbody>
+	            </table>
+	          </section>
+	          <section>
+	            <h2>Rerunning Fernandez 2013 (2/2)</h2>
+	            <p>Relate HDT compression rate to average degree</p>
+	            <table>
+	              <thead>
+		              <tr><th>Avg. Degree</th><th>Docs</th><th>Compr rate</th></tr>
+	              </thead>
+	              <tbody>
+		              <tr><td>1-5</td><td>92</td><td>21.68%</td></tr>
+		              <tr><td>5-10</td><td>80</td><td>6.67%</td></tr>
+		              <tr><td>10-∞</td><td>99</td><td>4.85%</td></tr>
+	              </tbody>
+	            </table>
+	          </section>
+	        </section>
+
+	        <section>
+	          <section>
+	            <h1>Redeploying the SW opens up a new research agenda</h1>
+	            <h2>[III] Study the SW as a complex system</h2>
+	          </section>
+	          <section>
+	            <img src="img/triples_vs_uris.png">
+	          </section>
+	          <section>
+	            <h2>Formal meaning vs social meaning</h2>
+	            <pre>
+	              <code>
+		              abox:item1024 rdf:type       tbox:Tent    .
+		              abox:item1024 tbox:soldAt    abox:shop72  .
+		              abox:shop72   rdf:type       tbox:Store   .
+	              </code>
+	            </pre>
+	            <pre>
+	              <code>
+		              fy:jufn1024   pe:ko9sap_     fyufnt:Ufou  .
+		              fy:jufn1024   fyufnt:tmffqt  fy:aHup      .
+		              fy:aHup       pe:ko9sap_     fyufnt:70342 .
+	              </code>
+	            </pre>
+	            <p class="fragment">These graphs denote the same models.</p>
+	          </section>
+	          <section>
+	            <p>According to model theory, IRIs are individual constants or predicate letters whose names are chosen arbitrarily and thus carry no meaning.</p>
+	            <br>
+	            <p>Try to refute the hypothesis that names and meanings are independent.</p>
+	          </section>
+	          <section>
+	            <h3>Hypothesis testing over 544K datasets</h3>
+	            <img src="img/histogram.png">
+	          </section>
+	          <section>
+	            <img src="img/hypothesis.png">
+	          </section>
+	        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '../resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '../resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '../resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '../resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '../resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '../resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '../resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

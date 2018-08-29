@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="SPARQL Tutorial">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>SPARQL Tutorial</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Web Semantics</h1>
+          <h2>Formal foundations of the Semantic Web</h2>
+          <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
+            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</p>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="/resource/img/logo/krr.png" height="100">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h2>Part I: Formal Meaning</h2>
+          </section>
+
+          <section>
+            <h3>Truth-conditional Semantics</h3>
+            <p>
+              The meaning of a sentence can be reduced to the truth
+              conditions of that sentence.
+            </p>
+            <figure>
+              <blockquote>
+                To understand a proposition means to know what is the
+                case if it is true.  (One can understand it,
+                therefore, without knowing whether it is true.)
+              </blockquote>
+              <figcaption>
+                <em>Tractatus Logico-Philosophicus</em>, 4.024
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Model theory</h3>
+            <p>
+              A formal theory that implements a truth-conditional
+              semantics, by equating the meaning of a sentence to the
+              set of models/interpretations that make the sentence
+              true.
+            </p>
+            <p>
+              Models/interpretations are commonly expressed in set
+              theory.
+            </p>
+            <p>
+              The <b>meaning</b> of the sentence is the collection of
+              all and only those interpretations that make the
+              sentence true, i.e., {I₁,I₂,…}.
+            </p>
+          </section>
+
+          <section>
+            <h3>Example: “The Louvre owns the Mona Lisa.”</h3>
+            <h4>True in model I₁</h4>
+            <p>
+              I₁(‘The Louvre’) = a<br>
+              I₁(‘Mona Lisa’) = b<br>
+              I₁(‘owns’) = {〈a,b〉}
+            </p>
+            <h4>False in model I₂</h4>
+            <p>
+              I₂(‘The Louvre’) = a<br>
+              I₂(‘Mona Lisa’) = b<br>
+              I₂(‘owns’) = {〈b,a〉}
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>RDF semantics</h2>
+          </section>
+
+          <section>
+            <ul>
+              <li>IRIs I</li>
+              <li>Literals L</li>
+              <li>Names N := I ∪ L
+              <li>Blank nodes B</li>
+              <li>Terms T := B ∪ N</li>
+              <li>Graph G ⊆ (B ∪ I) ⨯ I ⨯ T</li>
+              <li>Instance mapping σ: B → T</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              Open World Assumption (OWA) &amp; Closed World
+              Assumption (CWA)
+            </h2>
+          </section>
+
+          <section>
+            <h3>Difference between OWA and CWA</h3>
+            <dl>
+              <dt>Database</dt>
+              <dd>“Apples are green.”</dd>
+              <dt>Question</dt>
+              <dd>“Are apples delicious?”</dd>
+              <dt>CWA answer</dt>
+              <dd>“No.”</dd>
+              <dt>OWA answer</dt>
+              <dd>“I don't known.”</dd>
+            </dl>
+          </section>
+
+          <section>
+            <h3>Why does the SW need OWA?</h3>
+            <p>
+              In a local database, we can assume that we always have
+              full access to all the relevant data.
+            </p>
+            <p>
+              On the web, we may not always have access to all the
+              relevant data all the time.
+            </p>
+          </section>
+
+          <section>
+            <h3>Example of OWA</h3>
+            <ul>
+              <li>I(‘The Louvre’) = a</li>
+              <li>I(‘Mona Lisa’) = b</li>
+              <li>I(‘owns’) = {〈 a,b〉}</li>
+              <li>I(‘exhibits’) = {〈 a,b〉}</li>
+            </ul>
+            <p>
+              With CWA, owning and exhibiting would have the same
+              meaning.  With OWA, they may still be different.
+            </p>
+          </section>
+
+          <section>
+            <h3>OWA requires 2 interpretation functions</h3>
+            <dl>
+              <dt>Intension function (I)</dt>
+              <dd>Mapping RDF terms to resources.</dd>
+              <dt>Extension function (Ext)</dt>
+              <dd>
+                Mapping properties to extensions.  (Properties are
+                resources.)
+              </dd>
+            </dl>
+            <p>〈s,p,o〉is true iff 〈I(s),I(o)〉∈ Ext(I(p))</p>
+          </section>
+
+          <section>
+            <h3>Example of OWA interpretation</h3>
+            <ul>
+              <li>I(‘owns’) = 💰</li>
+              <li>I(‘exhibits’) = 🖼</li>
+              <li>Ext(💰) = Ext(🖼) = {〈 a,b〉}</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Corner case example (1/2)</h3>
+            <pre><code class="ttl" data-noescape data-trim>rdfs:Class a rdfs:Class.</code></pre>
+            <ul>
+              <li>I(<code>rdfs:Class</code>) = 🐕</li>
+              <li>I(<code>a</code>) = 🐘</li>
+              <li>Ext(🐘) = {〈🐕,🐕〉,…}</li>
+            </ul>
+            <p>
+              This statement cannot be expressed with CWA, due to the
+              axiom of regularity: <code>∀x (x≠∅ → ∃y∈x(x∩y=∅)</code>
+            </p>
+          </section>
+
+          <section>
+            <h3>Corner case example (2/2)</h3>
+            <pre><code class="ttl" data-noescape data-trim>owl:sameAs owl:sameAs owl:sameAs.</code></pre>
+            <ul>
+              <li>I(<code>owl:sameAs</code>) = ~</li>
+              <li>Ext(~) = {〈~,~〉,…}</li>
+            </ul>
+            <p>〈owl:sameAs,owl:sameAs,owl:sameAs〉is true
+              iff〈I(owl:sameAs),I(owl:sameAs)〉∈
+              Ext(I(owl:sameAs))</p>
+            <p class="small">
+              Notice that an RDF graph is a special kind of graph,
+              i.e., vertices and edges may overlap.
+            </p>
+          </section>
+
+          <section>
+            <h3>Domain & range</h3>
+            <pre><code class="ttl" data-noescape data-trim>foaf:knows rdfs:domain foaf:Person.
+ex:john foaf:knows ex:mary.
+=> ex:john a foaf:Person.</code></pre>
+            <pre><code class="ttl" data-noescape data-trim>foaf:knows rdfs:range foaf:Person.
+ex:john foaf:knows ex:mary.
+=> ex:mary a foaf:Person.</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>SPARQL Algebra</h2>
+          </section>
+
+          <section>
+            <h3>SPARQL algebra</h3>
+            <ul>
+              <li>Variables V</li>
+              <li>Solution mapping μ:V → T</li>
+              <li>Pattern instance mapping P := μ ∘ σ</li>
+              <li>Basic Graph Pattern (BGP) x</li>
+              <li>
+                μ is a <b>solution</b> for x from G, if (∃P)(P(x) ⊆ G
+                and μ is the restriction of P to V(x)
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Example 1</h3>
+            <h4>Dataset</h4>
+            <pre><code data-noescape data-trim>prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+rdfs:Class a rdfs:Class.</code></pre>
+            <h4>BGP</h4>
+            <pre><code>?x a ?y.</code></pre>
+            <p>
+              Solution μ =
+              {(<code>?x</code>,<code>rdfs:Class</code>),(<code>?y</code>,<code>rdfs:Class</code>)}
+            </p>
+          </section>
+
+          <section>
+            <h3>Example 2</h3>
+            <h4>Dataset</h4>
+            <pre><code data-noescape data-trim>prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+rdfs:Class a rdfs:Class.</code></pre>
+            <h4>BGP</h4>
+            <pre><code>_:1 a _:2.</code></pre>
+            <ul>
+              <li>Solution μ = ∅</li>
+              <li>
+                σ = {(<code>_:1</code>,<code>rdfs:Class</code>),
+                (<code>_:2</code>,<code>rdfs:Class</code>)}
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Alternative semantics for <code>owl:sameAs</code></h2>
+          </section>
+
+          <section>
+            <h3>Definitions of identity</h3>
+            <h4>Indiscernibility of identicals (Leibniz's Law)</h4>
+	          <p>$$a = b \rightarrow (\forall \phi \in \Psi)(\phi(a) = \phi(b))$$</p>
+            <h4>Identity of indiscernibles</h4>
+            <p>$$(\forall \phi \in \Psi)(\phi(a) = \phi(b)) \rightarrow a = b$$</p>
+            <h4>Equivalence relation</h4>
+            <p>Identity is the smallest equivalence relation</p>
+          </section>
+
+          <section>
+            <h3>Formal Concept Analysis (FCA)</h3>
+            <p>Context: instances (X), properties (Y), mapping (m)</p>
+            <p>$$X' \,:=\, \{ y \in Y \,\vert\, (\forall x \in X)(m(x,y)) \}$$</p>
+            <p>$$Y' \,:=\, \{ x \in X \,\vert\, (\forall y \in Y)(m(x,y)) \}$$</p>
+            <p>Formal concept 〈X,Y〉: X'=Y and Y'=X</p>
+          </section>
+
+          <section>
+            <figure class="left">
+              <img src="/resource/img/identity/identity-graph.png">
+            </figure>
+            <figure class="right">
+              <img src="/resource/img/identity/lattice.png">
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <h2>Thank you for your attention!</h2>
+          <ul>
+            <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
+            <li>Email: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></li>
+            <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
+          </ul>
+          <br>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img height="100" src="/resource/img/logo/krr.png">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

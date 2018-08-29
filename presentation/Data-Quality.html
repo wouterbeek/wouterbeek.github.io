@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Data Quality">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>Data Quality</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Data Quality</h2>
+          <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
+            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</p>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="/resource/img/logo/krr.png" height="100">
+          </a>
+          <a href="http://lodlaundromat.org" target="_blank">
+            <img src="/resource/img/lod-laundromat/lod-washing-machine.png" height="200">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h2>Part I: What is the problem>?</h2>
+          </section>
+
+          <section>
+	          <h3>After 15 years semantic data cannot be…</h3>
+	          <ul>
+	            <li>found</li>
+	            <li>read</li>
+	            <li>queried</li>
+	            <li>reasoned over</li>
+	          </ul>
+	          <p class="small">Many PhD students' worse nightmare.</p>
+	        </section>
+
+	        <section>
+	          <h2>Problem 1: Most data cannot be <em>found</em></h2>
+          </section>
+
+          <section>
+	          <h3>SotA findability comparable to 1995 <em>Yahoo!</em>
+	            index</h3>
+            <img src="/resource/img/yahoo.jpg">
+          </section>
+
+	        <section>
+	          <h2>Problem 2: Most data cannot be <em>read</em></h2>
+            <p>E.g., Freebase &lt;10% syntactically correct.</p>
+	          <p>Current approaches are inherently slow: standards,
+	            guidelines, best practices, tools, education.</p>
+            <p>This takes decades!</p>
+          </section>
+
+          <section>
+	          <h2>Why is data dirty?</h2>
+	          <div class="left">
+	            <ul>
+		            <li>Character encoding issues</li>
+		            <li>Socket errors</li>
+		            <li>Protocol errors</li>
+		            <li>Corrupted archives</li>
+		            <li>Authentication problems</li>
+		            <li>Syntax errors</li>
+		            <li>Wrong metadata</li>
+	            </ul>
+	          </div>
+	          <div class="right">
+	            <ul>
+		            <li>Lexical form ↛ value</li>
+		            <li>Non-canonical lexical form</li>
+		            <li>Logically inconsistent</li>
+		            <li>…</li>
+	            </ul>
+	          </div>
+          </section>
+
+          <section>
+	          <h2>Problem 3: Most data cannot be <em>queried</em></h2>
+            <img src="/resource/img/availability2015.png" style="max-height: 625px;">
+          </section>
+
+          <section>
+            <ul>
+              <li>Few SPARQL endpoints with high availability.</li>
+              <li>Web-scale ‘Follow Your Nose’ = DoS attack</li>
+              <li>SPARQL endpoints with high availability use
+                non-standardized pagination.</li>
+              <li>No streaming</li>
+              <li>No anytime behavior</li>
+            </ul>
+          </section>
+
+          <section>
+	          <h2>Problem 4: Most data cannot be <em>reasoned over</em></h2>
+	          <ul>
+              <li>SPARQL Entailment Regimes are not standardized.</li>
+	            <li>Some entailment results cannot be expressed in
+	              RDF.</li>
+	            <li>Existing reasoners give incomplete results.</li>
+              <li>Web-scale reasoning is only performed in the
+                lab</li>
+              <li>Real-world reasoning immediately goes <em>ex falso
+                  quodlibet</em>
+	          </ul>
+          </section>
+        </section>
+
+
+
+        <section>
+          <section>
+            <h2>Part II: How to solve this?</h2>
+          </section>
+
+          <section>
+            <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+            <a href="http://lodlaundromat.org/basket/">
+              <img src="/resource/img/lod-laundromat/basket.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/">
+              <img src="/resource/img/lod-laundromat/laundry.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/wardrobe/">
+              <img src="/resource/img/lod-laundromat/lod-wardrobe.png" width="200">
+            </a>
+            <br>
+            <a href="http://lodlaundromat.org/visualizations/">
+              <img src="/resource/img/lod-laundromat/analysis.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+              <img src="/resource/img/lod-laundromat/labels.png" width="200">
+            </a>
+            <a href="http://lodlaundromat.org/about/">
+              <img src="/resource/img/lod-laundromat/laundry-line.png" width="200">
+            </a>
+            <br>
+            <small>
+              Beek &amp; Rietveld &amp; Bazoobandi &amp; Wielemaker
+              &amp; Schlobach.  2014.  “LOD laundromat: A Uniform Way
+              of Publishing Other People’s Dirty Data” <em>ISWC</em>.
+            </small>
+          </section>
+
+          <section>
+            <h3>Implementation</h3>
+            <dl>
+              <dt>ClioPatria</dt>
+              <dd>
+                Wielemaker &amp; Beek &amp; Hildebrand &amp; Van
+                Ossenbruggen.  2016.  ‘ClioPatria: A SWI-Prolog
+                Infrastructure for the Semantic Web’ in <em>Semantic
+                Web Journal</em>
+                (<a href="https://github.com/ClioPatria/ClioPatria">github.com/ClioPatria/ClioPatria</a>).
+              </dd>
+              <dt>SWI-Prolog</dt>
+              <dd><a href="https://github.com/SWI-Prolog/swipl-devel">github.com/SWI-Prolog/swipl-devel</a></dd>
+              <dt>Header Dictionary Triples (HDT)</dt>
+              <dd>
+                Fernández &amp; Martínez-Prieto &amp; Gutiérrez &amp;
+                Polleres &amp; Arias.  2013.  ‘Binary RDF
+                representation for publication and exchange(HDT)’
+                in <em>Web Semantics: Science, Services and Agents on
+                the World Wide Web</em>, Vol. 19, p. 22-41
+                (<a href="http://www.rdfhdt.org/">rdfhdt.org</a>).
+              </dd>
+            </dl>
+          </section>
+
+          <section>
+            <h3>Data access (1/2)</h3>
+            <figure>
+              <a href="/resource/img/sparql.svg">
+	              <img src="/resource/img/sparql.svg" height="400">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Data access (2/2)</h3>
+            <figure>
+              <a href="/resource/img/ldf.svg">
+	              <img src="/resource/img/ldf.svg" height="400">
+              </a>
+              <figcaption class="small">
+                Rietveld &amp; Verborgh &amp; Beek &amp; Vander Sande
+                &amp; Schlobach.  2015.  “Linked Data-as-a-Service:
+                The Semantic Web Redeployed” <em>ESWC</em>.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Semantic Web layer cake</h3>
+            <figure>
+              <a href="/resource/img/swcake.gif">
+                <img src="/resource/img/swcake.gif">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Alt. Semantic Web layer cake</h3>
+            <figure>
+              <a href="/resource/img/lod-laundromat/cake.png">
+                <img height="500" src="/resource/img/lod-laundromat/cake.png">
+              </a>
+              <figcaption>
+                Beek &amp; Rietveld &amp; Schlobach &amp; Van
+                Harmelen.  2016.  “LOD Laundromat: Why the Semantic
+                Web Needs Centralization (Even If We Don't Like
+                It)”, <em>IEEE Internet Computing</em> 20 (2) p.78-81.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <h2><em>Literally Better</em>: Cleaning literals</h2>
+          <p>Why literals?</p>
+          <ul>
+            <li>Concise notation for infinite value spaces.</li>
+            <li>Encoding of linguistic/text-based content.</li>
+          </ul>
+          <br>
+          <br>
+          <small>W. Beek &amp; F. Ilievski &amp; J. Debattista &amp;
+            S. Schlobach.  “Literally Better: Analyzing and Improving
+            the Quality of Literals” (under submission)</small>
+        </section>
+
+        <section>
+          <h2>Benefits of high-quality literals</h2>
+          <ul>
+            <li>Efficient computation through canonicity</li>
+            <li>Data enrichment by improved instance matching</li>
+            <li>User eXperience: language preference, “value labeling”</li>
+            <li>Improve NLP tasks with background knowledge</li>
+          </ul>
+        </section>
+
+        <section>
+          <figure>
+            <a href="/resource/img/data-quality/dhier.png" target="_blank">
+              <img src="/resource/img/data-quality/dhier.png">
+            </a>
+          </figure>
+        </section>
+
+        <section>
+          <figure>
+            <a href="/resource/img/data-quality/ltag.png">
+              <img src="/resource/img/data-quality/ltag.png">
+            </a>
+          </figure>
+        </section>
+
+        <section>
+          <h2>Thank you for your attention!</h2>
+          <ul>
+            <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
+            <li>WWW: <a href="http://lodlaundromat.org">lodlaundromat.org</a></li>
+            <li>Email: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></li>
+            <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
+          </ul>
+          <br>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="/resource/img/logo/krr.png" height="100">
+          </a>
+          <a href="http://lodlaundromat.org" target="_blank">
+            <img src="/resource/img/lod-laundromat/lod-washing-machine.png" height="200">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

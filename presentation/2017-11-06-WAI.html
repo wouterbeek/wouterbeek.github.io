@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Presentation at the Weekly AI Meeting (VU University Amsterdam)</title>
+    <meta name="description" content="Presentation at the Weekly AI Meeting (VU University Amsterdam)">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../../resource/reveal.js-3.7.0/lib/css/default.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>The Semantic Frontier</h2>
+          <h3>Going Where No SPARQL Endpoint has Gone Before</h3>
+	        <p>Wouter Beek
+	          (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</p>
+          <p>November 6<sup>th</sup>, 2017</p>
+          <img src="../../resource/img/krr.png">
+        </section>
+
+        <section>
+          <section>
+            <h3>What is the cost of access?</h3>
+            <a href="../../resource/img/linked-data/lod-cloud-2014.png">
+              <img src="../../resource/img/linked-data/lod-cloud-2014.png">
+            </a>
+          </section>
+          <section>
+            <h3>The cost of access is too high for scientists</h3>
+            <a href="../../resource/img/lod-lab/iswc-2014-evaluations.png">
+              <img src="../../reosurce/img/lod-lab/iswc-2014-evaluations.png">
+            </a>
+            <p>ISWC research papers use 2 datasets on average.</p>
+          </section>
+        </section>
+
+        <section data-background="../img/barad_dur_left.jpg">
+          <h2 style="color: white; padding-left: 11cm;">You need a
+            €100K+ something something cluster!</h2>
+        </section>
+
+        <section>
+          <h2>Scalability ‘solved’ in research</h2>
+          <ul>
+            <li>Large-scale storage</li>
+            <li>Large-scale querying</li>
+            <li>Integration in business processes</li>
+            <li>Large-scale reasoning</li>
+            <li>Large-scale everything</li>
+          </ul>
+          <p class="fragment">Where are these services running today
+            (free or paid)?</p>
+        </section>
+
+        <section>
+          <section>
+            <h2>Allocative Efficiency</h2>
+            <div>
+              <p>What the consumer is willing to pay should equal the
+                marginal cost of production</p>
+            </div>
+          </section>
+          <section>
+            <h2>Why is allocative efficiency not reached?</h2>
+            <ul>
+              <li class="fragment">Existing deployments are closed
+                systems (no Metcalfe effect)</li>
+              <li class="fragment">Negative incentive model for data
+                that is good &amp; open</li>
+              <li class="fragment">Marginal cost of production goes up
+                with № nodes</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Negative incentive model</h2>
+            <img src="../img/sparql.svg" height="400">
+            <p>SPARQL endpoints are either valuable or available</p>
+          </section>
+          <section>
+            <h2>Metcalfe's Law</h2>
+            <p>The value of a network is proportional to the square of
+              the number of connected nodes</p>
+            <img src="../img/metcalfe.png" height="400">
+          </section>
+          <section>
+            <h2>№ Internet hosts</h2>
+            <img src="../img/hosts.svg" height="600">
+          </section>
+          <section>
+            <h2>№ Internet [FILL-IN-THE-BLANK]</h2>
+            <img src="../img/fb.jpg" height="600">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Our approach (180°)</h2>
+            <p><em>Not</em> a memory-based multi-node cluster</p>
+            <p>The cheapest thing in computing
+              today: <em>disk</em></p>
+          </section>
+          <section>
+            <h3>€305,-</h3>
+            <a href="../img/lod_cloud_2014.png">
+              <img src="../img/lod_cloud_2014.png" height="500">
+            </a>
+          </section>
+          <section>
+            <h2>The cost of access (our approach)</h2>
+            <ul>
+              <li>1 file</li>
+              <li>28,362,198,927 unique triples</li>
+              <li>&gt;650K data documents</li>
+              <li>524 GB of disk space</li>
+              <!-- 304GB + 133GB index -->
+              <li>15.7 GB of RAM</li>
+              <li>€305,- hardware cost</li>
+            </ul>
+          </section>
+          <section>
+            <h2>
+              <a href="http://purl.org/HDT/lod-a-lot">LOD-a-lot</a>
+            </h2>
+            <a href="../img/LOD-a-lot.jpg">
+              <img src="../img/LOD-a-lot.jpg">
+            </a>
+          </section>
+          <section>
+            <h3><a href="http://hdt.lod.labs.vu.nl">LOD-a-lot</a>: Go
+              Where No SPARQL Endpoint Has Gone Before</h3>
+            <ul>
+              <li>Term enumerators</li>
+              <li>Triple enumerators</li>
+              <li>Triple pattern cardinalities</li>
+              <li>Random triples from triple pattern</li>
+              <li>Random terms (by position / by type)</li>
+              <li>Exact prefix match</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Example: Enumerating schema</h2>
+            <!--
+                select distinct ?p { ?s ?p ?o }
+                ?- predicate(P).
+              -->
+            <a href="http://lod.openlinksw.com/sparql">comparison</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Empirical semantics</h2>
+          </section>
+	        <section>
+	          <h3>bbc:sameAs</h3>
+	          <h3>bbc:sameAs</h3>
+	          <h3>owl:sameAs</h3>
+            <h3>?</h3>
+	        </section>
+          <section>
+            <h2>Example: Identity closure</h2>
+            <p>558,943,116 <code>owl:sameAs</code> triples</p>
+            <a href="../../resource/img/identity/identity-partitions-2.png">
+              <img src="../../resource/img/identity/identity-partitions-2.png">
+            </a>
+          </section>
+          <section>
+            <h2>Cleaning <code>owl:sameAs</code></h2>
+            <h3>Community 1: Obama, the person</h3>
+            <pre><code>
+http://als.dbpedia.org/resource/Barack_Obama
+http://am.dbpedia.org/resource/ባራክ_ኦባማ
+http://data.nytimes.com/obama_barack_per
+http://nl.dbpedia.org/resource/Barack_Obama
+http://rdf.freebase.com/ns/m.02mjmr
+http://viaf.org/viaf/52010985
+http://yago-knowledge.org/resource/Barack_Obama
+              </code></pre>
+            <div class="fragment">
+              <h3>Community 2: Obama, the administration</h3>
+              <pre><code>
+http://dbpedia.org/resource/Administration_of_Barack_Obama
+http://dbpedia.org/resource/Barack_Obama_Cabinet
+http://dbpedia.org/resource/Barack_Obama_presidency
+http://rdf.freebase.com/ns/m.05b6w1g
+http://wikidata.dbpedia.org/resource/Q1379733
+http://yago-knowledge.org/resource/Presidency_of_Barack_Obama</pre>
+              </code>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h1>Thank you!</h1>
+          <p>
+            Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>
+            <br>
+            WWW: <a href="http://wouterbeek.com">wouterbeek.com</a>
+          </p>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="../../resource/img/logo/krr.png" height="100">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="../../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '../../resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '../../resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '../../resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '../../resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '../../resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '../../resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '../../resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

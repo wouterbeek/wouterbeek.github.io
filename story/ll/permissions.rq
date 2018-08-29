@@ -1,7 +1,14 @@
 prefix ll: <https://lodlaundromat.org/def/>
-select ?permissions (count(?entry) as ?entries) {
-  ?entry a ll:Entry;
-    ll:permissions ?permissions.
+select
+  ?permissions
+  (replace(?entries,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?entries)
+{
+  {
+    select ?permissions (count(?entry) as ?entries) {
+      ?entry a ll:Entry;
+        ll:permissions ?permissions.
+    }
+    group by ?permissions
+    order by desc(?entries)
+  }
 }
-group by ?permissions
-order by desc(?entries)

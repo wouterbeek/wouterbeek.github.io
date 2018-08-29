@@ -15,9 +15,9 @@ select
       # Correct for the fact that we do not know ahead of time whether
       # or not something is a triples-only format.
       bind(if(?format0="application/trig"^^xsd:string && ?quadruples=0,
-              'text/turtle',
+              "text/turtle"^^xsd:string,
               if(?format0="application/n-quads"^^xsd:string && ?quadruples=0,
-                 'application/n-triples',
+                 "application/n-triples"^^xsd:string,
                  ?format0))
            as ?format)
     }

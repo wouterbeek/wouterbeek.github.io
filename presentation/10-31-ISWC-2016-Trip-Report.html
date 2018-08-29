@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ISWC 2016 - Trip Report</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Trip Report of ISWC 2016.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>Trip Report ISWC 2016</h1>
+          <h3>October 31<sup>st</sup>, 2016</h3>
+          <h3>Wouter Beek</h3>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+        </section>
+
+        <section>
+	  
+	  <h2>Which graph are we studying? (1)</h2>
+	  
+	  <p>W3C standards:</p>
+	  
+	  <ul>
+	    
+	    <li class="fragment">A set of triples (RDF Graph)</li>
+	    
+	    <li class="fragment">A named¹ set of triples (RDF Graph ≡
+	      document contents)</li>
+	    
+	    <li class="fragment">Quads, i.e., a named² set of triples
+	      (RDF Graph ⊆ document contents)</li>
+	      
+	    <li class="fragment">± entailment</li>
+	    
+	  </ul>
+	</section>
+	
+	<section>
+
+	  <h2>Which graph are we studying? (2)</h2>
+	  
+	  <p>“Stream Reasoning Workshop”</p>
+
+	  <ul>
+	    
+	    <li class="fragment">A partial sequence of triples (RDF
+	      Stream)</li>
+	      
+	    <li class="fragment">A partial named¹ sequence of triples
+	      (RDF Stream from endpoint)</li>
+	      
+	    <li class="fragment">A partial sequence of quads, i.e., a
+	      named² sequence of triples</li>
+
+	    <li class="fragment">A named collection of named sets of
+  	      statements (Quads + VoID)</li>
+
+	    <li class="fragment">‘one-time semantics’ versus
+	      ‘continuous semantics’</li>
+	    
+	  </ul>
+	  
+	</section>
+	
+	<section>
+	  
+	  <h2>Which graph are we studying? (3)</h2>
+
+	  <p>“Semantic Web meets Internet of Things and Web of
+	    Things”</p>
+
+	  <ul>
+	    
+	    <li class="fragment">The constantly changing(!) graph of
+	      interconnected devices</li>
+
+	    <li class="fragment">The graph of interconnected triple
+	      store endpoints</li>
+
+	    <li class="fragment">The graph of inter-linked HTML pages
+	      containing RDFa</li>
+
+	    <li class="fragment">The constantly changing and
+              distributed collection of documents and endpoints that
+              are referred to in the phrase “For our evaluation we
+              have used Freebase.”</li>
+	    
+          </ul>
+	  
+	</section>
+
+	<section>
+
+	  <h2>Implications for the study of meaning (1)</h2>
+
+	  <p><b>WoD</b>: the intersection of meaning along the
+	    dimensions of model/set theory, sequent calculus, Web
+	    annotations, networking infra, and communication
+	    networks.</p>
+
+	  <p class="fragment"><b>Meaning</b>: formal, social,
+	    technological</p>
+
+	  <p class="fragment">What are ‘artifacts’ and what is
+	    ‘meaning’?</p>
+
+	</section>
+
+	<section>
+	    
+	  <h2>Implications for the study of meaning (2)</h2>
+	  
+	  <p class="fragment">“Defining semantics of Linked Data on
+	    the WWW involves <i>two graphs of different types</i>: (1)
+	    an RDF graph distributed over documents and (2) the Web
+	    graph of documents.” [Hartig2015]</p>
+
+	  <p class="fragment">Hartig & Pirrò 2015, “A Context-Based
+	    Semantics for SPARQL Property Paths Over the Web”,
+	    <i>ESWC</i></p>
+
+	  <p class="fragment">Baier & Daroch & Reutter & Vrgoč, 2016,
+	    “Property Paths over Linked Data: Can it be Done and How
+	    to Start?”, <i>COLD</i>.</p>
+
+	</section>
+
+	<section>
+	  
+	  <h2>Which graph are we studying? (5)</h2>
+	  
+	  <p class="fragment">Mutiset Semantics of SPARQL Patterns</p>
+
+	  <p class="fragment">Multiset Relational Algebra (MRA) ≡
+	    Mutliset Datalog (Mumuck et al. 1990)</p>
+
+	</section>
+
+	<!--
+	<section>
+
+	  <h2>Sustainable tools</h2>
+
+	  <p>Recently decommisioned reasoners:</p>
+
+	  <ul>
+
+	    <li></li>
+	    
+	    <li>Research ≠ product development (Ruben)</li>
+
+	  </ul>
+
+	</section>
+	-->
+
+	<section>
+	  
+	  <h2>“The Great Linked Data Debate”</h2>
+
+	  <ul>
+	    
+	    <li>Centralization (Ruben)</li>
+
+	    <li>Open Data grows, but not RDF in Open Data (Axel)</li>
+	      
+	    <li>Links are too expensive to maintain (Christian)</li>
+
+	    <li>The Web is a platform for <i>human</i>
+	      communication.</li>
+
+	  </ul>
+
+	</section>
+
+	<section>
+
+	  <h2>Prototypes</h2>
+
+	  <p>Cochez & Decker & Prud'hommeaux, 2016, “Knowledge
+	    Representation on the Web Revisited: The Case for
+	    Prototypes”, <i>ISWC</i>.</p>
+
+	  <!--
+	  <p>Hayes1979, formalization of frames in terms of instances
+	    and classes (Model Theory).</p>
+	  -->
+
+	  <p class="fragment">Concept as network trace.</p>
+	  
+	  <ul class="fragment">
+
+	    <li><b>Simple change expression</b>:
+	      $(p,\{r_1,\ldots,r_n\})$, with property $p$ and values
+	      $r_i$.</li>
+	      
+	    <li><b>Prototype expression</b>: $(id,(base,add,remove))$,
+	      with $add$ and $remove$ sets of simple change
+	      expressions, and with $base$ the prototype $id$ is
+	      derived from.</li>
+
+	  </ul>
+ 
+	</section>
+
+	<!--
+	<section>
+
+	  <h2>Tuple-generating dependency (DB) / Existential rule
+	  (AI)</h2>
+
+	  <p>If $spouse(ann,jo,2013)$ (Ann married Jo in 2013), then
+	    $spouse(jo,ann,2013)$ (Jo marries Ann in 2013).</p>
+
+	  <p>Axiom: $(\forall x,y_1,y_2,y_3)(s_1(x,y_1) \land
+	  s_2(x,y_2) \land s_3(x,y_3)) \rightarrow (\exists
+	  v)(s_1(v,y_2) \land s_2(v,y_1) \land s_3(v,y_3))$</p>
+
+	  <p>Krötzsch & Thost, 2016, “Ontologies for Knowledge Graphs:
+	    Breaking the Rules”, /ISWC/.</p>
+
+	</section>
+	-->
+
+	<section>
+	  
+	  <h2>Combinatorial Creativity / Conceptual Blending</h2>
+
+	  <p>$Car \equiv Vehicle \sqcap \exists hasPart.Wheel$</p>
+
+	  <p>A car without wheels is inconsistent.</p>
+
+	  <p class="fragment">Modification language: addition,
+	    subtraction, ‘succession’, selection, replacement.</p>
+
+	  <p class="fragment">Evaluation: Can existing inventions be
+	    described?  Are the results of automatic manipulations
+	    considered meaningful?</p>
+
+	  <p class="fragment">Suchanek & Menard & Bienvenu &
+	    Chapellier, 2016, “Can You Imagine… A Language for
+	    Combinatorial Creativity?”, /ISWC/.</p>
+	  
+	</section>
+
+	<section>
+	  
+	  <h2>LOD Observatory (1)</h2>
+	  
+	  <p>2001 expectations:</p>
+
+	  <ul>
+
+	    <li><i>People</i> publish data on the Web</li>
+
+	    <li>Ontologies are used to enable shared
+	    understanding</li>
+
+	    <li>People implement cool & smart applications</li>
+
+	    <li>Publishers turn into curators for quality</li>
+
+	  </ul>
+
+	</section>
+
+	<section>
+	  
+	  <h2>LOD Observatory (2)</h2>
+
+	  <p>Bizer keynote:</p>
+	  
+	  <ul>
+	    
+	    <li class="fragment">Most RDF datasets do not ‘link’</li>
+
+	    <li class="fragment">Lots of HTML-embedded (micro)data
+	    (e.g., &gt;80% of PLDs in travel)</li>
+
+	    <li class="fragment">Cost/benefit of linking</li>
+
+	    <li class="fragment">“Making the Web a better place isn't
+	      enough motivation for most data providers.”</li>
+
+	  </ul>
+
+	</section>
+
+	<section>
+	  
+	  <h2>My take on this</h2>
+
+	  <ul>
+
+	    <li class="fragment">Based on incomplete stats
+	    (Bizer2014)</li>
+
+	    <li class="fragment">There is <i>way more</i> LOD out
+	      there than the community is aware of
+	      (Rietveld2015).</li>
+
+	    <li class="fragment">Forgot 2 most important SW
+	      expectations: (1) agent/AI platform, (2) democratization
+	      platform</li>
+	    
+	    <li class="fragment">Linking ≠ ‘owl:sameAs’ (e.g.,
+	      long/lat)</li>
+
+	  </ul>
+
+	</section>
+
+	<section>
+
+	  <h2>‘Grand Challenge’ (Hiroaki Kitano keynote)</h2>
+
+	  <p>“Scientific discovery is at pre-industry revolution
+	    level.”</p>
+
+	  <p class="fragment">“The engine of discovery should be a
+	    closed-loop system of hypothesis generation and
+	    verification, knowledge maintenance, knowledge
+	    integration, and so on.”</p>
+
+	  <!--
+	  <p>Manhattan Project (Vanevar Bush), Apollo Project</p>
+
+	  <p>“Creating AI systems with a very high capability for
+	    scientific discovery”</p>
+
+	  <p>Will win a Field Medal pretty soon</p>
+
+	  <p>Mulzer & Rote, 2008, “Minimum-weight triangulation is
+	    NP-hard”, /Journal of the ACM/.</p>
+	  -->
+
+	</section>
+        
+        <section>
+          <h1>Thank you!</h1>
+          <p>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></p>
+          <p>Mail: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></p>
+        </section>
+        
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

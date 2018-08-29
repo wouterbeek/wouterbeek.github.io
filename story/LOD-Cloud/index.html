@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="LOD Cloud">
+    <meta name="author" content="Wouter Beek">
+    <title>LOD Cloud</title>
+    <link href="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.css"
+          rel="stylesheet"
+          type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container story"
+         data-query-endpoint="https://api.data.lodlaundromat.org/datasets/wouter/metadata/services/metadata/sparql">
+      <h1>LOD Cloud</h1>
+      <h2>The size of the LOD Cloud</h2>
+      <div data-query data-query-sparql="size.rq"></div>
+      <!--
+      <h2>The size per dataset</h2>
+      <div data-query data-query-sparql="size-per-dataset.rq"></div>
+      -->
+      <h2>RDF serialiazation formats</h2>
+      <div data-query data-query-sparql="serialization-format.rq"></div>
+    </div>
+    <script src="https://cdn.rawgit.com/wouterbeek/Data-Stories/master/deps/yasgui.min.js?v=1"></script>
+    <script type="text/javascript">YASGUI.sparqlStories();</script>
+  </body>
+</html>

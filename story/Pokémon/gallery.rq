@@ -1,0 +1,32 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix pkm: <http://pokedex.dataincubator.org/pkm/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?widget {
+  ?i a pkm:Pokemon ;
+    foaf:depiction ?image ;
+    pkm:baseAttack ?attack ;
+    pkm:baseDefense ?defense ;
+    pkm:baseExp ?experience ;
+    pkm:baseHP ?health ;
+    pkm:baseSpeed ?speed ;
+    pkm:femaleRatio ?female ;
+    pkm:happiness ?happiness ;
+    pkm:maleRatio ?male ;
+    pkm:name ?name ;
+    rdfs:label ?label .
+  filter(langmatches(lang(?name), 'ja') &&
+         strstarts(str(?image),"http://www"))
+  bind(concat('<h2>',str(?name),' (',?label,')</h2>',
+              '<img src="',?image,'">',
+              '<ul><li>Experience: ',?experience,'</li>',
+              '<li>Attack: ',?attack,'</li>',
+              '<li>Defense: ',?defense,'</li>',
+              '<li>Experience: ',?experience,'</li>',
+              '<li>Health: ',?health,'</li>',
+              '<li>Female ration: ',?female,'</li>',
+              '<li>Happiness: ',?happiness,'</li>',
+              '<li>Male ratio: ',?male,'</li>',
+              '<li>Speed: ',?speed,'</li></ul>') as ?widget)
+}
+order by desc(?experience)
+limit 10

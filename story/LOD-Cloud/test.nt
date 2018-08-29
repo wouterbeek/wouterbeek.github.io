@@ -1,0 +1,100 @@
+<http://us.patents.aksw.org/06906845> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Patent> .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/national-classification> <http://us.patents.aksw.org/359290> .
+<http://us.patents.aksw.org/359290> <http://us.patents.aksw.org/property/mainSubclassLabel> "OPTICAL MODULATOR Light wave temporal modulation (e.g., frequency, amplitude, etc.) By changing physical characteristics (e.g., shape, size or contours) of an optical element"@en .
+<http://us.patents.aksw.org/359290> <http://us.patents.aksw.org/property/mainClassLabel> "Optical: systems and elements"@en .
+<http://us.patents.aksw.org/359290> <http://us.patents.aksw.org/property/mainClassCode> "359290" .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/5285196> .
+<http://us.patents.aksw.org/5285196> <http://xmlns.com/foaf/0.1/name> "Gale, Jr."@en .
+<http://us.patents.aksw.org/5285196> <http://us.patents.aksw.org/property/category> "cited by other"@en .
+<http://us.patents.aksw.org/5285196> <http://us.patents.aksw.org/property/docNo> "5285196"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/5512374> .
+<http://us.patents.aksw.org/5512374> <http://xmlns.com/foaf/0.1/name> "Wallace et al."@en .
+<http://us.patents.aksw.org/5512374> <http://us.patents.aksw.org/property/category> "cited by examiner"@en .
+<http://us.patents.aksw.org/5512374> <http://us.patents.aksw.org/property/docNo> "5512374"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/5616372> .
+<http://us.patents.aksw.org/5616372> <http://xmlns.com/foaf/0.1/name> "Conley et al."@en .
+<http://us.patents.aksw.org/5616372> <http://us.patents.aksw.org/property/category> "cited by other"@en .
+<http://us.patents.aksw.org/5616372> <http://us.patents.aksw.org/property/docNo> "5616372"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/5661592> .
+<http://us.patents.aksw.org/5661592> <http://xmlns.com/foaf/0.1/name> "Bornstein et al."@en .
+<http://us.patents.aksw.org/5661592> <http://us.patents.aksw.org/property/category> "cited by examiner"@en .
+<http://us.patents.aksw.org/5661592> <http://us.patents.aksw.org/property/docNo> "5661592"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/5694740> .
+<http://us.patents.aksw.org/5694740> <http://xmlns.com/foaf/0.1/name> "Martin et al."@en .
+<http://us.patents.aksw.org/5694740> <http://us.patents.aksw.org/property/category> "cited by other"@en .
+<http://us.patents.aksw.org/5694740> <http://us.patents.aksw.org/property/docNo> "5694740"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/citedBy> <http://us.patents.aksw.org/6051503> .
+<http://us.patents.aksw.org/6051503> <http://xmlns.com/foaf/0.1/name> "Bhardwaj et al."@en .
+<http://us.patents.aksw.org/6051503> <http://us.patents.aksw.org/property/category> "cited by other"@en .
+<http://us.patents.aksw.org/6051503> <http://us.patents.aksw.org/property/docNo> "6051503"@en .
+<http://us.patents.aksw.org/06906845> <http://purl.org/dc/terms/date> "2005-06-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/primaryExaminer> <http://us.patents.aksw.org/examiner-Hung%20Xuan-Dang> .
+<http://us.patents.aksw.org/examiner-Hung%20Xuan-Dang> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Examiner> .
+<http://us.patents.aksw.org/examiner-Hung%20Xuan-Dang> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://us.patents.aksw.org/examiner-Hung%20Xuan-Dang> <http://xmlns.com/foaf/0.1/firstName> "Hung Xuan"@en .
+<http://us.patents.aksw.org/examiner-Hung%20Xuan-Dang> <http://xmlns.com/foaf/0.1/lastName> "Dang"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/agent> <http://us.patents.aksw.org/agent-06906845-01> .
+<http://us.patents.aksw.org/agent-06906845-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Agent> .
+<http://us.patents.aksw.org/agent-06906845-01> <http://xmlns.com/foaf/0.1/Organization> "Sughrue Mion, PLLC"@en .
+<http://us.patents.aksw.org/agent-06906845-01> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-unknown> .
+<http://us.patents.aksw.org/country-unknown> <http://www.w3.org/2000/01/rdf-schema#label> "unknown"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/assignee> <http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> .
+<http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Assignee> .
+<http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> <http://us.patents.aksw.org/property/orgname> <http://us.patents.aksw.org/Samsung%20Electronics%20Co.%2C%20Ltd.> .
+<http://us.patents.aksw.org/Samsung%20Electronics%20Co.%2C%20Ltd.> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<http://us.patents.aksw.org/Samsung%20Electronics%20Co.%2C%20Ltd.> <http://www.w3.org/2000/01/rdf-schema#label> "Samsung Electronics Co., Ltd."@en .
+<http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> <http://us.patents.aksw.org/property/assignee-city> <http://us.patents.aksw.org/Gyeonggi-do> .
+<http://us.patents.aksw.org/Gyeonggi-do> <http://www.w3.org/2000/01/rdf-schema#label> "Gyeonggi-do"@en .
+<http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/assignee-Samsung%20Electronics%20Co.%2C%20Ltd.> <http://us.patents.aksw.org/property/role> <http://us.patents.aksw.org/03> .
+<http://us.patents.aksw.org/03> <http://www.w3.org/2000/01/rdf-schema#label> "Foreign company or corporation"@en .
+<http://us.patents.aksw.org/06906845> <http://purl.org/dc/terms/abstract> "The micro-mechanical structure includes an anti-stiction layer formed by plasma enhanced chemical vapor deposition and plasma etching. The anti-stiction layer is selectively formed on only the area of a substrate other than the top of a movable structure and a part of an electrode that is subsequently bonded to a wire."@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/Year> "2005"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-US> .
+<http://us.patents.aksw.org/country-US> <http://www.w3.org/2000/01/rdf-schema#label> "United States"@en .
+<http://us.patents.aksw.org/country-US> <http://us.patents.aksw.org/property/countryCode> "US"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/applicant> <http://us.patents.aksw.org/applicant-06906845-001> .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Applicant> .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://xmlns.com/foaf/0.1/lastName> "Cho"@en .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://xmlns.com/foaf/0.1/firstName> "Chang-ho"@en .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://us.patents.aksw.org/property/city> <http://us.patents.aksw.org/Suwon> .
+<http://us.patents.aksw.org/Suwon> <http://www.w3.org/2000/01/rdf-schema#label> "Suwon"@en .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://us.patents.aksw.org/property/residence> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-001> <http://us.patents.aksw.org/property/nationality> <http://us.patents.aksw.org/nationality-KR> .
+<http://us.patents.aksw.org/nationality-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/applicant> <http://us.patents.aksw.org/applicant-06906845-002> .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Applicant> .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://xmlns.com/foaf/0.1/lastName> "Shin"@en .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://xmlns.com/foaf/0.1/firstName> "Hyung-jae"@en .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://us.patents.aksw.org/property/city> <http://us.patents.aksw.org/Seongnam> .
+<http://us.patents.aksw.org/Seongnam> <http://www.w3.org/2000/01/rdf-schema#label> "Seongnam"@en .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://us.patents.aksw.org/property/residence> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-002> <http://us.patents.aksw.org/property/nationality> <http://us.patents.aksw.org/nationality-KR> .
+<http://us.patents.aksw.org/nationality-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/applicant> <http://us.patents.aksw.org/applicant-06906845-003> .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Applicant> .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://xmlns.com/foaf/0.1/lastName> "Kim"@en .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://us.patents.aksw.org/property/country> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://xmlns.com/foaf/0.1/firstName> "Woon-bae"@en .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://us.patents.aksw.org/property/city> <http://us.patents.aksw.org/Suwon> .
+<http://us.patents.aksw.org/Suwon> <http://www.w3.org/2000/01/rdf-schema#label> "Suwon"@en .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://us.patents.aksw.org/property/residence> <http://us.patents.aksw.org/country-KR> .
+<http://us.patents.aksw.org/country-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/applicant-06906845-003> <http://us.patents.aksw.org/property/nationality> <http://us.patents.aksw.org/nationality-KR> .
+<http://us.patents.aksw.org/nationality-KR> <http://www.w3.org/2000/01/rdf-schema#label> "Korea"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/docNo> "06906845"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/kind> <http://us.patents.aksw.org/B2> .
+<http://us.patents.aksw.org/B2> <http://www.w3.org/2000/01/rdf-schema#label> "Patent \u2014 Previously Published/Utility Patent Grant (with pre-grant publication)"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/inventionTitle> "Micro-mechanical device having anti-stiction layer and method of manufacturing the device"@en .
+<http://us.patents.aksw.org/06906845> <http://us.patents.aksw.org/property/secondaryExaminer> <http://us.patents.aksw.org/examiner-Joseph-Martinez> .
+<http://us.patents.aksw.org/examiner-Joseph-Martinez> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://us.patents.aksw.org/ontology/Examiner> .
+<http://us.patents.aksw.org/examiner-Joseph-Martinez> <http://xmlns.com/foaf/0.1/lastName> "Martinez"@en .
+<http://us.patents.aksw.org/examiner-Joseph-Martinez> <http://xmlns.com/foaf/0.1/firstName> "Joseph"@en .

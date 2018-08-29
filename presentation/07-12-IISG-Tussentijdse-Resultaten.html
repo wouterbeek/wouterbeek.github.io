@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IISG Pilot - Tussentijdse Resultaten</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Tussentijdse resultaten van Triply werkzaamheden binnen de IISG pilot.">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <style>
+      figure {
+      float: left;
+      height: 150px;
+      margin: 55px !important;
+      width: 150px;
+      }
+      figure figcaption {
+      font-size: 20px !important;
+      }
+      html.img-right {
+      position: relative;
+      margin: 0% 20% 0% 20%;
+      max-height: 900px;
+      max-width: 900px;
+      }
+      sup {
+      font-size: 40pt !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+	<section>
+          <h2>IISG/Triply Pilot</h2>
+          <img src="http://scontent.cdninstagram.com/t51.2885-19/12534370_146768975704506_873063997_a.jpg" height="150">
+	  <img src="../img/triply.svg" height="150">
+          <h3>Tussentijdse Resultaten</h3>
+          <h5>12 juli 2016</h5>
+	  <h5>Wouter Beek (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h5>
+	</section>
+
+        <section>
+          <h1>Taken</h1>
+          <ol>
+            <li>Data conversie</li>
+            <li>Data transformatie</li>
+            <li>Data opschonen</li>
+            <li>Data integratie</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>№.1 Data conversie</h1>
+          <ul>
+            <li>XML → Linked Data</li>
+            <li>CSV → Linked Data</li>
+            <li>Shapefile → Linked Data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>№.2 Data transformatie</h1>
+          <p>Syntax → Semantiek:</p>
+          <ul>
+            <li class="fragment">Naam → identifier<br>
+              ‘Abraham Kuyper’ → <span style="font-size: 25px;"><a href="http://wikidata.org/entity/Q320014"><code>http://wikidata.org/entity/Q320014</code></a></span><br>
+              <span class="fragment">‘260c’ → <span style="font-size: 25px;"><a href="http://purl.org/dc/terms/publisher"><code>http://purl.org/dc/terms/publisher</code></a></span></span>
+            </li>
+            <li class="fragment">Disambiguatie van homoniemen</li>
+            <li class="fragment">Aanbrengen van structuur</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>№.3 Data opschonen</h1>
+          <p class="fragment">IISG data bevat weinig fouten</p>
+          <p class="fragment">Vooral nodig voor integreren met externe bronnen</p>
+        </section>
+
+        <section>
+          <h4>Werd er in windermaanden minder gestaakt dan in andere maanden?</h4>
+          <img src="../img/iisg_sparql.jpg">
+        </section>
+        
+        <section>
+          <h1>№.4 Data integratie</h1>
+          <!--
+              <ol>
+                <li>№.4a Website ↔ Dataverse</li>
+                <li>№.4b Website ↔ Collectie</li>
+                <li>№.4c Dataverse ↔ Collectie</li>
+              </ol>
+              -->
+          <img width="500" src="../img/iisg.png">
+        </section>
+
+        <section>
+          <h2>Linken naar externe bronnen</h2>
+          <p>Stappenplan:</p>
+          <ol>
+            <li class="fragment">Named Entity Detection (NED)<br>Bijv: “Abraham Kuyper”</li>
+            <li class="fragment">LOTUS (Semantic Search Engine)<br>Bijv: “Abraham Kuyper” → <code style="font-size: 25px;">http://wikidata.org/entity/Q320014</code></li>
+            <li class="fragment">Identity lookup<br>→ <code style="font-size: 25px;">http://freebase.com//m/01sjxm</code> → <code style="font-size: 25px;">dbr:'Abraham_Kuyper'</code> → …</li>
+            <li class="fragment">Kennis binnenhalen (demo)</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Externe bronnen</h1>
+          <ul>
+            <li>Gemeentegeschiedenis</li>
+            <li>Wikidata, DBpedia</li>
+            <li><a href="http://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago/">Yago</a>, <a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a>, <a href="http://xmlns.com/foaf/spec/">Foaf</a>, <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl">Ontology Design Patterns</a>, <a href="http://www.umbel.org/">Umbel</a>, <a href="http://rdfs.org/sioc/ns#">Sioc</a>, Bibo, <a href="http://schema.org/">Schema.org</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Problemen</h1>
+          <ol>
+            <li>Structuur</li>
+            <li>Causaliteit</li>
+            <li>Herkomst</li>
+            <li>Granulariteit</li>
+            <li>Long tail</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>№.1 Te weinig structuur</h2>
+          <p>Kolom “Company”:</p>
+          <pre>ADM [Amsterdam ( Noord-Holland )]; Alker [Waalre ( Noord-Brabant )]; …</pre>
+          <p>Kolom “Totals”:</p>
+          <pre>Companies involved: 100; Number of actions: 1; Strike days: 100000; Workers involved: 100000</pre>
+          <a href="http://iisg.triply.cc/tab?term=%27http%3A//iisg.triply.cc/resource/15165%27&graph=%27http%3A//iisg.org/strikes/data%27">(link)</a>
+        </section>
+        
+        <section>
+          <h1>№.2 Causaliteit</h1>
+          <p>Events ontvouwen zich over de tijd en hebben causale relaties</p>
+          <div class="fragment">
+            <p>Voorbeeld:</p>
+            <ul>
+              <li>De ‘eigenlijke’ spoorwegstaking (januari 1903)</li>
+              <li>“De spoorwegstaking sloeg over naar het trampersoneel” (1 februari 1903) <a href="http://iisg.triply.cc/tab?term=%27http%3A//iisg.triply.cc/resource/1809%27&graph=%27http%3A//iisg.org/strikes/data%27">(link)</a></li>
+              <li>Verweer tegen ‘worgwetten’ (20 februari 1903) <a href="http://iisg.triply.cc/tab?term=%27http%3A//iisg.triply.cc/resource/1892%27&graph=%27http%3A//iisg.org/strikes/data%27">(link)</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h1>№.3 Herkomst</h1>
+          <p>‘Provenance’ voor uitspraken/data <a href="http://localhost:6666/tab?term=%27http%3A//iisg.triply.cc/resource/9865%27&graph=%27http%3A//iisg.org/strikes/data%27">(voorbeeld)</a></p>
+        </section>
+        
+        <section>
+          <h1>№.4 Long-tail probleem</h1>
+          <p>Er is te weinig data om <i>betrouwbare</i> links te leggen voor alle behalve de meest voorkomende events en objecten.</p>
+          <p class="fragment">Bijvoorbeeld: <a href="http://localhost.localdomain:6666/tab?term=%27http%3A//iisg.triply.cc/resource/10008%27&graph=%27http%3A//iisg.org/strikes/data%27">2-daagse staking bij Magneet in Weesp vanaf 15 februari 1930</a> (demo)</p>
+        </section>
+        
+        <section>
+          <h1>№.5 Granulariteits-niveau</h1>
+          <p>Wat is “de spoorwegstaking van 1903”?</p>
+          <ul>
+            <li class="fragment">Één ‘hoofd’-event?</li>
+            <li class="fragment">Een keten van events?</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h1>TODO</h1>
+          <ul>
+            <li class="fragment">Weergave benodigde tijd/inzet door Triply.</li>
+            <li class="fragment">Inschatting tijd/inzet door IISG.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Out of scope</h1>
+          <ul>
+            <li class="fragment">Uniforme search engine</li>
+            <li class="fragment">Gevanceerde visualizatie</li>
+            <li class="fragment">Integratie met bestaande tools</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

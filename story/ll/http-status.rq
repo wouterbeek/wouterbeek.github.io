@@ -1,7 +1,14 @@
 prefix ll: <https://lodlaundromat.org/def/>
-select ?status (count(?id) as ?n) {
-  ?id a ll:HttpReply ;
-    ll:status ?status.
+select
+  ?status
+  (replace(?documents,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?documents)
+{
+  {
+    select ?status (count(?document) as ?documents) {
+      ?document a ll:HttpReply ;
+        ll:status ?status.
+    }
+    group by ?status
+    order by desc(?documents)
+  }
 }
-group by ?status
-order by desc(?n)

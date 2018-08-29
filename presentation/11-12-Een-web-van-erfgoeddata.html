@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Een web van erfgoeddata</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta name="description" content="Een web van erfgoeddata">
+    <meta name="author" content="Wouter Beek">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../resource/reveal.js-3.7.0/lib/css/default.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '"../resource/reveal.js-3.7.0/css/print/pdf.css' : '"../resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+        <script src="../resource/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section>
+          <h1>Hack-a-LOD 2016</h1>
+          <h3>12 november 2016</h3>
+	  <h4>Wouter Beek
+	    (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</h4>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+          <img src="../img/triply.svg" height="150">
+        </section>
+
+	<section>
+	  <img src="../img/1.png">
+	</section>
+
+	<section>
+	  <img src="../img/2.png">
+	</section>
+
+	<section>
+	  <img src="../img/3.png">
+	</section>
+
+	<section>
+	  <h2>[1/4] Verzamel alle data</h2>
+	  <h3>600,000+ datasets</h3>
+	</section>
+
+	<section>
+	  <a href="http://lod-cloud.net/versions/2014-08-30/lod-cloud_colored.png">
+	    <img src="../img/lod_cloud_2014.svg">
+	  </a>
+	</section>
+
+	<section>
+	  <h2>[2/4] Was de data schoon</h2>
+	  <h3>1,000,000,000+ fouten/onduidelijkheden</h3>
+	</section>
+
+        <section>
+          <h2><a href="http://lodlaundromat.org">lodlaundromat.org</a></h2>
+          <a href="http://lodlaundromat.org/basket/">
+            <img src="../img/basket.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/">
+            <img src="../img/laundry.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/wardrobe/">
+            <img src="../img/lod-wardrobe.png" width="200">
+          </a>
+          <br>
+          <a href="http://lodlaundromat.org/visualizations/">
+            <img src="../img/analysis.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+            <img src="../img/labels.png" width="200">
+          </a>
+          <a href="http://lodlaundromat.org/about/">
+            <img src="../img/laundry-line.png" width="200">
+          </a>
+          <br>
+          <small>
+	    Best Paper Award ISWC 2015
+	  </small>
+	  <br>
+	  <small>
+	    Best Linked Open Data Application Award 2015
+	  </small>
+        </section>
+        
+        <section>
+          <h2>
+	    Gesloten vocabulaire ‘BU00030002’ →<br>
+	    Gedeelde kennisgraaf
+	  </h2>
+          <img class="fragment" height="500" src="../img/buurtcode.png">
+        </section>
+	
+	<section>
+	  <h1>[3/4] Vindt een specifiek object/event</h1>
+	  <h3>2,000,000,000+ objecten & events</h3>
+	</section>
+
+        <section>
+          <h2>Semantic Search Engine</h2>
+          <img src="../img/lotus_cropped.png">
+          <small style="margin-top: 15px;">2<sup>nd</sup>
+            place, <em>Linked Data Challenge</em>, 2016.</small>
+        </section>
+        
+        <section>
+          <h2><a href="http://lodsearch.org">lodsearch.org</a></h2>
+          <img src="../img/pet_sounds.png">
+        </section>
+
+	<section>
+	  <section>
+	    <h1>[4/4] Stel complexe vragen</h1>
+	    <h3>100,000,000,000+ statements</h3>
+	  </section>
+	
+          <section>
+            <h3>Hoe bevraag je 100B statements? (1/2)</h3>
+	    <img src="../img/sparql.svg" height="400">
+          </section>
+
+          <section>
+            <h3>Hoe bevraag je 100B statements? (2/2)</h3>
+	    <img src="../img/ldf.svg" height="400">
+          </section>
+        </section>
+
+        <section>
+          <h1>Dank voor uw aandacht!</h1>
+          <p>
+	    WWW:
+	    <a href="http://lodlaundromat.org">lodlaundromat.org</a>,
+            <a href="http://lodsearch.cc">lodsearch.cc</a>
+	  </p>
+	  <p>
+	    Email:
+	    <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>,
+	    <a href="mailto:wouter@triply.cc">wouter@triply.cc</a>
+	  </p>
+	  <img src="../img/vu-krr-logo-print-600dpi.png" height="150">
+          <img src="../img/triply.svg" height="150">
+        </section>
+          
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+      ]
+      });
+    </script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+    </script>
+    <script>
+      window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+      t._e.push(f);
+      };
+      return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+  </body>
+</html>

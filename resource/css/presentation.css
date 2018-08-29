@@ -48,7 +48,7 @@ code {
    most common cases.
 */
 
-figure img {
+figure img, figure video {
   max-height: 575px !important;
 }
 
