@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://nightly.yasgui.triply.cc/build/yasgui.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Issue 1257</h1>
+    <p>Trying to reproduce <a href="">issue 1257</a>.  Does the below display the countries of the world on a 3D globe, or do you get the following error message?</p>
+    <pre><code>
+        Cesium An error occured while rendering Typerror this._dataSourceDisplay is undefined
+    </code></pre>
+    <query data-endpoint="https://druid.datalegend.net/_api/datasets/nlgis/cshapes/services/cshapes/sparql"
+           data-query-ref="query.rq"
+           data-output="geo3d">
+    </query>
+    <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
+    <script type="text/javascript">window.onload = function () { Yasgui.stories(); }</script>
+  </body>
+</html>
