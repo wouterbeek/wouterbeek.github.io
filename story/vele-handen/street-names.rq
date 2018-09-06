@@ -1,6 +1,6 @@
 prefix iisg: <https://iisg.amsterdam/vocab/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?streetName (count(?address) as ?n) {
+select (str(?streetName) as ?streetName) (count(?address) as ?n) {
   ?address iisg:street/rdfs:label ?streetName.
 }
 group by ?streetName

@@ -1,6 +1,6 @@
 prefix iisg: <https://iisg.amsterdam/vocab/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?unionName (count(?card) as ?n) {
+select (str(?unionName) as ?unionName) (count(?card) as ?n) {
   ?card iisg:union/rdfs:label ?unionName.
 }
 group by ?unionName

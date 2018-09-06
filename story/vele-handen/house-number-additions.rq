@@ -1,5 +1,5 @@
 prefix iisg: <https://iisg.amsterdam/vocab/>
-select ?addition (count(?address) as ?n) {
+select (str(?addition) as ?addition) (count(?address) as ?n) {
   ?address iisg:houseNumberAddition ?addition.
 }
 group by ?addition
