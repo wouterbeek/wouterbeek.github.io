@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Vele Handen">
+    <meta name="author" content="Wouter Beek">
+    <title>Vele Handen</title>
+    <link crossorigin="anonymous"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          rel="stylesheet">
+    <link href="/resources/css/main.css" rel="stylesheet" type="text/css">
+    <link href="https://nightly.yasgui.triply.cc/build/yasgui.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/gChart-overrides.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container story"
+         data-endpoint="https://api.nightly.triply.cc/datasets/iisg/vele-handen/services/vele-handen/sparql">
+      <h1>Vele handen (first intermediate version)</h1>
+      <hr>
+      <h2>Places</h2>
+      <query data-query-ref="place-names.rq"></query>
+      <hr>
+      <h2>Streets</h2>
+      <query data-query-ref="street-names.rq"></query>
+      <hr>
+      <h2>House number additions</h2>
+      <query data-query-ref="house-number-additions.rq"></query>
+      <hr>
+      <h2>Unions</h2>
+      <query data-query-ref="union-names.rq"></query>
+      <hr>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://nightly.yasgui.triply.cc/build/yasgui.min.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        Yasgui.stories()
+      };
+    </script>
+  </body>
+</html>
