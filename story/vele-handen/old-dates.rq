@@ -1,0 +1,6 @@
+prefix iisg: <https://iisg.amsterdam/vocab/>
+select distinct (xsd:date(?date) as ?date) {
+  ?s iisg:date|iisg:birthDate ?date.
+}
+order by ?date
+limit 100
