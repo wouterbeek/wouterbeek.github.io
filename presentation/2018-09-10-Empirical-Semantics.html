@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Empirical Semantics">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>Empirical Semantics</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Empirical Semantics</h1>
+          <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
+            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>),<br>
+            <a href="https://www.cs.vu.nl/~frank.van.harmelen/" target="_blank">Frank van Harmelen</a>
+            (<a href="mailto:Frank.van.Harmelen@vu.nl">Frank.van.Harmelen@vu.nl</a>)</p>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="/resource/img/logo/krr.png" height="100">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h3>2 notions of meaning</h3>
+            <div class="left">
+              <h4>Formal meaning</h4>
+              <figure>
+                <a href="/resource/img/empirical-semantics/barad-dur.jpg" target="_blank">
+                  <img src="/resource/img/empirical-semantics/barad-dur.jpg">
+                </a>
+              </figure>
+            </div>
+            <div class="right">
+              <h4>Social meaning</h4>
+              <figure>
+                <a href="/resource/img/empirical-semantics/babel.png" target="_blank">
+                  <img src="/resource/img/empirical-semantics/babel.png">
+                </a>
+              </figure>
+            </div>
+            <div style="clear: left;">
+              <p class="small">Jim Hendler, <a href="https://www.slideshare.net/jahendler/wither-owl" target="_blank">ESWC 2016</a></p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Formally incorrect, but not meaningless</h3>
+            <br>
+            <figure>
+              <pre><code class="ttl" data-noescape data-trim>bpo:has_event rdfs:domain bpo:person.
+                  bpo:has_event rdfs:domain bpo:event.
+                  bpo:has_event rdfs:domain bpo:disease.</code></pre>
+              <figcaption class="small">
+                Examples from <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2><a href="http://lodlaundromat.org" target="_blank">LOD Laundromat</a></h2>
+	          <a href="http://lodlaundromat.org/basket">
+	            <img src="/resource/img/lod-laundromat/basket.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org">
+	            <img src="/resource/img/lod-laundromat/laundry.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/wardrobe">
+	            <img src="/resource/img/lod-laundromat/lod-wardrobe.png" width="200">
+	          </a>
+            <br>
+	          <a href="http://lodlaundromat.org/visualizations/">
+	            <img src="/resource/img/lod-laundromat/analysis.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	            <img src="/resource/img/lod-laundromat/labels.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/about/">
+	            <img src="/resource/img/lod-laundromat/laundry-line.png" width="200">
+	          </a>
+	        </section>
+        </section>
+
+        <section>
+          <section>
+            <h4><b>Formal Semantics</b>: Identity assertions about ‘Barack Obama’</h4>
+            <figure>
+              <a href="/resource/img/identity/obama-1.png" target="_blank">
+                <img src="/resource/img/identity/obama-1.png" height="500">
+              </a>
+              <figcaption class="small">
+                Source: <a href="http://lodlaundromat.org" target="_blank">LOD Laundromat</a>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h4><b>Empirical Semantics</b>: Identity assertions about ‘Barack Obama’</h4>
+            <figure class="left">
+              <a href="/resource/img/identity/obama-2-labels.svg" target="_blank">
+                <img src="/resource/img/identity/obama-2.png">
+              </a>
+            </figure>
+            <div class="right small">
+              <br>
+              <br>
+              <ul>
+                <li style="color: purple;">person</li>
+                <li style="color: darkturquoise;">senator</li>
+                <li style="color: green;">president</li>
+                <li style="color: orangered;">government</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h3>Empirically evaluating ABox repair</h3>
+          <br>
+          <br>
+          <figure>
+            <blockquote>
+              $$\models_{IAR} \quad \subseteq \quad \models_{AR} \quad \subseteq \quad \models_{Brave}$$
+            </blockquote>
+            <figcaption>
+              Three formal approaches with different properties.
+            </figcaption>
+          </figure>
+          <br>
+          <br>
+          <p class="small"><a href="https://demo.triply.cc/wouter/empirical-semantics/sparql/diagram#query=prefix%20%3A%20%3Chttps%3A%2F%2Fwouterbeek.com%2F%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fdataset%20%3Fiar%20%3Far%20%3Fbrave%20%7B%0A%20%20%3Fexperiment%0A%20%20%20%20%3Adataset%20%3Fdataset%3B%0A%20%20%20%20%3Aseries%20%22class%20assertions%22%5E%5Exsd%3Astring%3B%0A%20%20%20%20%3Aiar%20%3Fiar%3B%0A%20%20%20%20%3Aar%20%3Far%3B%0A%20%20%20%20%3Abrave%20%3Fbrave.%0A%7D%0Aorder%20by%20%3Fdataset%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Fwouter%2Fempirical-semantics%2Fservices%2Fdiagram%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gchart&outputSettings=%7B%22chartConfig%22%3A%7B%22dataTable%22%3A%7B%22cols%22%3A%5B%7B%22id%22%3A%22%22%2C%22label%22%3A%22dataset%22%2C%22pattern%22%3A%22%22%2C%22type%22%3A%22string%22%2C%22p%22%3A%7B%7D%7D%2C%7B%22id%22%3A%22%22%2C%22label%22%3A%22iar%22%2C%22pattern%22%3A%22%22%2C%22type%22%3A%22number%22%2C%22p%22%3A%7B%7D%7D%2C%7B%22id%22%3A%22%22%2C%22label%22%3A%22ar%22%2C%22pattern%22%3A%22%22%2C%22type%22%3A%22number%22%2C%22p%22%3A%7B%7D%7D%2C%7B%22id%22%3A%22%22%2C%22label%22%3A%22brave%22%2C%22pattern%22%3A%22%22%2C%22type%22%3A%22number%22%7D%5D%2C%22rows%22%3A%5B%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-1%22%7D%2C%7B%22v%22%3A16%7D%2C%7B%22v%22%3A16%7D%2C%7B%22v%22%3A18%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-2%22%7D%2C%7B%22v%22%3A15%7D%2C%7B%22v%22%3A15%7D%2C%7B%22v%22%3A17%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-3%22%7D%2C%7B%22v%22%3A3%7D%2C%7B%22v%22%3A4%7D%2C%7B%22v%22%3A9%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-4%22%7D%2C%7B%22v%22%3A1141%7D%2C%7B%22v%22%3A1141%7D%2C%7B%22v%22%3A1149%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-5%22%7D%2C%7B%22v%22%3A1143%7D%2C%7B%22v%22%3A1145%7D%2C%7B%22v%22%3A1159%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-6%22%7D%2C%7B%22v%22%3A1784%7D%2C%7B%22v%22%3A1784%7D%2C%7B%22v%22%3A1784%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-7%22%7D%2C%7B%22v%22%3A11666%7D%2C%7B%22v%22%3A11666%7D%2C%7B%22v%22%3A11666%7D%5D%7D%2C%7B%22c%22%3A%5B%7B%22v%22%3A%22dataset-8%22%7D%2C%7B%22v%22%3A16032%7D%2C%7B%22v%22%3A16032%7D%2C%7B%22v%22%3A16032%7D%5D%7D%5D%7D%2C%22options%22%3A%7B%22hAxis%22%3A%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3Anull%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%2C%22viewWindowMode%22%3Anull%7D%2C%22legacyScatterChartLabels%22%3Atrue%2C%22vAxes%22%3A%5B%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C%22viewWindow%22%3A%7B%22max%22%3Anull%2C%22min%22%3Anull%7D%2C%22minValue%22%3Anull%2C%22maxValue%22%3Anull%7D%5D%2C%22curveType%22%3A%22%22%2C%22booleanRole%22%3A%22certainty%22%2C%22lineWidth%22%3A2%2C%22legend%22%3A%22right%22%2C%22width%22%3A600%2C%22height%22%3A371%2C%22title%22%3A%22Deductive%20closures%22%7D%2C%22state%22%3A%7B%7D%2C%22view%22%3A%7B%22columns%22%3Anull%2C%22rows%22%3Anull%7D%2C%22isDefaultVisualization%22%3Afalse%2C%22chartType%22%3A%22LineChart%22%7D%7D"
+                target="_blank"><button>Experimental
+                results</button></a> obtained by Jacco van
+                Splunteren.</p>
+        </section>
+
+        <section>
+          <h3>Names are not arbitrary constants</h3>
+          <h4>Graph G₁</h4>
+          <pre><code class="ttl" data-noescape data-trim>id:store def:sells id:tent.
+id:tent  def:costs "¥150,000".
+id:tent  rdf:type  id:Product.</code></pre>
+          <h4>Graph G₂</h4>
+          <pre><code data-noescape data-trim>fy:aHup   pe:ko9sap_ fy:jufn12.
+fy:jufn12 pe:oao9_   "Ufou".
+fy:jufn12 rdf:type   fyufnt:tmffqt.</code></pre>
+        </section>
+
+        <section>
+          <h2>Thank you for your attention!</h2>
+          <a href="https://krr.cs.vu.nl/" target="_blank">
+            <img src="/resource/img/logo/krr.png" height="100">
+          </a>
+          <a href="http://lodlaundromat.org" target="_blank">
+            <img src="/resource/img/lod-laundromat/lod-washing-machine.png" height="100">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+	    // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+		    // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
