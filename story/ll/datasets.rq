@@ -1,0 +1,9 @@
+prefix ldm: <https://ldm.cc/>
+prefix ll: <https://lodlaundromat.org/def/>
+select ?uri (count(?entryName) as ?n) {
+  ?dataset ldm:downloadLocation ?uri.
+  ?job ll:uri ?uri; ll:entry+ ?entry.
+  ?entry ll:name ?entryName.
+}
+group by ?uri
+order by desc(?n)
