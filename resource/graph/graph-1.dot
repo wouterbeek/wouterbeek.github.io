@@ -1,0 +1,8 @@
+digraph g {
+  {
+    rank=same
+    pikachu [label=<pokemon:pikachu>];
+    mew [label=<pokemon:mew>];
+  }
+  pikachu -> mew [label=<foaf:knows>];
+}

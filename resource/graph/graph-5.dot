@@ -1,0 +1,19 @@
+digraph class {
+  {
+    rank=same
+    mew [label=<pokemon:mew>];
+    pikachu [label=<pokemon:pikachu>];
+  }
+  mewName [label=<"ミュウ"@ja>];
+  mewWeight [label=<"40">];
+  mew -> mewName [label="def:name"];
+  mew -> mewWeight [label="def:weight"];
+  pikachuName [label=<"ピカチュウ"@ja>];
+  pikachuWeight [label=<"60">];
+  pikachu -> mew [label=<foaf:knows>];
+  pikachu -> pikachuName [label=<def:name>];
+  pikachu -> pikachuWeight [label=<def:weight>];
+  pokemon [label=<def:Pokemon>,shape="rect"];
+  pokemon -> mew [arrowtail="onormal",dir="back",label=<a>];
+  pokemon -> pikachu [arrowtail="onormal",dir="back",label=<a>];
+}

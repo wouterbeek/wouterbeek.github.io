@@ -41,14 +41,10 @@
 
           <section>
             <h3>Truth-conditional Semantics</h3>
-            <p>
-              The meaning of a sentence can be reduced to the truth
-              conditions of that sentence.
-            </p>
             <figure>
               <blockquote>
-                To understand a proposition means to know what is the
-                case if it is true.  (One can understand it,
+                To understand what a proposition means is to know what
+                is the case if it is true.  (One can understand it,
                 therefore, without knowing whether it is true.)
               </blockquote>
               <figcaption>
@@ -59,36 +55,29 @@
 
           <section>
             <h3>Model theory</h3>
-            <p>
-              A formal theory that implements a truth-conditional
+            <p>A formal theory that implements a truth-conditional
               semantics, by equating the meaning of a sentence to the
-              set of models/interpretations that make the sentence
-              true.
+              set of models that make the sentence true.
             </p>
-            <p>
-              Models/interpretations are commonly expressed in set
-              theory.
-            </p>
-            <p>
-              The <b>meaning</b> of the sentence is the collection of
-              all and only those interpretations that make the
-              sentence true, i.e., {I₁,I₂,…}.
+            <p>The meaning of a sentence is the collection of all and
+              only those models that make the sentence true, i.e.,
+              {M₁,M₂,…}.
             </p>
           </section>
 
           <section>
             <h3>Example: “The Louvre owns the Mona Lisa.”</h3>
-            <h4>True in model I₁</h4>
+            <h4>True in model M₁</h4>
             <p>
-              I₁(‘The Louvre’) = a<br>
-              I₁(‘Mona Lisa’) = b<br>
-              I₁(‘owns’) = {〈a,b〉}
+              M₁(‘The Louvre’) = a<br>
+              M₁(‘Mona Lisa’) = b<br>
+              M₁(‘owns’) = {〈a,b〉}
             </p>
             <h4>False in model I₂</h4>
             <p>
-              I₂(‘The Louvre’) = a<br>
-              I₂(‘Mona Lisa’) = b<br>
-              I₂(‘owns’) = {〈b,a〉}
+              M₂(‘The Louvre’) = a<br>
+              M₂(‘Mona Lisa’) = b<br>
+              M₂(‘owns’) = {〈b,a〉}
             </p>
           </section>
         </section>
@@ -135,12 +124,10 @@
 
           <section>
             <h3>Why does the SW need OWA?</h3>
-            <p>
-              In a local database, we can assume that we always have
+            <p>In a local database, we can assume that we always have
               full access to all the relevant data.
             </p>
-            <p>
-              On the web, we may not always have access to all the
+            <p>On the web, we may not always have access to all the
               relevant data all the time.
             </p>
           </section>
@@ -148,10 +135,10 @@
           <section>
             <h3>Example of OWA</h3>
             <ul>
-              <li>I(‘The Louvre’) = a</li>
-              <li>I(‘Mona Lisa’) = b</li>
-              <li>I(‘owns’) = {〈 a,b〉}</li>
-              <li>I(‘exhibits’) = {〈 a,b〉}</li>
+              <li>M(‘The Louvre’) = a</li>
+              <li>M(‘Mona Lisa’) = b</li>
+              <li>M(‘owns’) = {〈 a,b〉}</li>
+              <li>M(‘exhibits’) = {〈 a,b〉}</li>
             </ul>
             <p>
               With CWA, owning and exhibiting would have the same
