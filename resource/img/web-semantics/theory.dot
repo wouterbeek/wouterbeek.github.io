@@ -1,0 +1,19 @@
+digraph g {
+  subgraph cluster_0 {
+    label=<Syntax>;
+    terms [label=<Terms>,shape="rect"];
+    terms -> nodes [dir="none"];
+    terms -> predicates [dir="none"];
+    nodes [label=<Nodes>,shape="rect"];
+    predicates [label=<Predicates>,shape="rect"];
+  }
+  subgraph cluster_1 {
+    label=<Semantics>;
+    resources [label=<Resources>,shape="rect"];
+    properties [label=<Properties>,shape="rect"];
+    pairs [label=<Resources²<br/>(pairs of resources)>,shape="rect"];
+  }
+  nodes -> resources [label=<<i>I</i>>];
+  predicates -> properties [label=<<i>I</i>>];
+  properties -> pairs [label=<<i>Ext</i>>];
+}

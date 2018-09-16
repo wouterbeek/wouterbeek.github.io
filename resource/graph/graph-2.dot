@@ -1,12 +1,12 @@
 digraph g {
   {
     rank=same
-    mew [label=<pokemon:mew>];
-    pikachu [label=<pokemon:pikachu>];
+    mew [image="../img/mew.png",label="",shape="none"];
+    pikachu [image="../img/pikachu.png",label="",shape="none"];
   }
-  pikachuName [label=<"ピカチュウ"@ja>];
-  pikachuWeight [label=<"60"^^xsd:integer>];
-  pikachu -> mew [label=<foaf:knows>];
-  pikachu -> pikachuName [label=<def:name>];
-  pikachu -> pikachuWeight [label=<def:weight>];
+  pikachuName [label=<"ピカチュウ">,shape="none"];
+  pikachuWeight [label=<60>,shape="none"];
+  pikachu -> mew [label=<knows>];
+  pikachu -> pikachuName [label=<name>];
+  pikachu -> pikachuWeight [label=<weight>];
 }

@@ -1,0 +1,8 @@
+digraph g {
+  abomasnow [label=<pokemon:abomasnow>];
+  abomasnowLength [label=<22>];
+  abomasnowWeight [label=<1355>];
+  abomasnow -> abomasnowLength [label=<def:length>];
+  abomasnow -> abomasnowWeight [label=<def:weight>];
+}
+

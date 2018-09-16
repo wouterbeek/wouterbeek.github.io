@@ -5,7 +5,7 @@ digraph g {
     pikachu [label=<pokemon:pikachu>];
   }
   pikachuName [label=<"ピカチュウ"@ja>];
-  pikachuWeight [label=<"60">];
+  pikachuWeight [label=<60>];
   pikachu -> mew [label=<foaf:knows>];
   pikachu -> pikachuName [label=<def:name>];
   pikachu -> pikachuWeight [label=<def:weight>];

@@ -1,0 +1,14 @@
+digraph g {
+  event [label=<:event>];
+  s [label=<:john>];
+  p [label=<:worksAt>];
+  o [label=<:uva>];
+  date1 [label=<"2017-01-01"^^xsd:date>];
+  date2 [label=<"2017-12-31"^^xsd:date>];
+
+  event -> s [label=<rdf:subject>];
+  event -> p [label=<rdf:predicate>];
+  event -> o [label=<rdf:object>];
+  event -> date1 [label=<:begin>];
+  event -> date2 [label=<:end>];
+}

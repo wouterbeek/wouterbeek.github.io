@@ -5,7 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="author" content="Wouter Beek">
-    <meta name="description" content="SPARQL Tutorial">
+    <meta name="description" content="Semantics of Knowledge Graphs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/resource/css/presentation.css">
     <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
@@ -18,20 +18,27 @@
       link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
-    <title>SPARQL Tutorial</title>
+    <title>Semantics of Knowledge Graphs</title>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
 
         <section>
-          <h1>Web Semantics</h1>
-          <h2>Formal foundations of the Semantic Web</h2>
+          <h1>Semantics of Knowledge Graphs</h1>
           <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
-            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</p>
-          <a href="https://krr.cs.vu.nl/" target="_blank">
-            <img src="/resource/img/logo/krr.png" height="100">
+            (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</p>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="200">
           </a>
+        </section>
+
+        <section>
+          <h2>Overview</h2>
+          <ol>
+            <li>Formal meaning</li>
+            <li></li>
+          </ol>
         </section>
 
         <section>
@@ -40,12 +47,52 @@
           </section>
 
           <section>
+            <h3>Formal meaning</h3>
+            <p>Meaning is formalized with 2 functions:</p>
+            <dl>
+              <dt>Interpretation function ($I$)</dt>
+              <dd>From terms (syntax) to resources and properties (semantics).</dd>
+              <dt>Extension function ($Ext$)</dt>
+              <dd>From properties (semantics) to pairs of resources (semantics).</dd>
+            </dl>
+            <p>The combination of an specific interpretation function and a specific extension function is a <b>model</b> ($M$).</p>
+          </section>
+
+          <section>
+            <h3>Meaning of terms</h3>
+            <figure class="left">
+              <a href="/resource/img/web-semantics/theory.png" target="_blank">
+                <img src="/resource/img/web-semantics/theory.png">
+              </a>
+            </figure>
+            <div class="right small">
+              <p>The interpretation of a node is the resource it refers to.</p>
+              <p>The interpretation of a predicate term is the property it denotes.</p>
+              <p>The extension of a property is the collection of pairs of resources that are connected by that property.</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Meaning of terms: example</h3>
+            <figure class="left">
+              <a href="/resource/img/web-semantics/theory.png" target="_blank">
+                <img src="/resource/img/web-semantics/theory.png">
+              </a>
+            </figure>
+            <figure class="right">
+              <a href="/resource/img/web-semantics/example-true.png" target="_blank">
+                <img src="/resource/img/web-semantics/example-true.png">
+              </a>
+            </figure>
+          </section>
+
+          <section>
             <h3>Truth-conditional Semantics</h3>
             <figure>
               <blockquote>
-                To understand what a proposition means is to know what
-                is the case if it is true.  (One can understand it,
-                therefore, without knowing whether it is true.)
+                To understand what a sentence means is to know what is
+                the case if it would be true.  (One can understand a
+                sentence, without knowing whether it is true.)
               </blockquote>
               <figcaption>
                 <em>Tractatus Logico-Philosophicus</em>, 4.024
@@ -54,58 +101,40 @@
           </section>
 
           <section>
-            <h3>Model theory</h3>
-            <p>A formal theory that implements a truth-conditional
-              semantics, by equating the meaning of a sentence to the
-              set of models that make the sentence true.
-            </p>
-            <p>The meaning of a sentence is the collection of all and
-              only those models that make the sentence true, i.e.,
-              {M₁,M₂,…}.
-            </p>
+            <h3>Truth of a triple</h3>
+            <figure>
+              $$\langle s,p,o \rangle \text{ is true} \iff \langle I(s),I(o) \rangle \in Ext(I(p))$$
+            </figure>
           </section>
 
           <section>
-            <h3>Example: “The Louvre owns the Mona Lisa.”</h3>
-            <h4>True in model M₁</h4>
-            <p>
-              M₁(‘The Louvre’) = a<br>
-              M₁(‘Mona Lisa’) = b<br>
-              M₁(‘owns’) = {〈a,b〉}
-            </p>
-            <h4>False in model I₂</h4>
-            <p>
-              M₂(‘The Louvre’) = a<br>
-              M₂(‘Mona Lisa’) = b<br>
-              M₂(‘owns’) = {〈b,a〉}
-            </p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>RDF semantics</h2>
+            <h3>Example: <span class="small">“The Louvre owns the Mona Lisa.”</span></h3>
+            <figure class="left">
+              <a href="/resource/img/web-semantics/example-true.png" target="_blank">
+                <img src="/resource/img/web-semantics/example-true.png">
+              </a>
+            </figure>
+            <figure class="right">
+              <a href="/resource/img/web-semantics/example-false.png" target="_blank">
+                <img src="/resource/img/web-semantics/example-false.png">
+              </a>
+            </figure>
           </section>
 
           <section>
-            <ul>
-              <li>IRIs I</li>
-              <li>Literals L</li>
-              <li>Names N := I ∪ L
-              <li>Blank nodes B</li>
-              <li>Terms T := B ∪ N</li>
-              <li>Graph G ⊆ (B ∪ I) ⨯ I ⨯ T</li>
-              <li>Instance mapping σ: B → T</li>
-            </ul>
+            <h3>Meaning of a triple</h3>
+            <p>The meaning of a triple is the set of models in which the triple is true.</p>
+          </section>
+
+          <section>
+            <h3>Meanign of a graph</h3>
+            <p>The meaning of a graph is the set of models in which the triples in the graph are true.</p>
           </section>
         </section>
 
         <section>
           <section>
-            <h2>
-              Open World Assumption (OWA) &amp; Closed World
-              Assumption (CWA)
-            </h2>
+            <h2>Open World Assumption (OWA) &amp; Closed World Assumption (CWA)</h2>
           </section>
 
           <section>
@@ -147,7 +176,7 @@
           </section>
 
           <section>
-            <h3>OWA requires 2 interpretation functions</h3>
+            <h3>OWA requires models to have 2 functions</h3>
             <dl>
               <dt>Intension function (I)</dt>
               <dd>Mapping RDF terms to resources.</dd>
@@ -157,7 +186,6 @@
                 resources.)
               </dd>
             </dl>
-            <p>〈s,p,o〉is true iff 〈I(s),I(o)〉∈ Ext(I(p))</p>
           </section>
 
           <section>
@@ -197,6 +225,24 @@
               Notice that an RDF graph is a special kind of graph,
               i.e., vertices and edges may overlap.
             </p>
+          </section>
+
+          <section>
+            <h3>Instances belong to classes</h3>
+            <figure>
+              <a href="/resource/graph/graph-5.png" target="_blank">
+                <img src="/resource/graph/graph-5.png">
+              </a>
+              <figcaption>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:mew     a          def:Pokemon;
+                def:name   "ミュウ"@ja;
+                def:weight 40.
+pokemon:pikachu a          def:Pokemon;
+                def:knows  pokemon:mew;
+                def:name   "ピカチュウ"@ja;
+                def:weight 60.</code></pre>
+              </figcaption>
+            </figure>
           </section>
 
           <section>
@@ -295,13 +341,12 @@ rdfs:Class a rdfs:Class.</code></pre>
         <section>
           <h2>Thank you for your attention!</h2>
           <ul>
-            <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
-            <li>Email: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></li>
+            <li>WWW: <a href="http://demo.triply.cc">demo.triply.cc</a></li>
+            <li>Email: <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></li>
             <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
           </ul>
-          <br>
-          <a href="https://krr.cs.vu.nl/" target="_blank">
-            <img height="100" src="/resource/img/logo/krr.png">
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="200">
           </a>
         </section>
 

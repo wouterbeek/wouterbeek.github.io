@@ -1,0 +1,15 @@
+digraph g {
+  abomasnow [label=<pokemon:abomasnow>];
+  abomasnowLength [label=<2.2>];
+  abomasnowWeight [label=<135.5>];
+  kilogram [label=<dbd:kilogram>];
+  meter [label=<dbd:meter>];
+  skip1 [label=""];
+  skip2 [label=""];
+  abomasnow -> skip1 [label=<def:length>];
+  skip1 -> abomasnowLength [label=<rdf:value>];
+  skip1 -> meter [label=<def:unit>];
+  abomasnow -> skip2 [label=<def:weight>];
+  skip2 -> abomasnowWeight [label=<rdf:value>];
+  skip2 -> kilogram [label=<def:unit>];
+}

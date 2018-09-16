@@ -1,0 +1,25 @@
+digraph g {
+  subgraph cluster_0 {
+    label=<Syntax>;
+    nodes [label=<Nodes>,shape="rect"];
+    predicates [label=<Predicates>,shape="rect"];
+    louvreName [label=<:louvre>,shape="none"];
+    ownsName [label=<:owns>,shape="none"];
+    monaLisaName [label=<:monaLisa>,shape="none"];
+  }
+  subgraph cluster_1 {
+    label=<Semantics>;
+    louvre [label=<🏰>,shape="none"];
+    owns [label=<owns>,shape="none"];
+    monaLisa [label=<🖼>,shape="none"];
+    ext [label=<〈🖼,🏰〉>,shape="none"];
+  }
+  nodes -> louvreName [dir="none"];
+  nodes -> monaLisaName [dir="none"];
+  louvreName -> louvre [label=<<i>I</i>>];
+  monaLisaName -> monaLisa [label=<<i>I</i>>];
+
+  predicates -> ownsName [dir="none"];
+  ownsName -> owns [label=<<i>I</i>>];
+  owns -> ext [label=<<i>Ext</i>>];
+}
