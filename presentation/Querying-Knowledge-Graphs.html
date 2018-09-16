@@ -25,7 +25,7 @@
       <div class="slides">
 
         <section>
-          <h1>Querying Knowledge Graphs</h1>
+          <h2>Querying Knowledge Graphs</h2>
           <p><a href="http://wouterbeek.com">Wouter Beek</a>
             (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</p>
           <a href="https://triply.cc/" target="_blank">
@@ -64,7 +64,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fs%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepiction%3E%20%3Fo.%0A%7D%0Alimit%2025&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q1.2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Query for a specific predicate</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fpokemon%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepiction%3E%20%3Fimage.%0A%7D%0Alimit%2025&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q1.2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Query for a specific predicate</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   <mark>?pokemon &lt;http://xmlns.com/foaf/0.1/depiction&gt; ?image.</mark>
@@ -179,36 +179,37 @@ limit 25
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fimage%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Flocator%3E%20%3Furl.%0A%20%20%3Fimage%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepicts%3E%20%3Fmonument.%0A%20%20bind(concat('%3Ca%20href%3D%22'%2C%3Fimage%2C'%22%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E%3C%2Fa%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.1&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (2 triple patterns)</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Acry%20%3Fcry.%0A%20%20bind(concat('%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.1&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (2 triple patterns)</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
-  ?image foaf:depiction ?url.
-  <mark>?image &lt;http://xmlns.com/foaf/0.1/depicts&gt; ?monument.</mark>
+  ?pokemon foaf:depiction ?image;
+           def:cry ?cry.
 }
 limit 25</code></pre>
-              <figcaption>
+              <figcaption class="small">
                 <dl>
-                  <dt><code>?image</code></dt>
-                  <dd>A <em>shared variable</em> connects two triple
-                    patterns.  Connected triple patterns form
-                    a <em>graph pattern</em>.</dd>
+                  <dt><code>?pokemon</code></dt>
+                  <dd>A <em>shared variable</em> connects two triple patterns.  Connected triple patterns form a <em>graph pattern</em>.</dd>
+                  <dt>Turtle abbreviations can be used</dt>
+                  <dd>Repeat subject (<code>;</code>), repeat subject and predicate (<code>,</code>).</dd>
                 </dl>
               </figcaption>
             </figure>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fimage%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Flocator%3E%20%3Furl.%0A%20%20%3Fimage%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepicts%3E%20%3Fmonument.%0A%20%20%3Fmonument%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E%20%3Flabel.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%3C%2Fh1%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (3 triple patterns)</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Acry%20%3Fcry%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname.%0A%20%20bind(concat('%3Ch1%3E'%2C%3Fname%2C'%3C%2Fh1%3E%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (3 triple patterns)</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
-  ?image foaf:depiction ?url.
-  ?image &lt;http://xmlns.com/foaf/0.1/depicts&gt; ?monument.
-  <mark>?monument &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; ?label.</mark>
+  ?pokemon foaf:depiction ?image;
+           def:cry ?cry<mark>;
+           rdfs:label ?name</mark>.
 }
 limit 25</code></pre>
               <figcaption>
-                <dl>
-                  <dt><a href="http://xmlns.com/foaf/0.1/depicts"><code>http://xmlns.com/foaf/0.1/depicts</code></a></dt>
+                <p>Predicates from different <em>vocabularies</em>:</p>
+                <dl class="small">
+                  <dt><a href="http://xmlns.com/foaf/0.1/depiction"><code>http://xmlns.com/foaf/0.1/depicts</code></a></dt>
                   <dd>Friend of a Friend (FOAF)</dd>
                   <dt><a href="http://www.w3.org/2000/01/rdf-schema#"><code>http://www.w3.org/2000/01/rdf-schema#</code></a></dt>
                   <dd>RDF Schema (RDFS)</dd>
@@ -218,30 +219,47 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fimage%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Flocator%3E%20%3Furl.%0A%20%20%3Fimage%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepicts%3E%20%3Fmonument.%0A%20%20%3Fmonument%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E%20%3Flabel.%0A%20%20%3Fmonument%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Fbouwjaar%3E%20%3Fyear.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.3&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (4 triple patterns)</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Acry%20%3Fcry%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Atype%20%3Ftype.%0A%20%20%3Ftype%20rdfs%3Alabel%20%3FtypeName.%0A%20%20bind(concat('%3Ch3%3E'%2C%3FtypeName%2C'%20%E3%80%8B%20'%2C%3Fname%2C'%3C%2Fh%3E%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.3&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Graph pattern (5 triple patterns)</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
-  ?image foaf:depiction ?url.
-  ?image &lt;http://xmlns.com/foaf/0.1/depicts&gt; ?monument.
-  ?monument &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; ?label.
-  <mark>?monument &lt;https://triply.cc/rce/def/bouwjaar&gt; ?year.</mark>
+  ?pokemon foaf:depiction ?image;
+           def:cry ?cry;
+           rdfs:label ?name<mark>;
+           def:type ?type</mark>.
+  <mark>?type rdfs:label ?typeName.</mark>
 }
 limit 25</code></pre>
             </figure>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fimage%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Flocator%3E%20%3Furl.%0A%20%20%3Fimage%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepicts%3E%20%3Fmonument.%0A%20%20%3Fmonument%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E%20%3Flabel.%0A%20%20%3Fmonument%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Fbouwjaar%3E%20%3Fyear.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20%3Fyear%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.4&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Sort by year (oldest first)</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Acry%20%3Fcry%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Atype%20%3Ftype.%0A%20%20%3Ftype%20rdfs%3Alabel%20%22Dragon%20Type%22%5E%5Exsd%3Astring.%0A%20%20bind(concat('%3Ch3%3E'%2C%3Fname%2C'%3C%2Fh%3E%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.4&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Instantiating variables</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
-  ?image foaf:depiction ?url.
-  ?image &lt;http://xmlns.com/foaf/0.1/depicts&gt; ?monument.
-  ?monument &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; ?label.
-  ?monument &lt;https://triply.cc/rce/def/bouwjaar&gt; ?year.
+  ?pokemon foaf:depiction ?image;
+           def:cry ?cry;
+           rdfs:label ?name;
+           def:type ?type.
+  ?type rdfs:label <mark>"Dragon Type"^^xsd:string</mark>.
 }
-<mark>order by ?year</mark>
 limit 25</code></pre>
-              <figcaption>
+              <figcaption class="small">
+                Instantiating a variable makes the query more specific.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Ahappiness%20%3Fhappiness.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Fname%2C'%20('%2C%3Fhappiness%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20%3Fhappiness%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.5&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Sort by happiness (lowest first)</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select * {
+  ?pokemon foaf:depiction ?image;
+           rdfs:label ?name<mark>;
+           def:happiness ?happiness</mark>.
+}
+<mark>order by ?happiness</mark>
+limit 25</code></pre>
+              <figcaption class="small">
                 <dl>
                   <dt><code>order by ?x</code></dt>
                   <dd>Orders results by the bindings of <code>?x</code>.</dd>
@@ -252,82 +270,24 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=select%20*%20%7B%0A%20%20%3Fimage%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Flocator%3E%20%3Furl.%0A%20%20%3Fimage%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepicts%3E%20%3Fmonument.%0A%20%20%3Fmonument%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label%3E%20%3Flabel.%0A%20%20%3Fmonument%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2Fbouwjaar%3E%20%3Fyear.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20desc(%3Fyear)%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.5&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Sort by year (newest first)</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20def%3A%20%3Chttps%3A%2F%2Fdemo.triply.cc%2Facademy%2Fpokemon%2Fdef%2F%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20%20def%3Ahappiness%20%3Fhappiness.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Fname%2C'%20('%2C%3Fhappiness%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Fimage%2C'%22%3E%3Caudio%20controls%20src%3D%22'%2C%3Fcry%2C'%22%3E%3C%2Faudio%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20desc(%3Fhappiness)%0Alimit%2025%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.6&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Sort by happiness (highest first)</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
-  ?image foaf:depiction ?url.
-  ?image &lt;http://xmlns.com/foaf/0.1/depicts&gt; ?monument.
-  ?monument &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; ?label.
-  ?monument &lt;https://triply.cc/rce/def/bouwjaar&gt; ?year.
+  ?pokemon foaf:depiction ?image;
+           rdfs:label ?name;
+           def:happiness ?happiness.
 }
-order by <mark>desc(</mark>?year<mark>)</mark>
+order by <mark>desc(</mark>?happiness<mark>)</mark>
 limit 25</code></pre>
               <figcaption>
                 <dl>
                   <dt><code>order by desc(?x)</code></dt>
-                  <dd><em>Inversely</em> orders results by the
-                    bindings of <code>?x</code>.</dd>
-                  <dt>
+                  <dd><em>Inversely</em> orders results by the bindings of <code>?x</code>.</dd><dd>
                 </dl>
               </figcaption>
             </figure>
           </section>
 
-          <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rce%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fimage%20rce%3Alocator%20%3Furl%3B%0A%20%20%20%20%20%20%20%20%20foaf%3Adepicts%20%3Fmonument.%0A%20%20%3Fmonument%20rdfs%3Alabel%20%3Flabel%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20rce%3Abouwjaar%20%3Fyear.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20desc(%3Fyear)%0Alimit%205%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q2.6&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Use abbreviations</a></h3>
-            <figure>
-              <pre><code class="sparql" data-noescape data-trim><mark>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</mark>
-prefix rce: &lt;https://triply.cc/rce/def/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select * {
-  ?image rce:locator ?url<mark>;</mark>
-         <mark>foaf:</mark>depicts ?monument.
-  ?monument rdfs:label ?label;
-            rce:bouwjaar ?year.
-}
-order by desc(?year)
-limit 5</code></pre>
-              <figcaption class="small">
-                <dl>
-                  <dt><code>prefix ALIAS: &lt;IRI&gt;</code></dt>
-                  <dd>Allows <code>IRI</code> to be abbreviated
-                    with <code>ALIAS</code> + colon.</dd>
-                  <dt><code>;</code> after an object term</dt>
-                  <dd>Means that we implicitly repeat the subject term.</dd>
-                </dl>
-              </figcaption>
-            </figure>
-          </section>
-          <!--
-          <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20rce%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Frce%2Fdef%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fimage%20rce%3Alocator%20%3Furl%3B%0A%20%20%20%20%20%20%20%20%20foaf%3Adepicts%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Flabel%3B%0A%20%20%20%20%20%20rce%3Abouwjaar%20%3Fyear%5D.%0A%20%20bind(concat('%3Ch2%3E'%2C%3Flabel%2C'%20('%2C%3Fyear%2C')%3C%2Fh2%3E%3Cimg%20src%3D%22'%2C%3Furl%2C'%22%3E')%20as%20%3Fwidget)%0A%7D%0Aorder%20by%20desc(%3Fyear)%0Alimit%205%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q2.6&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery" target="_blank">Use abbreviations</a></h3>
-            <figure>
-              <pre><code class="sparql" data-noescape data-trim><mark>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</mark>
-prefix rce: &lt;https://triply.cc/rce/def/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select * {
-  ?image rce:locator ?url<mark>;</mark>
-         <mark>foaf:</mark>depicts <mark>[</mark>
-             rdfs:label ?label;
-             rce:bouwjaar ?year<mark>]</mark>.
-}
-order by desc(?year)
-limit 5</code></pre>
-              <figcaption class="small">
-                <dl>
-                  <dt><code>prefix ALIAS: &lt;IRI&gt;</code></dt>
-                  <dd>Allows <code>IRI</code> to be abbreviated
-                    with <code>ALIAS</code> + colon.</dd>
-                  <dt><code>;</code> after an object term</dt>
-                  <dd>Means that we implicitly repeat the subject term.</dd>
-                  <dt><code>?s ?p [ ?q ?o ].</code></dt>
-                  <dd>Implicit node (<code>?monument</code>): <code>?s
-                      ?p ?x. ?x ?q ?o.</code></dd>
-                </dl>
-              </figcaption>
-            </figure>
-          </section>
-          -->
         </section>
 
 
