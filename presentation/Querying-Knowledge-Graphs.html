@@ -167,6 +167,22 @@ limit 25
               </figcaption>
             </figure>
           </section>
+
+          <section>
+            <figure>
+              <pre><code class="ttl" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
+prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+prefix pokemon: &lt;https://demo.triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
+              <figcaption>
+                In the following, we will assume these prefix declarations.
+              </figcaption>
+            </figure>
+          </section>
         </section>
 
 
@@ -298,8 +314,7 @@ limit 25</code></pre>
           <section>
             <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fmonument%20geo%3AhasGeometry%20%3Fgeometry.%0A%20%20%3Fgeometry%20geo%3AasWKT%20%3Fshape.%0A%7D%0Alimit%201000%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q3.1&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Atrue%7D" target="_blank">A Simple GeoSPARQL Query</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-select * {
+              <pre><code class="sparql" data-noescape data-trim>select * {
   ?monument geo:hasGeometry ?geometry.
   ?geometry geo:asWKT ?shape.
 }
@@ -323,8 +338,7 @@ limit 1000</code></pre>
           <section>
             <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect%20*%20%7B%0A%20%20%3Fmonument%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape.%0A%7D%0Alimit%201000%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q3.2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Property Path notation</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-select * {
+              <pre><code class="sparql" data-noescape data-trim>select * {
   ?monument geo:hasGeometry<mark>/</mark>geo:asWKT ?shape.
 }
 limit 1000</code></pre>
@@ -342,9 +356,7 @@ limit 1000</code></pre>
           <section>
             <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0Aselect%20*%20%7B%0A%20%20%7B%0A%20%20%20%20select%20*%20%7B%0A%20%20%20%20%20%20%3Fmonument%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape1%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20owl%3AsameAs%20%3Fpand.%0A%20%20%20%20%7D%0A%20%20%20%20limit%2010%0A%20%20%7D%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape2.%0A%20%20%7D%0A%7D%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Frce%2Fall%2Fservices%2Fall%2Fsparql&requestMethod=POST&tabTitle=Q3.3&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Federated query</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;
-select * {
+              <pre><code class="sparql" data-noescape data-trim>select * {
   {
     select * {
       ?monument geo:hasGeometry/geo:asWKT ?shape1;
@@ -372,10 +384,7 @@ select * {
           <section>
             <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%7B%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fwoonplaats%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%22De%20Boelelaan%22.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%201105%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%221081HV%22.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Complex data model</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
-prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-select ?shape {
+              <pre><code class="sparql" data-noescape data-trim>select ?shape {
   service &lt;https://data.pdok.nl/sparql&gt; {
     ?woonplaats rdfs:label "Amsterdam"@nl.
     ?openbareRuimte bag:bijbehorendeWoonplaats ?woonplaats;
@@ -398,10 +407,7 @@ limit 1</code></pre>
           <section>
             <h3><a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aselect%20%3Fshape%20%3FshapeLabel%20%7B%0A%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%2Fbag%3AbijbehorendeOpenbareRuimte%2Fbag%3AbijbehorendeWoonplaats%2Fbag%3AnaamWoonplaats%20%22Apeldoorn%22%5E%5Exsd%3Astring%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%20.%0A%20%20%3Fpand%20bag%3AoorspronkelijkBouwjaar%20%3FshapeLabel%20%3B%0A%20%20%20%20%20%20%20%20bag%3AgeometriePand%2Fgeo%3AasWKT%20%3Fshape%20.%0A%7D%0Aorder%20by%20asc(%3FshapeLabel)%0Alimit%2050%0A&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Query%201&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">Large-scale queries</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>prefix bag: &lt;http://bag.basisregistraties.overheid.nl/def/bag#&gt;
-prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-select ?shape ?shapeLabel {
+              <pre><code class="sparql" data-noescape data-trim>select ?shape ?shapeLabel {
   ?verblijfsobject bag:hoofdadres/bag:bijbehorendeOpenbareRuimte/bag:bijbehorendeWoonplaats/bag:naamWoonplaats "Apeldoorn"^^xsd:string;
                    bag:pandrelatering ?pand.
   ?pand bag:geometriePand/geo:asWKT ?shape;
@@ -500,12 +506,7 @@ limit 50</code></pre>
 
           <section>
             <h3><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++bind+(%22Amsterdam%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplace1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fshape+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplace2+rdfs%3Alabel+%3Fy+%3B+foaf%3Adepiction+%3Fvlag+.%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplace2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FshapeLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=%F0%9F%95%B8+BRT%2FBAG+gemeente+%E2%86%92+DBpedia&headers=%7B%7D&outputFormat=leaflet" target="_blank">Dutch municipality → DBpedia 🕸</a></h3>
-            <pre><code class="sparql" data-noescape data-trim>prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
-prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-select ?shape ?shapeLabel {
+            <pre><code class="sparql" data-noescape data-trim>select ?shape ?shapeLabel {
   ?place1 brt:isBAGwoonplaats true;
           geo:hasGeometry/geo:asWKT ?shape;
           rdfs:label "Swalmen"^^xsd:string.
@@ -526,12 +527,7 @@ limit 1</code></pre>
 
           <section>
             <h3><a href="http://yasgui.org/#query=prefix+brt%3A+%3Chttp%3A%2F%2Fbrt.basisregistraties.overheid.nl%2Fdef%2Ftop10nl%23%3E%0Aprefix+dbo%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect+%3Fshape+%3FshapeLabel+%7B%0A++bind+(%22Apeldoorn%22+as+%3Fnaam)%0A++bind+(strdt(%3Fnaam%2Cxsd%3Astring)+as+%3Fx)%0A++%3Fplace1+rdfs%3Alabel+%3Fx+%3B+brt%3AisBAGwoonplaats+true+%3B+geo%3AhasGeometry%2Fgeo%3AasWKT+%3Fshape+.%0A++bind+(strlang(%3Fnaam%2C%22nl%22)+as+%3Fy)%0A++service+%3Chttps%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0A++++%3Fplace2+rdfs%3Alabel+%3Fy+.%0A++++optional+%7B+%3Fplace2+foaf%3Adepiction+%3Fvlag+.+%7D%0A++%7D%0A++bind+(concat('%3Ch2%3E'%2C%3Fnaam%2C'%3C%2Fh2%3E'%2Cif(bound(%3Fvlag)%2Cconcat('%3Cimg+src%3D%22'%2Cstr(%3Fvlag)%2C'%22+style%3D%22max-width%3A+150px%3B%22%3E')%2C'')%2C'%3Cp%3EExterne+representatie%3A+%3Ca+href%3D%22'%2Cstr(%3Fplace2)%2C'%22%3E%5BDBpedia%5D%3C%2Fa%3E%3C%2Fp%3E')+as+%3FshapeLabel)%0A%7D%0Alimit+1%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fapi.krr.triply.cc%2Fdatasets%2FKadaster%2Fgeosoup2%2Fservices%2Fgeosoup%2Fsparql&requestMethod=POST&tabTitle=Apeldoorn+does+not+have+a+flag&headers=%7B%7D&outputFormat=leaflet" target="_blank">Apeldoorn does not have a flag</a></h3>
-            <pre><code class="sparql" data-noescape data-trim>prefix brt: &lt;http://brt.basisregistraties.overheid.nl/def/top10nl#&gt;
-prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-prefix geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-select ?shape ?shapeLabel {
+            <pre><code class="sparql" data-noescape data-trim>select ?shape ?shapeLabel {
   ?place1 brt:isBAGwoonplaats true;
           geo:hasGeometry/geo:asWKT ?shape;
           rdfs:label "Apeldoorn"^^xsd:string.
