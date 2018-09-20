@@ -96,9 +96,6 @@
             <ul class="small">
               <li>
                 <b>IRI</b>: <code>&lt;https://demo.triply.cc/academy/pokemon/id/pokemon/mew&gt;</code>
-                <ul>
-                  <li><b>Datatype IRI</b>: <code>&lt;http://www.w3.org/2001/XMLSchema#integer&gt;</code></li>
-                </ul>
               </li>
               <li>
                 <b>Literal</b>: <code>"40"^^&lt;http://www.w3.org/2001/XMLSchema#integer&gt;</code>
@@ -107,6 +104,7 @@
                 </ul>
               </li>
             </ul>
+            <!-- <b>Datatype IRI</b>: <code>&lt;http://www.w3.org/2001/XMLSchema#integer&gt;</code> -->
           </section>
 
           <section>
@@ -124,12 +122,12 @@ pokemon:pikachu
             <figure>
               <pre><code class="ttl" data-noescape data-trim>prefix : &lt;https://example.org/&gt;
 prefix dce: &lt;http://purl.org/dc/elements/1.1/&gt;
-prefix def: &lt;https://demo.triply.cc/academy/pokemon/def/&gt;
 prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix graph: &lt;http://demo.triply.cc/academy/pokemon/graph/&gt;
 prefix pokemon: &lt;https://demo.triply.cc/academy/pokemon/id/pokemon/&gt;
 prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 prefix time: &lt;http://www.w3.org/2006/time#&gt;
+prefix vocab: &lt;https://demo.triply.cc/academy/pokemon/def/&gt;
 prefix void: &lt;http://rdfs.org/ns/void#&gt;
 prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
               <figcaption>
@@ -240,9 +238,9 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
                 <img src="/resource/graph/graph-2.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:pikachu foaf:knows pokemon:mew.
-pokemon:pikachu def:name   "ピカチュウ"@ja.
-pokemon:pikachu def:weight "60"^^xsd:integer.</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:pikachu foaf:knows   pokemon:mew.
+pokemon:pikachu vocab:name   "ピカチュウ"@ja.
+pokemon:pikachu vocab:weight "60"^^xsd:integer.</code></pre>
               </figcaption>
             </figure>
           </section>
@@ -306,9 +304,9 @@ pokemon:pikachu def:weight "60"^^xsd:integer.</code></pre>
                 <img src="/resource/graph/graph-2.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:pikachu foaf:knows pokemon:mew;
-                def:name   "ピカチュウ"@ja;
-                def:weight 60.</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:pikachu foaf:knows   pokemon:mew;
+                vocab:name   "ピカチュウ"@ja;
+                vocab:weight 60.</code></pre>
               </figcaption>
             </figure>
           </section>
@@ -320,11 +318,11 @@ pokemon:pikachu def:weight "60"^^xsd:integer.</code></pre>
                 <img src="/resource/graph/graph-4.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:mew     def:name   "ミュウ"@ja;
-                def:weight 40.
-pokemon:pikachu foaf:knows pokemon:mew;
-                def:name   "ピカチュウ"@ja;
-                def:weight 60.</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:mew     vocab:name   "ミュウ"@ja;
+                vocab:weight 40.
+pokemon:pikachu foaf:knows   pokemon:mew;
+                vocab:name   "ピカチュウ"@ja;
+                vocab:weight 60.</code></pre>
               </figcaption>
             </figure>
           </section>
@@ -344,14 +342,14 @@ pokemon:pikachu foaf:knows pokemon:mew;
             <h3>A simple dataset</h3>
             <figure>
               <pre><code class="ttl" data-noescape data-trim>graph:mew {
-  pokemon:mew def:name   "ミュウ"@ja;
-              def:weight 40.
+  pokemon:mew vocab:name   "ミュウ"@ja;
+              vocab:weight 40.
 }
 
 graph:pikachu {
-  pokemon:pikachu foaf:knows pokemon:mew;
-                  def:name   "ピカチュウ"@ja;
-                  def:weight 60.
+  pokemon:pikachu foaf:knows   pokemon:mew;
+                  vocab:name   "ピカチュウ"@ja;
+                  vocab:weight 60.
 }</code></pre>
             </figure>
           </section>
@@ -360,20 +358,19 @@ graph:pikachu {
             <h3>Dataset description</h3>
             <figure>
               <pre><code class="ttl" data-noescape data-trim>graph:mew {
-  pokemon:mew def:name   "ミュウ"@ja;
-              def:weight 40.
+  pokemon:mew vocab:name   "ミュウ"@ja;
+         vocab:weight 40.
 }
 
 graph:pikachu {
-  pokemon:pikachu foaf:knows pokemon:mew;
-                  def:name   "ピカチュウ"@ja;
-                  def:weight 60.
+  pokemon:pikachu foaf:knows   pokemon:mew;
+                  vocab:name   "ピカチュウ"@ja;
+                  vocab:weight 60.
 }
 
-&lt;http://demo.triply.cc/academy/pokemon/&gt; a void:Dataset;
+&lt;https://triply.cc/academy/pokemon/&gt; a void:Dataset;
   void:subset graph:mew;
-  void:subject graph:pokemon;
-  dce:license "http://creativecommons.org/licenses/by-nc-sa/4.0/"^^xsd:anyURI.</code></pre>
+  void:subject graph:pokemon.</code></pre>
             </figure>
           </section>
         </section>
@@ -454,8 +451,8 @@ graph:pikachu {
                 <img src="/resource/graph/units-of-measure-1.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow def:length 22;
-                  def:weight 1355.</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow vocab:length 22;
+                  vocab:weight 1355.</code></pre>
               </figcaption>
             </figure>
             <p class="small">Length in centimeters, meters, etc?  Weight in pounds, grams, etc?</p>
@@ -468,10 +465,10 @@ graph:pikachu {
                 <img src="/resource/graph/units-of-measure-2.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow def:length [ def:unit dbd:meter;
-                               rdf:value 2.2];
-                  def:weight [ def:unit dbd:kilogram;
-                               rdf:value 135.5].</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow vocab:length [ :unit dbd:meter;
+                                 rdf:value 2.2];
+                  vocab:weight [ :unit dbd:kilogram;
+                                 rdf:value 135.5].</code></pre>
               </figcaption>
               <p class="small">Use intermediate nodes to attach the unit and value (<code>rdf:value</code>) to.</p>
             </figure>
@@ -484,8 +481,8 @@ graph:pikachu {
                 <img src="/resource/graph/units-of-measure-3.png">
               </a>
               <figcaption>
-                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow def:length "2.2"^^dbd:meter;
-                  def:weight "135.5"^^dbd:kilogram.</code></pre>
+                <pre><code class="ttl" data-noescape data-trim>pokemon:abomasnow vocab:length "2.2"^^dbd:meter;
+                  vocab:weight "135.5"^^dbd:kilogram.</code></pre>
               </figcaption>
             </figure>
             <p class="small">Use unit-specific datatype IRIs i.o. <code>xsd:decimal</code>.</p>
@@ -500,7 +497,7 @@ graph:pikachu {
             <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
           </ul>
           <a href="https://triply.cc" target="_blank">
-            <img src="/resource/img/triply/logo.svg" height="200">
+            <img src="/resource/img/triply/logo.svg" height="125">
           </a>
         </section>
 
