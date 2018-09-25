@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Data Stories ― Kadaster ― High5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/resource/img/triply/logo.svg" icon="/resource/img/triply/logo.svg" rel="icon" type="image/x-icon">
+    <title>Data Stories ― Kadaster ― High5</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="/resource/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/resource/css/yasgui.min.css" rel="stylesheet" type="text/css">
+    <link href="https://nightly.yasgui.triply.cc/yasgui.bootstrap.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="withNavbar">
+    <nav class="navbar fixed-top ">
+      <div class="navbar-content">
+        <div class="navbar-icon">
+          <a class="navbar-brand" href="/">
+            <img src="/assets/imgs/triply.svg">
+          </a>
+        </div>
+        <div class="navbar-title">
+          <a class="navbar-brand" href="/">Data Stories</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container story" data-endpoint="https://data.pdok.nl/sparql">
+      <h1>Kadaster: High5</h1>
+      <p>Deze Data Story toont voorbeeld bevragingen over de Linked Open Data collecties in PDOK / het Kadaster Data Platform.  We zoeken steeds op een adres in Assen, o.b.v. postcode “9405VJ” en huisnummer “11”.</p>
+      <h2>B. Object</h2>
+      <dl>
+        <dt>Woningtype</dt>
+        <dd>Staat in de BRT, maar hoe te linken?</dd>
+        <dt>Bijzonder woningtype</dt>
+        <dd>Niet beschikbaar in de BRT, wel in Fotowijzer.</dd>
+      </dl>
+      <h2>H. Omschrijving object en omgeving</h2>
+      <p>Een basale omschrijving van een kadastraal object is opvraagbaar uit de BAG.  Klik op de polygon om de informatie te tonen.</p>
+      <p>De in de BAG vermelde oppervlakte is de som van (i) de gebruiksoppervlakte wonen en (ii) de gebruiktoppervlakte overige inpandige ruimte.  Deze twee gebruiktsoppervlaktes lijken niet individueel opvraagbaar.</p>
+      <query data-output="geo"
+             data-query-ref="bag-context-geo.rq"></query>
+      <!-- BAG--WOZ, uitslitsing gebruiksoppervlakten -->
+      <!-- BAG ID 0106100000027207 -->
+      <h2>H.2.a Locatie, bereikbaarheid, voorzieningen</h2>
+      <p>Eigenschappen van de omgeving van een pand kunnen worden opgevraagd uit de CBS wijken en buurtenkaart.  Deze bevat zowel statistieken m.b.t. de berijkbaarheid alsook statistieken m.b.t. de toegang tot voorzieningen.  Klik op de polygon van de wijk waarin het pand gelegen is om de afstand tot enkele voorzieningen te tonen.</p>
+      <query data-endpoint="https://api.demo.triply.cc/datasets/wouter/cbs-dump/services/sparql/sparql"
+             data-output="geo"
+             data-query-ref="cbs-voorzieningen.rq"></query>
+      <!-- CBS: koop/huur, één/meergezins (appartement/woning), elektra/gas per woningtype -->
+      <h2>H.4 Energielabel</h2>
+      <p>RVO registreert energielabels.  De huidige versie van de Linked Dataset bevat de expliciet gemeten energielabels, inclusief de datum van opname en registratie.</p>
+      <query data-endpoint="https://data.labs.pdok.nl/sparql"
+             data-query-ref="rvo-context.rq"></query>
+      <!-- RCE https://www.monumenten.nl/monument/53772 overlap met de LOD? -->
+      <!-- RCE/Energielabel huisnummerletter & huisnummer toevoeging -->
+      <h2>M.4 Monument</h2>
+      <p>RCE houdt het register van rijksmonumenten bij.  Dit register bevat enkele eigenschappen, alsook afbeeldingen van monumenten.</p>
+      <query data-endpoint="https://api.demo.triply.cc/datasets/rce/all/services/all/sparql"
+             data-query-ref="rce-context.rq"></query>
+      <p>De afbeeldingen van het pand waar we naar zoeken zijn gesorteerd op datum, waardoor we het verschil voor en na renovatie van het rietdak kunnen zien.</p>
+      <query data-endpoint="https://api.demo.triply.cc/datasets/rce/all/services/all/sparql"
+             data-output="gallery"
+             data-query-ref="rce-gallery.rq"></query>
+      <h2>Aggregatie</h2>
+      <!-- WOZ? & woningtype? -->
+      <p>Naast vragen over één specifiek objecten willen we ook vragen over een verzameling objecten kunnen stellen.  Bijvoorbeeld, we willen opvragen of de waarde van een object meer dan 15% afwijkt van soortgelijke objecten in de directe omgeving.  In onderstaande bevraging beginnen we met het pand dat we hierboven ook steeds bevraagd hebben (in het rood weergegeven).  We vragen vervolgens andere panden op die aan dezelfde openbare ruimte gelegen zijn (in het blauw weergegeven).  Het is op dit moment nog niet mogelijk om de WOZ waarde van deze gebouwen geautomatiseerd op te vragen, maar deze bevraging laat zien dat het mogelijk is om dit soort aggregatie vragen te stellen.</p>
+      <query data-config="https://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fpand%20%3FpandShape%20%3FpandShapeColor%20%3FpandShapeHeight%20%3FpandShapeName%20%3FpandShapeLabel%20%7B%0A%20%20graph%20%3Fg1%20%7B%0A%20%20%20%20%3Fnummeraanduiding1%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%201%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%229405VE%22.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fg1%20bag%3AeindGeldigheid%20%3Feind1.%20%7D%0A%20%20graph%20%3Fg2%20%7B%0A%20%20%20%20%3Fnummeraanduiding2%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3Fhuisnummer2%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fpostcode2.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fg2%20bag%3AeindGeldigheid%20%3Feind2.%20%7D%0A%20%20graph%20%3Fg3%20%7B%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding2%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fg3%20bag%3AeindGeldigheid%20%3Feind3.%20%7D%0A%20%20graph%20%3Fg4%20%7B%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3FpandShape%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Aidentificatiecode%20%3FpandId%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FpandStatus%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3AoorspronkelijkBouwjaar%20%3Fbouwjaar.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fg4%20bag%3AeindGeldigheid%20%3Feind4.%20%7D%0A%20%20%3Fwoonplaats%20rdfs%3Alabel%20%3FwoonplaatsNaam.%0A%20%20graph%20%3Fg0%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%3FopenbareRuimteNaam.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fg0%20bag%3AeindGeldigheid%20%3Feind0.%20%7D%0A%20%20bind(if(%3Fpostcode2%3D%229405VE%22%20%26%26%20%3Fhuisnummer2%3D1%2C'red'%2C'blue')%20as%20%3FpandShapeColor)%0A%20%20bind(30%20as%20%3FpandShapeHeight)%0A%20%20bind(concat(str(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer2)%2C'%2C%20'%2Cstr(%3Fpostcode2)%2C'%20'%2Cstr(%3FwoonplaatsNaam))%20as%20%3FpandShapeName)%0A%20%20bind(concat('%3Ch2%3E'%2C%3FpandShapeName%2C'%3C%2Fh2%3E')%20as%20%3FpandShapeLabel)%0A%7D%0Alimit%20100%0A&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query%206&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22nlmaps%22%2C%22grouped%22%3Afalse%7D"
+             data-output="geo"
+             data-query-ref="bag-openbare-ruimte.rq"></query>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="/resource/js/yasgui.min.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        Yasgui.stories()
+      };
+    </script>
+  </body>
+</html>

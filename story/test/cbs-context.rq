@@ -1,0 +1,30 @@
+prefix buurt: <https://data.labs.pdok.nl/cbs/id/buurt/>
+prefix cbs: <https://data.labs.pdok.nl/cbs/def/>
+select ?p ?o {
+  graph <https://data.labs.pdok.nl/graph/wijkbuurt-2015> {
+    buurt:BU01069911
+      cbs:apotheekAfstand ?apotheek;
+      cbs:attractieAfstand ?attractie;
+      cbs:basisschoolAfstand ?basisschool;
+      cbs:bibliotheek ?bibliotheek;
+      cbs:bioscoopAfstand ?bioscoop;
+      cbs:brandweer ?brandweer;
+      cbs:buitenpolikliniekAfstand ?buitenpolikliniek;
+      cbs:buitenschoolseopvangAfstand ?buitenschoolseopvang;
+      cbs:hogeronderwijsAfstand ?hogeronderwijs;
+      cbs:hotelAfstand ?hotel;
+      cbs:huisartsenpraktijkAfstand ?huisarts;
+      cbs:kinderdagverblijfAfstand ?kinderdagverblijf;
+      cbs:middelbareschoolAfstand ?middelbareschool;
+      cbs:overstapstation ?overstapstation;
+      cbs:podiumAfstand ?podium;
+      cbs:poppodiumAfstand ?poppodium;
+      cbs:restaurantAfstand ?restaurant;
+      cbs:sauna ?sauna;
+      cbs:supermarktAfstand ?supermarkt;
+      cbs:treinstation ?treinstation;
+      cbs:warenhuisAfstand ?warenhuis;
+      cbs:ziekenhuisAfstand ?ziekenhuis.
+  }
+}
+order by ?p

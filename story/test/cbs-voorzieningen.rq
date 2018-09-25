@@ -1,0 +1,33 @@
+prefix buurt: <http://betalinkeddata.cbs.nl/regios/2016/id/buurt/>
+prefix cbs: <http://betalinkeddata.cbs.nl/def/83487NED#>
+prefix dimension: <http://betalinkeddata.cbs.nl/def/dimension#>
+prefix gemeente: <http://betalinkeddata.cbs.nl/regios/2016/id/gemeente-geografisch/>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?shape ?shapeLabel {
+  bind(buurt:BU01069912 as ?buurt)
+  ?buurt geo:hasGeometry/geo:asWKT ?shape;
+         geo:sfWithin ?wijk;
+         rdfs:label ?buurtNaam.
+  ?wijk geo:sfWithin ?gemeente;
+        rdfs:label ?wijkNaam.
+  ?gemeente rdfs:label ?gemeenteNaam.
+  _:1 cbs:nabijheidVoorzieningen_AfstandTotHuisartsenpraktijk ?huisarts ;
+      dimension:regio ?buurt .
+  _:2 cbs:nabijheidVoorzieningen_AfstandTotKinderdagverblijf ?kinderdagverblijf ;
+      dimension:regio ?buurt .
+  _:3 cbs:nabijheidVoorzieningen_Basisonderwijs_AfstandTotSchool ?school ;
+      dimension:regio ?buurt .
+  _:4 cbs:nabijheidVoorzieningen_AfstandTotGroteSupermarkt ?supermarkt ;
+      dimension:regio ?buurt .
+  bind(?supermarkt+?huisarts+?kinderdagverblijf+?school as ?afstand)
+  bind(concat(
+    '<h4>',str(?gemeenteNaam),' 》 ',str(?wijkNaam),' 》 ',str(?buurtNaam),'</h4>',
+    '<ul>',
+      '<li>🛒 Afstand tot supermark: ',str(?supermarkt),' km</li>',
+      '<li>🏥 Afstand tot huisarts: ',str(?huisarts),' km</li>',
+      '<li>👶 Afstand tot kinderopvang: ',str(?kinderdagverblijf),' km</li>',
+      '<li>🏫 Afstand tot school: ',str(?school),' km</li>',
+    '</ul>') as ?shapeLabel)
+}
