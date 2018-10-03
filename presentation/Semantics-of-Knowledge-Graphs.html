@@ -89,7 +89,7 @@
           </section>
 
           <section>
-            <h3>Truth-conditional Semantics</h3>
+            <h3>Meaning of sentences: Truth-conditional Semantics</h3>
             <figure>
               <blockquote>
                 To understand what a sentence means is to know what is
@@ -104,11 +104,28 @@
 
           <section>
             <h3>Truth of a triple</h3>
-            <figure>
+            <p>
               $$\langle s,p,o \rangle \text{ is true} \iff \langle I(s),I(o) \rangle \in Ext(I(p))$$
-            </figure>
+            </p>
+            <hr class="fragment">
+            <p class="small">
+              <span class="fragment">$$\langle \text{the Louvre}, \text{owns}, \text{the Mona Lisa} \rangle \text{ is true} \iff$$</span>
+              <span class="fragment">$$\langle I(\text{the Louvre}), I(\text{the Mona Lisa}) \rangle \in Ext(I(\text{owns})) \iff$$</span>
+              <span class="fragment">$$\langle 🏰, 🖼 \rangle \in Ext(\text{concept-of-ownership}) \iff$$</span>
+              <span class="fragment">$$\langle 🏰, 🖼 \rangle \in \{ \langle 🏰, 🖼 \rangle \}$$</span>
+              <span class="fragment">✓</span>
+            </p>
+            <hr class="fragment">
+            <p class="small">
+              <span class="fragment">$$\langle \text{the Mona Lisa}, \text{owns}, \text{the Louvre} \rangle \text{ is true} \iff$$</span>
+              <span class="fragment">$$\langle I(\text{the Mona Lisa}), I(\text{the Louvre}) \rangle \in Ext(I(\text{owns})) \iff$$</span>
+              <span class="fragment">$$\langle 🖼, 🏰 \rangle \in Ext(\text{concept-of-ownership}) \iff$$</span>
+              <span class="fragment">$$\langle 🖼, 🏰 \rangle \in \{ \langle 🏰, 🖼 \rangle \}$$</span>
+              <span class="fragment">❌</span>
+            </p>
           </section>
 
+          <!--
           <section>
             <h3>Example: <span class="small">“The Louvre owns the Mona Lisa.”</span></h3>
             <figure class="left">
@@ -122,6 +139,7 @@
               </a>
             </figure>
           </section>
+          -->
 
           <section>
             <h3>Meaning of a triple</h3>
@@ -129,7 +147,7 @@
           </section>
 
           <section>
-            <h3>Meanign of a graph</h3>
+            <h3>Meaning of a graph</h3>
             <p>The meaning of a graph is the set of models in which the triples in the graph are true.</p>
           </section>
         </section>
@@ -166,17 +184,22 @@
           <section>
             <h3>Example of OWA</h3>
             <ul>
-              <li>M(‘The Louvre’) = a</li>
-              <li>M(‘Mona Lisa’) = b</li>
-              <li>M(‘owns’) = {〈 a,b〉}</li>
-              <li>M(‘exhibits’) = {〈 a,b〉}</li>
+              <li>I(the Louvre) = 🏰</li>
+              <li>I(the Mona Lisa) = 🖼</li>
+              <li>Ext(I(owns)) = {〈 🏰,🖼〉}</li>
+              <li>Ext(I(exhibits)) = {〈 🏰,🖼〉}</li>
             </ul>
             <p>
               With CWA, owning and exhibiting would have the same
               meaning.  With OWA, they may still be different.
             </p>
+            <ul class="fragment">
+              <li>I(owns) = concept-of-ownership</li>
+              <li>I(exhibits) = concept-of-exhibiting</li>
+            </ul>
           </section>
 
+          <!--
           <section>
             <h3>OWA requires models to have 2 functions</h3>
             <dl>
@@ -198,6 +221,7 @@
               <li>Ext(💰) = Ext(🖼) = {〈 a,b〉}</li>
             </ul>
           </section>
+          -->
 
           <section>
             <h3>Corner case example (1/2)</h3>

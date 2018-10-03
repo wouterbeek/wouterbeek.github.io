@@ -64,7 +64,7 @@ select ?pandShape ?pandShapeHeight ?pandShapeLabel ?pandShapeName {
     '<ul>',
       '<li>Bouwjaar: ',str(?bouwjaar),'</li>',
       '<li>Verblijfsobject type: ',str(?cLabel),'</li>',
-      '<li>Oppervlakte: ',str(?oppervlakte),'m3</li>',
+      '<li>Oppervlakte: ',str(?oppervlakte),'m2</li>',
       '<li>Status openbare ruimte: ',str(?openbareRuimteStatusNaam),'</li>',
       '<li>Status pand: ',str(?pandStatusNaam),'</li>',
       '<li>Status verblijfsobject: ',str(?verblijfsobjectStatusNaam),'</li>',

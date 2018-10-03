@@ -3,14 +3,14 @@ digraph g {
     label=<Syntax>;
     nodes [label=<Nodes>,shape="rect"];
     predicates [label=<Predicates>,shape="rect"];
-    louvreName [label=<:louvre>,shape="none"];
-    ownsName [label=<:owns>,shape="none"];
-    monaLisaName [label=<:monaLisa>,shape="none"];
+    louvreName [label=<the Louvre>,shape="none"];
+    ownsName [label=<owns>,shape="none"];
+    monaLisaName [label=<the Mona Lisa>,shape="none"];
   }
   subgraph cluster_1 {
     label=<Semantics>;
     louvre [label=<🏰>,shape="none"];
-    owns [label=<owns>,shape="none"];
+    conceptOfOwnership [label=<concept-of-ownership>,shape="none"];
     monaLisa [label=<🖼>,shape="none"];
     ext [label=<〈🏰,🖼〉>,shape="none"];
   }
@@ -20,6 +20,6 @@ digraph g {
   monaLisaName -> monaLisa [label=<<i>I</i>>];
 
   predicates -> ownsName [dir="none"];
-  ownsName -> owns [label=<<i>I</i>>];
-  owns -> ext [label=<<i>Ext</i>>];
+  ownsName -> conceptOfOwnership [label=<<i>I</i>>];
+  conceptOfOwnership -> ext [label=<<i>Ext</i>>];
 }
