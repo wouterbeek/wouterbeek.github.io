@@ -1,7 +1,8 @@
 digraph g {
-  abomasnow [label=<pokemon:abomasnow>];
-  abomasnowLength [label=<"2.2"^^dbd:meter>];
-  abomasnowWeight [label=<"135.5"^^dbd:kilogram>];
-  abomasnow -> abomasnowLength [label=<def:length>];
-  abomasnow -> abomasnowWeight [label=<def:weight>];
+  {
+    rank=same
+    pikachu [image="../img/pikachu.png",label="",shape="none"];
+    weight [label=<60 kilogram>,shape="none"];
+  }
+  pikachu -> weight [label=<weight>];
 }

@@ -82,7 +82,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage.%0A%7D%0Alimit%2025&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q1.3&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Abbreviate IRIs</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/sparql/pokemon#query=prefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aselect%20*%20%7B%0A%20%20%3Fpokemon%20foaf%3Adepiction%20%3Fimage.%0A%7D%0Alimit%2025&endpoint=https%3A%2F%2Fdemo.triply.cc%2F_api%2Fdatasets%2Facademy%2Fpokemon%2Fservices%2Fpokemon%2Fsparql&requestMethod=POST&tabTitle=Q1.3&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=table" target="_blank">Short syntax for IRIs</a></h3>
             <figure>
               <pre><code data-noescape data-trim><mark>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</mark>
 select * {
@@ -204,7 +204,7 @@ limit 25</code></pre>
                 <dl>
                   <dt><code>?pokemon</code></dt>
                   <dd>A <em>shared variable</em> connects two triple patterns.  Connected triple patterns form a <em>graph pattern</em>.</dd>
-                  <dt>Turtle abbreviations can be used</dt>
+                  <dt>Short syntax can be used</dt>
                   <dd>Repeat subject (<code>;</code>), repeat subject and predicate (<code>,</code>).</dd>
                 </dl>
               </figcaption>
@@ -302,6 +302,14 @@ limit 25</code></pre>
             </figure>
           </section>
 
+          <section>
+            <h3>Example queries</h3>
+            <p>
+              <a href="https://api.demo.triply.cc/s/psOucuWnO" target="_blank">
+                Dutch Chamber of Commerce (KvK)
+              </a>
+            </p>
+          </section>
         </section>
 
 
