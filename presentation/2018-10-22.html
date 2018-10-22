@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Knowledge Graphs for eGovernment & Smart Cities">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>Knowledge Graphs for eGovernment & Smart Cities</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Knowledge Graphs for eGovernment & Smart Cities</h2>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="120">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h3>Knowledge Graphs</h3>
+            <figure>
+              <a href="/resource/img/gartner-hypecycle-2018-08.png" target="_blank">
+                <img src="/resource/img/gartner-hypecycle-2018-08.png" height="500">
+              </a>
+              <figcaption>
+                Gartner Hypecycle, August 2018.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Knowledge Graphs:<br>The Network Effect for Data</h2>
+          </section>
+
+          <section>
+            <h3>What's the Network Effect?</h3>
+            <figure class="left">
+              <a href="/resource/img/triply/metcalfe.png" target="_blank">
+                <img src="/resource/img/triply/metcalfe.png" height="500">
+              </a>
+            </figure>
+            <p class="right">The value of a network is proportional to the square of the number of connected nodes.</p>
+            <!-- 2-1, 5-10, 12-66 -->
+          </section>
+
+          <section>
+            <h3>Exponential growth</h3>
+            <figure>
+              <a href="/resource/img/empirical-semantics/hosts.svg" target="_blank">
+                <img src="/resource/img/empirical-semantics/hosts.svg" height="450">
+              </a>
+              <figcaption class="small">
+                The number of hosts on the Internet.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Exponential growth</h3>
+            <figure>
+              <a href="/resource/img/triply/social-media.jpg" target="_blank">
+                <img src="/resource/img/triply/social-media.jpg" height="475">
+              </a>
+              <figcaption class="small">
+                Exponential growth proceeds, but <em>within</em> websites.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>How Big is the <em>Open</em> Knowledge Graph?</h3>
+            <figure>
+              <a href="https://lod-cloud.net/" target="_blank">
+                <img src="/resource/img/lod-cloud/lod-cloud-2018.png">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h3><em>Store</em> Large Knowledge Graphs</h3>
+            <figure>
+              <a href="http://www.rdfhdt.org" target="_blank">
+                <img src="/resource/img/hdt/hdt-architecture.png" height="450">
+              </a>
+              <figcaption class="small">
+                Fernández el al.  2013.  ‘Binary RDF representation for publication and exchange(HDT)’ in <em>Web Semantics</em>, Vol. 19, p. 22-41.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><em>Use</em> Large Knowledge Graphs (IDE)</h3>
+            <figure>
+              <img src="/resource/img/geo/GeoYASQE.png" height="450">
+              <figcaption class="small">
+                Rietveld &amp; Hoekstra.  2017.  ‘The YASGUI family of SPARQL clients’ in <em>Semantic Web Journal</em>, Vol. 8, No. 3, p. 373-383.
+            </figure>
+          </section>
+
+          <section>
+            <h3>How Big are <em>Corporate</em> Knowledge Graphs?</h3>
+            <figure>
+              <img src="/resource/img/graph.png">
+              <figcaption class="small">
+                Started at 100B edges, growing towards 2T edges.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <figure>
+              <img src="/resource/img/graph-2.png">
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>
+              <a href="https://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20dce%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20pand%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fbag%2Fid%2Fpand%2F%3E%0Aprefix%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fshape%20%3FshapeHeight%20%3FshapeLabel%20%3FshapeName%20%7B%0A%20%20bind(40%20as%20%3FshapeHeight)%0A%20%20%7B%0A%20%20%20%20select%0A%20%20%20%20%20%20(sample(%3Ftitle)%20as%20%3Ftitle)%0A%20%20%20%20%20%20(group_concat(%3Fwidget%3Bseparator%3D'%3Chr%3E')%20as%20%3Fwidgets)%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20select%0A%20%20%20%20%20%20%20%20%20%20%3Fimage%0A%20%20%20%20%20%20%20%20%20%20(strdt(%3FdateStr%2Cxsd%3Adate)%20as%20%3Fdate)%0A%20%20%20%20%20%20%20%20%20%20%3Fdescription%0A%20%20%20%20%20%20%20%20%20%20(group_concat(distinct%20%3Fformat%3Bseparator%3D'%2C%20')%20as%20%3Fformat)%0A%20%20%20%20%20%20%20%20%20%20%3Fpand%0A%20%20%20%20%20%20%20%20%20%20(group_concat(distinct%20%3Fsubject%3Bseparator%3D'%2C%20')%20as%20%3Fsubject)%0A%20%20%20%20%20%20%20%20%20%20%3Ftitle%0A%20%20%20%20%20%20%20%20%20%20(sample(%3Furl)%20as%20%3Furl)%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20bind(pand%3A0392100000065734%20as%20%3Fpand)%0A%20%20%20%20%20%20%20%20%20%20%3Fimage%20dce%3Adate%20%3FdateStr%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dce%3Adescription%20%3Fdescription%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dce%3Aformat%20%3Fformat%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dce%3Asubject%20%3Fsubject%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dce%3Atitle%20%3Ftitle%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20owl%3AsameAs%20%3Fpand%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3AcontentLocation%20%3Flocation%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3Athumbnail%20%3Furl.%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20group%20by%20%3Fimage%20%3FdateStr%20%3Fdescription%20%3Fpand%20%3Ftitle%0A%20%20%20%20%20%20%20%20order%20by%20desc(%3Fdate)%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20bind(concat(%0A%20%20%20%20%20%20%20%20'%3Ch5%3E'%2Cstr(%3Fdescription)%2C'%3C%2Fh5%3E'%2C%0A%20%20%20%20%20%20%20%20'%3Cfigure%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20'%3Ca%20href%3D%22'%2Cstr(%3Furl)%2C'%22%20target%3D%22_blank%22%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20'%3Cimg%20src%3D%22'%2Cstr(%3Furl)%2C'%22%20width%3D%22250px%22%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20'%3C%2Fa%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20'%3Cfigcaption%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20'%3Cdl%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Cdt%3EDatum%3C%2Fdt%3E%3Cdd%3E'%2Cyear(%3Fdate)%2C'-'%2Cmonth(%3Fdate)%2C'-'%2Cday(%3Fdate)%2C'%3C%2Fdd%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fformat%3D''%2C''%2Cconcat('%3Cdt%3EFormaten%3C%2Fdt%3E%3Cdd%3E'%2Cstr(%3Fformat)%2C'%3C%2Fdd%3E'))%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fsubject%3D''%2C''%2Cconcat('%3Cdt%3EOnderwerpen%3C%2Fdt%3E%3Cdd%3E'%2Cstr(%3Fsubject)%2C'%3C%2Fdd%3E'))%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20'%3C%2Fdl%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20'%3C%2Ffigcaption%3E'%2C%0A%20%20%20%20%20%20%20%20'%3C%2Ffigure%3E')%20as%20%3Fwidget)%0A%20%20%20%20%7D%0A%20%20%20%20group%20by%20%3Fpand%0A%20%20%7D%0A%20%20bind(pand%3A0392100000065734%20as%20%3Fpand)%0A%20%20service%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fsparql%3E%20%7B%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Aidentificatiecode%20%3FpandId.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand.%0A%20%20%20%20%3FopenbareRuimte%20bag%3AnaamOpenbareRuimte%20%3FopenbareRuimteNaam%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats.%0A%20%20%20%20%3Fwoonplaats%20rdfs%3Alabel%20%3FwoonplaatsNaam.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3Fhuisnummer%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fzipcode.%0A%20%20%7D%0A%20%20bind(concat('%E2%9B%AA%20'%2Cstr(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3FwoonplaatsNaam))%20as%20%3FshapeName)%0A%20%20bind(concat(%0A%20%20%20%20'%3Ccenter%3E%3Ch1%3E%E2%9B%AA%20%3Ca%20href%3D%22'%2Cstr(%3Fpand)%2C'%22%3E'%2Cstr(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fa%3E%3C%2Fh1%3E%3C%2Fcenter%3E'%2C%0A%20%20%20%20'%3Ch2%3ELinks%20uit%20PDOK%20hub%3C%2Fh2%3E'%2C%0A%20%20%20%20'%3Cul%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3E%3Cb%3EBAG%3C%2Fb%3E%3A%20%3Ca%20href%3D%22'%2Cstr(%3Fpand)%2C'%22%3E'%2Cstr(%3FpandId)%2C'%3C%2Fa%3E%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3E%3Cb%3ERCE%3C%2Fb%3E%3A%20%3Ca%20href%3D%22https%3A%2F%2Fcultureelerfgoed.nl%2Fmonumenten%2F19264%22%3E19264%3C%2Fa%3E%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3E%3Cb%3EWikidata%3C%2Fb%3E%3A%20%3Ca%20href%3D%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ1545193%22%3EQ1545193%3C%2Fa%3E%3C%2Fli%3E'%2C%0A%20%20%20%20'%3C%2Ful%3E'%2C%0A%20%20%20%20'%3Ch2%3EAfbeeldingen%20van%20Nationaal%20Archief%3C%2Fh2%3E'%2C%0A%20%20%20%20%3Fwidgets%0A%20%20)%20as%20%3FshapeLabel)%0A%7D%0Alimit%201%0A&endpoint=https%3A%2F%2Fapi.demo.triply.cc%2Fdatasets%2Fnationaal-archief%2Fbeeldbank%2Fservices%2Fsparql%2Fsparql&requestMethod=POST&tabTitle=Query%208&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3d" target="_blank">
+                Combining Governmental Datasets
+              </a>
+            </h3>
+            <figure class="left">
+              <a href="https://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20beeldbank%3A%20%3Chttps%3A%2F%2Fcultureelerfgoed.nl%2Fvocab%2F%3E%0Aprefix%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0Aprefix%20dct%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0Aprefix%20energie%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fenergie%23%3E%0Aprefix%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0Aprefix%20gemeente%3A%20%3Chttps%3A%2F%2Fdata.pdok.nl%2Fcbs%2Fid%2Fgemeente%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20kvk%3A%20%3Chttp%3A%2F%2Fdata.labs.pdok.nl%2Fdataset%2Fbedrijf%23%3E%0Aprefix%20monumenten%3A%20%3Chttp%3A%2F%2Flod.kb.nl%2Frce%2Fvocab%2Fid%2F01%2Fceo%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0Aprefix%20vcard%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeName%20(sample(%3FshapeLabel)%20as%20%3FshapeLabel)%20%7B%0A%20%20%23values%20(%20%3Fpostcode%20%3Fhuisnummer%20)%20%7B%20(%20%228011LW%22%2015%20)%20(%20%228011LW%22%2019%20)%20%7D%0A%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-bag%3E%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AnaamOpenbareRuimte%20%3FopenbareRuimteNaam%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AbijbehorendeWoonplaats%20%3Fwoonplaats%20.%0A%20%20%20%20%3Fwoonplaats%20bag%3AnaamWoonplaats%20%3FwoonplaatsNaam%20.%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3Fhuisnummer%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fpostcode%20.%0A%20%20%20%20%3Fverblijfsobject%20bag%3Ahoofdadres%20%3Fnummeraanduiding%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Aoppervlakte%20%3Foppervlakte%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FverblijfsobjectStatus%20.%0A%20%20%20%20%3FverblijfsobjectStatus%20rdfs%3Alabel%20%3FverblijfsobjectStatusLabel%20.%0A%20%20%20%20%3Fpand%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3AoorspronkelijkBouwjaar%20%3Fbouwjaar%20%3B%0A%20%20%20%20%20%20%20%20%20%20bag%3Astatus%20%3FpandStatus%20.%0A%20%20%20%20%3FpandStatus%20rdfs%3Alabel%20%3FpandStatusLabel%20.%0A%20%20%7D%0A%20%20%3Fpand%20schema%3Aheight%20%3FshapeHeight%20.%0A%20%20%23%20energielabel%0A%20%20optional%20%7B%0A%20%20%20%20%3Fmeting%20energie%3Aep%20%3Fep%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20energie%3Ae_label%20%3Fenergielabel%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20energie%3Aopname_datum%20%3Fopnamedatum%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20energie%3Apand_huisnummer%20%3Fhuisnummer0%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20energie%3Apand_postcode%20%3Fpostcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20energie%3Aregistratie_datum%20%3Fregistratiedatum%20.%0A%20%20%20%20filter%20(str(%3Fhuisnummer)%20%3D%20%3Fhuisnummer0)%0A%20%20%7D%0A%20%20%23%20bedrijf%0A%20%20optional%20%7B%0A%20%20%20%20%3Fbedrijf%20kvk%3Aplaats%20%22Zwolle%22%5E%5Exsd%3Astring%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20kvk%3AlegalFormDescription%20%3Flegal%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20kvk%3AsbiOmschrijving%20%3Fsbi%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20kvk%3Ahuisnummer%20%3Fhuisnummer%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3AlegalName%20%3Fnaam%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20kvk%3Astraat%20%3Fstraat%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20kvk%3Apostcode%20%3Fpostcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3AnumberOfEmployees%20%3Fwerknemers%20.%0A%20%20%7D%0A%20%20%23%20monument%0A%20%20optional%20%7B%0A%20%20%20%20graph%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F3d-rce%3E%20%7B%0A%20%20%20%20%20%20%3Fmonument%20monumenten%3AhasLink%20%3FmonumentUrl%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasPostCode%20%3Fpostcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentNumber%20%3Fcode%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasRijksmonumentDefinition%20%3Fbeschrijving%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20monumenten%3AhasStreetNumber%20%3Fhuisnummer%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(IRI(concat('https%3A%2F%2Fcultureelerfgoed.nl%2Fid%2Fmonument%2F'%2Cstr(%3Fcode)))%20as%20%3Fx)%0A%20%20%20%20optional%20%7B%0A%20%20%20%20%20%20%3Fafbeelding%20foaf%3Adepicts%20%3Fx%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20beeldbank%3Alocator%20%3FafbeeldingUrl%20.%0A%20%20%20%20%7D%0A%20%20%20%20bind%20(concat('%3Ca%20href%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20target%3D%22_blank%22%3E%3Cimg%20src%3D%22'%2Cstr(%3FafbeeldingUrl)%2C'%22%20style%3D%22max-height%3A%20100px%3B%22%3E%3C%2Fa%3E')%20as%20%3FafbeeldingLabel)%0A%20%20%7D%0A%20%20%23%20HTML%20label%3A%20RCE%0A%20%20bind%20(if(bound(%3FafbeeldingLabel)%2Cconcat('%3Ch5%3E%F0%9F%96%BC%20Beelden%20uit%20de%20beeldbank%3A%3C%2Fh5%3E%3Cdiv%20style%3D%22max-height%3A125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2C%3FafbeeldingLabel%2C'%3C%2Fdiv%3E')%2C'')%20as%20%3FmonumentString1)%0A%20%20bind%20(if(bound(%3Fcode)%2Cconcat('%3Ch5%3E%E2%9B%AA%20%3Ca%20href%3D%22'%2Cstr(%3FmonumentUrl)%2C'%22%20target%3D%22_blank%22%3EMonument%20'%2Cstr(%3Fcode)%2C'%3C%2Fa%3E%3C%2Fh5%3E%3Cp%20style%3D%22max-height%3A%20125px%3B%20overflow-y%3A%20scroll%3B%22%3E'%2Cstr(%3Fbeschrijving)%2C'%3C%2Fp%3E'%2C%3FmonumentString1)%2C'')%20as%20%3FmonumentString2)%0A%20%20bind%20(%0A%20%20%20%20if%20(bound(%3Fenergielabel)%2C%0A%20%20%20%20%20%20if(strstarts(%3Fenergielabel%2C%20%22A%22)%2C%20%22%2322b14c%22%2C%0A%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22B%22%2C%20%22%238ff334%22%2C%0A%20%20%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22C%22%2C%20%22%23bdfc2c%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22D%22%2C%20%22%23fff200%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22E%22%2C%20%22%23ff9a35%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22F%22%2C%20%22%23ff7f27%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if(%3Fenergielabel%3D%22G%22%2C%20%22%23ed1c24%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22grey%22)))))))%2C%0A%20%20%20%20%20%20%20%20if(bound(%3Fbedrijf)%2C%20%22%234169e188%22%2C%0A%20%20%20%20%20%20%20%20%20%20if(bound(%3Fmonument)%2C%20%22%234169e188%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%234169e133%22))%0A%20%20%20%20)%20as%20%3FshapeColor)%0A%20%20%23%20HTML%20label%3A%20RVO%0A%20%20bind%20(if(bound(%3Fmeting)%2Cconcat('%3Csvg%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20fill%3D%22'%2Cstr(%3FshapeColor)%2C'%22%20r%3D%2210%22%2F%3E%3C%2Fsvg%3E%20')%2C'')%20as%20%3FenergielabelString1)%0A%20%20bind%20(if(bound(%3Fmeting)%2Cconcat('%3Ch5%3E%F0%9F%97%B2%20Energielabel%20informatie%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EEnergielabel%3A%20'%2Cstr(%3Fenergielabel)%2C'%3C%2Fli%3E%3Cli%3EEP%3A%20'%2Cstr(%3Fep)%2C'%3C%2Fli%3E%3Cli%3EOpnamedatum%3A%20'%2Cstr(%3Fopnamedatum)%2C'%3C%2Fli%3E%3Cli%3ERegistratiedatum%3A%20'%2Cstr(%3Fregistratiedatum)%2C'%3C%2Fli%3E%3C%2Ful%3E%3Ch5%3E')%2C'')%20as%20%3FenergielabelString2)%0A%20%20%23%20HTML%20label%3A%20KvK%0A%20%20bind%20(if(bound(%3Fbedrijf)%2Cconcat('%3Ch5%3E%F0%9F%8F%AA%20KvK%20informatie%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3E'%2Cstr(%3Fnaam)%2C'%3C%2Fli%3E%3Cli%3E'%2Cstr(%3Flegal)%2C'%3C%2Fli%3E%3Cli%3ESBI%3A%20'%2Cstr(%3Fsbi)%2C'%3C%2Fli%3E%3Cli%3EWerknemers%3A%20'%2Cstr(%3Fwerknemers)%2C'%3C%2Fli%3E%3C%2Ful%3E')%2C'')%20as%20%3FbedrijfString)%0A%20%20%23%20HTML%20label%0A%20%20bind%20(concat('%3Ch4%3E'%2C%3FenergielabelString1%2Cstr(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3Fpostcode)%2C'%20'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fh4%3E'%2C%3FenergielabelString2%2C%3FbedrijfString%2C%3FmonumentString2%2C'%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fverblijfsobject)%2C'%22%3EVerblijfsobject%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EWoonplaats%3A%20%3Ca%20href%3D%22'%2Cstr(%3Fwoonplaats)%2C'%22%3E'%2Cstr(%3FwoonplaatsNaam)%2C'%3C%2Fa%3E%3C%2Fli%3E%3Cli%3EOppervlakte%3A%20'%2Cstr(%3Foppervlakte)%2C'm%C2%B2%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FverblijfsobjectStatus)%2C'%22%3E'%2Cstr(%3FverblijfsobjectStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E%3Ch5%3E%3Ca%20href%3D%22'%2Cstr(%3Fpand)%2C'%22%3EPand%3C%2Fa%3E%3A%3C%2Fh5%3E%3Cul%3E%3Cli%3EBouwjaar%3A%20'%2Cstr(%3Fbouwjaar)%2C'%3C%2Fli%3E%3Cli%3EStatus%3A%20%3Ca%20href%3D%22'%2Cstr(%3FpandStatus)%2C'%22%3E'%2Cstr(%3FpandStatusLabel)%2C'%3C%2Fa%3E%3C%2Fli%3E%3C%2Ful%3E')%20as%20%3FshapeLabel)%0A%20%20%23%20tekst%20label%0A%20%20bind%20(concat(str(%3FopenbareRuimteNaam)%2C'%20'%2Cstr(%3Fhuisnummer)%2C'%2C%20'%2Cstr(%3FwoonplaatsNaam))%20as%20%3FshapeName)%0A%7D%0Agroup%20by%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeName%20%3FshapeZ%0Alimit%20250%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query%203&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3d" target="_blank">
+                <img src="/resource/img/3d/3d-results-cesium.png">
+              </a>
+            </figure>
+            <div class="right small">
+              <p>Querying <em>across</em> datasets &amp; institutions:</p>
+              <dl>
+                <dt>Cadastre</dt>
+                <dd>Base registries</dd>
+                <dt>Chamber of Commerce (KvK)</dt>
+                <dd>Company registrations</dd>
+                <dt>Cultural Heritage Agency (RCE)</dt>
+                <dd>Monument registry</dd>
+                <dt>Netherlands Enterprise Agency (RVO)</dt>
+                <dd>Energy labels</dd>
+            </div>
+          </section>
+
+          <section>
+            <h3>
+              <a href="https://nightly.yasgui.triply.cc/#query=prefix%20bag%3A%20%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeLabel%20%7B%0A%20%20bind(%22De%20Boelelaan%22%20as%20%3FstreetName)%0A%20%20%3Fplace%20rdfs%3Alabel%20%22Amsterdam%22%40nl.%0A%20%20graph%20%3Fgraph1%20%7B%0A%20%20%20%20%3FopenbareRuimte%20bag%3AbijbehorendeWoonplaats%20%3Fplace%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3AnaamOpenbareRuimte%20%3FstreetName.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph1%20bag%3AeindGeldigheid%20%3Fend1.%20%7D%0A%20%20graph%20%3Fgraph2%20%7B%0A%20%20%20%20%3Fnummeraanduiding%20bag%3AbijbehorendeOpenbareRuimte%20%3FopenbareRuimte%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahuisnummer%20%3FhouseNumber%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apostcode%20%3Fzipcode.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph2%20bag%3AeindGeldigheid%20%3Fend2.%20%7D%0A%20%20graph%20%3Fgraph3%20%7B%0A%20%20%20%20%3Fverblijfsobject%20a%20%3Fc%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Ahoofdadres%20%3Fnummeraanduiding%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bag%3Apandrelatering%20%3Fpand%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3FshapeVerblijfsobject.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph3%20bag%3AeindGeldigheid%20%3Fend3.%20%7D%0A%20%20filter(%3Fc!%3Dbag%3AVerblijfsobject)%0A%20%20%3Fc%20rdfs%3Alabel%20%3FcLabel.%0A%20%20graph%20%3Fgraph4%20%7B%0A%20%20%20%20%3Fpand%20bag%3AgeometriePand%2Fgeo%3AasWKT%20%3Fshape.%0A%20%20%7D%0A%20%20filter%20not%20exists%20%7B%20%3Fgraph4%20bag%3AeindGeldigheid%20%3Fend4.%20%7D%0A%20%20bind(if(%3Fc%3Dbag%3AVerblijfsobjectWoonfunctie%2C%22green%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectWinkelfunctie%2C%22red%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectKantoorfunctie%2C%22blue%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectOnderwijsfunctie%2C%22yellow%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectGezondheidszorgfunctie%2C%22orange%22%2C%0A%20%20%20%20%20%20%20if(%3Fc%3Dbag%3AVerblijfsobjectSportfunctie%2C%22violet%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22orange%22))))))%20as%20%3FshapeColor)%0A%20%20bind(25%20as%20%3FshapeHeight)%0A%20%20bind(concat('%3Ch2%3E'%2C%3FstreetName%2C'%20'%2C%3FhouseNumber%2C'%2C%20'%2C%3Fzipcode%2C'%3C%2Fh2%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch2%20style%3D%22color%3A%20'%2C%3FshapeColor%2C'%3B%22%3E'%2C%3FcLabel%2C'%3C%2Fh2%3E')%20as%20%3FshapeLabel)%0A%7D%0Alimit%20500%0A&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query%203.4&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3d" target="_blank">
+                Example: De Boelelaan
+              </a>
+            </h3>
+            <figure class="left">
+              <a href="/resource/img/3d/boelelaan.png" target="_blank">
+                <img src="/resource/img/3d/boelelaan.png">
+              </a>
+            </figure>
+            <div class="right">
+              <ul class="small">
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="green" r="15"/></svg>
+                  Living space
+                </li>
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="red" r="15"/></svg>
+                  Shopping
+                </li>
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="blue" r="15"/></svg>
+                  Offices
+                </li>
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="yellow" r="15"/></svg>
+                  Education
+                </li>
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="orange" r="15"/></svg>
+                  Health
+                </li>
+                <li>
+                  <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="violet" r="15"/></svg>
+                  Sport
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h3>Policy Questions @ Knowledge Graphs</h3>
+          <figure>
+            <a href="https://nightly.yasgui.triply.cc/#query=prefix%20buurt%3A%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fid%2Fbuurt%2F%3E%0Aprefix%20cbs%3A%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fdef%2F%3E%0Aprefix%20gemeente%3A%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fcbs%2Fid%2Fgemeente%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Fdata.labs.pdok.nl%2Fgraph%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeLabel%20%3FshapeName%20%7B%0A%20%20bind(strdt(%22Amsterdam%22%2Cxsd%3Astring)%20as%20%3FgemeenteNaam)%0A%20%20graph%20graph%3Awijkbuurt-2015%20%7B%0A%20%20%20%20%3Fbuurt%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20geo%3AsfWithin%2Fgeo%3AsfWithin%2Frdfs%3Alabel%20%3FgemeenteNaam%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3FbuurtNaam%20.%0A%20%20%20%7D%0A%20%20graph%20graph%3Acbs-energie-2015%20%7B%0A%20%20%20%20%3Fbuurt%20cbs%3AaardgasverbruikKoopwoning%20%3FgemAardgas%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3AelektriciteitsverbruikKoopwoning%20%3FgemElektra%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleBesparingspotentieAlleMaatregelen%20%3Fbesparing%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleBesparingspotentieBouwfysischeMaatregelen%20%3FbouwfysischeBesparing%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleBesparingspotentieInstallatietechnischeMaatregelen%20%3FinstallatieBesparing%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleEenmaligBenodigdeInvesteringAlleMaatregelen%20%3Finvestering%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleEenmaligBenodigdeInvesteringBouwfysischeMaatregeln%20%3FbouwfysischeInvestering%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20cbs%3Are%C3%ABleEenmaligBenodigdeInvesteringInstallatietechnischeMaatregelen%20%3FinstallatieInvestering%20.%0A%20%20%7D%0A%20%20bind(%3FbouwfysischeInvestering%20%2B%20%3FinstallatieInvestering%20as%20%3Fnoemer)%0A%20%20bind(%3FbouwfysischeBesparing%20%2B%20%3FinstallatieBesparing%20as%20%3Fdeler)%0A%20%20bind(xsd%3Afloat(%3Fnoemer)%2F%3Fdeler%20as%20%3Fjaren)%0A%20%20bind(if(%3Fdeler%3E0%2C%20(22.0-(xsd%3Afloat(%3Fnoemer)%2F%3Fdeler-8.0))%2F22.0%2C%200)%20as%20%3Fnormalized)%0A%20%20bind(concat(%22bluered%2C%22%2Cstr(%3Fnormalized))%20as%20%3FshapeColor)%0A%20%20bind(concat('Amsterdam%20%E3%80%8B%20'%2Cstr(%3FbuurtNaam))%20as%20%3FshapeName)%0A%20%20bind(concat(%0A%20%20%20%20%20%20'%3Cp%3E%F0%9F%97%B2%20Energiegebruik%3A%3C%2Fp%3E'%2C%0A%20%20%20%20%20%20'%3Cul%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EElektriciteit%3A%20'%2Creplace(str(%3FgemElektra)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'kWh%20per%20jaar%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EAardgas%3A%20'%2Creplace(str(%3FgemAardgas)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'm%C2%B3%20per%20jaar%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3C%2Ful%3E'%2C%0A%20%20%20%20%20%20'%3Cp%3E%F0%9F%92%B0%20Besparingen%3A%3C%2Fp%3E'%2C%0A%20%20%20%20%20%20'%3Cul%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EBouwfysische%3A%20%E2%82%AC%20'%2Creplace(str(%3FbouwfysischeBesparing)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%20per%20jaar%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EInstallatietechnische%3A%20%E2%82%AC%20'%2Creplace(str(%3FinstallatieBesparing)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%20per%20jaar%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3C%2Ful%3E'%2C%0A%20%20%20%20%20%20'%3Cp%3E%F0%9F%92%B0%20Investeringen%3A%3C%2Fp%3E'%2C%0A%20%20%20%20%20%20'%3Cul%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EBouwfysisch%3A%20%E2%82%AC%20'%2Creplace(str(%3FbouwfysischeInvestering)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3Cli%3EInstallatietechnisch%3A%20%E2%82%AC%20'%2Creplace(str(%3FinstallatieInvestering)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%3C%2Fli%3E'%2C%0A%20%20%20%20%20%20'%3C%2Ful%3E'%2C%0A%20%20%20%20%20%20if(bound(%3Fnormalized)%2C%0A%20%20%20%20%20%20%20%20%20concat('%3Cp%3E%F0%9F%95%97%20Positief%20rendement%20na%20'%2Csubstr(str(%3Fjaren)%2C%201%2C%204)%2C'%20jaar.%3C%2Fp%3E')%2C%0A%20%20%20%20%20%20%20%20%20''))%20as%20%3FshapeLabel)%0A%20%20bind(%3Fnormalized*1000%20as%20%3FshapeHeight)%0A%7D%0Alimit%2075%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3d" target="_blank">
+              <img src="/resource/img/energy-savings-amsterdam.png" height="350">
+            </a>
+            <figcaption>
+              “Where should the government invest to maximize energy savings?”
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <section>
+            <h3>
+              <a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20cbs%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Fcbs%2Fdef%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Fcbs%2Fgraph%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeLabel%20%7B%0A%20%20bind(%22Amsterdam%22%5E%5Exsd%3Astring%20as%20%3Fname1)%0A%20%20%7B%0A%20%20%20%20select%20(min(%3FavgValue)%20as%20%3Fmin)%20(max(%3FavgValue)%20as%20%3Fmax)%20%7B%0A%20%20%20%20%20%20graph%20graph%3Awijkbuurt-2016%20%7B%0A%20%20%20%20%20%20%20%20%3Ffeature3%0A%20%20%20%20%20%20%20%20%20%20cbs%3Awoz%20%3FavgValue%3B%0A%20%20%20%20%20%20%20%20%20%20geo%3AsfWithin%2Fgeo%3AsfWithin%2Frdfs%3Alabel%20%3Fname1.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20graph%20graph%3Awijkbuurt-2016%20%7B%0A%20%20%20%20%3Ffeature3%0A%20%20%20%20%20%20cbs%3Awoz%20%3FavgValue%3B%0A%20%20%20%20%20%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%3B%0A%20%20%20%20%20%20geo%3AsfWithin%20%5B%20geo%3AsfWithin%2Frdfs%3Alabel%20%3Fname1%3B%20rdfs%3Alabel%20%3Fname2%20%5D%3B%0A%20%20%20%20%20%20rdfs%3Alabel%20%3Fname3.%0A%20%20%7D%0A%20%20bind((xsd%3Afloat(%3FavgValue)-xsd%3Afloat(%3Fmin))%2F(xsd%3Afloat(%3Fmax)-xsd%3Afloat(%3Fmin))%20as%20%3Fnormalized)%0A%20%20bind(concat('jet%2C'%2Cstr(%3Fnormalized))%20as%20%3FshapeColor)%0A%20%20bind(concat(%0A%20%20%20%20'%3Ch3%3E'%2Cstr(%3Fname1)%2C'%20%C2%BB%3Cbr%3E'%2Cstr(%3Fname2)%2C'%20%C2%BB%3Cbr%3E'%2Cstr(%3Fname3)%2C'%3C%2Fh3%3E'%2C%0A%20%20%20%20'%3Ch4%3EAverage%20house%20value%3A%20%E2%82%AC%20'%2Creplace((1000*%3FavgValue)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%2C-%3C%2Fh4%3E')%20as%20%3FshapeLabel)%0A%7D%0Aorder%20by%20desc(%3FavgValue)%0Alimit%20400%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Q3.1&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">
+                Real Estate Use Case
+              </a>
+            </h3>
+            <figure>
+              <a href="https://test.triply.cc/academy/geodata/sparql/geodata#query=prefix%20cbs%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Fcbs%2Fdef%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20graph%3A%20%3Chttps%3A%2F%2Ftriply.cc%2Fcbs%2Fgraph%2F%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeLabel%20%7B%0A%20%20bind(%22Amsterdam%22%5E%5Exsd%3Astring%20as%20%3Fname1)%0A%20%20%7B%0A%20%20%20%20select%20(min(%3FavgValue)%20as%20%3Fmin)%20(max(%3FavgValue)%20as%20%3Fmax)%20%7B%0A%20%20%20%20%20%20graph%20graph%3Awijkbuurt-2016%20%7B%0A%20%20%20%20%20%20%20%20%3Ffeature3%0A%20%20%20%20%20%20%20%20%20%20cbs%3Awoz%20%3FavgValue%3B%0A%20%20%20%20%20%20%20%20%20%20geo%3AsfWithin%2Fgeo%3AsfWithin%2Frdfs%3Alabel%20%3Fname1.%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20graph%20graph%3Awijkbuurt-2016%20%7B%0A%20%20%20%20%3Ffeature3%0A%20%20%20%20%20%20cbs%3Awoz%20%3FavgValue%3B%0A%20%20%20%20%20%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%3B%0A%20%20%20%20%20%20geo%3AsfWithin%20%5B%20geo%3AsfWithin%2Frdfs%3Alabel%20%3Fname1%3B%20rdfs%3Alabel%20%3Fname2%20%5D%3B%0A%20%20%20%20%20%20rdfs%3Alabel%20%3Fname3.%0A%20%20%7D%0A%20%20bind((xsd%3Afloat(%3FavgValue)-xsd%3Afloat(%3Fmin))%2F(xsd%3Afloat(%3Fmax)-xsd%3Afloat(%3Fmin))%20as%20%3Fnormalized)%0A%20%20bind(concat('jet%2C'%2Cstr(%3Fnormalized))%20as%20%3FshapeColor)%0A%20%20bind(concat(%0A%20%20%20%20'%3Ch3%3E'%2Cstr(%3Fname1)%2C'%20%C2%BB%3Cbr%3E'%2Cstr(%3Fname2)%2C'%20%C2%BB%3Cbr%3E'%2Cstr(%3Fname3)%2C'%3C%2Fh3%3E'%2C%0A%20%20%20%20'%3Ch4%3EAverage%20house%20value%3A%20%E2%82%AC%20'%2Creplace((1000*%3FavgValue)%2C'%5B0-9%5D(%3F%3D(%3F%3A%5B0-9%5D%7B3%7D)%2B(%3F!%5B0-9%5D))'%2C'%240.')%2C'%2C-%3C%2Fh4%3E')%20as%20%3FshapeLabel)%0A%7D%0Aorder%20by%20desc(%3FavgValue)%0Alimit%20400%0A&endpoint=https%3A%2F%2Ftest.triply.cc%2F_api%2Fdatasets%2Facademy%2Fgeodata%2Fservices%2Fgeodata%2Fsparql&requestMethod=POST&tabTitle=Q3.1&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">
+                <img src="/resource/img/geo/woz.png" height="500">
+              </a>
+            </figure>
+          </section>
+
+          <!--
+          <section>
+            <h3>
+              <a href="https://nightly.yasgui.triply.cc/#query=prefix%20def%3A%20%3Chttp%3A%2F%2Fbetalinkeddata.cbs.nl%2Fdef%2F83487NED%23%3E%0Aprefix%20dimension%3A%20%3Chttp%3A%2F%2Fbetalinkeddata.cbs.nl%2Fdef%2Fdimension%23%3E%0Aprefix%20gemeente%3A%20%3Chttp%3A%2F%2Fbetalinkeddata.cbs.nl%2Fregios%2F2016%2Fid%2Fgemeente-geografisch%2F%3E%0Aprefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aprefix%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0Aselect%20%3Fshape%20%3FshapeColor%20%3FshapeHeight%20%3FshapeLabel%20%7B%0A%20%20%3Fbuurt%20geo%3AhasGeometry%2Fgeo%3AasWKT%20%3Fshape%20%3B%0A%20%20%20%20%20%20%20%20%20geo%3AsfWithin%2Fgeo%3AsfWithin%20gemeente%3AGM0637%20%3B%0A%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3FbuurtLabel%20.%0A%20%20%7B%0A%20%20%20%20select%20(min(%3Fafstand)%20as%20%3Fmin)%20(max(%3Fafstand)%20as%20%3Fmax)%20%7B%0A%20%20%20%20%20%20%3Fbuurt%20geo%3AsfWithin%2Fgeo%3AsfWithin%20gemeente%3AGM0637%20.%0A%20%20%20%20%20%20_%3A1%20def%3AnabijheidVoorzieningen_AfstandTotGroteSupermarkt%20%3Fsupermarkt%20%3B%0A%20%20%20%20%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20%20%20%20%20_%3A2%20def%3AnabijheidVoorzieningen_AfstandTotHuisartsenpraktijk%20%3Fhuisarts%20%3B%0A%20%20%20%20%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20%20%20%20%20_%3A3%20def%3AnabijheidVoorzieningen_AfstandTotKinderdagverblijf%20%3Fkinderdagverblijf%20%3B%0A%20%20%20%20%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20%20%20%20%20_%3A4%20def%3AnabijheidVoorzieningen_Basisonderwijs_AfstandTotSchool%20%3Fschool%20%3B%0A%20%20%20%20%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20%20%20%20%20bind(%3Fsupermarkt%2B%3Fhuisarts%2B%3Fkinderdagverblijf%2B%3Fschool%20as%20%3Fafstand)%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20_%3A5%20def%3AnabijheidVoorzieningen_AfstandTotGroteSupermarkt%20%3Fsupermarkt%20%3B%0A%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20_%3A6%20def%3AnabijheidVoorzieningen_AfstandTotHuisartsenpraktijk%20%3Fhuisarts%20%3B%0A%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20_%3A7%20def%3AnabijheidVoorzieningen_AfstandTotKinderdagverblijf%20%3Fkinderdagverblijf%20%3B%0A%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20_%3A8%20def%3AnabijheidVoorzieningen_Basisonderwijs_AfstandTotSchool%20%3Fschool%20%3B%0A%20%20%20%20%20%20dimension%3Aregio%20%3Fbuurt%20.%0A%20%20bind(%3Fsupermarkt%2B%3Fhuisarts%2B%3Fkinderdagverblijf%2B%3Fschool%20as%20%3Fafstand)%0A%20%20bind((%3Fafstand-%3Fmin)%2Fxsd%3Adouble(%3Fmax-%3Fmin)%20as%20%3Fscore)%0A%20%20bind(%3Fscore*1000%20as%20%3FshapeHeight)%0A%20%20bind(concat('jet%2C'%2Cstr(%3Fscore))%20as%20%3FshapeColor)%0A%20%20bind(concat('%3Ch3%3EZoetermeer%20%E3%80%8B%20'%2Cstr(%3FbuurtLabel)%2C'%3C%2Fh3%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch4%3E%F0%9F%9B%92%20Afstand%20tot%20supermark%3A%20'%2Cstr(%3Fsupermarkt)%2C'%20km%3C%2Fh4%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch4%3E%F0%9F%8F%A5%20Afstand%20tot%20huisarts%3A%20'%2Cstr(%3Fhuisarts)%2C'%20km%3C%2Fh4%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch4%3E%F0%9F%91%B6%20Afstand%20tot%20kinderopvang%3A%20'%2Cstr(%3Fkinderdagverblijf)%2C'%20km%3C%2Fh4%3E'%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20'%3Ch4%3E%F0%9F%8F%AB%20Afstand%20tot%20school%3A%20'%2Cstr(%3Fschool)%2C'%20km%3C%2Fh4%3E')%20as%20%3FshapeLabel)%0A%7D%0A&endpoint=https%3A%2F%2Fapi.demo.triply.cc%2Fdatasets%2Fwouter%2Fcbs-dump%2Fservices%2Fsparql%2Fsparql&requestMethod=POST&tabTitle=Query%202&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo&outputSettings=%7B%22map%22%3A%22osm%22%2C%22grouped%22%3Afalse%7D" target="_blank">
+                Neighborhood Score
+              </a>
+            </h3>
+          </section>
+          -->
+        </section>
+
+        <section>
+          <h3>Benefits of Knowledge Graphs</h3>
+          <ul>
+            <li>Answer business questions across datasets</li>
+            <li>Answer business questions across institutions</li>
+            <li>Low-cost data integration</li>
+            <li class="fragment"><b>🠉 Create a Network Effect for your data</b></li>
+            <li class="fragment">Reach policy goals faster</li>
+            <li class="fragment">Provide better services to citizens</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Thank you for your attention!</h2>
+          <ul class="small">
+            <li>WWW: <a href="http://wouterbeek.com">triply.cc</a></li>
+            <li>Email: <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></li>
+            <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
+          </ul>
+          <br>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="120">
+          </a>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
