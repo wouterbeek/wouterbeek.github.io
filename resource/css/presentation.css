@@ -32,6 +32,10 @@
    tags.
 */
 
+.footnote {
+  font-size: 40% !important;
+}
+
 .small {
   font-size: 80% !important;
 }
