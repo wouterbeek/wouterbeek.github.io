@@ -53,7 +53,7 @@
             <h3>Linked Data requires <code>owl:sameAs</code></h3>
             <div class="left">
               <h4>Formal meaning</h4>
-              <p class="small">
+              <p class="size-80">
                 <code>〈x, owl:sameAs, y〉</code> means
                 that <code>(∀P)(Px ↔ Py)</code>
               </p>
@@ -68,11 +68,11 @@
           <section>
             <h3>Linked data requires <code>owl:sameAs</code></h3>
             <figure>
-              <pre><code class="small" data-noescape data-trim>louvre:monaLisa
+              <pre><code class="size-80" data-noescape data-trim>louvre:monaLisa
   dc:created "1503"^^xsd:gYear;
   dc:creator "Da Vinci".</code></pre>
               <pre><code class="fragment" data-noescape data-trim>louvre:monaLisa owl:sameAs sothebys:somePainting.</code></pre>
-              <pre><code class="small" data-noescape data-trim>sothebys:somePainting
+              <pre><code class="size-80" data-noescape data-trim>sothebys:somePainting
   sothebys:auctionDate "2018-06-07"^^xsd:date;
   sothebys:price "€1.000,-";
   sothebys:contact "mailto:bidding@sothebys.com"^^xsd:anyURI.</code></pre>
@@ -188,14 +188,14 @@
             <div class="fragment">
               <h4>Corresponding implicit identity relation</h4>
               <div class="left">
-                <pre><code data-noescape data-trim class="small">:a owl:sameAs :a.
+                <pre><code data-noescape data-trim class="size-80">:a owl:sameAs :a.
 :a owl:sameAs :b.
 :a owl:sameAs :d.
 :b owl:sameAs :a.
 :b owl:sameAs :b.</code></pre>
               </div>
               <div class="right">
-                <pre><code data-noescape data-trim class="small">:b owl:sameAs :d.
+                <pre><code data-noescape data-trim class="size-80">:b owl:sameAs :d.
 :c owl:sameAs :c.
 :d owl:sameAs :a.
 :d owl:sameAs :b.
@@ -207,11 +207,11 @@
                    data-background-image="/resource/img/lod-a-lot/observatory.jpg">
             <h3>Obtain the explicit identity relation</h3>
             <p><a href="http://lod-a-lot.lod.labs.vu.nl" target="_blank">LOD-a-lot</a></p>
-            <p class="small">Fernández et al. 2017</p>
+            <p class="size-80">Fernández et al. 2017</p>
           </section>
           <section>
             <h3>Extract the explicit identity relation</h3>
-            <pre><code data-noescape data-trim class="small">prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+            <pre><code data-noescape data-trim class="size-80">prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 construct {
   ?s owl:sameAs ?o
 } where {
@@ -245,7 +245,7 @@ construct {
 
           <section>
             <h3>Calculate the implicit identity relation</h3>
-            <ul class="small">
+            <ul class="size-80">
               <li>RDF nodes : N</li>
               <li>key : ID ↦ Ƥ(N)</li>
               <li>val : N ↦ ID</li>
@@ -253,7 +253,7 @@ construct {
             </ul>
             <div class="fragment">
               <h4>Add an explicit identity pair (x,y)</h4>
-              <dl class="small">
+              <dl class="size-80">
                 <div class="fragment">
                   <dt>X and y are new</dt>
                   <dd>x ↦ id, y ↦ id, id ↦ {x,y}</dd>
@@ -453,20 +453,20 @@ http://rdf.freebase.com/ns/m.05b6w1g</code></pre>
           <h2>Future work</h2>
           <ul>
             <li>Close IRIs under syntactic equivalence
-              <ul class="small">
+              <ul class="size-80">
                 <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E" target="_blank"><code>ar.dbr:2001:_أوديسة_الفضاء</code></a></li>
                 <li><a href="https://hdt.lod.labs.vu.nl/triple?s=%3Chttp%3A//ar.dbpedia.org/resource/2001%3A_%25D8%25A3%25D9%2588%25D8%25AF%25D9%258A%25D8%25B3%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2581%25D8%25B6%25D8%25A7%25D8%25A1%3E&g=%3Chttps%3A//hdt.lod.labs.vu.nl/graph/LOD-a-lot%3E" target="_blank"><code>ar.dbr:2001:_%D8%A3%D9%88%D8%AF%D9%8A%D8%B3%D8%A9_%D8%A7%D9%84%D9%81%D8%B6%D8%A7%D8%A1</code></a></li>
               </ul>
             </li>
             <li>Close IRIs under protocol equivalence
-              <ul class="small">
+              <ul class="size-80">
                 <li><code>http://dbpedia.org/resource/Crete</code></li>
                 <li><code>https://dbpedia.org/resource/Crete</code></li>
               </ul>
             </li>
             <li>New LOD Laundromat scrape &amp; LOD-a-lot file</li>
             <li>Empirical Semantics:
-              <ul class="small">
+              <ul class="size-80">
                 <li>study how meaning is used in practice
                 (<a href="https://krr.triply.cc/wouter/sameAs-schema/table?predicate=http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23domain&subject=http%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23sameAs"
                     target="_blank">example</a>).</li>

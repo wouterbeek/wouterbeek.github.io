@@ -67,7 +67,7 @@
               <a href="/resource/img/linked-data/5-stars.png">
                 <img src="/resource/img/linked-data/5-stars.png">
               </a>
-              <figcaption class="small">Bron:
+              <figcaption class="size-80">Bron:
                 (<a href="https://5stardata.info">http://5stardata.info</a>)</figcaption>
             </figure>
           </section>
@@ -154,12 +154,12 @@ select ?s {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>"De
                 Brug"^^&lt;http://www.w3.org/2001/XMLSchema#string&gt;</code>
               is een <b>literal</b>.
             </p>
-            <p class="small">
+            <p class="size-80">
               <code>&lt;http://www.w3.org/2001/XMLSchema#string&gt;</code>
               is het <b>datatype</b>.
             </p>
@@ -174,7 +174,7 @@ select ?s {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               URI kunnen worden afgekort met <code>prefix</code>
               declaraties.
             </p>
@@ -192,13 +192,13 @@ select ?s {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>"De Brug"@nl</code> is een <b>language-tagged
                 string</b>.  Dit betekent dat <code>"De Brug"</code>
                 geïnterpreteerd moet worden in het Nederlands
                 (<code>nl</code>).
             </p>
-            <p class="small">
+            <p class="size-80">
               <code>{ A } union { B }</code> geeft aan dat de de
               resultaten van query <code>A</code> én de resultaten
               van query <code>B</code> willen.
@@ -219,17 +219,17 @@ select distinct ?klasse {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               ‘<code>a</code>’ duidt de relatie aan tussen een
               instantie en een klasse.  ‘<code>a</code>’ is een
               afkorting voor <code>rdf:type</code>, wat een
               afkorting is
               voor <code>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</code>.
             </p>
-            <p class="small">
+            <p class="size-80">
               <code>distinct</code> laat alleen unieke resultaten zien.
             </p>
-            <p class="small">
+            <p class="size-80">
               ‘<code>;</code>’ is een afkorting die de subject term herhaalt.
             </p>
           </section>
@@ -249,7 +249,7 @@ select ?s {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>rdfs:label</code> geeft een menselijk
               interpreteerbare naam van een ding.
             </p>
@@ -265,7 +265,7 @@ select ?s ?label {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               Merk op dat we <code>?klasse</code> niet gebruiken in de
               projectie (zie volgende query).
             </p>
@@ -281,10 +281,10 @@ select ?s ?label {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               We slaan <code>?klasse</code> uit de vorige query over.
             </p>
-            <p class="small">
+            <p class="size-80">
               <code>X/Y</code> is een <b>property path</b>.
             </p>
           </section>
@@ -301,11 +301,11 @@ select ?shape ?shapeLabel {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>geo:hasGeometry/geo:asWKT</code> geeft de
               Well-Known Text (WKT) representatie van een geometrie.
             </p>
-            <p class="small">
+            <p class="size-80">
               Merk op dat we verschillende vocabulaires door elkaar
               heen gebruiken: <code>rdfs</code> van W3C
               en <code>geo</code> van OGC.
@@ -371,7 +371,7 @@ select ?openbareRuimte ?woonplaats ?label {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               Weer ambiguïteit: er zijn heel veel openbare ruimtes die ‘Hofstraat’ heten.
             </p>
           </section>
@@ -388,7 +388,7 @@ select ?openbareRuimte ?woonplaats {
 }
 limit 100
               </code></pre>
-            <p class="small">De Hofstraat in <i>Apeldoorn</i>.  (Er
+            <p class="size-80">De Hofstraat in <i>Apeldoorn</i>.  (Er
             zijn 2 openbare ruimtes; hierover later meer.)
           </section>
 
@@ -405,7 +405,7 @@ select ?nummeraanduiding ?openbareRuimte {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               Met property path notatie (<code>/</code>) slaan we de
               niet gebruikte <code>?woonplaats</code> over.
             </p>
@@ -446,7 +446,7 @@ select ?shape <mark>?shapeLabel</mark> {
 }
 limit 100
               </code></pre>
-            <p class="small">Waarom zien we sommige panden dubbel?</p>
+            <p class="size-80">Waarom zien we sommige panden dubbel?</p>
           </section>
           <section>
             <h3><a href="https://yasgui.org/#query=prefix+bag%3A+%3Chttp%3A%2F%2Fbag.basisregistraties.overheid.nl%2Fdef%2Fbag%23%3E%0Aprefix+geo%3A+%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%0Aprefix+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0Aselect+%3FshapeVerblijfsobject+%3FshapeVerblijfsobjectColor+%3FshapeVerblijfsobjectLabel+%3FshapePand+%3FshapePandLabel+%7B%0A++%3FopenbareRuimte+bag%3AnaamOpenbareRuimte+%22Hofstraat%22+%3B%0A++++++++++++++++++bag%3AbijbehorendeWoonplaats%2Frdfs%3Alabel+%22Apeldoorn%22%40nl+.%0A++%3Fnummeraanduiding+bag%3AbijbehorendeOpenbareRuimte+%3FopenbareRuimte+%3B%0A++++++++++++++++++++bag%3Apostcode+%3Fpostcode+%3B%0A++++++++++++++++++++bag%3Ahuisnummer+%3Fhuisnummer+.%0A++%3Fverblijfsobject+bag%3Ahoofdadres+%3Fnummeraanduiding+%3B%0A+++++++++++++++++++geo%3AhasGeometry%2Fgeo%3AasWKT+%3FshapeVerblijfsobject+%3B%0A+++++++++++++++++++bag%3Apandrelatering+%3Fpand+%3B%0A+++++++++++++++++++a%2Frdfs%3Alabel+%3Flabel+.%0A++%3Fpand+bag%3AgeometriePand%2Fgeo%3AasWKT+%3FshapePand+.%0A++bind+(concat('Hofstraat+'%2Cstr(%3Fhuisnummer))+as+%3FshapePandLabel)%0A++bind+(concat(%3FshapePandLabel%2C'+'%2Cstr(%3Fpostcode)%2C'%3Cbr%3E'%2Cstr(%3Flabel))+as+%3FshapeVerblijfsobjectLabel)%0A++bind+(%22red%22+as+%3FshapeVerblijfsobjectColor)%0A%7D%0Alimit+1000%0A&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint=https%3A%2F%2Fdata.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=%C3%89%C3%A9n+pand+kan+meerdere+verblijfsobjecten+hebben&headers=%7B%7D&outputFormat=leaflet">Één pand kan meerdere verblijfsobjecten hebben</a></h3>
@@ -509,7 +509,7 @@ select ?shape ?shapeLabel {
 }
 limit 1
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>service &lt;URL&gt; { A }</code> betekent: voer
               query <code>A</code> uit op SPARQL
               endpoint <code>URL</code>, en voeg de resultaten samen.
@@ -535,11 +535,11 @@ select ?shape ?shapeLabel {
 }
 limit 1
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>optional { A }</code> betekent:
               voer <code>A</code> uit, indien mogelijk.
             </p>
-            <p class="small">
+            <p class="size-80">
               Met name nuttig voor ontbrekende waardes (data op het
               web is vaak onvolledig).
             </p>
@@ -585,7 +585,7 @@ select ?openbareRuimte ?woonplaats {
 }
 limit 100
               </code></pre>
-            <table class="small">
+            <table class="size-80">
               <tr><th>openbareRuimte</th><th>woonplaats</th></tr>
               <tr><td>openbare-ruimte:0200300022471548</td><td>woonplaats:2247</td></tr>
               <tr><td>openbare-ruimte:0200300022471548</td><td>woonplaats:3560</td></tr>
@@ -605,7 +605,7 @@ select ?woonplaats <mark>?status</mark> {
 }
 limit 100
               </code></pre>
-            <table class="small">
+            <table class="size-80">
               <tr><th>woonplaats</th><th>status</th></tr>
               <tr><td>woonplaats:2247</td><td>begrip:WoonplaatsAangewezen</td></tr>
 	            <tr><td>woonplaats:2247</td><td>begrip:WoonplaatsIngetrokken</td></tr>
@@ -651,7 +651,7 @@ select ?shape ?begin ?eind {
 }
 limit 100
               </code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>graph <URI> { A }</code> betekent: voer
               query <code>A</code> uit binnen
               deelgraaf <code>URI</code>.

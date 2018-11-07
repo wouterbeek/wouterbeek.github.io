@@ -50,7 +50,7 @@
 }
 limit 5</code></pre>
               <figcaption>
-                <dl class="small">
+                <dl class="size-80">
                   <dt><code>select *</code></dt>
                   <dd><i>Projection</i>: the variables whose bindings
                     are returned (<i>result set</i>).  <code>*</code>
@@ -74,7 +74,7 @@ limit 5</code></pre>
   <mark>?image &lt;https://triply.cc/rce/def/locator&gt; ?url.</mark>
 }
 limit 5</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>&lt;https://triply.cc/rce/def/locator&gt;</code></dt>
                   <dd><em>Instantiate</em> variable <code>?p</code> with an IRI.</dd>
@@ -92,7 +92,7 @@ limit 5</code></pre>
   ?image &lt;https://triply.cc/rce/def/locator&gt; ?url.
 }
 limit 5</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>?url</code></dt>
                   <dd>Only return the bindings for <code>?url</code> in
@@ -113,7 +113,7 @@ limit 5</code></pre>
   <mark>bind(concat('&lt;a href="',?image,'"&gt;&lt;img src="',?url,'"&gt;&lt;a&gt;') as ?widget)</mark>
 }
 limit 5</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>bind(EXPRESSION) as ?x</code></dt>
                   <dd>The result of evaluating <code>EXPRESSION</code>
@@ -143,7 +143,7 @@ limit <mark>6</mark></code></pre>
 }
 limit 5
 <mark>offset 5</mark></code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>offset 5</code></dt>
                   <dd>Skips the first 5 results, returning the
@@ -271,7 +271,7 @@ select * {
 }
 order by desc(?year)
 limit 5</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>prefix ALIAS: &lt;IRI&gt;</code></dt>
                   <dd>Allows <code>IRI</code> to be abbreviated
@@ -297,7 +297,7 @@ select * {
 }
 order by desc(?year)
 limit 5</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>prefix ALIAS: &lt;IRI&gt;</code></dt>
                   <dd>Allows <code>IRI</code> to be abbreviated
@@ -354,7 +354,7 @@ select * {
   ?monument geo:hasGeometry<mark>/</mark>geo:asWKT ?shape.
 }
 limit 1000</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>p/q</code></dt>
                   <dd>Means follow property <code>p</code> and then
@@ -382,7 +382,7 @@ select * {
     ?pand geo:hasGeometry/geo:asWKT ?shape2.
   <mark>}</mark>
 }</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt>Sub-select</dt>
                   <dd>First the inner query is performed, and then the
@@ -415,7 +415,7 @@ select ?shape {
   }
 }
 limit 1</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 Data model of the Dutch Base Registry for Buildings (BAG).
               </figcaption>
             </figure>
@@ -435,7 +435,7 @@ select ?shape ?shapeLabel {
 }
 order by asc(?shapeLabel)
 limit 50</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 Show the 50 oldest buildings in Apeldoorn.
               </figcaption>
             </figure>
@@ -449,7 +449,7 @@ limit 50</code></pre>
               </a>
             </figure>
             <div class="right">
-              <ul class="small">
+              <ul class="size-80">
                 <li>
                   <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="green" r="15"/></svg>
                   Living space
@@ -541,7 +541,7 @@ select ?shape ?shapeLabel {
   <mark>}</mark>
 }
 limit 1</code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>service &lt;URL&gt; { A }</code> means that
               subquery <code>A</code> is executed on a different
               SPARQL endpoint.  The results are received from that
@@ -567,7 +567,7 @@ select ?shape ?shapeLabel {
   }
 }
 limit 1</code></pre>
-            <p class="small">
+            <p class="size-80">
               When you query the web, not all information is there all
               the time.  <code>optional { A }</code> makes the query
               resilient against missing information.

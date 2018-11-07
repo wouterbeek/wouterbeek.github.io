@@ -12,7 +12,7 @@ select * {
   ?monument &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; ?label.
 }
 limit 5</code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>"Amsterdam"</code> is a <b>literal</b>.
             </p>
           </section>
@@ -23,7 +23,7 @@ limit 5</code></pre>
   ?s ?p "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>"Amsterdam"@nl</code> is a <b>language-tagged
                 string</b>.  This means that <code>"Amsterdam"</code>
                 must be interpreted in the Dutch language
@@ -37,7 +37,7 @@ limit 100</code></pre>
   ?s &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               The
               IRI <code><a href="http://www.w3.org/2000/01/rdf-schema#label">http://www.w3.org/2000/01/rdf-schema#label</a></code>
               is commonly used to denote human-readable labels.
@@ -51,7 +51,7 @@ select ?s {
   ?s <mark>rdfs:label</mark> "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               IRIs can be optionally abbreviated by aliases declared
               with the <code>prefix</code> keyword.
             </p>
@@ -68,7 +68,7 @@ select ?s {
   }
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>{ A } union { B }</code> gives the results of BGP
               <code>A</code> ánd the results of BGP <code>B</code>.
             </p>
@@ -82,7 +82,7 @@ select ?altLabel {
   ?s rdfs:label ?altLabel.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               This is the first BGP that is not a (simple) Triple
               Pattern.
             </p>
@@ -96,7 +96,7 @@ select ?altLabel {
      rdfs:label ?altLabel.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               BGPs with repeating subject terms can be optionally
               abbreviated (<code>;</code>).
             </p>
@@ -110,7 +110,7 @@ select ?altLabel {
                 ?altLabel.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               BGPs with repeating subject/predicate pairs can be
               optionally abbreviated (<code>,</code>).
             </p>
@@ -125,7 +125,7 @@ select ?altLabel {
   <mark>filter(lang(?altLabel)="ja")</mark>
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Solutions for a BGP are excluded when they do not adhere
               to the expression in the <code>filter</code> clause.
             </p>
@@ -145,7 +145,7 @@ select ?c {
      ?p "Amsterdam"@nl;
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"><code>rdf:type</code></a>
               denotes the relationship between an instance and one of
               its classes.
@@ -159,11 +159,11 @@ limit 100</code></pre>
      ?p "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Optionally abbreviate <code>rdf:type</code> with
               ‘<code>a</code>’.
             </p>
-            <p class="small">
+            <p class="size-80">
               <i>Convention</i>: Use <code>?i</code> for an arbitrary
               instance and <code>?c</code> for an arbitrary class.
             </p>
@@ -176,7 +176,7 @@ limit 100</code></pre>
      ?p "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Only include unique results in the projection by using
               the <code>distinct</code> keyword.
             </p>
@@ -191,7 +191,7 @@ select distinct ?cLabel {
   <mark>?c rdfs:label ?cLabel.</mark>
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Notice that bindings for <code>?c</code> are not
               included in the projection.
             </p>
@@ -205,7 +205,7 @@ select distinct ?cLabel {
      ?p "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Use Property Path notation to skip the <code>?c</code>
               node.
             </p>
@@ -221,20 +221,20 @@ select ?shape ?shapeLabel {
      rdfs:label "Amsterdam"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Properties <a href="http://www.opengis.net/ont/geosparql#hasGeometry"><code>geo:hasGeometry</code></a>
               and <a href="http://www.opengis.net/ont/geosparql#asWKT"><code>geo:asWKT</code></a>
               are standardized by
               the <a href="http://www.opengeospatial.org/">Open
               Geospatial Consortium (OGC)</a>.
             </p>
-            <p class="small">
+            <p class="size-80">
               Well-Known Text (WKT) is a standardized serialization
               for shapes.  Literals that encoded WKT shapes are not
               plain strings, they have datatype
               IRI <a href="http://www.opengis.net/ont/geosparql#wktLiteral"><code>geo:wktLiteral</code></a>.
             </p>
-            <p class="small">
+            <p class="size-80">
               Notice that we use different vocabularies/ontologies
               within one query.
             </p>
@@ -251,7 +251,7 @@ select ?shape ?shapeLabel {
      rdfs:label "Apeldoorn"@nl.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               I mean the ‘registrational area’ (‘registratief
               gebied’ in Dutch).
             </p>
@@ -264,7 +264,7 @@ limit 100</code></pre>
           <section>
             <h3><a href="">Population density of Dutch municipalities</a></h3>
             <p>Sources:</p>
-            <dl class="small">
+            <dl class="size-80">
               <dt>CBS</dt>
               <dd>Population size</dd>
               <dt>Kadaster</dt>
@@ -278,7 +278,7 @@ limit 100</code></pre>
         <section>
           <section>
             <h2>Path VIII: Using Semantics</h2>
-            <p class="small">
+            <p class="size-80">
               This part of the presentation uses formal concepts and
               therefore requires prior knowledge of Web Semantics.
               See <a href="/presentation/Web-Semantics">this
@@ -295,12 +295,12 @@ select ?i ?c ?cLabel {
   ?c rdfs:label ?cLabel.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               It is not so useful to learn that something called
               ‘Amsterdam’ is “a thing”
               (<a href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a>).
             </p>
-            <p class="small">
+            <p class="size-80">
               While “Amsterdam is a thing” is not incorrect, it is not
               specific enough to be useful
               (see <a href="https://en.wikipedia.org/wiki/Cooperative_principle">Maxim
@@ -318,7 +318,7 @@ select ?i ?c ?label {
   ?c rdfs:label ?label.
 }
 limit 100</code></pre>
-            <p class="small">
+            <p class="size-80">
               Only retrieve the most specific classes for instances
               called ‘Amsterdam’.
             </p>

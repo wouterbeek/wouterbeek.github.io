@@ -46,7 +46,7 @@
 }
 limit 25</code></pre>
               <figcaption>
-                <dl class="small">
+                <dl class="size-80">
                   <dt><code>select *</code></dt>
                   <dd><i>Projection</i>: the variables whose bindings
                     are returned (<i>result set</i>).  <code>*</code>
@@ -70,7 +70,7 @@ limit 25</code></pre>
   <mark>?pokemon &lt;http://xmlns.com/foaf/0.1/depiction&gt; ?image.</mark>
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>&lt;http://xmlns.com/foaf/0.1/depiction&gt;</code></dt>
                   <dd>A specific predicate term.</dd>
@@ -89,7 +89,7 @@ select * {
   ?pokemon <mark>foaf:depiction</mark> ?image.
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                 </dl>
               </figcaption>
@@ -104,7 +104,7 @@ select <mark>?image</mark> {
   ?pokemon foaf:depiction ?image.
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>?image</code></dt>
                   <dd>Only return the bindings for this variable.</dd>
@@ -124,7 +124,7 @@ select * {
   <mark>bind(concat('&lt;img src="',?image,'"&gt;') as ?widget)</mark>
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>bind(EXPRESSION) as ?x</code></dt>
                   <dd>The result of evaluating <code>EXPRESSION</code>
@@ -144,7 +144,7 @@ select * {
   ?pokemon foaf:depiction ?image.
 }
 limit <mark>250</mark></code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 The implicit limit is 10,000 results.  (This is implementation-specific.)
               </figcaption>
             </figure>
@@ -159,7 +159,7 @@ select * {
 }
 limit 25
 <mark>offset 250</mark></code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>offset 250</code></dt>
                   <dd>Skips the first 250 results, returning the 251<sup>st</sup> through the 260<sup>th</sup> result.</dd>
@@ -200,7 +200,7 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</code></pre>
            pokemon:cry ?cry.
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>?pokemon</code></dt>
                   <dd>A <em>shared variable</em> connects two triple patterns.  Connected triple patterns form a <em>graph pattern</em>.</dd>
@@ -222,7 +222,7 @@ limit 25</code></pre>
 limit 25</code></pre>
               <figcaption>
                 <p>Predicates from different <em>vocabularies</em>:</p>
-                <dl class="small">
+                <dl class="size-80">
                   <dt><a href="http://xmlns.com/foaf/0.1/depiction"><code>http://xmlns.com/foaf/0.1/depicts</code></a></dt>
                   <dd>Friend of a Friend (FOAF)</dd>
                   <dt><a href="http://www.w3.org/2000/01/rdf-schema#"><code>http://www.w3.org/2000/01/rdf-schema#</code></a></dt>
@@ -257,7 +257,7 @@ limit 25</code></pre>
   ?type rdfs:label <mark>"Dragon Type"^^xsd:string</mark>.
 }
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 Instantiating a variable makes the query more specific.
               </figcaption>
             </figure>
@@ -273,7 +273,7 @@ limit 25</code></pre>
 }
 <mark>order by ?happiness</mark>
 limit 25</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>order by ?x</code></dt>
                   <dd>Orders results by the bindings of <code>?x</code>.</dd>
@@ -350,7 +350,7 @@ limit 1000</code></pre>
   ?monument geo:hasGeometry<mark>/</mark>geo:asWKT ?shape.
 }
 limit 1000</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt><code>p/q</code></dt>
                   <dd>Means follow property <code>p</code> and then
@@ -376,7 +376,7 @@ limit 1000</code></pre>
     ?pand geo:hasGeometry/geo:asWKT ?shape2.
   <mark>}</mark>
 }</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 <dl>
                   <dt>Sub-select</dt>
                   <dd>First the inner query is performed, and then the
@@ -406,7 +406,7 @@ limit 1000</code></pre>
   }
 }
 limit 1</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 Data model of the Dutch Base Registry for Buildings (BAG).
               </figcaption>
             </figure>
@@ -423,7 +423,7 @@ limit 1</code></pre>
 }
 order by asc(?shapeLabel)
 limit 50</code></pre>
-              <figcaption class="small">
+              <figcaption class="size-80">
                 Show the 50 oldest buildings in Apeldoorn.
               </figcaption>
             </figure>
@@ -437,7 +437,7 @@ limit 50</code></pre>
               </a>
             </figure>
             <div class="right">
-              <ul class="small">
+              <ul class="size-80">
                 <li>
                   <svg height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" fill="green" r="15"/></svg>
                   Living space
@@ -524,7 +524,7 @@ limit 50</code></pre>
   <mark>}</mark>
 }
 limit 1</code></pre>
-            <p class="small">
+            <p class="size-80">
               <code>service &lt;URL&gt; { A }</code> means that
               subquery <code>A</code> is executed on a different
               SPARQL endpoint.  The results are received from that
@@ -545,7 +545,7 @@ limit 1</code></pre>
   }
 }
 limit 1</code></pre>
-            <p class="small">
+            <p class="size-80">
               When you query the web, not all information is there all
               the time.  <code>optional { A }</code> makes the query
               resilient against missing information.
