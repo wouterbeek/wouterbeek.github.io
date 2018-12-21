@@ -1,6 +1,7 @@
-prefix an: <http://www.adamnet.nl/>
+prefix : <http://www.adamnet.nl/>
 select * {
-  ?organizatie an:woonplaats ?woonplaatsNaam ;
-               an:straat ?straatNaam ;
-               an:huisnummer ?huisnummer .
+  ?organizatie
+    :woonplaats ?woonplaatsNaam;
+    :straat ?straatNaam;
+    :huisnummer ?huisnummer.
 }

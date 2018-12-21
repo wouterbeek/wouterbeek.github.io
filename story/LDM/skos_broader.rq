@@ -1,9 +1,0 @@
-prefix dbc: <http://dbpedia.org/resource/Category:>
-prefix dct: <http://purl.org/dc/terms/>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
-select ?s (count(?i) as ?n) {
-  ?s skos:broader* dbc:Theorems .
-  ?i dct:subject ?s
-}
-group by ?s
-order by desc(?n)

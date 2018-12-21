@@ -1,6 +1,0 @@
-prefix an: <http://www.adamnet.nl/>
-select * {
-  ?organizatie an:woonplaats ?woonplaatsNaam ;
-               an:straat ?straatNaam ;
-               an:huisnummer ?huisnummer .
-}
