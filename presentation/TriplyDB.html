@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek, Thomas de Groot">
+    <meta name="description" content="TriplyDB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>TriplyDB</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>TriplyDB</h2>
+	        <p>
+            Wouter Beek (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)
+            <br>
+	          Thomas de Groot (<a href="mailto:thomas@triply.cc">thomas@triply.cc</a>)
+          </p>
+          <a href="https://triply.cc/" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="200">
+          </a>
+        </section>
+
+        <section>
+          <h2>Users, Organizations, Datasets</h2>
+          <ul>
+            <li>Add user
+              <ul class="size-80">
+                <li>Name, email, image, password.</li>
+              </ul>
+            </li>
+            <li>Add organization</li>
+            <li>Add member</li>
+            <li>Add dataset
+              <ul class="size-80">
+                <li>Name, description, access level (public, internal, private)</li>
+                <li>Add files (N-Triples, N-Quads, Turtle, TriG)</li>
+                <li>Start job (upload, unpack, index)</li>
+              </ul>
+            </li>
+            <li>Search</li>
+            <li>Copy dataset</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Dataset settings</h2>
+          <ul>
+            <li>Export</li>
+            <li>Metadata
+              <ul class="size-80">
+                <li>Standards-compliant metadata</li>
+                <li><a href="https://search.google.com/structured-data/testing-tool#" target="_blank">SEO</a> &amp; social sharing</li>
+                <li>Image, licence, example resources</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Graphs</h2>
+          <ul>
+            <li>Delete graphs</li>
+            <li>Rename graphs</li>
+            <li>Add graphs</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Services</h2>
+          <ul>
+            <li>Containerized endpoints: start/stop/delete</li>
+            <li>Replication &amp; failover</li>
+            <li>Production, acceptance, testing, BI, …</li>
+            <li>Enable/disable service types</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Linked Data browser</h2>
+          <ul>
+            <li>Label, description, image, classes, IRI</li>
+            <li>Forward links: (predicate,object)-pairs</li>
+            <li>Backward links: (subject,predicate)-pairs</li>
+            <li>Drag&amp;drop functionality</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Tabular browser</h2>
+          <ul>
+            <li>Abbreviated/full notation (hover)</li>
+            <li>Filter by subject, predicate, object, and graph</li>
+            <li>Create prefix delcarations</li>
+            <li>Drag&amp;drop functionality</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>SPARQL IDE: Editor</h2>
+          <ul>
+            <li>Syntax highlighting &amp; checking</li>
+            <li>Autocomplete</li>
+            <li>Table, raw results</li>
+            <li>Share link</li>
+            <li>Next release: query catalog</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><a href="https://api.data.netwerkdigitaalerfgoed.nl/s/SVrGN0W0r" target="_blank">SPARQL IDE: Gallery</a></h2>
+          <figure>
+            <pre><code class="sparql size-70" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+select * {
+  ?s foaf:thumbnail ?o.
+  bind(concat('&lt;img src="',str(?o),'"&gt;') as ?widget)
+}
+limit 1000</code></pre>
+          </figure>
+          <p>Or use a <a href="https://api.data.netwerkdigitaalerfgoed.nl/s/HTRtwzLWs" target="_blank">SPARQL Template</a>.</p>
+        </section>
+
+        <section>
+          <h2>SPARQL IDE: GeoSPARQL</h2>
+          <ul>
+            <li><a href="https://api.data.netwerkdigitaalerfgoed.nl/s/0CFkXJrlq" target="_blank">2D map</a></li>
+            <li>Additional features: grouping, heatmap, NL Maps</li>
+            <li><a href="https://api.data.netwerkdigitaalerfgoed.nl/s/9e2DmL7Hf" target="_blank">3D map</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>
+
+      </div>
+    </div>
+    <script src="../resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="../resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
