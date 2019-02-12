@@ -407,7 +407,74 @@ limit 25</code></pre>
                   <dt><code>;</code> (semi-colon)</dt>
                   <dd>Repeat the previous subject term.</dd>
                   <dt><code>,</code> (comma)</dt>
-                  <dd>Repeat the previous subject and object term.</dd>
+                  <dd>Repeat the previous subject and predicate terms.</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><a href="https://api.demo.triply.cc/s/OInFloyTS" target="_blank">Multiple values</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select * {
+  ?pokemon foaf:depiction ?image;
+           pokemon:cry ?cry;
+           pokemon:name ?name1, ?name2.
+  filter(?name1 != ?name2)
+}
+limit 25</code></pre>
+              <figcaption>
+                <dl class="size-80">
+                  <dt><code>,</code> (comma)</dt>
+                  <dd>Repeat the previous subject and predicate terms.</dd>
+                  <dt><code>filter( … )</code></dt>
+                  <dd>A non-graph restriction that is added to the pattern.</dd>
+                  <dt><code>X != Y</code></dt>
+                  <dd><code>X</code> and <code>Y</code> must not be the same.</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><a href="https://api.demo.triply.cc/s/-lR06z0Dq" target="_blank">Filter by language</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select * {
+  ?pokemon foaf:depiction ?image;
+           pokemon:cry ?cry;
+           pokemon:name ?name1, ?name2.
+  filter(lang(?name1) = 'ja-ja' && lang(?name2) = 'en-us')
+}
+limit 25</code></pre>
+              <figcaption>
+                <dl class="size-80">
+                  <dt><code>lang(…)</code></dt>
+                  <dd>Returns the language of a language-tagged string.</dd>
+                  <dt><code>filter( A && B )</code></dt>
+                  <dd>Apply filter <code>A</code> ánd filter <code>B</code>.</dd>
+                </dl>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><a href="https://api.demo.triply.cc/s/IhBz8eyEY" target="_blank">Concatenate all values</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select
+  (group_concat(concat(str(?name),' (',lang(?name),')');separator='&lt;/li&gt;&lt;li&gt;') as ?names)
+  (concat('&lt;ol&gt;&lt;li&gt;',?names,'&lt;/li&gt;&lt;/ol&gt;&lt;img src="',?image,'"&gt;') as ?widget)
+{
+  ?pokemon foaf:depiction ?image;
+           pokemon:cry ?cry;
+           pokemon:name ?name.
+}
+limit 25</code></pre>
+              <figcaption>
+                <dl class="size-80">
+                  <dt><code>concat(…)</code></dt>
+                  <dd>Returns the language of a language-tagged string.</dd>
+                  <dt><code>filter( A && B )</code></dt>
+                  <dd>Apply filter <code>A</code> ánd filter <code>B</code>.</dd>
                 </dl>
               </figcaption>
             </figure>
