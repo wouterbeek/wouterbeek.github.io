@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head>
+<!-- 2019-02-19 Tue 17:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TriplyDB Documentation</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Wouter Beek" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">TriplyDB Documentation</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3a5ab30">1. Text search</a></li>
+<li><a href="#orga4688cb">2. SPARQL Editor</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org093a2ad">2.0.1. Supported key combinations</a></li>
+<li><a href="#orgc795e55">2.0.2. SPARQL Templates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcc06f36">3. SPARQL Table</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgb8d8095">3.0.1. Features</a></li>
+<li><a href="#org3c1da07">3.0.2. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3cc0206">4. SPARQL Gallery</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org11a3ae4">4.0.1. Variables</a></li>
+<li><a href="#org9363d81">4.0.2. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbf04bd6">5. SPARQL 2D Map</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgeb318ac">5.0.1. Variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9f95522">6. SPARQL 3D Map</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org0802160">6.0.1. Variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org75b1225">7. SPARQL Charts</a></li>
+<li><a href="#org3605c09">8. SPARQL Pivot Table</a></li>
+<li><a href="#org7433224">9. SPARQL Raw View</a></li>
+<li><a href="#org97685e7">10. Data Stories</a>
+<ul>
+<li><a href="#org77d1fa1">10.1. Markup language declaration</a></li>
+<li><a href="#org40d5f6e">10.2. Main natural language declaration</a></li>
+<li><a href="#org6e96939">10.3. Encoding declaration</a></li>
+<li><a href="#orgd780e7e">10.4. Metadata</a></li>
+<li><a href="#org324faeb">10.5. Navigation bar</a></li>
+<li><a href="#orgb220f7d">10.6. External links</a></li>
+</ul>
+</li>
+<li><a href="#orgc6445fb">11. TO-DO</a>
+<ul>
+<li><a href="#org6118bc1">11.1. outer projection</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+This document describes the TriplyDB product.  This document is a
+work-in-process.  Contact <a href="mailto:wouter@triply.cc">support@triply.cc</a> for more information.
+</p>
+
+<div id="outline-container-org3a5ab30" class="outline-2">
+<h2 id="org3a5ab30"><span class="section-number-2">1</span> Text search</h2>
+</div>
+<div id="outline-container-orga4688cb" class="outline-2">
+<h2 id="orga4688cb"><span class="section-number-2">2</span> SPARQL Editor</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org093a2ad" class="outline-4">
+<h4 id="org093a2ad"><span class="section-number-4">2.0.1</span> Supported key combinations</h4>
+<div class="outline-text-4" id="text-2-0-1">
+<p>
+The following table enumerates the key combinations that are supported
+by the SPARQL Editor.  We sometimes use the notion of a <b><b>group</b></b>,
+wich is either one word (space-delimited sequence of non-space
+characters), a sequences of multiple whitespace characters, or one
+newline.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b><b>Key combination</b></b></th>
+<th scope="col" class="org-left"><b><b>Behavior</b></b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>Alt + Left</code></td>
+<td class="org-left">Move the cursor to the beginning of the current line.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Alt + Right</code></td>
+<td class="org-left">Move the cursor to the end of the current line.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Alt + U</code></td>
+<td class="org-left">Redo the last change within the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Backspace</code></td>
+<td class="org-left">Delete to the beginning of the group before the cursor.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Delete</code></td>
+<td class="org-left">Delete to the beginning of the group after the cursor.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + End</code></td>
+<td class="org-left">Move the cursor to the end of the query.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Home</code></td>
+<td class="org-left">Move the cursor to the start of the query.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Left</code></td>
+<td class="org-left">Move the cursor to the left of the group before the cursor.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Right</code></td>
+<td class="org-left">Move the cursor to the right of the group the cursor.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + [</code></td>
+<td class="org-left">Decrements the indentation for the current line or the lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + ]</code></td>
+<td class="org-left">Increments the indentation for the current line or the lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + /</code></td>
+<td class="org-left">Toggles on/off the commenting of the current line or the lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + A</code></td>
+<td class="org-left">Select the whole query.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + D</code></td>
+<td class="org-left">Deletes the current line or all lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + U</code></td>
+<td class="org-left">Unfo the last change within the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Y</code></td>
+<td class="org-left">Redo the last undone edit action.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Z</code></td>
+<td class="org-left">Undo the last edit action.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl + Shift + F</code></td>
+<td class="org-left">Auto-formats the whole query or the lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Shift + Tab</code></td>
+<td class="org-left">Auto-indents the current line or the lines involved in the current selection.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Tab</code></td>
+<td class="org-left">Indents the current line or the lines involved in the current selection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc795e55" class="outline-4">
+<h4 id="orgc795e55"><span class="section-number-4">2.0.2</span> SPARQL Templates</h4>
+<div class="outline-text-4" id="text-2-0-2">
+<p>
+SPARQL has standardized capabilities for constructing complex strings
+and literals.  This allows human-reable label and HTML widgets to be
+generated from within SPARQL.  Unfortunately, the syntax for
+constructing such labels and widgets is a bit cumbersome.
+</p>
+
+<p>
+For example, the following SPARQL query returns HTML widgets that can
+be displayed in a web browser (see <a href="#org3cc0206">4</a>).  It uses the
+<code>concat</code> function which allows an arbitrary number of string arguments
+to be concatenated into one string.  Notice that this requires
+extensive quoting for each argument (e.g., <code>'&lt;h3&gt;'</code>), as well as
+conversions from literals to strings (e.g., <code>str(?typeName)</code>).
+Finally, in order to return an HTML literal we need to first bind the
+concatenated string to some variable <code>?lex</code>, and then apply the
+<code>strdt</code> function in order to construct a literal with datatype IRI
+<code>rdf:HTML</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #0000FF;">prefix</span> pokemon: <span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;https://triply.cc/academy/pokemon/def/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> foaf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://xmlns.com/foaf/0.1/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
+<span style="color: #0000FF;">select</span> * {
+  <span style="color: #BA36A5;">?pokemon</span> foaf:depiction <span style="color: #BA36A5;">?image</span>;
+           pokemon:cry <span style="color: #BA36A5;">?cry</span>;
+           rdfs:label <span style="color: #BA36A5;">?name</span>;
+           pokemon:type/rdfs:label <span style="color: #BA36A5;">?typeName</span>.
+  <span style="color: #0000FF;">bind</span>(concat(<span style="color: #008000;">'&lt;h3&gt;'</span>,str(<span style="color: #BA36A5;">?typeName</span>),<span style="color: #008000;">' &#12299; '</span>,str(<span style="color: #BA36A5;">?name</span>),<span style="color: #008000;">'&lt;/h3&gt;'</span>,
+              <span style="color: #008000;">'&lt;img src="'</span>,str(<span style="color: #BA36A5;">?image</span>),<span style="color: #008000;">'"&gt;'</span>,
+              <span style="color: #008000;">'&lt;audio controls src="'</span>,str(<span style="color: #BA36A5;">?cry</span>),<span style="color: #008000;">'"&gt;&lt;/audio&gt;'</span>) <span style="color: #0000FF;">as</span> <span style="color: #BA36A5;">?lex</span>)
+  <span style="color: #0000FF;">bind</span>(strdt(<span style="color: #BA36A5;">?lex</span>,rdf:HTML) <span style="color: #0000FF;">as</span> <span style="color: #BA36A5;">?widget</span>)
+}
+<span style="color: #0000FF;">limit</span> 25
+</pre>
+</div>
+
+<p>
+The SPARQL Editor in TriplyDB supports SPARQL Templates, which makes
+it easier to write human-readable labels and HTML widgets.  SPARQL
+Templates are strings in which occurrences of <code>{{x}}</code> will be
+replaced with the to-string converted results of bindings to SPARQL
+variable <code>?x</code>.
+</p>
+
+<p>
+The following example query produces the same result set as the above
+one, but allows the entire HTML string to be written at once as a
+SPARQL Template.  Notice that this removes the need for concatenating,
+explicit to-string conversion, and it also allows the HTML literal to
+be constructed immediately, i.e., without the use of <code>strdt</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #0000FF;">prefix</span> pokemon: <span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;https://triply.cc/academy/pokemon/def/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> foaf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://xmlns.com/foaf/0.1/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
+<span style="color: #0000FF;">select</span> * {
+  <span style="color: #BA36A5;">?pokemon</span> foaf:depiction <span style="color: #BA36A5;">?image</span>;
+           pokemon:cry <span style="color: #BA36A5;">?cry</span>;
+           rdfs:label <span style="color: #BA36A5;">?name</span>;
+           pokemon:type/rdfs:label <span style="color: #BA36A5;">?typeName</span>.
+  <span style="color: #0000FF;">bind</span>(<span style="color: #008000;">'''&lt;h3&gt;{{typeName}} &#12299; {{name}}&lt;/h3&gt;</span>
+<span style="color: #008000;">          &lt;img src="{{image}}"&gt;</span>
+<span style="color: #008000;">          &lt;audio controls src="{{cry}}"&gt;&lt;/audio&gt;'''</span>^^rdf:HTML <span style="color: #0000FF;">as</span> <span style="color: #BA36A5;">?widget</span>)
+}
+<span style="color: #0000FF;">limit</span> 25
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc06f36" class="outline-2">
+<h2 id="orgcc06f36"><span class="section-number-2">3</span> SPARQL Table</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This view allows SPARQL results to be displayed in a table.  Each
+column in the table corresponds to a variable that belongs to the
+<a href="#org6118bc1">11.1</a>.  Each row in the table corresponds to one query
+result.  Each cell contains an RDF term or <code>NULL</code>.
+</p>
+</div>
+
+<div id="outline-container-orgb8d8095" class="outline-4">
+<h4 id="orgb8d8095"><span class="section-number-4">3.0.1</span> Features</h4>
+<div class="outline-text-4" id="text-3-0-1">
+<p>
+In addition to dislaying the SPARQL result set, the SPARQL Table has
+the following features:
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org346cdfd"></a>Abbreviations<br />
+<div class="outline-text-5" id="text-3-0-1-1">
+<p>
+The SPARQL Table uses the prefix declarations in the SPARQL query in
+order to abbreviate IRIs that appear in table cells.
+</p>
+</div>
+</li>
+
+<li><a id="orgf20da2e"></a>Filter<br />
+<div class="outline-text-5" id="text-3-0-1-2">
+<p>
+By entering a search string into the “Filter query results” field, the
+table will only display result rows in which the entered search string
+appears.
+</p>
+</div>
+</li>
+
+<li><a id="org5627738"></a>Indices<br />
+<div class="outline-text-5" id="text-3-0-1-3">
+<p>
+The first column in the table indicates the index of each row in the
+SPARQL result set.
+</p>
+</div>
+</li>
+
+<li><a id="org95c1039"></a>Pagination<br />
+<div class="outline-text-5" id="text-3-0-1-4">
+<p>
+By default the Table displays at most 50 rows.  This maximum value can
+be changed to 10, 100, 1.000, or “All”.
+</p>
+</div>
+</li>
+
+<li><a id="orgbc8573e"></a>Sorting<br />
+<div class="outline-text-5" id="text-3-0-1-5">
+<p>
+A sort widget appears to the right of each header label.  By pressing
+on the upward pointing arrow of the sort widget, rows will be sorted
+based on the lexicographic order of the values within the
+corresponding column.  By pressing the downward pointing arrow of the
+sort widget, rows will be inversely sorted acording to the same
+lexicographic order.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org3c1da07" class="outline-4">
+<h4 id="org3c1da07"><span class="section-number-4">3.0.2</span> Example</h4>
+<div class="outline-text-4" id="text-3-0-2">
+<p>
+The following SPARQL query returns a table of Pokémon dragons (column
+<code>pokemon</code>) and their happiness (column <code>happiness</code>).  Notice that the
+prefix for <code>id</code> is not used in the query, but is used in order to
+abbreviate the IRI syntax in the <code>pokemon</code> column.  By clicking on the
+sort widget next to the <code>happiness</code> header, the results can be
+(inversely) sorted based on the happiness values.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #0000FF;">prefix</span> id: <span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">&lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;</a></span><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">prefix</a></span><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/"> pokemon: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">&lt;https://triply.cc/academy/pokemon/def/&gt;</a></span><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">prefix</a></span><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/"> type: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix pokemon: &lt;https://triply.cc/academy/pokemon/def/&gt;
+prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">&lt;https://triply.cc/academy/pokemon/id/type/&gt;</a></span>
+<span style="color: #0000FF;">select</span> <span style="color: #BA36A5;">?pokemon</span> <span style="color: #BA36A5;">?happiness</span> {
+  <span style="color: #BA36A5;">?pokemon</span> pokemon:type type:dragon;
+           pokemon:happiness <span style="color: #BA36A5;">?happiness</span>.
+}
+</pre>
+</div>
+<p>
+<a href="https://api.demo.triply.cc/s/0lhnUC9v9">Run this query online</a>
+</p>
+
+
+<div id="org3423337" class="figure">
+<p><img src="../img/sparql-table-example.png" alt="sparql-table-example.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Screenshot of the SPARQL Table view over the above query.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3cc0206" class="outline-2">
+<h2 id="org3cc0206"><span class="section-number-2">4</span> SPARQL Gallery</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+This view allows SPARQL results to be displayed in an HTML gallery.
+Each individual result corresponds to one HTML widget.  Widgets are
+displayed in rows and columns to make up a widget gallery.
+</p>
+</div>
+
+<div id="outline-container-org11a3ae4" class="outline-4">
+<h4 id="org11a3ae4"><span class="section-number-4">4.0.1</span> Variables</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b><b>Variable name</b></b></th>
+<th scope="col" class="org-left"><b><b>Purpose</b></b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>?widget</code></td>
+<td class="org-left">A literal with datatype IRI <code>rdf:HTML</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org9363d81" class="outline-4">
+<h4 id="org9363d81"><span class="section-number-4">4.0.2</span> Example</h4>
+<div class="outline-text-4" id="text-4-0-2">
+<p>
+The following SPARQL query binds an HTML string consisting of a header
+(<code>h3</code>), an image (<code>img</code>), and an audio element (<code>audio</code>) to the
+<code>?widget</code> variable.  This results in a gallery with 25 widgets, each
+displaying a Pokémon.  (This SPARQL query also uses <a href="#orgc795e55">2.0.2</a> in order to simplify its syntax.)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #0000FF;">prefix</span> pokemon: <span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;https://triply.cc/academy/pokemon/def/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> foaf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://xmlns.com/foaf/0.1/&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdf: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #0000FF;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #D0372D;"><a href="https://triply.cc/academy/pokemon/def/&gt;
+prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
+<span style="color: #0000FF;">select</span> * {
+  <span style="color: #BA36A5;">?pokemon</span> foaf:depiction <span style="color: #BA36A5;">?image</span>;
+           pokemon:cry <span style="color: #BA36A5;">?cry</span>;
+           rdfs:label <span style="color: #BA36A5;">?name</span>;
+           pokemon:type/rdfs:label <span style="color: #BA36A5;">?typeName</span>.
+  <span style="color: #0000FF;">bind</span>(<span style="color: #008000;">'''&lt;h3&gt;{{typeName}} &#12299; {{name}}&lt;/h3&gt;</span>
+<span style="color: #008000;">          &lt;img src="{{image}}"&gt;</span>
+<span style="color: #008000;">          &lt;audio controls src="{{cry}}"&gt;&lt;/audio&gt;'''</span>^^rdf:HTML <span style="color: #0000FF;">as</span> <span style="color: #BA36A5;">?widget</span>)
+}
+<span style="color: #0000FF;">limit</span> 25
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf04bd6" class="outline-2">
+<h2 id="orgbf04bd6"><span class="section-number-2">5</span> SPARQL 2D Map</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+This view allows SPARQL results that contain GeoSPARQL semantics to be
+automatically interpreted and displayed on a 2D map.
+</p>
+</div>
+
+<div id="outline-container-orgeb318ac" class="outline-4">
+<h4 id="orgeb318ac"><span class="section-number-4">5.0.1</span> Variables</h4>
+<div class="outline-text-4" id="text-5-0-1">
+<p>
+This view recognizes the following SPARQL variable names:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b><b>Variable name</b></b></th>
+<th scope="col" class="org-left"><b><b>Purpose</b></b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>?x</code></td>
+<td class="org-left">An arbitrary variable name that is bound to literals with datatype IRI <code>geo:wktLiteral</code>, and whose name is the prefix of the other variable names in this table.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xColor</code></td>
+<td class="org-left">The color of the shape bound to <code>?x</code>.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xLabel</code></td>
+<td class="org-left">The text or HTML content of popups that appear when clicking the shape bound to <code>?x</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<ol class="org-ol">
+<li><a id="orge2d8075"></a>Color values<br />
+<div class="outline-text-5" id="text-5-0-1-1">
+<p>
+Variable <code>?xColor</code> can bind values of the following types:
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org24277c5"></a>CSS color names<br />
+<div class="outline-text-6" id="text-5-0-1-1-1">
+<p>
+See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
+</p>
+</div>
+</li>
+
+<li><a id="org571143c"></a>RGB color codes<br />
+<div class="outline-text-6" id="text-5-0-1-1-2">
+<p>
+See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
+</p>
+</div>
+</li>
+
+<li><a id="org8a4a8c2"></a>HSL color codes<br />
+<div class="outline-text-6" id="text-5-0-1-1-3">
+<p>
+See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
+</p>
+</div>
+</li>
+
+<li><a id="orgf46e7b5"></a>Gradients<br />
+<div class="outline-text-6" id="text-5-0-1-1-4">
+<p>
+Strings of the form <code>{{PALETTE}},{{VALUE}}</code>, where <code>{{VALUE}}</code> is a
+floating-point number between 0.0 and 1.0 and <code>{{PALETTE}}</code> is the
+name of a color palette.  The following two libraries define the
+supported color palette names:
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org3afeb3b"></a>colormap<br />
+<div class="outline-text-7" id="text-5-0-1-1-4-1">
+<p>
+See <a href="https://www.npmjs.com/package/colormap">colormap</a>.
+</p>
+</div>
+</li>
+
+<li><a id="orgd5dd2f2"></a>Color Brewer<br />
+<div class="outline-text-7" id="text-5-0-1-1-4-2">
+<p>
+See <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">Color Brewer</a>.
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org9f95522" class="outline-2">
+<h2 id="org9f95522"><span class="section-number-2">6</span> SPARQL 3D Map</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+This view allows SPARQL results that contain GeoSPARQL semantics to be
+automatically interpreted and displayed on a 3D map.
+</p>
+
+<p>
+This view supports both 3D and 2.5D visualizations, depending on
+whether the GeoSPARQL data is stored in native 3D or in 2D:
+</p>
+
+<dl class="org-dl">
+<dt>3D</dt><dd>This requires shapes to be stored in literals with datatype
+IRI <code>geo:wktLiteral</code> that contain three coordinates for each
+point (longitude, latitude, and height).</dd>
+<dt>2.5D</dt><dd>This only requires shapes to be stored in literals with
+datatype IRI <code>geo:wktLiteral</code> that contain two coordinates
+for each point (longitude and latitude).</dd>
+</dl>
+</div>
+
+<div id="outline-container-org0802160" class="outline-4">
+<h4 id="org0802160"><span class="section-number-4">6.0.1</span> Variables</h4>
+<div class="outline-text-4" id="text-6-0-1">
+<p>
+This view recognizes the following SPARQL variable names:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b><b>Variable name</b></b></th>
+<th scope="col" class="org-left"><b><b>Purpose</b></b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>?x</code></td>
+<td class="org-left">An arbitrary variable name that is bound to 2D or 3D literals with datatype IRI <code>geo:wktLiteral</code>, and whose name is the prefix of the other variable names in this table.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xColor</code></td>
+<td class="org-left">The color of the shape bound to <code>?x</code>.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xHeight</code></td>
+<td class="org-left">The height in meters of the 2.5D shape that is based on the 2D shape that is bound to <code>?x</code>.  This variable is not needed if data is stored in native 3D.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xLabel</code></td>
+<td class="org-left">The textual or HTML content of the popups that appears when the shape that is bound to <code>?x</code> is clicked.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>?xOffset</code></td>
+<td class="org-left">The height in meters at which the 2.5D shape that is based on the 2D shape that is bound to <code>?x</code> starts.  This variable is not needed if data is stored in native 3D.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75b1225" class="outline-2">
+<h2 id="org75b1225"><span class="section-number-2">7</span> SPARQL Charts</h2>
+</div>
+<div id="outline-container-org3605c09" class="outline-2">
+<h2 id="org3605c09"><span class="section-number-2">8</span> SPARQL Pivot Table</h2>
+</div>
+<div id="outline-container-org7433224" class="outline-2">
+<h2 id="org7433224"><span class="section-number-2">9</span> SPARQL Raw View</h2>
+</div>
+
+<div id="outline-container-org97685e7" class="outline-2">
+<h2 id="org97685e7"><span class="section-number-2">10</span> Data Stories</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Data Stories allows a sequence of SPARQL queries to be published
+within an HTML document.
+</p>
+</div>
+
+<div id="outline-container-org77d1fa1" class="outline-3">
+<h3 id="org77d1fa1"><span class="section-number-3">10.1</span> Markup language declaration</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+Data Stories are written in HTML 5.  This is declared at the beginning
+of the document:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html"><span style="color: #008000;">&lt;!doctype html&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org40d5f6e" class="outline-3">
+<h3 id="org40d5f6e"><span class="section-number-3">10.2</span> Main natural language declaration</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+The natural language in which most of the Data Story will be written
+is declared in the <code>lang</code> attribute of the outer <code>html</code> tag:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #006699;">html</span> <span style="color: #BA36A5;">lang</span>=<span style="color: #008000;">"en-us"</span>&gt;
+  &#8230;
+&lt;/<span style="color: #006699;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+Specific (sub)sections of a Data Story that are written in another
+main natural language must declare this on the corresponding tag.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e96939" class="outline-3">
+<h3 id="org6e96939"><span class="section-number-3">10.3</span> Encoding declaration</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+Since Data Stories are encoded in UTF-8, this is declared at the
+beginning of the <code>head</code> content:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #006699;">head</span>&gt;
+  &lt;<span style="color: #006699;">meta</span> <span style="color: #BA36A5;">charset</span>=<span style="color: #008000;">"utf-8"</span>&gt;
+  &#8230;
+&lt;/<span style="color: #006699;">head</span>&gt;
+</pre>
+</div>
+
+<p>
+Placement at the beginning of the <code>head</code> is required, since User
+Agents may apply limited lookahead in order to determine the document
+encoding.  Placing the encoding declaration later in the <code>head</code>
+content may result in some User Agents not detecting it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd780e7e" class="outline-3">
+<h3 id="orgd780e7e"><span class="section-number-3">10.4</span> Metadata</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+The <code>author</code> and <code>description</code> meta tags must both be supplied as
+children of the <code>head</code> tag, and their content must be structured
+according to the below template.  The <code>title</code> tag must have the same
+content as the <code>description</code> meta tag.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #006699;">head</span>&gt;
+  &#8230;
+  &lt;<span style="color: #006699;">meta</span> <span style="color: #BA36A5;">name</span>=<span style="color: #008000;">"author"</span> <span style="color: #BA36A5;">content</span>=<span style="color: #008000;">"{{FIRST-AUTHOR}}, {{SECOND-AUTHOR}}, &#8230;"</span>&gt;
+  &lt;<span style="color: #006699;">meta</span> <span style="color: #BA36A5;">name</span>=<span style="color: #008000;">"description"</span> <span style="color: #BA36A5;">content</span>=<span style="color: #008000;">"{{INSTANCE}} Data Stories &#8213; {{STORY-TITLE}}"</span>&gt;
+  &lt;<span style="color: #006699;">title</span>&gt;<span style="color: #000000; font-weight: bold; text-decoration: underline;">{{INSTANCE}} Data Stoties &#8213; {{STORY-TITLE}}</span>&lt;/<span style="color: #006699;">title</span>&gt;
+  &#8230;
+&lt;/<span style="color: #006699;">head</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org324faeb" class="outline-3">
+<h3 id="org324faeb"><span class="section-number-3">10.5</span> Navigation bar</h3>
+<div class="outline-text-3" id="text-10-5">
+<p>
+Data Stories contain a navigation bar that allows users to return to
+the Data Stories overview page.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #006699;">body</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"withNavbar"</span>&gt;
+  &lt;<span style="color: #006699;">nav</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar fixed-top "</span>&gt;
+    &lt;<span style="color: #006699;">div</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar-content"</span>&gt;
+      &lt;<span style="color: #006699;">div</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar-icon"</span>&gt;
+        &lt;<span style="color: #006699;">a</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar-brand"</span> <span style="color: #BA36A5;">href</span>=<span style="color: #008000;">"/"</span>&gt;
+          &lt;<span style="color: #006699;">img</span> <span style="color: #BA36A5;">alt</span>=<span style="color: #008000;">"{{INSTANCE}} Data Stories home"</span> <span style="color: #BA36A5;">src</span>=<span style="color: #008000;">"/assets/imgs/{{INSTANCE}}-logo-square.png"</span>&gt;
+        &lt;/<span style="color: #006699;">a</span>&gt;
+      &lt;/<span style="color: #006699;">div</span>&gt;
+      &lt;<span style="color: #006699;">div</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar-title"</span>&gt;
+        &lt;<span style="color: #006699;">a</span> <span style="color: #BA36A5;">class</span>=<span style="color: #008000;">"navbar-brand"</span> <span style="color: #BA36A5;">href</span>=<span style="color: #008000;">"/"</span>&gt;{{INSTANCE}} Data Stories&lt;/<span style="color: #006699;">a</span>&gt;
+      &lt;/<span style="color: #006699;">div</span>&gt;
+    &lt;/<span style="color: #006699;">div</span>&gt;
+  &lt;/<span style="color: #006699;">nav</span>&gt;
+  &#8230;
+&lt;/<span style="color: #006699;">body</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb220f7d" class="outline-3">
+<h3 id="orgb220f7d"><span class="section-number-3">10.6</span> External links</h3>
+<div class="outline-text-3" id="text-10-6">
+<p>
+Links that appear in the Data Story and that link to other web pages
+must be specified in the following way:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #006699;">a</span> <span style="color: #BA36A5;">href</span>=<span style="color: #008000;">"&#8230;"</span> <span style="color: #BA36A5;">rel</span>=<span style="color: #008000;">"noopener noreferrer"</span> <span style="color: #BA36A5;">target</span>=<span style="color: #008000;">"_blank"</span>&gt;&#8230;&lt;/<span style="color: #006699;">a</span>&gt;
+</pre>
+</div>
+
+<p>
+Every link that contains <code>target="_blank"</code> is suceptible to reverse
+tabnagging, a serious security vulnerability explained in <a href="https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/">this article</a>.
+</p>
+
+<p>
+Attribute <code>rel="noopener"</code> is a relatively new feature, available
+since Chrome 49 (2016-03-02), Firefox 52 (2017-03-07), and Safari 10.1
+(2017-03-27).  It is not supported by Microsoft browsers.
+</p>
+
+<p>
+In old and/or Microsoft browsers <code>rel="noreferrer"</code> can be used to
+achieve a similar effect: it prevents the <code>Referrer</code> HTTP header from
+being sent.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6445fb" class="outline-2">
+<h2 id="orgc6445fb"><span class="section-number-2">11</span> TO-DO</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org6118bc1" class="outline-3">
+<h3 id="org6118bc1"><span class="section-number-3">11.1</span> outer projection</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Wouter Beek</p>
+<p class="date">Created: 2019-02-19 Tue 17:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
