@@ -1,8 +1,0 @@
-select ?g1 ?g2 ?class (count(?shared) as ?n) {
-  ?shared a ?class .
-  graph ?g1 { ?s1 ?p1 ?shared }
-  graph ?g2 { ?shared ?p2 ?o2 }
-  filter (?g1 != ?g2)
-}
-group by ?g1 ?g2 ?class
-order by desc(?n)

@@ -1,7 +1,0 @@
-prefix iisg: <https://iisg.amsterdam/vocab/>
-select ?d (count(?item) as ?n) {
-  ?item iisg:dateOfPublication ?date
-  bind (datatype(?date) as ?d)
-}
-group by ?d
-order by desc(?n)

@@ -1,4 +1,0 @@
-prefix schema: <http://schema.org/>
-select (count(?comic) as ?n) {
-  ?comic a schema:ComicStory
-}
