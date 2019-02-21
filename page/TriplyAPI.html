@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
 <head>
-<!-- 2019-02-19 Tue 17:30 -->
+<!-- 2019-02-21 Thu 10:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TriplyAPI Documentation</title>
@@ -253,31 +253,32 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga538324">1. Generics</a>
+<li><a href="#org6977fec">1. Generics</a>
 <ul>
-<li><a href="#org366aa86">1.1. URI paths</a></li>
-<li><a href="#org52e8941">1.2. Authentication</a>
+<li><a href="#org972638b">1.1. URI paths</a></li>
+<li><a href="#orgb67e81b">1.2. URI paths for services</a></li>
+<li><a href="#org5195d78">1.3. Authentication</a>
 <ul>
-<li><a href="#org4f966a8">1.2.1. Creating an API token</a></li>
-<li><a href="#org3362fd0">1.2.2. Using the API token</a></li>
+<li><a href="#org0da6f3d">1.3.1. Creating an API token</a></li>
+<li><a href="#org6826532">1.3.2. Using the API token</a></li>
 </ul>
 </li>
-<li><a href="#org3d71507">1.3. cURL</a></li>
+<li><a href="#org65e48ea">1.4. cURL</a></li>
 </ul>
 </li>
-<li><a href="#org4ddf94e">2. Text search</a>
+<li><a href="#org1371601">2. Text search</a>
 <ul>
-<li><a href="#orgdd13494">2.1. URI path</a></li>
-<li><a href="#orgbf07df8">2.2. Reply format</a></li>
-<li><a href="#org0052a26">2.3. Example</a></li>
+<li><a href="#org79b72ca">2.1. URI path</a></li>
+<li><a href="#org684a1cc">2.2. Reply format</a></li>
+<li><a href="#org4a519ee">2.3. Example</a></li>
 </ul>
 </li>
-<li><a href="#orgb4227d4">3. Triple Pattern Fragments (TPF)</a>
+<li><a href="#org2769c09">3. Triple Pattern Fragments (TPF)</a>
 <ul>
-<li><a href="#org04be544">3.1. URI path</a></li>
-<li><a href="#orgc98d3f7">3.2. Reply format</a></li>
-<li><a href="#org03e0808">3.3. Query parameters</a></li>
-<li><a href="#org9b3236e">3.4. Example request</a></li>
+<li><a href="#orgbf0469e">3.1. URI path</a></li>
+<li><a href="#org99cc715">3.2. Reply format</a></li>
+<li><a href="#org00aa80f">3.3. Query parameters</a></li>
+<li><a href="#org2bda517">3.4. Example request</a></li>
 </ul>
 </li>
 </ul>
@@ -289,12 +290,12 @@ work-in-process.  Please contact <a href="mailto:support@triply.cc">support@trip
 information.
 </p>
 
-<div id="outline-container-orga538324" class="outline-2">
-<h2 id="orga538324"><span class="section-number-2">1</span> Generics</h2>
+<div id="outline-container-org6977fec" class="outline-2">
+<h2 id="org6977fec"><span class="section-number-2">1</span> Generics</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org366aa86" class="outline-3">
-<h3 id="org366aa86"><span class="section-number-3">1.1</span> URI paths</h3>
+<div id="outline-container-org972638b" class="outline-3">
+<h3 id="org972638b"><span class="section-number-3">1.1</span> URI paths</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Triply API requests are always directed towards a specific URI path.
@@ -307,6 +308,33 @@ URI paths will often have the following form:
 </div>
 
 <p>
+Upper-case letter words must be replaced by the following values:
+</p>
+
+<dl class="org-dl">
+<dt><code>INSTANCE</code></dt><dd>The host name of the TriplyDB instance that you want
+to use.</dd>
+<dt><code>ACCOUNT</code></dt><dd>The name of a specific user or a specific
+organization.</dd>
+<dt><code>DATASET</code></dt><dd>The name of a specific dataset.</dd>
+</dl>
+
+<p>
+Here is an example of an URI path that points to the Triply API for
+the Pokémon dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.demo.triply.cc/datasets/academy/pokemon/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb67e81b" class="outline-3">
+<h3 id="orgb67e81b"><span class="section-number-3">1.2</span> URI paths for services</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
 Some API requests require the availability of a specific service over
 the dataset.  These requests are directed towards an URI path of the
 following form:
@@ -318,36 +346,32 @@ following form:
 </div>
 
 <p>
-Upper-case letter words must be replaced by values that are specific
-to your use case:
+Upper-case letter words must be replaced by the following values:
 </p>
 
 <dl class="org-dl">
-<dt><code>INSTANCE</code></dt><dd>The host name of the TriplyDB instance that you want
-to use.</dd>
-<dt><code>ACCOUNT</code></dt><dd>The name of a specific user or a specific
-organization.</dd>
-<dt><code>DATASET</code></dt><dd>The name of a specific dataset.</dd>
-
 <dt><code>SERVICE</code></dt><dd>The name of a specific service that has been started
 for the corresponding dataset.</dd>
+
+<dt>(no term)</dt><dd>See <a href="#org972638b">1.1</a> for explanations of the remaining upper-case letter
+words.</dd>
 </dl>
 
 <p>
-Here is an example of a URI path that points to the Triply API for the
-Pokémon dataset:
+Here is an example of an URI path that points to an SPARQL endpoint
+over the Pokémon dataset:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-uri">https://api.demo.triply.cc/datasets/academy/pokemon/
+<pre class="src src-uri">https://api.demo.triply.cc/datasets/academy/pokemon/services/pokemon/sparql
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org52e8941" class="outline-3">
-<h3 id="org52e8941"><span class="section-number-3">1.2</span> Authentication</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org5195d78" class="outline-3">
+<h3 id="org5195d78"><span class="section-number-3">1.3</span> Authentication</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 When a dataset is published publicly, most of the read operation on
 that dataset can be performed without authentication.
@@ -359,9 +383,9 @@ internally or privately require authentication.
 </p>
 </div>
 
-<div id="outline-container-org4f966a8" class="outline-4">
-<h4 id="org4f966a8"><span class="section-number-4">1.2.1</span> Creating an API token</h4>
-<div class="outline-text-4" id="text-1-2-1">
+<div id="outline-container-org0da6f3d" class="outline-4">
+<h4 id="org0da6f3d"><span class="section-number-4">1.3.1</span> Creating an API token</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <p>
 Authentication is implemented through API tokens.  An API token can be
 created within the TriplyDB UI in the following way:
@@ -382,9 +406,9 @@ can create their own token in the here described way.)</li>
 </div>
 </div>
 
-<div id="outline-container-org3362fd0" class="outline-4">
-<h4 id="org3362fd0"><span class="section-number-4">1.2.2</span> Using the API token</h4>
-<div class="outline-text-4" id="text-1-2-2">
+<div id="outline-container-org6826532" class="outline-4">
+<h4 id="org6826532"><span class="section-number-4">1.3.2</span> Using the API token</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
 API tokens are used by specifying them in an HTTP request header as
 follows:
@@ -397,16 +421,16 @@ follows:
 
 <p>
 In the above, <code>TOKEN</code> should be replaced by your personal API token (a
-lengthy sequence of characters).  See <a href="#org4f966a8">1.2.1</a> for
+lengthy sequence of characters).  See <a href="#org0da6f3d">1.3.1</a> for
 information on how to create an API token.
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3d71507" class="outline-3">
-<h3 id="org3d71507"><span class="section-number-3">1.3</span> cURL</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org65e48ea" class="outline-3">
+<h3 id="org65e48ea"><span class="section-number-3">1.4</span> cURL</h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
 We will often give examples of Triply API requests as cURL commands.
 cURL is a popular and versatile tool for performing HTTP requests.
@@ -420,8 +444,8 @@ be created with any other HTTP-compliant library or tool as well.
 </div>
 </div>
 
-<div id="outline-container-org4ddf94e" class="outline-2">
-<h2 id="org4ddf94e"><span class="section-number-2">2</span> Text search</h2>
+<div id="outline-container-org1371601" class="outline-2">
+<h2 id="org1371601"><span class="section-number-2">2</span> Text search</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The text search API returns a list of Linked Data entities based on a
@@ -436,8 +460,8 @@ ElasticSearch service has been created for that dataset.
 </p>
 </div>
 
-<div id="outline-container-orgdd13494" class="outline-3">
-<h3 id="orgdd13494"><span class="section-number-3">2.1</span> URI path</h3>
+<div id="outline-container-org79b72ca" class="outline-3">
+<h3 id="org79b72ca"><span class="section-number-3">2.1</span> URI path</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Text search requests are sent to the following URI path:
@@ -450,8 +474,8 @@ Text search requests are sent to the following URI path:
 </div>
 </div>
 
-<div id="outline-container-orgbf07df8" class="outline-3">
-<h3 id="orgbf07df8"><span class="section-number-3">2.2</span> Reply format</h3>
+<div id="outline-container-org684a1cc" class="outline-3">
+<h3 id="org684a1cc"><span class="section-number-3">2.2</span> Reply format</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 The reply format is a JSON object.  Search results are returned in the
@@ -503,8 +527,8 @@ example request.  The reply includes two results for search string
 </div>
 </div>
 
-<div id="outline-container-org0052a26" class="outline-3">
-<h3 id="org0052a26"><span class="section-number-3">2.3</span> Example</h3>
+<div id="outline-container-org4a519ee" class="outline-3">
+<h3 id="org4a519ee"><span class="section-number-3">2.3</span> Example</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-sh">curl <span style="color: #008000;">'https://api.demo.triply.cc/datasets/academy/pokemon/services/text/search?query=mew'</span>
@@ -514,8 +538,8 @@ example request.  The reply includes two results for search string
 </div>
 </div>
 
-<div id="outline-container-orgb4227d4" class="outline-2">
-<h2 id="orgb4227d4"><span class="section-number-2">3</span> Triple Pattern Fragments (TPF)</h2>
+<div id="outline-container-org2769c09" class="outline-2">
+<h2 id="org2769c09"><span class="section-number-2">3</span> Triple Pattern Fragments (TPF)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Triple Pattern Fragments (TPF) is a community standard that allows
@@ -531,8 +555,8 @@ in Triply and does not require running a dedicated service.
 </p>
 </div>
 
-<div id="outline-container-org04be544" class="outline-3">
-<h3 id="org04be544"><span class="section-number-3">3.1</span> URI path</h3>
+<div id="outline-container-orgbf0469e" class="outline-3">
+<h3 id="orgbf0469e"><span class="section-number-3">3.1</span> URI path</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 TPF requests are sent to the following URI path:
@@ -544,8 +568,8 @@ https://api.INSTANCE/datasets/ACCOUNT/DATATSET/fragments
 </div>
 </div>
 
-<div id="outline-container-orgc98d3f7" class="outline-3">
-<h3 id="orgc98d3f7"><span class="section-number-3">3.2</span> Reply format</h3>
+<div id="outline-container-org99cc715" class="outline-3">
+<h3 id="org99cc715"><span class="section-number-3">3.2</span> Reply format</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Since TPF replies distinguish between data and metadata that are
@@ -560,8 +584,8 @@ content type with the following HTTP request header:
 </div>
 </div>
 
-<div id="outline-container-org03e0808" class="outline-3">
-<h3 id="org03e0808"><span class="section-number-3">3.3</span> Query parameters</h3>
+<div id="outline-container-org00aa80f" class="outline-3">
+<h3 id="org00aa80f"><span class="section-number-3">3.3</span> Query parameters</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Triple Pattern Fragments (TPF) uses the following query parameters in
@@ -609,8 +633,8 @@ Pattern:
 </div>
 </div>
 
-<div id="outline-container-org9b3236e" class="outline-3">
-<h3 id="org9b3236e"><span class="section-number-3">3.4</span> Example request</h3>
+<div id="outline-container-org2bda517" class="outline-3">
+<h3 id="org2bda517"><span class="section-number-3">3.4</span> Example request</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <pre class="src src-sh">curl -G <span style="color: #008000;">\</span>
@@ -625,7 +649,7 @@ Pattern:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2019-02-19 Tue 17:30</p>
+<p class="date">Created: 2019-02-21 Thu 10:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
