@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-02-27 Wed 10:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Triply Client</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Wouter Beek" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Triply Client</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org205d397">1. Installation</a></li>
+<li><a href="#org63fb364">2. Setting up a Triply Client project</a></li>
+<li><a href="#org878d569">3. Create your first script</a></li>
+<li><a href="#org11e2f1f">4. Using the Atom text editor (optional)</a></li>
+<li><a href="#org28c4be0">5. Triply Client reference</a>
+<ul>
+<li><a href="#orgfc46916">5.1. <code>Client</code></a>
+<ul>
+<li><a href="#org9a556fe">5.1.1. <code>getAccount()</code></a></li>
+<li><a href="#orgbb7a920">5.1.2. <code>getAccount(accountName: string)</code></a></li>
+</ul>
+</li>
+<li><a href="#org73a034b">5.2. <code>Account</code></a>
+<ul>
+<li><a href="#org4851d94">5.2.1. <code>addDataset(settings: object)</code></a></li>
+<li><a href="#orgb97da71">5.2.2. <code>getDataset(datasetName: string)</code></a></li>
+<li><a href="#org36b8c8d">5.2.3. <code>info()</code></a></li>
+<li><a href="#org42e9a99">5.2.4. <code>name()</code></a></li>
+</ul>
+</li>
+<li><a href="#org69a8810">5.3. <code>Dataset</code></a>
+<ul>
+<li><a href="#orgc532ce4">5.3.1. <code>addService(serviceType, name: string)</code></a></li>
+<li><a href="#org5ce4884">5.3.2. <code>delete()</code></a></li>
+<li><a href="#org9197abd">5.3.3. <code>deleteGraph(graphName: string)</code></a></li>
+<li><a href="#org71423e1">5.3.4. <code>import(fromDataset: Dataset, graphs: mapping)</code></a></li>
+<li><a href="#org2440b0c">5.3.5. <code>rename(datasetName: string)</code></a></li>
+<li><a href="#orgf682360">5.3.6. <code>renameGraph(fromGraphName: string, toGraphName: string)</code></a></li>
+<li><a href="#orgced7c8c">5.3.7. <code>upload(filePaths: string[])</code></a></li>
+<li><a href="#orgc81ade2">5.3.8. <code>uploadAsset(assetName: string, filePath: string)</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga0549b3">6. FAQ</a>
+<ul>
+<li><a href="#orgc6b0721">6.1. Error: Unauthorized</a></li>
+<li><a href="#org079e6b6">6.2. "No domain specified in configuration"</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+Triply Client is the programming library makes it easy to interact
+with the Triply API in an automated way.  This document is a work in
+progress.  Please contact <a href="mailto:support@triply.cc">support@triply.cc</a> for more information.
+</p>
+
+<div id="outline-container-org205d397" class="outline-2">
+<h2 id="org205d397"><span class="section-number-2">1</span> Installation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The following generic installation steps are needed prior to setting
+up a project that uses the Triply Client library:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Install <a href="https://nodejs.org">Node.js</a> and <a href="https://www.npmjs.com">NPM</a>.
+</p>
+
+<p>
+Example for installation on recent Ubuntu versions:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install nodejs npm
+</pre>
+</div></li>
+
+<li>Create a Triply API token through the TriplyDB GUI.</li>
+
+<li><p>
+In your current terminal session, export the following
+environment variables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #006FE0;">export</span> <span style="color: #BA36A5;">TRIPLY_API_TOKEN</span>=&lt;some-token&gt;
+<span style="color: #006FE0;">export</span> <span style="color: #BA36A5;">TRIPLY_API_URL</span>=&lt;some-url&gt;
+</pre>
+</div>
+
+<p>
+You can also add these lines to your <code>.profile</code> file in order to
+add these environment variables to every future terminal session.
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org63fb364" class="outline-2">
+<h2 id="org63fb364"><span class="section-number-2">2</span> Setting up a Triply Client project</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The following steps are needed in order to setup a TypeScript project
+that uses the Triply Client library:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Create a directory for your project:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">mkdir test &amp;&amp; <span style="color: #006FE0;">cd</span> test
+</pre>
+</div></li>
+
+<li><p>
+Create a file called <code>package.json</code> with the following content:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  <span style="color: #0000FF;">"name"</span>: <span style="color: #008000;">"script"</span>,
+  <span style="color: #0000FF;">"version"</span>: <span style="color: #008000;">"1.0.0"</span>
+}
+</pre>
+</div></li>
+
+<li><p>
+Install the TypeScript and Triply Client dependencies:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">npm install typescript @triply/client.js
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org878d569" class="outline-2">
+<h2 id="org878d569"><span class="section-number-2">3</span> Create your first script</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Once you have performed the installation and project setup, perform
+the following steps in order to create and run your first script that
+uses the Triply Client library:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Create a file called <code>script.ts</code> and add the following contents:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Import the Triply Client.</span>
+<span style="color: #0000FF;">import</span> Client <span style="color: #0000FF;">from</span> <span style="color: #008000;">"@triply/client.js/build/src/App"</span>;
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Configure the Triply Client.</span>
+<span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">client</span> = Client.<span style="color: #0000FF;">get</span>({
+  url: process.env.TRIPLY_API_TOKEN,
+  token: process.env.TRIPLY_API_URL
+});
+
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Perform Triply Client requests within an async context.</span>
+<span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Example of a simple Triply Client request: obtain the information</span>
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">of the user's account.</span>
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount().info());
+}
+run().<span style="color: #0000FF;">catch</span>(e =&gt; {
+  console.error(e);
+  process.exit(1);
+});
+</pre>
+</div></li>
+
+<li><p>
+Compile the TypeScript file into a corresponding JavaScript file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">./node_modules/.bin/tsc script.ts
+</pre>
+</div></li>
+
+<li><p>
+Run the JavaScript file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">node script.js
+</pre>
+</div>
+
+<p>
+This should print the user information to the terminal.
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org11e2f1f" class="outline-2">
+<h2 id="org11e2f1f"><span class="section-number-2">4</span> Using the Atom text editor (optional)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Triply Client.js works best when used within TypeScript code.  The
+Atom text editor provides advanced support for programming in
+TypeScript, which makes it easier to use the
+</p>
+
+<ol class="org-ol">
+<li>Install the Atom text editor.</li>
+
+<li><p>
+Add a file called <code>tsconfig.json</code> with the following contents to
+your project directory:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  <span style="color: #0000FF;">"compilerOptions"</span>: {
+    <span style="color: #0000FF;">"lib"</span>: [ <span style="color: #008000;">"es2015"</span> ]
+  }
+}
+</pre>
+</div></li>
+
+<li>From within the Atom preferences page, install the
+<a href="https://atom.io/packages/atom-typescript">atom-typescript</a> package.</li>
+
+<li>Open your project directory in Atom to start editing.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org28c4be0" class="outline-2">
+<h2 id="org28c4be0"><span class="section-number-2">5</span> Triply Client reference</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+The basic structure of a script that uses the Triply Client library is
+as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Import the Triply Client.</span>
+<span style="color: #0000FF;">import</span> Client <span style="color: #0000FF;">from</span> <span style="color: #008000;">"@triply/client.js/build/src/App"</span>;
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Configure the Triply Client.</span>
+<span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">client</span> = Client.<span style="color: #0000FF;">get</span>({
+  url: process.env.TRIPLY_API_TOKEN,
+  token: process.env.TRIPLY_API_URL
+});
+<span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Perform Triply Client requests within an async context.</span>
+<span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">This is where operations that use the Triply API are performed.</span>
+}
+run().<span style="color: #0000FF;">catch</span>(e =&gt; {
+  console.error(e);
+  process.exit(1);
+});
+</pre>
+</div>
+
+<p>
+The following subsections document the various Triply Client
+functions.  Each section is accompanies with example code that can be
+substituted into the above base script in order to result in a working
+example.
+</p>
+</div>
+
+<div id="outline-container-orgfc46916" class="outline-3">
+<h3 id="orgfc46916"><span class="section-number-3">5.1</span> <code>Client</code></h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org9a556fe" class="outline-4">
+<h4 id="org9a556fe"><span class="section-number-4">5.1.1</span> <code>getAccount()</code></h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Returns the account associated with the current Triply API Token.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org0605d36"></a>Example<br />
+<div class="outline-text-5" id="text-5-1-1-1">
+<p>
+The following example code returns the account associated with the
+current Triply API Token:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount());
+}
+</pre>
+</div>
+
+<p>
+See section <a href="#orgfe199bd">5.2</a> for an overview of the methods that can be used
+with account objects.
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgbb7a920" class="outline-4">
+<h4 id="orgbb7a920"><span class="section-number-4">5.1.2</span> <code>getAccount(accountName: string)</code></h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Returns the account with the given <code>accountName</code>.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgb499445"></a>Example<br />
+<div class="outline-text-5" id="text-5-1-2-1">
+<p>
+The following example code returns a specific account:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount(<span style="color: #008000;">"some-account"</span>));
+}
+</pre>
+</div>
+
+<p>
+See section <a href="#orgfe199bd">5.2</a> for an overview of the methods that can be
+used with account objects.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org73a034b" class="outline-3">
+<h3 id="org73a034b"><span class="section-number-3">5.2</span> <code>Account</code></h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+<a id="orgfe199bd"></a>
+</p>
+
+<p>
+The <code>Account</code> class represents a TriplyDB account; this can be either
+a user or an organization.
+</p>
+
+<p>
+Accounts cannot be created or deleted through the Triply Client
+library.  Accounts (users and organizations) can be created from the
+TriplyDB GUI.
+</p>
+</div>
+
+<div id="outline-container-org4851d94" class="outline-4">
+<h4 id="org4851d94"><span class="section-number-4">5.2.1</span> <code>addDataset(settings: object)</code></h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+Argument <code>settings</code> is a JSON object with the following keys:
+</p>
+
+<dl class="org-dl">
+<dt><code>accessLevel</code></dt><dd>The access level of the dataset.  The following
+values are supported:
+
+<dl class="org-dl">
+<dt><code>"private"</code></dt><dd>The dataset can only be accessed by the
+<code>Account</code> object for which it is created.</dd>
+
+<dt><code>"internal"</code></dt><dd>The dataset can only be accessed by people
+who are logged into the TriplyDB instance
+(denoted by the value of environment variable
+<code>TRIPLY_API_URL</code>).</dd>
+
+<dt><code>"public"</code></dt><dd>The dataset can be accessed by everybody.</dd>
+</dl></dd>
+
+<dt><code>name</code> (optional)</dt><dd>The name of the dataset.</dd>
+
+<dt><code>description</code> (optional)</dt><dd>The description of the dataset.</dd>
+
+<dt><code>license</code> (optional)</dt><dd>The license of the dataset.  The following
+license strings are currently supported:
+
+<ul class="org-ul">
+<li><code>"CC-BY-SA"</code></li>
+<li><code>"CC0 1.0"</code></li>
+<li><code>"GFDL"</code></li>
+<li><code>"ODC-By"</code></li>
+<li><code>"ODC-ODbL"</code></li>
+<li><code>"PDDL"</code></li>
+</ul></dd>
+</dl>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgb722296"></a>Example<br />
+<div class="outline-text-5" id="text-5-2-1-1">
+<p>
+The following code example creates a new dataset under a specific account:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount(<span style="color: #008000;">"some-account"</span>)
+                          .addDataset({name: <span style="color: #008000;">"some-dataset"</span>}));
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgb97da71" class="outline-4">
+<h4 id="orgb97da71"><span class="section-number-4">5.2.2</span> <code>getDataset(datasetName: string)</code></h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+Returns the dataset with the given <code>datasetName</code>.
+</p>
+
+<p>
+This function returns an object of type <code>Dataset</code>.  See section
+<a href="#orgbb6d98a">5.3</a> for an overview of the methods that can be used with dataset
+objects.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org8aa0797"></a>Example<br />
+<div class="outline-text-5" id="text-5-2-2-1">
+<p>
+The following example code prints a specific dataset object:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount(<span style="color: #008000;">"some-account"</span>)
+                          .getDataset(<span style="color: #008000;">"some-dataset"</span>));
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org36b8c8d" class="outline-4">
+<h4 id="org36b8c8d"><span class="section-number-4">5.2.3</span> <code>info()</code></h4>
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+Returns account information.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org5ae9883"></a>Example<br />
+<div class="outline-text-5" id="text-5-2-3-1">
+<p>
+The following example code prints the account object associated with
+the current Triply API Token:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount().info());
+}
+</pre>
+</div>
+
+<p>
+Example output for running the above code:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  avatarUrl: <span style="color: #008000;">"https://www.gravatar.com/avatar/9bc28997dd1074e405e1c66196d5e117?d=mm"</span>,
+  accountName: <span style="color: #008000;">"wouter"</span>,
+  uid: <span style="color: #008000;">"5aafcb9639b170025c5e4b99"</span>,
+  name: <span style="color: #008000;">"Wouter Beek"</span>,
+  type: <span style="color: #008000;">"user"</span>,
+  createdAt: <span style="color: #008000;">"Mon Mar 19 2018 14:39:18 GMT+0000 (Coordinated Universal Time)"</span>,
+  siteAdmin: <span style="color: #D0372D;">true</span>,
+  superAdmin: <span style="color: #D0372D;">true</span>,
+  email: <span style="color: #008000;">"wouter@triply.cc"</span>,
+  updatedAt: <span style="color: #008000;">"Tue Nov 27 2018 09:29:38 GMT+0000 (Coordinated Universal Time)"</span>,
+  authMethod: <span style="color: #008000;">"password"</span>,
+  disabled: <span style="color: #D0372D;">false</span>,
+  verified: <span style="color: #D0372D;">true</span>
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org42e9a99" class="outline-4">
+<h4 id="org42e9a99"><span class="section-number-4">5.2.4</span> <code>name()</code></h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+Returns the name of the account.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org60404ad"></a>Example<br />
+<div class="outline-text-5" id="text-5-2-4-1">
+<p>
+The following example code prints the name of the account associated
+with the current Triply API Token:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  console.log(<span style="color: #0000FF;">await</span> client.getAccount().name());
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org69a8810" class="outline-3">
+<h3 id="org69a8810"><span class="section-number-3">5.3</span> <code>Dataset</code></h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+<a id="orgbb6d98a"></a>
+</p>
+
+<p>
+The <code>Dataset</code> class represents a TriplyDB dataset.
+</p>
+</div>
+
+<div id="outline-container-orgc532ce4" class="outline-4">
+<h4 id="orgc532ce4"><span class="section-number-4">5.3.1</span> <code>addService(serviceType, name: string)</code></h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+Creates a new service for this dataset.
+</p>
+
+<p>
+The <code>name</code> argument can be used to distinguish between different
+endpoints over the same dataset that are used for different tasks.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org28c5c2c"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-1-1">
+<p>
+The following example code starts a SPARQL endpoint that is intended
+to be used in production (service name <code>"production"</code>).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">await</span> client.getAccount()
+              .getDataset(<span style="color: #008000;">"some-dataset"</span>)
+              .addService(<span style="color: #008000;">"sparql"</span>, <span style="color: #008000;">"production"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org5ce4884" class="outline-4">
+<h4 id="org5ce4884"><span class="section-number-4">5.3.2</span> <code>delete()</code></h4>
+<div class="outline-text-4" id="text-5-3-2">
+<p>
+Deletes the dataset.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org952665e"></a>Example 1<br />
+<div class="outline-text-5" id="text-5-3-2-1">
+<p>
+The following example code deletes a specific dataset that is part of
+the account associated with the current Triply API Token:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">await</span> client.getAccount().getDataset(<span style="color: #008000;">"some-dataset"</span>).<span style="color: #0000FF;">delete</span>();
+}
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org2cde1bf"></a>Example 2<br />
+<div class="outline-text-5" id="text-5-3-2-2">
+<p>
+The following example code only deletes a specific dataset if it
+exists:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">try</span> {
+    <span style="color: #0000FF;">await</span> client.getAccount().getDataset(<span style="color: #008000;">"some-dataset"</span>).<span style="color: #0000FF;">delete</span>();
+  } <span style="color: #0000FF;">catch</span> {}
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org9197abd" class="outline-4">
+<h4 id="org9197abd"><span class="section-number-4">5.3.3</span> <code>deleteGraph(graphName: string)</code></h4>
+<div class="outline-text-4" id="text-5-3-3">
+<p>
+Deletes a specific graph of this dataset.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org39e0e55"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-3-1">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">await</span> client.getAccount()
+              .getDataset(<span style="color: #008000;">"some-dataset"</span>)
+              .deleteGraph(<span style="color: #008000;">"https://example.org/some-graph"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org71423e1" class="outline-4">
+<h4 id="org71423e1"><span class="section-number-4">5.3.4</span> <code>import(fromDataset: Dataset, graphs: mapping)</code></h4>
+<div class="outline-text-4" id="text-5-3-4">
+<p>
+<code>mapping</code> is a JSON object whose keys are existing graph names in the
+<code>fromDataset</code> and whose values are new graph names in the
+current/target dataset.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org0a3f0ba"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-4-1">
+<p>
+The following code example creates a new dataset “d2” and imports one
+graph from the existing dataset “d1”.  Notice that the graph can be
+renamed as part of the import.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">d1</span> = <span style="color: #0000FF;">await</span> client.getAccount()
+                         .getDataset(<span style="color: #008000;">"d1"</span>);
+  <span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">d2</span> = <span style="color: #0000FF;">await</span> client.getAccount()
+                         .addDataset({accessLevel: <span style="color: #008000;">"private"</span>,
+                                      name: <span style="color: #008000;">"d2"</span>});
+  <span style="color: #0000FF;">await</span> d2.<span style="color: #0000FF;">import</span>(d1, {<span style="color: #008000;">"https://example.org/d1/graph"</span>: <span style="color: #008000;">"https://example.org/d2/graph"</span>});
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-org2440b0c" class="outline-4">
+<h4 id="org2440b0c"><span class="section-number-4">5.3.5</span> <code>rename(datasetName: string)</code></h4>
+<div class="outline-text-4" id="text-5-3-5">
+<p>
+Renames the dataset.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org24cc5c2"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-5-1">
+<p>
+The following example code renames a specific dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">await</span> client.getAccount(<span style="color: #008000;">"some-account"</span>)
+              .getDataset(<span style="color: #008000;">"some-dataset"</span>)
+              .rename(<span style="color: #008000;">"new-name"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgf682360" class="outline-4">
+<h4 id="orgf682360"><span class="section-number-4">5.3.6</span> <code>renameGraph(fromGraphName: string, toGraphName: string)</code></h4>
+<div class="outline-text-4" id="text-5-3-6">
+<p>
+Renames a graph of this dataset.
+</p>
+
+<p>
+<code>fromGraphName</code> and <code>toGraphName</code> must be valid IRIs.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgc3ee4f9"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-6-1">
+<p>
+The following example code renames a specific graph of a specific
+dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">dataset</span> = client.getAccount()
+                        .getDataset(<span style="color: #008000;">"some-dataset"</span>);
+  <span style="color: #0000FF;">await</span> dataset.renameGraph(<span style="color: #008000;">"https://example.org/old-graph"</span>, <span style="color: #008000;">"https://example.org/new-graph"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgced7c8c" class="outline-4">
+<h4 id="orgced7c8c"><span class="section-number-4">5.3.7</span> <code>upload(filePaths: string[])</code></h4>
+<div class="outline-text-4" id="text-5-3-7">
+<p>
+Adds the given file paths to the current upload job.
+</p>
+
+<p>
+The files must contain RDF data and must be encoded in one of the
+following standardized RDF serialization languages: N-Quads,
+N-Triples, TriG, Turtle.
+</p>
+
+<p>
+Use function <a href="#orgb565de7"><code>uploadAsset</code></a> in order to upload files that do not
+contain RDF data.
+</p>
+
+<p>
+Once the required files have been added to the current upload job, the
+upload job can be executed with method <code>getJob().exec()</code> (see the
+following example).
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org9544e72"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-7-1">
+<p>
+The following example code adds four RDF document to the current
+upload job of a specific dataset, and then performs the upload
+afterwards.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">const</span> <span style="color: #BA36A5;">dataset</span> = client.getAccount()
+                        .getDataset(<span style="color: #008000;">"some-dataset"</span>);
+  <span style="color: #0000FF;">await</span> dataset.upload(<span style="color: #008000;">"file.nq"</span>, <span style="color: #008000;">"file.nt"</span>, <span style="color: #008000;">"file.trig"</span>, <span style="color: #008000;">"file.ttl"</span>);
+  <span style="color: #0000FF;">await</span> dataset.getJob().exec();
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc81ade2" class="outline-4">
+<h4 id="orgc81ade2"><span class="section-number-4">5.3.8</span> <code>uploadAsset(assetName: string, filePath: string)</code></h4>
+<div class="outline-text-4" id="text-5-3-8">
+<p>
+<a id="orgb565de7"></a>
+</p>
+
+<p>
+Uploads a file that does not contain RDF data as an asset.
+</p>
+
+<p>
+Assets can be source data files prior to running an ETL process,
+documentation files describing the dataset, or media files
+(audio/image/video) that are referenced by the RDF graph.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgb9a2de7"></a>Example<br />
+<div class="outline-text-5" id="text-5-3-8-1">
+<p>
+The following example code uploads a PDF file documenting the
+corresponding dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #0000FF;">async</span> <span style="color: #0000FF;">function</span> run() {
+  <span style="color: #0000FF;">await</span> client.getAccount()
+              .getDataset(<span style="color: #008000;">"some-dataset"</span>)
+              .uploadAsset(<span style="color: #008000;">"file.pdf"</span>, <span style="color: #008000;">"documentation.pdf"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga0549b3" class="outline-2">
+<h2 id="orga0549b3"><span class="section-number-2">6</span> FAQ</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+This section includes answers to some frequently asked questions.
+</p>
+</div>
+
+<div id="outline-container-orgc6b0721" class="outline-3">
+<h3 id="orgc6b0721"><span class="section-number-3">6.1</span> Error: Unauthorized</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+This error appears whenever an operation is performed for which the
+user denoted by the current Triply API Token is not authorized.
+</p>
+
+<p>
+One common appearance of this error is when the environment variable
+<code>TRIPLY_API_TOKEN</code> is not set to a Triply API Token.
+</p>
+
+<p>
+The current value of the environment variable can be tested by running
+the following command:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #006FE0;">echo</span> $<span style="color: #BA36A5;">TRIPLY_API_TOKEN</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org079e6b6" class="outline-3">
+<h3 id="org079e6b6"><span class="section-number-3">6.2</span> "No domain specified in configuration"</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+This error indicates that the <code>TRIPLY_API_URL</code> environment variable
+has not been set.  This variable must be set to a Triply API URL.
+</p>
+
+<p>
+The current value of the environment variable can be tested by running
+the following command:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #006FE0;">echo</span> $<span style="color: #BA36A5;">TRIPLY_API_URL</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Wouter Beek</p>
+<p class="date">Created: 2019-02-27 Wed 10:11</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
