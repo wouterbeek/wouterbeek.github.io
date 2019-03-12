@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="3D SPARQL Querying">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <title>3D SPARQL Querying</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>3D SPARQL Querying</h2>
+          <p>March 12<sup>th</sup>, 2019</p>
+          <p>Wouter Beek <span class="size-80">(<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)<span></p>
+          <hr>
+          <div>
+            <a href="https://triply.cc" target="_blank">
+              <figure class="left">
+                <img src="/resource/img/logo/triply.svg" height="100">
+                <figcaption class="size-80">Triply B.V.</figcaption>
+              </figure>
+            </a>
+            <a href="https://kadaster.nl" target="_blank">
+              <figure class="right">
+                <img src="/resource/img/logo/kadaster.png" height="100">
+                <figcaption class="size-80">Kadaster</figcaption>
+              </figure>
+            </a>
+          </div>
+        </section>
+
+        <section>
+          <section>
+            <h2>Even voorstellen…</h2>
+            <a href="https://triply.cc" target="_blank">
+              <img src="/resource/img/logo/triply.svg" height="300">
+            </a>
+          </section>
+
+          <section>
+            <h3>
+              Triply Cloud
+              (<a href="https://demo.triply.cc" target="_blank">https://demo.triply.cc</a>)
+            </h3>
+            <figure>
+              <a href="https://demo.triply.cc" target="_blank">
+                <img src="/resource/img/triply/home-page.png">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Linked Data Browser</h2>
+            <a href="/resource/img/triply/FacetCheck.png" target="_blank">
+              <img src="/resource/img/triply/facet-check.png">
+            </a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>REPL: read-eval-print-loop</h2>
+            <p>A well-known concept from programming, applied to query
+              writing:</p>
+            <dl class="size-80">
+              <dt><u>R</u>ead</dt>
+              <dd>Process a user-entered query.</dd>
+              <dt><u>E</u>valuate</dt>
+              <dd>Calculate the result set for the user query.</dd>
+              <dt><u>P</u>rint</dt>
+              <dd>Show the result set to the user.</dd>
+              <dt><u>L</u>oop</dt>
+              <dd>The user inspects the results and changes the
+                query.</dd>
+            </dl>
+          </section>
+
+          <section>
+            <h2>REPL: <u>R</u>ead (1/2)</h2>
+            <figure>
+              <a href="/resource/img/3d/3d-implied.png" target="_blank">
+                <img src="/resource/img/3d/3d-implied.png" height="450">
+              </a>
+              <figcaption>
+                3D data must be represented in a specific way.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>REPL: <u>R</u>ead (2/2)</h2>
+            <figure>
+              <a href="/resource/img/3d/3d-complex.png" target="_blank">
+                <img src="/resource/img/3d/3d-complex.png" height="350">
+              </a>
+              <figcaption>
+                A feature can have 2D ánd 3D shapes; it can have
+                serializations in GML ánd in WKT.
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h2>REPL: <u>E</u>valuate</h2>
+            <p>3D support in triple stores:</p>
+            <ul>
+              <li class="fragment">Most stores do not implement 3D
+                GeoSPARQL syntax, but some do.</li>
+              <li class="fragment">Most stores have bad performance for
+                3D geo-spatial queries, but some have good
+                performance.</li>
+              <li class="fragment">Some stores change the 3D data merely
+                by loading it, e.g., turning it into 2D data.</li>
+              <li class="fragment">Some stores cannot load larger 3D
+                shapes.</li>
+              <li class="fragment">Commercial triple stores are not
+                necessarily better than FOSS (if fact: they are often
+                worse).
+            </ul>
+          </section>
+
+          <section>
+            <h2>REPL: <u>P</u>rint</h2>
+            <figure>
+              <a href="/resource/img/3d/3d-results-table.png" target="_blank">
+                <img src="/resource/img/3d/3d-results-table.png">
+              </a>
+              <figcaption>SPARQL result set without 3D support.</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>REPL: <u>P</u>rint</h2>
+            <figure>
+              <a href="/resource/img/3d/3d-results-cesium.png" target="_blank">
+                <img src="/resource/img/3d/3d-results-cesium.png">
+              </a>
+              <figcaption>SPARQL result set with 3D support.</figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Live demo</h1>
+            <p>Probeer het zelf op <a href="https://demo.triply.cc/kadaster/bag" target="_blank">https://demo.triply.cc/kadaster/bag</a></p>
+          </section>
+          <section>
+            <video width="1280" controls>
+              <source src="/resource/vid/3d-bag.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </section>
+        </section>
+
+        <section>
+          <h2>Dank voor het meedoen!</h2>
+          <dl class="size-80">
+            <dt>Probeer het zelf:</dt>
+            <dd><a href="https://demo.triply.cc">https://demo.triply.cc</a></dd>
+            <dt>Laten we in contact blijven:</dt>
+            <dd><a href="mailto:wouter@triply.cc">wouter@triply.cc</a></dd>
+          </dl>
+          <hr>
+          <div>
+            <a href="https://triply.cc" target="_blank">
+              <figure class="left">
+                <img src="/resource/img/logo/triply.svg" height="100">
+                <figcaption class="size-80">Triply B.V.</figcaption>
+              </figure>
+            </a>
+            <a href="https://kadaster.nl" target="_blank">
+              <figure class="right">
+                <img src="/resource/img/logo/kadaster.png" height="100">
+                <figcaption class="size-80">Kadaster</figcaption>
+              </figure>
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+	    // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+		    // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
