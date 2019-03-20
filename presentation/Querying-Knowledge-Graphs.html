@@ -8,7 +8,7 @@
     <meta name="description" content="Querying Knowledge Graphs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/resource/css/presentation.css">
-    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+é   <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
     <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
     <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
     <script>
@@ -93,7 +93,7 @@
               <svg height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="18" cy="18" fill="orange" r="18"/>
               </svg>
-              <a href="https://api.demo.triply.cc/s/LDg3McOF9" target="_blank">Our first SELECT query</a>
+              <a href="https://demo.triply.cc/academy/pokemon/queries/1-1" target="_blank">1-1: Our first SELECT query</a>
             </h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select ?s ?p ?o {
@@ -114,7 +114,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/BafW-7agu" target="_blank">Table of Pokémon + image links</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-2" target="_blank">1-2: Table of Pokémon + image links</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select <mark>?pokemon ?image</mark> {
   <mark>?pokemon &lt;http://xmlns.com/foaf/0.1/depiction&gt; ?image</mark>
@@ -132,7 +132,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/s8ELq-uAa" target="_blank">Abbreviated IRI notation</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-3" target="_blank">1-3: Abbreviated IRI notation</a></h3>
             <figure>
               <pre><code data-noescape data-trim><mark>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;</mark>
 <mark>prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;</mark>
@@ -152,7 +152,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/rGhmKULi5" target="_blank">Invert the projection</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-4" target="_blank">1-4: Invert the projection</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
@@ -172,7 +172,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/eWqBKrpZ8" target="_blank">Change the projection</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-5" target="_blank">1-5: Change the projection</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
@@ -192,7 +192,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/1Z-PC3DdI" target="_blank">The generic projection</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-6" target="_blank">1-6: The generic projection</a></h3>
             <figure><pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
 select <mark>*</mark> {
@@ -208,7 +208,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/jo-akyLY8" target="_blank">Introduce a variable</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-7" target="_blank">1-7: Introduce a variable</a></h3>
             <figure><pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
 select * {
@@ -225,13 +225,14 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/sp1LVEKtu" target="_blank">HTML template</a><img src="/resource/img/triply/logo.svg" height="48" style="border: 0px; margin: 0px;" alt=""></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-8" target="_blank">1-8: HTML template</a><img src="/resource/img/triply/logo.svg" height="48" style="border: 0px; margin: 0px;" alt=""></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 select * {
   ?pokemon foaf:depiction ?image
-  <mark>bind('&lt;img src="{{image}}"&gt;' as ?widget)</mark>
+  <mark>bind('&lt;img src="{{image}}"&gt;'^^rdf:HTML as ?widget)</mark>
 }
 limit 25</code></pre>
               <figcaption class="size-80">
@@ -246,13 +247,14 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/L8OfvIDXK" target="_blank">Change the number of results</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-9" target="_blank">1-9: Limit the number of rows</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
+prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 select * {
   ?pokemon foaf:depiction ?image
-  bind('&lt;img src="{{image}}"&gt;' as ?widget)
+  bind('&lt;img src="{{image}}"&gt;'^^rdf:HTML as ?widget)
 }
 limit <mark>250</mark></code></pre>
               <figcaption class="size-80">
@@ -265,7 +267,7 @@ limit <mark>250</mark></code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/r5fX32-B1" target="_blank">Add an offset</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/1-10" target="_blank">1-10: Skip a number of rows</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 prefix id: &lt;https://triply.cc/academy/pokemon/id/pokemon/&gt;
@@ -337,7 +339,7 @@ limit 25
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/v5N-Z56sN" target="_blank">Graph Pattern: 1 Triple Pattern</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-1" target="_blank">2-1: Graph Pattern: One Triple Pattern</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image
@@ -354,7 +356,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/77hyQn9BO" target="_blank">Graph Pattern: 2 Triple Patterns</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-2" target="_blank">2-2: Graph Pattern: Two Triple Patterns</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image<mark>.</mark>
@@ -373,7 +375,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/WwvZNBpvK" target="_blank">Graph Pattern: 3 Triple Patterns</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-3" target="_blank">2-3: Graph Pattern: Three Triple Patterns</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image.
@@ -381,25 +383,16 @@ limit 25</code></pre>
   <mark>?pokemon rdfs:label ?name.</mark>
 }
 limit 25</code></pre>
-              <figcaption>
-                <p>Vocabularies:</p>
-                <dl class="size-80">
-                  <dt>Friend of a Friend (FOAF)</dt>
-                  <dd><a href="https://demo.triply.cc/vocabulary/foaf/browser?resource=http%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2Fdepiction" target="_blank"><code>foaf:depiction</code></a></dd>
-                  <dt>RDF Schema (RDFS)</dt>
-                  <dd><a href="https://demo.triply.cc/w3c/rdfs/browser?resource=http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23label#" target="_blank"><code>rdfs:label</code></a></dd>
-                </dl>
-              </figcaption>
             </figure>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/9FZrV0kc0" target="_blank">Graph Pattern: Abbreviated notation</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-4" target="_blank">2-4: Graph Pattern: Abbreviated notation</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image<mark>;</mark>
-           pokemon:cry ?cry<mark>;</mark>
-           rdfs:label ?name.
+    pokemon:cry ?cry<mark>;</mark>
+    rdfs:label ?name.
 }
 limit 25</code></pre>
               <figcaption>
@@ -414,7 +407,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/OInFloyTS" target="_blank">Multiple values</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-5" target="_blank">2-5: Multiple values</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -437,7 +430,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/-lR06z0Dq" target="_blank">Filter by language</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-6" target="_blank">2-6: Filter by language</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -458,7 +451,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/nFmicvyx0" target="_blank">Graph pattern: 5 Triple Patterns</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-7" target="_blank">2-7: Graph pattern: Five Triple Patterns</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -472,7 +465,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/Y1hAHQGUW" target="_blank">Property Path</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-8" target="_blank">2-8: Property Paths</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -493,7 +486,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/24TyYVskc" target="_blank">Making the query more specific</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-9" target="_blank">2-9: Making the query more specific</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -509,7 +502,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/Bo479a4F6" target="_blank">Sort rows</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-10" target="_blank">2-10: Sort rows</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -530,7 +523,7 @@ limit 25</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/cxEvq_yjH" target="_blank">Inversely sort rows</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/2-11" target="_blank">2-11: Inversely sort rows</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   ?pokemon foaf:depiction ?image;
@@ -598,21 +591,20 @@ limit 1</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/LMpfAuO4o" target="_blank">Find a building</a></h3>
+            <h3>Find a building</h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select * {
   <mark>service &lt;https://data.pdok.nl/sparql&gt; {</mark>
-    [
-      bag:hoofdadres [
-        bag:bijbehorendeOpenbareRuimte [
-          bag:bijbehorendeWoonplaats/rdfs:label "Amsterdam"@nl;
-          bag:naamOpenbareRuimte "De Boelelaan"
-        ];
-        bag:huisnummer 1105;
-        bag:postcode "1081HV"
-      ];
-      bag:pandrelatering/geo:hasGeometry/geo:asWKT ?shape
-    ]
+    ?openbareRuimte
+      bag:bijbehorendeWoonplaats/rdfs:label "Amsterdam"@nl;
+      bag:naamOpenbareRuimte "De Boelelaan".
+    ?nummeraanduiding
+      bag:bijbehorendeOpenbareRuimte ?openbareRuimte;
+      bag:huisnummer 1105;
+      bag:postcode "1081HV".
+    ?verblijfsobject
+      bag:hoofdadres ?nummeraanduiding;
+      bag:pandrelatering/geo:hasGeometry/geo:asWKT ?shape.
   <mark>}</mark>
 }
 limit 1</code></pre>
@@ -625,11 +617,35 @@ limit 1</code></pre>
               </figcaption>
             </figure>
           </section>
+          <section>
+            <h3><a href="https://api.demo.triply.cc/s/LMpfAuO4o" target="_blank">Find a building</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select * {
+  service &lt;https://data.pdok.nl/sparql&gt; {
+    <mark>[</mark> bag:hoofdadres <mark>[</mark>
+        bag:bijbehorendeOpenbareRuimte <mark>[</mark>
+          bag:bijbehorendeWoonplaats/rdfs:label "Amsterdam"@nl;
+          bag:naamOpenbareRuimte "De Boelelaan" <mark>]</mark>;
+        bag:huisnummer 1105;
+        bag:postcode "1081HV" <mark>]</mark>;
+      bag:pandrelatering/geo:hasGeometry/geo:asWKT ?shape <mark>]</mark>
+  }
+}
+limit 1</code></pre>
+              <figcaption class="size-80">
+                <dl>
+                  <dt><code>[ P O ]</code></dt>
+                  <dd>Square brackets can be used to abbreviate unused subject terms.</dd>
+                </dl>
+                <p class="size-70">Data from the Dutch Base Registry for Buildings (Cadastre).</p>
+              </figcaption>
+            </figure>
+          </section>
 
           <section>
             <h2>SPARQL ↔ JSON</h2>
-            <figure>
-              <pre><code class="json size-70" data-noescape data-trim>{
+            <figure class="left">
+              <pre><code class="json size-60" data-noescape data-trim>{
   "hoofdadres": {
     "bijbehorendeOpenbareRuimte": {
       "bijbehorendeWoonplaats": { "label": "Amsterdam" },
@@ -637,11 +653,11 @@ limit 1</code></pre>
     },
     "huisnummer": 1105,
     "postcode": "1081HV"
-  },
+  }
 }</code></pre>
             </figure>
-            <figure>
-              <pre><code class="sparql size-70" data-noescape data-trim>[
+            <figure class="right">
+              <pre><code class="sparql size-60" data-noescape data-trim>[
   bag:hoofdadres [
     bag:bijbehorendeOpenbareRuimte [
       bag:bijbehorendeWoonplaats/rdfs:label "Amsterdam"@nl;
@@ -649,9 +665,11 @@ limit 1</code></pre>
     ];
     bag:huisnummer 1105;
     bag:postcode "1081HV"
-  ];
+  ]
 ]</code></pre>
             </figure>
+            <p class="size-80">Square bracket notation allows you to
+            write SPARQL that is similar to JSON notation.</p>
           </section>
 
           <section>
@@ -661,9 +679,7 @@ limit 1</code></pre>
   [ bag:hoofdadres/bag:bijbehorendeOpenbareRuimte/bag:bijbehorendeWoonplaats/bag:naamWoonplaats "Apeldoorn";
     bag:pandrelatering [
       bag:oorspronkelijkBouwjaar ?shapeLabel;
-      bag:geometriePand/geo:asWKT ?shape
-    ]
-  ]
+      bag:geometriePand/geo:asWKT ?shape ] ]
 }
 order by ?shapeLabel
 limit 50</code></pre>
@@ -779,39 +795,77 @@ limit 1</code></pre>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/IhBz8eyEY" target="_blank">Concatenate all values</a></h3>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/3-1" target="_blank">3-1: ‘Blocks’ of values</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select ?pokemon ?name {
+  ?pokemon
+    foaf:depiction ?image;
+    pokemon:cry ?cry;
+    pokemon:name ?name.
+}
+limit 25</code></pre>
+            </figure>
+            <figcaption class="size-80">
+              The result set for this query consists of ‘blocks’ of
+              values (in this case names) for each Pokémon.  Each
+              Pokémon can be see as partitioning the result set into
+              multi-row.  Aggregation occurs when functions are
+              applied to such multi-row blocks, resulting in one
+              single value per Pokémon.
+            </figcaption>
+          </section>
+
+          <section>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/3-2" target="_blank">3-2: Count function</a></h3>
+            <figure>
+              <pre><code class="sparql" data-noescape data-trim>select ?pokemon (count(?name) as ?number_of_names) {
+  ?pokemon pokemon:name ?name.
+}
+limit 25</code></pre>
+              <figcaption>
+                This query applies the <code>count</code> functions to
+                the ‘blocks’ of names.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><a href="https://demo.triply.cc/academy/pokemon/queries/3-3" target="_blank">3-3: Concatenation function</a></h3>
             <figure>
               <pre><code class="sparql" data-noescape data-trim>select
   (group_concat(concat(str(?name),' (',lang(?name),')');separator='&lt;/li&gt;&lt;li&gt;') as ?names)
   (concat('&lt;ol&gt;&lt;li&gt;',?names,'&lt;/li&gt;&lt;/ol&gt;&lt;img src="',?image,'"&gt;') as ?widget)
 {
-  ?pokemon foaf:depiction ?image;
-           pokemon:cry ?cry;
-           pokemon:name ?name.
+  [ foaf:depiction ?image;
+    pokemon:name ?name ]
 }
 limit 25</code></pre>
               <figcaption>
                 <dl class="size-80">
-                  <dt><code>concat(…)</code></dt>
-                  <dd>Concatenate all arguments into one new string value.</dd>
                   <dt><code>group_concat(…;separator=…)</code></dt>
                   <dd>Concatenate all bindings, interspersed with separators, into one new string value.</dd>
+                  <dt><code>concat(…)</code></dt>
+                  <dd>Concatenate all arguments into one new string value.</dd>
                 </dl>
               </figcaption>
             </figure>
           </section>
 
           <section>
-            <h3><a href="https://api.demo.triply.cc/s/pS7tn7luX" target="_blank">Aggregate sum</a></h3>
+            <h3><a href="https://demo.triply.cc/kvk/kvk/queries/sum-number-of-employees" target="_blank">3-4: Sum function</a></h3>
             <figure>
-              <pre><code class="sparql" data-noescape data-trim>select ?id (sum(?employees) as ?employees) (sample(?name) as ?name) {
-  ?record kvk:kvknummer ?id;
-          kvk:plaats "Zwolle";
-          schema:legalName ?name;
-          schema:numberOfEmployees ?employees
+              <pre><code class="sparql" data-noescape data-trim>select
+  ?id
+  (sum(?employees) as ?employees)
+  (sample(?name) as ?name)
+{
+  [ kvk:kvknummer ?id;
+    kvk:plaats "Zwolle";
+    schema:legalName ?name;
+    schema:numberOfEmployees ?employees ]
 }
 order by desc(?employees)
-limit 25</code></pre>
+limit 20</code></pre>
               <figcaption class="size-80">
                 <p>Using Dutch Chamber of Commerce data.</p>
                 <dl>
@@ -819,6 +873,8 @@ limit 25</code></pre>
                   <dd>Summate the number of employees per company (<code>?id</code>).</dd>
                   <dt><code>(sample(?name) as ?name)</code></dt>
                   <dd>Since a company (<code>?id</code>) can have multiple names (<code>?name</code>), select one arbitrarily.</dd>
+                  <dt>Implicitly grouped by <code>?id</code></dt>
+                  <dd>This can be made explicit with <code>grouped by ?id</code>.</dd>
                 </dl>
               </figcaption>
             </figure>
