@@ -11,6 +11,10 @@ most common cases.
 */
 figure img, figure video { max-height: 575px !important; }
 
+figure figcaption {
+  font-size: 80% !important;
+}
+
 /*
 We do not like the ALL-CAPS default for headers in Reveal.js.
 */

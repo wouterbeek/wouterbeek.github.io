@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="author" content="Wouter Beek">
+    <meta name="description" content="Kadaster Linked Data Training">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/resource/css/presentation.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
+    <link rel="shortcut icon" href="/resource/img/triply/logo.svg" />
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <script src="/assets/js/presentation.js"></script>
+    <title>Kadaster Linked Data Training</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Kadaster Linked Data Training</h1>
+          <p><a href="http://wouterbeek.com">Wouter Beek</a>
+            (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>)</p>
+          <a href="https://triply.cc" target="_blank">
+            <img src="/resource/img/triply/logo.svg" height="120">
+          </a>
+        </section>
+
+        <section>
+          <section>
+            <h1>Knowledge Graphs</h1>
+          </section>
+
+          <section>
+            <h2>Knowledge Graphs</h2>
+            <figure>
+              <a href="/resource/img/gartner-hypecycle-2018-08.png" target="_blank">
+                <img src="/resource/img/gartner-hypecycle-2018-08.png" height="450">
+              </a>
+              <figcaption>
+                Gartner Hypecycle, August 2018
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Knowledge Graphs</h2>
+            <h3>The Network Effect for Data</h3>
+          </section>
+
+          <section>
+            <h2>The Network Effect</h2>
+            <figure class="left">
+              <a href="/resource/img/triply/metcalfe.png" target="_blank">
+                <img src="/resource/img/triply/metcalfe.png" height="500">
+              </a>
+            </figure>
+            <p class="right">The value of a network is proportional to the square of the number of connected nodes.</p>
+            <!-- 2-1, 5-10, 12-66 -->
+          </section>
+
+          <section>
+            <h2>Exponential growth (1/2)</h2>
+            <figure>
+              <a href="/resource/img/empirical-semantics/hosts.svg" target="_blank">
+                <img src="/resource/img/empirical-semantics/hosts.svg" height="450">
+              </a>
+              <figcaption>
+                The number of hosts on the Internet.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Exponential growth (2/2)</h2>
+            <figure>
+              <a href="/resource/img/triply/social-media.jpg" target="_blank">
+                <img src="/resource/img/triply/social-media.jpg" height="475">
+              </a>
+              <figcaption>
+                Exponential growth proceeds, but <em>within</em> websites.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Standardization</h1>
+          </section>
+
+          <section>
+            <h3>How Should My Organization Implement Knowledge Graphs? (1/2)</h3>
+            <dl>
+              <dt>ArangoDB Query Language</dt>
+              <dd>Only works with ArangoDB</dd>
+              <dt>Cyper Query Language</dt>
+              <dd>Works with Neo4j</dd>
+              <dt>GraphQL</dt>
+              <dd>Originally created by Facebook</dd>
+              <dt>Gremlin</dt>
+              <dd>Works with Apache TinkerPop</dd>
+            </dl>
+          </section>
+
+          <section>
+            <h3>How Should My Organization Implement Knowledge Graphs? (2/2)</h3>
+            <figure>
+              <a href="https://w3c.org" target="_blank">
+                <img src="../resource/img/logo/w3c.jpg" height="175">
+              </a>
+              <figcaption>
+                The same organization that standardized the Internet
+                also standardizes Knowledge Graphs.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Linked Open Data</h1>
+          </section>
+
+	        <section>
+            <h2>WWW → LOD [1/3]</h2>
+	          <img src="/resource/img/linked-data/1.png">
+	        </section>
+	        <section>
+            <h2>WWW → LOD [2/3]</h2>
+	          <img src="/resource/img/linked-data/2.png">
+	        </section>
+	        <section>
+            <h2>WWW → LOD [3/3]</h2>
+	          <img src="/resource/img/linked-data/3.png">
+	        </section>
+
+          <section>
+            <h2>5⋆ Linked Open Data</h2>
+            <figure>
+              <a href="/resource/img/linked-data/5-stars.png" target="_blank">
+                <img src="/resource/img/linked-data/5-stars.png">
+              </a>
+              <figcaption>Source:
+                <a href="https://5stardata.info">http://5stardata.info</a>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Linked Open Data Forms a Knowledge Graph</h2>
+          </section>
+
+          <section>
+            <h2>How Big is the <em>Open</em> Knowledge Graph?</h2>
+            <figure>
+              <a href="https://lod-cloud.net/" target="_blank">
+                <img src="/resource/img/lod-cloud/lod-cloud-2018.png">
+              </a>
+            </figure>
+          </section>
+	      </section>
+
+        <section>
+          <section>
+            <h1>Linking</h1>
+          </section>
+
+          <section>
+            <h3>Explicit identity statements for ‘Barack Obama’</h3>
+            <figure>
+              <a href="/resource/img/identity/obama-1.png" target="_blank">
+                <img src="/resource/img/identity/obama-1.png">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h3>But are these really the same resource?</h3>
+            <pre><code class="ttl" data-noescape data-trim>http://als.dbpedia.org/resource/Barack_Obama
+http://am.dbpedia.org/resource/ባራክ_ኦባማ
+http://data.nytimes.com/obama_barack_per
+http://viaf.org/viaf/52010985
+http://yago-knowledge.org/resource/Barack_Obama
+http://rdf.freebase.com/ns/m.02mjmr</code></pre>
+              <pre><code class="ttl" data-noescape data-trim>http://dbpedia.org/resource/Administration_of_Barack_Obama
+http://dbpedia.org/resource/Barack_Obama_Cabinet
+http://dbpedia.org/resource/Barack_Obama_presidency
+http://yago-knowledge.org/resource/Presidency_of_Barack_Obama
+http://rdf.freebase.com/ns/m.05b6w1g</code></pre>
+          </section>
+
+          <section>
+            <h3>‘Barack Obama’ after community detection</h3>
+            <figure class="left">
+              <a href="/resource/img/identity/obama-2-labels.svg" target="_blank">
+                <img src="/resource/img/identity/obama-2.png">
+              </a>
+            </figure>
+            <div class="right small">
+              <p>Communities correspond to roles:</p>
+              <ul>
+                <li style="color: purple;">person</li>
+                <li style="color: darkturquoise;">senator</li>
+                <li style="color: green;">president</li>
+                <li style="color: orangered;">government</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>De BAG in de LOD Cloud</h3>
+            <figure>
+              <a href="https://lod-cloud.net/dataset/bag" target="_blank">
+                <img src="/resource/img/kadaster/bag.png">
+              </a>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Moedig Wikidata gebruiks aan om te linken naar de BAG</h3>
+            <ul>
+              <li>Eigenschap voor linken naar BAG openbare ruimte: <a href="https://www.wikidata.org/wiki/Property:P5207" target="_blank">P5207</a></li>
+              <li>Eigenschap voor linken naar BAG pand: <a href="https://www.wikidata.org/wiki/Property:P5208" target="_blank">P5208</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Hoe veel links naar de BAG zijn er?</h3>
+            <p><a href="https://console.nightly.triply.cc/wouter/empty-sparql-endpoint/queries" target="_blank">answer</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>FAIR</h2>
+          </section>
+
+          <section>
+            <h3>Findable</h3>
+            <ol>
+              <li>(Meta)data are assigned a globally unique and eternally persistent identifier.</li>
+              <li>Data are described with rich metadata.</li>
+              <li>(Meta)data are registered or indexed in a searchable resource.</li>
+              <li>Metadata specify the data identifier.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Accessible</h3>
+            <ol>
+              <li>(Meta)data are retrievable by their identifier using a standardized communications protocol.</li>
+              <li>The protocol is open, free, and universally implementable.</li>
+              <li>The protocol allows for an authentication and authorization procedure, where necessary.</li>
+              <li>Metadata are accessible, even when the data are no longer available.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Interoperable</h3>
+            <ol>
+              <li>(Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.</li>
+              <li>(Meta)data use vocabularies that follow FAIR principles.</li>
+              <li>(Meta)data include qualified references to other (meta)data.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h3>Re-usable</h3>
+            <ol>
+              <li>Meta(data) have a plurality of accurate and relevant attributes.</li>
+              <li>(Meta)data are released with a clear and accessible data usage license.</li>
+              <li>(Meta)data are associated with their provenance.</li>
+              <li>(Meta)data meet domain-relevant community standards.</li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Use case</h2>
+          </section>
+
+          <section>
+            <h3>Corporate Knowledge Graph</h3>
+            <figure>
+              <img src="/resource/img/graph.png">
+              <figcaption>
+                Started at 100B edges, growing towards 2T edges.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Corporate Knowledge Graph</h3>
+            <figure>
+              <img src="/resource/img/graph-2.png">
+              <figcaption>
+                Challenges for storage and usage.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><b>Store</b> Large Knowledge Graphs</h3>
+            <figure>
+              <a href="http://www.rdfhdt.org" target="_blank">
+                <img src="/resource/img/hdt/hdt-architecture.png" height="450">
+              </a>
+              <figcaption>
+                Fernández el al.  2013.  ‘Binary RDF representation for publication and exchange(HDT)’ in <em>Web Semantics</em>, Vol. 19, p. 22-41.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3><b>Use</b> Large Knowledge Graphs (IDE)</h3>
+            <figure>
+              <img src="/resource/img/geo/GeoYASQE.png" height="450">
+              <figcaption>
+                Rietveld &amp; Hoekstra.  2017.  ‘The YASGUI family of SPARQL clients’ in <em>Semantic Web Journal</em>, Vol. 8, No. 3, p. 373-383.
+            </figure>
+          </section>
+
+        <section>
+          <h2>Meerwaarde van Linked Data voor een organizatie?</h2>
+          <ul>
+            <li>Goedkopere data uitwisseling (data-bij-de-bron)</li>
+            <li>Kostenreductie voor data integratie</li>
+            <li>Mogelijkheid om sneller aan te passen aan nieuwe requirements en doelstellingen</li>
+            <li>Manier om data kwaliteit in beeld te brengen en te verbeteren</li>
+            <li>Manier om vragen over business units heen te stellen</li>
+            <li>Ideale basis voor Machine Learning (RDF2Vec)</li>
+            <li>Minder risico voor lock-in</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      // Interpret Markdown in <section> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      // Syntax highlight for <code> elements
+		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      // Zoom in and out with Alt+click
+		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      // Speaker notes
+		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      // MathJax
+		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
