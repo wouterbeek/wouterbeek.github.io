@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
 <head>
-<!-- 2019-05-07 Tue 09:55 -->
+<!-- 2019-05-07 Tue 10:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TriplyDB Documentation</title>
@@ -253,105 +253,125 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org47e9ac9">1. Creating datasets</a>
+<li><a href="#orgf4e784b">1. Creating datasets</a>
 <ul>
-<li><a href="#orga1e7397">1.1. Creating a new dataset</a></li>
-<li><a href="#org2657d01">1.2. Adding data</a>
+<li><a href="#org086d13a">1.1. Creating a new dataset</a></li>
+<li><a href="#orge10efc3">1.2. Adding data</a>
 <ul>
-<li><a href="#org3c547ec">1.2.1. Adding data by file upload</a></li>
-<li><a href="#org5362a7a">1.2.2. Adding data by URL upload</a></li>
-<li><a href="#orga007489">1.2.3. Adding data by import</a></li>
+<li><a href="#org24bd734">1.2.1. Adding data by file upload</a></li>
+<li><a href="#org6b2fc23">1.2.2. Adding data by URL upload</a></li>
+<li><a href="#orge79c09a">1.2.3. Adding data by import</a></li>
 </ul>
 </li>
-<li><a href="#orga982c27">1.3. Entering metadata</a></li>
-<li><a href="#org9d396d9">1.4. Starting services</a></li>
-</ul>
-</li>
-<li><a href="#orgb3faeb9">2. Admin tasks</a>
+<li><a href="#org8dc048d">1.3. Entering metadata</a></li>
+<li><a href="#org61179d4">1.4. Starting services</a>
 <ul>
-<li><a href="#org9545dfe">2.1. Create a new user</a></li>
-<li><a href="#orgf49d544">2.2. Account overview</a></li>
-</ul>
-</li>
-<li><a href="#orgbe02da2">3. Text search</a></li>
-<li><a href="#org0e7c8e4">4. SPARQL</a>
-<ul>
-<li><a href="#org1f4b24c">4.1. SPARQL Editor</a>
-<ul>
-<li><a href="#org1436cc8">4.1.1. Supported key combinations</a></li>
-<li><a href="#orgba2d82a">4.1.2. Triply Templates</a></li>
+<li><a href="#orgad621f1">1.4.1. Existing services</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8f800c6">5. SPARQL Table</a>
+<li><a href="#orgefae17c">2. Tabular browser</a>
 <ul>
-<li>
+<li><a href="#org9054bfe">2.1. Triple Pattern Fragments (TPF)</a>
 <ul>
-<li><a href="#orga756351">5.0.1. Features</a></li>
-<li><a href="#org7a37b0c">5.0.2. Example</a></li>
+<li><a href="#org4c51c50">2.1.1. URI path</a></li>
+<li><a href="#org0657afd">2.1.2. Reply format</a></li>
+<li><a href="#org9392638">2.1.3. Query parameters</a></li>
+<li><a href="#org0d6ef45">2.1.4. Example request</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0ac318f">6. SPARQL Gallery</a>
+<li><a href="#org78b688c">3. SPARQL IDE</a>
 <ul>
-<li>
+<li><a href="#org4bfd6ef">3.1. SPARQL Editor</a>
 <ul>
-<li><a href="#org3b69ca4">6.0.1. Variables</a></li>
-<li><a href="#orga49192c">6.0.2. Styling</a></li>
-<li><a href="#org75f618a">6.0.3. Example</a></li>
+<li><a href="#org8d60ba0">3.1.1. Supported key combinations</a></li>
+</ul>
+</li>
+<li><a href="#orgea276f6">3.2. SPARQL Templates</a></li>
+<li><a href="#orgadea33d">3.3. SPARQL Table</a>
+<ul>
+<li><a href="#org2647337">3.3.1. Features</a></li>
+<li><a href="#orgab77ca3">3.3.2. Example</a></li>
+</ul>
+</li>
+<li><a href="#org70b98d0">3.4. SPARQL Gallery</a>
+<ul>
+<li><a href="#org697166b">3.4.1. Variables</a></li>
+<li><a href="#orgdab9b06">3.4.2. Styling</a></li>
+<li><a href="#org0773a2b">3.4.3. Example</a></li>
+</ul>
+</li>
+<li><a href="#org8cdbc8c">3.5. SPARQL 2D Map</a>
+<ul>
+<li><a href="#orga11df8b">3.5.1. Variables</a></li>
+</ul>
+</li>
+<li><a href="#orge1f321c">3.6. SPARQL 3D Map</a>
+<ul>
+<li><a href="#org318d48b">3.6.1. Variables</a></li>
+</ul>
+</li>
+<li><a href="#orgc41828a">3.7. SPARQL Charts</a></li>
+<li><a href="#orgf9bf94d">3.8. TreeMap</a></li>
+<li><a href="#org0d5fefa">3.9. SPARQL Pivot Table</a></li>
+<li><a href="#orga25b27d">3.10. SPARQL Raw View</a></li>
+</ul>
+</li>
+<li><a href="#org79eee2d">4. Data Stories</a>
+<ul>
+<li><a href="#org224e3ce">4.1. Markup language declaration</a></li>
+<li><a href="#orgd48ab70">4.2. Main natural language declaration</a></li>
+<li><a href="#org0ae8a14">4.3. Encoding declaration</a></li>
+<li><a href="#orgeb7a076">4.4. Metadata</a></li>
+<li><a href="#org6adce90">4.5. Navigation bar</a></li>
+<li><a href="#org4109a68">4.6. External links</a></li>
+<li><a href="#org59ba795">4.7. HTML elements</a>
+<ul>
+<li><a href="#org0b8ce89">4.7.1. story element</a></li>
+<li><a href="#org028ff52">4.7.2. query element</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org0f7f6d7">7. SPARQL 2D Map</a>
+<li><a href="#orgbdd4e8f">5. Text search</a>
 <ul>
-<li>
+<li><a href="#orgcf1e148">5.1. Text search GUI</a></li>
+<li><a href="#org59768bd">5.2. Text search API</a>
 <ul>
-<li><a href="#orgd3fee24">7.0.1. Variables</a></li>
+<li><a href="#org12c19de">5.2.1. URI path</a></li>
+<li><a href="#org2b6542c">5.2.2. Reply format</a></li>
+<li><a href="#org8d209aa">5.2.3. Example</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf720dbc">8. SPARQL 3D Map</a>
+<li><a href="#orga94b5d8">6. REST API</a>
 <ul>
-<li>
+<li><a href="#org0d30cc5">6.1. Datasets</a></li>
+<li><a href="#org4555505">6.2. Services</a></li>
+<li><a href="#orgdb7de1c">6.3. Authentication</a>
 <ul>
-<li><a href="#org6d723fb">8.0.1. Variables</a></li>
+<li><a href="#org9d7d632">6.3.1. Creating an API token</a></li>
+<li><a href="#orgf053d5b">6.3.2. Using the API token</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8bd579c">9. SPARQL Charts</a>
+<li><a href="#orgfe6aa23">7. Admin tasks</a>
 <ul>
-<li><a href="#org35e1f4a">9.1. TreeMap</a></li>
-</ul>
-</li>
-<li><a href="#orge685803">10. SPARQL Pivot Table</a></li>
-<li><a href="#org27419b4">11. SPARQL Raw View</a></li>
-<li><a href="#org395e9d5">12. Data Stories</a>
-<ul>
-<li><a href="#org046066e">12.1. Markup language declaration</a></li>
-<li><a href="#orgf360dca">12.2. Main natural language declaration</a></li>
-<li><a href="#org47a7a6c">12.3. Encoding declaration</a></li>
-<li><a href="#orgb31d049">12.4. Metadata</a></li>
-<li><a href="#org4e72262">12.5. Navigation bar</a></li>
-<li><a href="#orga2d2b98">12.6. External links</a></li>
-<li><a href="#org663ae5a">12.7. HTML elements</a>
-<ul>
-<li><a href="#org0554b08">12.7.1. story element</a></li>
-<li><a href="#org533849a">12.7.2. query element</a></li>
-</ul>
-</li>
+<li><a href="#org1dffe95">7.1. Create a new user</a></li>
+<li><a href="#orgfbfdff3">7.2. Account overview</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <p>
-<a id="orge6e4606"></a>
-<a id="orge52e283"></a>
+<a id="orga2a50f5"></a>
+<a id="org63247f9"></a>
 </p>
 
 <p>
@@ -359,8 +379,8 @@ This document describes the TriplyDB product.  This document is a
 work-in-process.  Contact <a href="mailto:support@triply.cc">support@triply.cc</a> for more information.
 </p>
 
-<div id="outline-container-org47e9ac9" class="outline-2">
-<h2 id="org47e9ac9"><span class="section-number-2">1</span> Creating datasets</h2>
+<div id="outline-container-orgf4e784b" class="outline-2">
+<h2 id="orgf4e784b"><span class="section-number-2">1</span> Creating datasets</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This section explains how to create a Linked Dataset in TriplyDB.
@@ -369,8 +389,8 @@ metadata, and starting services.
 </p>
 </div>
 
-<div id="outline-container-orga1e7397" class="outline-3">
-<h3 id="orga1e7397"><span class="section-number-3">1.1</span> Creating a new dataset</h3>
+<div id="outline-container-org086d13a" class="outline-3">
+<h3 id="org086d13a"><span class="section-number-3">1.1</span> Creating a new dataset</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>Log into a TriplyDB instance.</li>
@@ -388,7 +408,7 @@ dataset, which is set to “Private” by default.</li>
 </ol>
 
 
-<div id="org4fc77d6" class="figure">
+<div id="org00bd075" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/add-dataset-dialog.png" alt="add-dataset-dialog.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>The “Add dataset” dialog.</p>
@@ -396,8 +416,8 @@ dataset, which is set to “Private” by default.</li>
 </div>
 </div>
 
-<div id="outline-container-org2657d01" class="outline-3">
-<h3 id="org2657d01"><span class="section-number-3">1.2</span> Adding data</h3>
+<div id="outline-container-orge10efc3" class="outline-3">
+<h3 id="orge10efc3"><span class="section-number-3">1.2</span> Adding data</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Once the dataset is created, the “Add data” view is displayed (see
@@ -408,15 +428,15 @@ another.
 </p>
 
 
-<div id="orgdc4b5af" class="figure">
+<div id="org54378cd" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/add-data.png" alt="add-data.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>The “Add data” view.</p>
 </div>
 </div>
 
-<div id="outline-container-org3c547ec" class="outline-4">
-<h4 id="org3c547ec"><span class="section-number-4">1.2.1</span> Adding data by file upload</h4>
+<div id="outline-container-org24bd734" class="outline-4">
+<h4 id="org24bd734"><span class="section-number-4">1.2.1</span> Adding data by file upload</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 In this view RDF files can be uploaded, either by
@@ -442,7 +462,7 @@ This allows an arbitrary number of files to be uploaded.
 </div>
 
 <ol class="org-ol">
-<li><a id="orgc5991e2"></a>Adding malformed data<br />
+<li><a id="org871caf4"></a>Adding malformed data<br />
 <div class="outline-text-5" id="text-1-2-1-1">
 <p>
 TriplyDB only allows valid data to be added.  If data is malformed,
@@ -452,7 +472,7 @@ encountered, the RDF file must first be corrected and uploaded again.
 </p>
 
 
-<div id="org0c51f48" class="figure">
+<div id="org37ec889" class="figure">
 <p><img src="https:/wouterbeek.github.io/resource/img/triply/upload-error.png" alt="upload-error.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Screenshot of an error message indicating syntactically malformed RDF data.</p>
@@ -462,8 +482,8 @@ encountered, the RDF file must first be corrected and uploaded again.
 </ol>
 </div>
 
-<div id="outline-container-org5362a7a" class="outline-4">
-<h4 id="org5362a7a"><span class="section-number-4">1.2.2</span> Adding data by URL upload</h4>
+<div id="outline-container-org6b2fc23" class="outline-4">
+<h4 id="org6b2fc23"><span class="section-number-4">1.2.2</span> Adding data by URL upload</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 The second option for adding data is to include it from an online URL
@@ -473,8 +493,8 @@ a URL” text field.
 </div>
 </div>
 
-<div id="outline-container-orga007489" class="outline-4">
-<h4 id="orga007489"><span class="section-number-4">1.2.3</span> Adding data by import</h4>
+<div id="outline-container-orge79c09a" class="outline-4">
+<h4 id="orge79c09a"><span class="section-number-4">1.2.3</span> Adding data by import</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 The third option for adding data is to import from datasets that are
@@ -485,8 +505,8 @@ data from an existing dataset” dropdown list (see screenshot).
 </div>
 </div>
 
-<div id="outline-container-orga982c27" class="outline-3">
-<h3 id="orga982c27"><span class="section-number-3">1.3</span> Entering metadata</h3>
+<div id="outline-container-org8dc048d" class="outline-3">
+<h3 id="org8dc048d"><span class="section-number-3">1.3</span> Entering metadata</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Adding metadata to your datasets is important.  This makes it easier
@@ -501,7 +521,7 @@ left-hand sidebar (see screenshot).
 </p>
 
 
-<div id="org03016da" class="figure">
+<div id="org7c17339" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/cog-wheel.png" alt="cog-wheel.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>The dataset homepage looks empty without metadata.  Notice the cog wheel icon, which provides access to the “Dataset settings” page.</p>
@@ -522,7 +542,7 @@ Markdown formatting.</li>
 </ul>
 
 
-<div id="org0e6d0d3" class="figure">
+<div id="orgf32ee15" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/dataset-settings-page.png" alt="dataset-settings-page.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>The dataset settings page allows valious forms of dataset metadata to be added.</p>
@@ -533,7 +553,7 @@ The same dataset looks nicer once metadata has been entered:
 </p>
 
 
-<div id="org096ba94" class="figure">
+<div id="org7b27f7f" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/dataset-homepage-with-metadata.png" alt="dataset-homepage-with-metadata.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span>The dataset home page after metadata has been entered.</p>
@@ -548,7 +568,7 @@ understands metadata properties like title, description, and image.
 </p>
 
 
-<div id="orgbd04648" class="figure">
+<div id="org9ca2e6d" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/slack-widget.png" alt="slack-widget.png" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Widget created by the Slack chat application upon sharing a link to a dataset in TriplyDB.</p>
@@ -556,8 +576,8 @@ understands metadata properties like title, description, and image.
 </div>
 </div>
 
-<div id="outline-container-org9d396d9" class="outline-3">
-<h3 id="org9d396d9"><span class="section-number-3">1.4</span> Starting services</h3>
+<div id="outline-container-org61179d4" class="outline-3">
+<h3 id="org61179d4"><span class="section-number-3">1.4</span> Starting services</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 By default, datasets in TriplyDB can be queried through the <a href="https://wouterbeek.github.io/page/TriplyClient.html">Triply
@@ -584,120 +604,166 @@ to be created.
 </p>
 
 <p>
-It is possible to create multiple services for one dataset.  Services
-can be created, deleted, stopped, and restarted from the services
-page.  If data is added/remove to the dataset later, the service can
-also be synchronized (a synchronization button will appear on the
-service widget).
+It is possible to create multiple services for one dataset.
+</p>
+</div>
+
+<div id="outline-container-orgad621f1" class="outline-4">
+<h4 id="orgad621f1"><span class="section-number-4">1.4.1</span> Existing services</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Existing services are displayed on service widgets (see screenshot).
+From these widgets, services can be created, deleted, stopped, and
+restarted.
+</p>
+
+<p>
+If data is added to and/or remove from the dataset later.  The service
+can also be synchronized by pressing the synchronization button that
+appears on the service widget.
+</p>
+
+<p>
+#+name service-widget
+<img src="https://wouterbeek.githun.io/resource/img/triply/service-widget.png" alt="service-widget.png" />
 </p>
 </div>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgb3faeb9" class="outline-2">
-<h2 id="orgb3faeb9"><span class="section-number-2">2</span> Admin tasks</h2>
+<div id="outline-container-orgefae17c" class="outline-2">
+<h2 id="orgefae17c"><span class="section-number-2">2</span> Tabular browser</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-Admin tasks are performed within the admin settings page.  The
-following steps bring up the admin settings page:
-</p>
-
-<ol class="org-ol">
-<li>In order to perform admin tasks, a user with admin credentials
-must be logged into TriplyDB.  See <a href="#orge6e4606">No description for this link</a> for how to log into
-TriplyDB.</li>
-
-<li>Once an admin is logged in, the admin settings are accessed by
-clicking on the user menu in top-right corner and selecting the
-“Admin settings” menu item.</li>
-</ol>
-
-<p>
-This brings up the following admin settings page from which admin
-tasks can be performed:
-</p>
-
-
-<div id="org69a93f5" class="figure">
-<p><img src="https://wouterbeek.github.io/resource/img/triply/admin-settings.png" alt="admin-settings.png" />
-</p>
-<p><span class="figure-number">Figure 8: </span>Screenshot of the admin settings page.</p>
 </div>
-</div>
-
-<div id="outline-container-org9545dfe" class="outline-3">
-<h3 id="org9545dfe"><span class="section-number-3">2.1</span> Create a new user</h3>
+<div id="outline-container-org9054bfe" class="outline-3">
+<h3 id="org9054bfe"><span class="section-number-3">2.1</span> Triple Pattern Fragments (TPF)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-New users can only be created by administrators by performing the
-following steps:
+Triple Pattern Fragments (TPF) is a community standard that allows
+individual Linked Datasets to be queries for Triply Patterns (TP), a
+subset of the more complex SPARQL query language.  The Triply API
+implements <a href="http://www.hydra-cg.com/spec/latest/triple-pattern-fragments/">Triple Pattern Fragments</a> version 2019-01-18 and <a href="http://www.hydra-cg.com/spec/latest/linked-data-fragments/">Linked Data
+Fragments</a> version 2016-06-05.
 </p>
-
-<ol class="org-ol">
-<li>Log in as an administrator, click on the “Admin settings” link in
-the user menu (top-right corner) and click the “Accounts” tab.
-This brings up an overview of all users and organizations on the
-TriplyDB instance.</li>
-
-<li>Click the “Add user” button.</li>
-
-<li>Fill in the user name and email address of the prospective user.
-The user name must consist of alphanumeric characters (<code>A-Za-z</code>)
-and hyphens (<code>-</code>).</li>
-
-<li>Click the “Add user” button.  This sends an account creation
-email to the prospective user, containing a link that allows them
-to log in.</li>
-</ol>
 
 <p>
-In addition to the above default procedure, the following two options
-are provided for user account creation:
+The Triple Pattern Fragments (TPF) API is available for all datasets
+in Triply and does not require running a dedicated service.
 </p>
-
-<dl class="org-dl">
-<dt>Temporary account</dt><dd>By default, user accounts do not expire.
-Sometimes it is useful to create a temporary account by specifying
-a concrete data in the “Account expiration date” widget.</dd>
-
-<dt>Preset password</dt><dd>By default, a user can set her password after
-logging in for the first time by clicking on the link in the
-account creation email.  When a password is entered in the
-“Password” field, the user must enter this password in order to
-log in for the first time.</dd>
-</dl>
-</div>
 </div>
 
-<div id="outline-container-orgf49d544" class="outline-3">
-<h3 id="orgf49d544"><span class="section-number-3">2.2</span> Account overview</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org4c51c50" class="outline-4">
+<h4 id="org4c51c50"><span class="section-number-4">2.1.1</span> URI path</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <p>
-Go to the “Accounts tab” to receive an overview of all accounts on the
-TriplyDB instance.
+TPF requests are sent to the following URI path:
 </p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.INSTANCE/datasets/ACCOUNT/DATATSET/fragments
+</pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgbe02da2" class="outline-2">
-<h2 id="orgbe02da2"><span class="section-number-2">3</span> Text search</h2>
-</div>
-<div id="outline-container-org0e7c8e4" class="outline-2">
-<h2 id="org0e7c8e4"><span class="section-number-2">4</span> SPARQL</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org0657afd" class="outline-4">
+<h4 id="org0657afd"><span class="section-number-4">2.1.2</span> Reply format</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <p>
-This section explains
+Since TPF replies distinguish between data and metadata that are
+stored in different graphs, it is recommended to request the TriG
+content type with the following HTTP request header:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-http"><span style="color: #BA36A5;">Accept</span><span style="color: #8D8D84; font-style: italic;">:</span> <span style="color: #008000;">application/trig</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9392638" class="outline-4">
+<h4 id="org9392638"><span class="section-number-4">2.1.3</span> Query parameters</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Triple Pattern Fragments (TPF) uses the following query parameters in
+order to retrieve only those triples that adhere to a specified Triple
+Pattern:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Key</b></th>
+<th scope="col" class="org-left"><b>Value</b></th>
+<th scope="col" class="org-left"><b>Purpose</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>subject</code></td>
+<td class="org-left">A URL-encoded IRI.</td>
+<td class="org-left">Only return triples where the given IRI appears in the subject position.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>predicate</code></td>
+<td class="org-left">A URL-encoded IRI.</td>
+<td class="org-left">Only return triples where the given IRI appears in the predicate position.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>object</code></td>
+<td class="org-left">A URL-encoded IRI or literal.</td>
+<td class="org-left">Only return triples where the given IRI or literal appears in the object position.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0d6ef45" class="outline-4">
+<h4 id="org0d6ef45"><span class="section-number-4">2.1.4</span> Example request</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<div class="org-src-container">
+<pre class="src src-bash">$ curl -G <span style="color: #008000;">\</span>
+       <span style="color: #008000;">'https://api.demo.triply.cc/datasets/academy/pokemon/fragments'</span> <span style="color: #008000;">\</span>
+       --data-urlencode <span style="color: #008000;">'predicate=http://www.w3.org/2000/01/rdf-schema#label'</span> <span style="color: #008000;">\</span>
+       -H <span style="color: #008000;">'Accept: application/trig'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78b688c" class="outline-2">
+<h2 id="org78b688c"><span class="section-number-2">3</span> SPARQL IDE</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This section explains the use of SPARQL in TriplyDB.  It provides
+various advanced features for creating, sharing, and visualizing
+SPARQL queries and their results.
 </p>
 </div>
 
-<div id="outline-container-org1f4b24c" class="outline-3">
-<h3 id="org1f4b24c"><span class="section-number-3">4.1</span> SPARQL Editor</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org4bfd6ef" class="outline-3">
+<h3 id="org4bfd6ef"><span class="section-number-3">3.1</span> SPARQL Editor</h3>
+<div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org1436cc8" class="outline-4">
-<h4 id="org1436cc8"><span class="section-number-4">4.1.1</span> Supported key combinations</h4>
-<div class="outline-text-4" id="text-4-1-1">
+<div id="outline-container-org8d60ba0" class="outline-4">
+<h4 id="org8d60ba0"><span class="section-number-4">3.1.1</span> Supported key combinations</h4>
+<div class="outline-text-4" id="text-3-1-1">
 <p>
 The following table enumerates the key combinations that are supported
 by the SPARQL Editor.  We sometimes use the notion of a <b><b>group</b></b>,
@@ -824,10 +890,11 @@ newline.
 </table>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgba2d82a" class="outline-4">
-<h4 id="orgba2d82a"><span class="section-number-4">4.1.2</span> Triply Templates</h4>
-<div class="outline-text-4" id="text-4-1-2">
+<div id="outline-container-orgea276f6" class="outline-3">
+<h3 id="orgea276f6"><span class="section-number-3">3.2</span> SPARQL Templates</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 SPARQL has standardized capabilities for constructing complex strings
 and literals.  This allows human-readable label and HTML widgets to be
@@ -837,7 +904,7 @@ constructing such labels and widgets is a bit cumbersome.
 
 <p>
 For example, the following SPARQL query returns HTML widgets that can
-be displayed in a web browser (see <a href="#org0ac318f">6</a>).  It uses the
+be displayed in a web browser (see <a href="#org70b98d0">3.4</a>).  It uses the
 <code>concat</code> function which allows an arbitrary number of string arguments
 to be concatenated into one string.  Notice that this requires
 extensive quoting for each argument (e.g., <code>'&lt;h3&gt;'</code>), as well as
@@ -908,8 +975,8 @@ prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/20
 </div>
 
 <p>
-The SPARQL Editor in TriplyDB supports Triply Templates, which makes
-it easier to write human-readable labels and HTML widgets.  Triply
+The SPARQL Editor in TriplyDB supports SPARQL Templates, which makes
+it easier to write human-readable labels and HTML widgets.  SPARQL
 Templates are strings in which occurrences of <code>{{x}}</code> will be replaced
 with the to-string converted results of bindings to SPARQL variable
 <code>?x</code>.
@@ -918,7 +985,7 @@ with the to-string converted results of bindings to SPARQL variable
 <p>
 The following example query produces the same result set as the above
 one, but allows the entire HTML string to be written at once as a
-Triply Template.  Notice that this removes the need for concatenating
+SPARQL Template.  Notice that this removes the need for concatenating
 (<code>concat/n</code>), explicit to-string conversion (<code>str/1</code>), and also allows
 the HTML literal to be constructed more easily (no <code>strdt/2</code> needed).
 You can <a href="https://demo.triply.cc/academy/pokemon/queries/sparql-templating/2">try this query online</a>.
@@ -984,28 +1051,26 @@ prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/20
 </div>
 
 <p>
-Triply Templates can be combined with the <a href="#org0ac318f">6</a> feauture in
+SPARQL Templates can be combined with the <a href="#org70b98d0">3.4</a> feauture in
 order to generate galleries of HTML widgets.
 </p>
 </div>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org8f800c6" class="outline-2">
-<h2 id="org8f800c6"><span class="section-number-2">5</span> SPARQL Table</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgadea33d" class="outline-3">
+<h3 id="orgadea33d"><span class="section-number-3">3.3</span> SPARQL Table</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 This view allows SPARQL results to be displayed in a table.  Each
 column in the table corresponds to a variable that belongs to the
-<a href="#orge52e283">No description for this link</a>.  Each row in the table corresponds to one query
+<a href="#org63247f9">No description for this link</a>.  Each row in the table corresponds to one query
 result.  Each cell contains an RDF term or <code>NULL</code>.
 </p>
 </div>
 
-<div id="outline-container-orga756351" class="outline-4">
-<h4 id="orga756351"><span class="section-number-4">5.0.1</span> Features</h4>
-<div class="outline-text-4" id="text-5-0-1">
+<div id="outline-container-org2647337" class="outline-4">
+<h4 id="org2647337"><span class="section-number-4">3.3.1</span> Features</h4>
+<div class="outline-text-4" id="text-3-3-1">
 <p>
 In addition to displaying the SPARQL result set, the SPARQL Table has
 the following features:
@@ -1013,8 +1078,8 @@ the following features:
 </div>
 
 <ol class="org-ol">
-<li><a id="org14cc6fb"></a>Abbreviations<br />
-<div class="outline-text-5" id="text-5-0-1-1">
+<li><a id="orgac0adbc"></a>Abbreviations<br />
+<div class="outline-text-5" id="text-3-3-1-1">
 <p>
 The SPARQL Table uses the prefix declarations in the SPARQL query in
 order to abbreviate IRIs that appear in table cells.
@@ -1022,8 +1087,8 @@ order to abbreviate IRIs that appear in table cells.
 </div>
 </li>
 
-<li><a id="org95ed24e"></a>Filter<br />
-<div class="outline-text-5" id="text-5-0-1-2">
+<li><a id="org687c44c"></a>Filter<br />
+<div class="outline-text-5" id="text-3-3-1-2">
 <p>
 By entering a search string into the “Filter query results” field, the
 table will only display result rows in which the entered search string
@@ -1032,8 +1097,8 @@ appears.
 </div>
 </li>
 
-<li><a id="org12e9959"></a>Indices<br />
-<div class="outline-text-5" id="text-5-0-1-3">
+<li><a id="org208bab9"></a>Indices<br />
+<div class="outline-text-5" id="text-3-3-1-3">
 <p>
 The first column in the table indicates the index of each row in the
 SPARQL result set.
@@ -1041,8 +1106,8 @@ SPARQL result set.
 </div>
 </li>
 
-<li><a id="org31db313"></a>Pagination<br />
-<div class="outline-text-5" id="text-5-0-1-4">
+<li><a id="orgfbf6206"></a>Pagination<br />
+<div class="outline-text-5" id="text-3-3-1-4">
 <p>
 By default the Table displays at most 50 rows.  This maximum value can
 be changed to 10, 100, 1.000, or “All”.
@@ -1050,8 +1115,8 @@ be changed to 10, 100, 1.000, or “All”.
 </div>
 </li>
 
-<li><a id="orgc32880a"></a>Sorting<br />
-<div class="outline-text-5" id="text-5-0-1-5">
+<li><a id="org32f34d8"></a>Sorting<br />
+<div class="outline-text-5" id="text-3-3-1-5">
 <p>
 A sort widget appears to the right of each header label.  By pressing
 on the upward pointing arrow of the sort widget, rows will be sorted
@@ -1065,9 +1130,9 @@ lexicographic order.
 </ol>
 </div>
 
-<div id="outline-container-org7a37b0c" class="outline-4">
-<h4 id="org7a37b0c"><span class="section-number-4">5.0.2</span> Example</h4>
-<div class="outline-text-4" id="text-5-0-2">
+<div id="outline-container-orgab77ca3" class="outline-4">
+<h4 id="orgab77ca3"><span class="section-number-4">3.3.2</span> Example</h4>
+<div class="outline-text-4" id="text-3-3-2">
 <p>
 The following SPARQL query returns a table of Pokémon dragons (column
 <code>pokemon</code>) and their happiness (column <code>happiness</code>).  Notice that the
@@ -1111,18 +1176,18 @@ prefix type: &lt;https://triply.cc/academy/pokemon/id/type/">&lt;https://triply.
 </p>
 
 
-<div id="org6bc9116" class="figure">
+<div id="org6988d43" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/sparql-table-example.png" alt="sparql-table-example.png" />
 </p>
-<p><span class="figure-number">Figure 9: </span>Screenshot of the SPARQL Table view over the above query.</p>
+<p><span class="figure-number">Figure 8: </span>Screenshot of the SPARQL Table view over the above query.</p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0ac318f" class="outline-2">
-<h2 id="org0ac318f"><span class="section-number-2">6</span> SPARQL Gallery</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org70b98d0" class="outline-3">
+<h3 id="org70b98d0"><span class="section-number-3">3.4</span> SPARQL Gallery</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 This view allows SPARQL results to be displayed in an HTML gallery.
 Each individual result corresponds to one HTML widget.  Widgets are
@@ -1130,9 +1195,9 @@ displayed in rows and columns to make up a widget gallery.
 </p>
 </div>
 
-<div id="outline-container-org3b69ca4" class="outline-4">
-<h4 id="org3b69ca4"><span class="section-number-4">6.0.1</span> Variables</h4>
-<div class="outline-text-4" id="text-6-0-1">
+<div id="outline-container-org697166b" class="outline-4">
+<h4 id="org697166b"><span class="section-number-4">3.4.1</span> Variables</h4>
+<div class="outline-text-4" id="text-3-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1157,9 +1222,9 @@ displayed in rows and columns to make up a widget gallery.
 </div>
 </div>
 
-<div id="outline-container-orga49192c" class="outline-4">
-<h4 id="orga49192c"><span class="section-number-4">6.0.2</span> Styling</h4>
-<div class="outline-text-4" id="text-6-0-2">
+<div id="outline-container-orgdab9b06" class="outline-4">
+<h4 id="orgdab9b06"><span class="section-number-4">3.4.2</span> Styling</h4>
+<div class="outline-text-4" id="text-3-4-2">
 <p>
 Sometimes the cards do not have the required size.  In such cases the
 following style tweaks can help to make them the right size:
@@ -1174,22 +1239,22 @@ following style tweaks can help to make them the right size:
 </div>
 </div>
 
-<div id="outline-container-org75f618a" class="outline-4">
-<h4 id="org75f618a"><span class="section-number-4">6.0.3</span> Example</h4>
-<div class="outline-text-4" id="text-6-0-3">
+<div id="outline-container-org0773a2b" class="outline-4">
+<h4 id="org0773a2b"><span class="section-number-4">3.4.3</span> Example</h4>
+<div class="outline-text-4" id="text-3-4-3">
 <p>
 The following SPARQL query binds an HTML string consisting of a header
 (<code>h3</code>), an image (<code>img</code>), and an audio element (<code>audio</code>) to the
 <code>?widget</code> variable.  This results in a gallery with 25 widgets, each
-displaying a Pokémon.  (This SPARQL query also uses <a href="#orgba2d82a">4.1.2</a>
+displaying a Pokémon.  (This SPARQL query also uses <a href="#orgea276f6">3.2</a>
 in order to simplify its syntax.)  This query can be <a href="https://demo.triply.cc/academy/pokemon/queries/gallery">run online</a>.
 </p>
 
 
-<div id="orgf63c420" class="figure">
+<div id="org6541ad7" class="figure">
 <p><img src="https://wouterbeek.github.io/resource/img/triply/pok%C3%A9mon-gallery.png" alt="pok%C3%A9mon-gallery.png" />
 </p>
-<p><span class="figure-number">Figure 10: </span>SPARQL Gallery view of a Pokémon query that uses Triply Templating.</p>
+<p><span class="figure-number">Figure 9: </span>SPARQL Gallery view of a Pokémon query that uses SPARQL Templating.</p>
 </div>
 
 <div class="org-src-container">
@@ -1275,18 +1340,18 @@ prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/20
 </div>
 </div>
 
-<div id="outline-container-org0f7f6d7" class="outline-2">
-<h2 id="org0f7f6d7"><span class="section-number-2">7</span> SPARQL 2D Map</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org8cdbc8c" class="outline-3">
+<h3 id="org8cdbc8c"><span class="section-number-3">3.5</span> SPARQL 2D Map</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 This view allows SPARQL results that contain GeoSPARQL semantics to be
 automatically interpreted and displayed on a 2D map.
 </p>
 </div>
 
-<div id="outline-container-orgd3fee24" class="outline-4">
-<h4 id="orgd3fee24"><span class="section-number-4">7.0.1</span> Variables</h4>
-<div class="outline-text-4" id="text-7-0-1">
+<div id="outline-container-orga11df8b" class="outline-4">
+<h4 id="orga11df8b"><span class="section-number-4">3.5.1</span> Variables</h4>
+<div class="outline-text-4" id="text-3-5-1">
 <p>
 This view recognizes the following SPARQL variable names:
 </p>
@@ -1325,40 +1390,40 @@ This view recognizes the following SPARQL variable names:
 </div>
 
 <ol class="org-ol">
-<li><a id="orgf11b357"></a>Color values<br />
-<div class="outline-text-5" id="text-7-0-1-1">
+<li><a id="orga1cbcb9"></a>Color values<br />
+<div class="outline-text-5" id="text-3-5-1-1">
 <p>
 Variable <code>?xColor</code> can bind values of the following types:
 </p>
 </div>
 
 <ol class="org-ol">
-<li><a id="org57e07ea"></a>CSS color names<br />
-<div class="outline-text-6" id="text-7-0-1-1-1">
+<li><a id="org8dc7ee7"></a>CSS color names<br />
+<div class="outline-text-6" id="text-3-5-1-1-1">
 <p>
 See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
 </p>
 </div>
 </li>
 
-<li><a id="orgc575a6f"></a>RGB color codes<br />
-<div class="outline-text-6" id="text-7-0-1-1-2">
+<li><a id="org5de679e"></a>RGB color codes<br />
+<div class="outline-text-6" id="text-3-5-1-1-2">
 <p>
 See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
 </p>
 </div>
 </li>
 
-<li><a id="org5b12c7f"></a>HSL color codes<br />
-<div class="outline-text-6" id="text-7-0-1-1-3">
+<li><a id="org3ba615c"></a>HSL color codes<br />
+<div class="outline-text-6" id="text-3-5-1-1-3">
 <p>
 See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN</a>.
 </p>
 </div>
 </li>
 
-<li><a id="orgda7bf35"></a>Gradients<br />
-<div class="outline-text-6" id="text-7-0-1-1-4">
+<li><a id="org24dc96f"></a>Gradients<br />
+<div class="outline-text-6" id="text-3-5-1-1-4">
 <p>
 Strings of the form <code>{{PALETTE}},{{VALUE}}</code>, where <code>{{VALUE}}</code> is a
 floating-point number between 0.0 and 1.0 and <code>{{PALETTE}}</code> is the
@@ -1368,16 +1433,16 @@ supported color palette names:
 </div>
 
 <ol class="org-ol">
-<li><a id="org28b170b"></a>colormap<br />
-<div class="outline-text-7" id="text-7-0-1-1-4-1">
+<li><a id="org453c15d"></a>colormap<br />
+<div class="outline-text-7" id="text-3-5-1-1-4-1">
 <p>
 See <a href="https://www.npmjs.com/package/colormap">colormap</a>.
 </p>
 </div>
 </li>
 
-<li><a id="orgf788313"></a>Color Brewer<br />
-<div class="outline-text-7" id="text-7-0-1-1-4-2">
+<li><a id="orgb815f57"></a>Color Brewer<br />
+<div class="outline-text-7" id="text-3-5-1-1-4-2">
 <p>
 See <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">Color Brewer</a>.
 </p>
@@ -1391,9 +1456,9 @@ See <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">C
 </div>
 </div>
 
-<div id="outline-container-orgf720dbc" class="outline-2">
-<h2 id="orgf720dbc"><span class="section-number-2">8</span> SPARQL 3D Map</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orge1f321c" class="outline-3">
+<h3 id="orge1f321c"><span class="section-number-3">3.6</span> SPARQL 3D Map</h3>
+<div class="outline-text-3" id="text-3-6">
 <p>
 This view allows SPARQL results that contain GeoSPARQL semantics to be
 automatically interpreted and displayed on a 3D map.
@@ -1414,9 +1479,9 @@ for each point (longitude and latitude).</dd>
 </dl>
 </div>
 
-<div id="outline-container-org6d723fb" class="outline-4">
-<h4 id="org6d723fb"><span class="section-number-4">8.0.1</span> Variables</h4>
-<div class="outline-text-4" id="text-8-0-1">
+<div id="outline-container-org318d48b" class="outline-4">
+<h4 id="org318d48b"><span class="section-number-4">3.6.1</span> Variables</h4>
+<div class="outline-text-4" id="text-3-6-1">
 <p>
 This view recognizes the following SPARQL variable names:
 </p>
@@ -1466,13 +1531,13 @@ This view recognizes the following SPARQL variable names:
 </div>
 </div>
 
-<div id="outline-container-org8bd579c" class="outline-2">
-<h2 id="org8bd579c"><span class="section-number-2">9</span> SPARQL Charts</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgc41828a" class="outline-3">
+<h3 id="orgc41828a"><span class="section-number-3">3.7</span> SPARQL Charts</h3>
 </div>
-<div id="outline-container-org35e1f4a" class="outline-3">
-<h3 id="org35e1f4a"><span class="section-number-3">9.1</span> TreeMap</h3>
-<div class="outline-text-3" id="text-9-1">
+
+<div id="outline-container-orgf9bf94d" class="outline-3">
+<h3 id="orgf9bf94d"><span class="section-number-3">3.8</span> TreeMap</h3>
+<div class="outline-text-3" id="text-3-8">
 <p>
 The TreeMap view can be used to display hierarchies that are retrieved
 using <code>select</code> queries.  The result set must consist of the following
@@ -1507,28 +1572,26 @@ including the number of levels that is displayed.
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orge685803" class="outline-2">
-<h2 id="orge685803"><span class="section-number-2">10</span> SPARQL Pivot Table</h2>
+<div id="outline-container-org0d5fefa" class="outline-3">
+<h3 id="org0d5fefa"><span class="section-number-3">3.9</span> SPARQL Pivot Table</h3>
 </div>
-
-<div id="outline-container-org27419b4" class="outline-2">
-<h2 id="org27419b4"><span class="section-number-2">11</span> SPARQL Raw View</h2>
+<div id="outline-container-orga25b27d" class="outline-3">
+<h3 id="orga25b27d"><span class="section-number-3">3.10</span> SPARQL Raw View</h3>
 </div>
-
-<div id="outline-container-org395e9d5" class="outline-2">
-<h2 id="org395e9d5"><span class="section-number-2">12</span> Data Stories</h2>
-<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org79eee2d" class="outline-2">
+<h2 id="org79eee2d"><span class="section-number-2">4</span> Data Stories</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 Data Stories allows a sequence of SPARQL queries to be published
 within an HTML document.
 </p>
 </div>
 
-<div id="outline-container-org046066e" class="outline-3">
-<h3 id="org046066e"><span class="section-number-3">12.1</span> Markup language declaration</h3>
-<div class="outline-text-3" id="text-12-1">
+<div id="outline-container-org224e3ce" class="outline-3">
+<h3 id="org224e3ce"><span class="section-number-3">4.1</span> Markup language declaration</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 Data Stories are written in HTML 5.  This is declared at the beginning
 of the document:
@@ -1541,9 +1604,9 @@ of the document:
 </div>
 </div>
 
-<div id="outline-container-orgf360dca" class="outline-3">
-<h3 id="orgf360dca"><span class="section-number-3">12.2</span> Main natural language declaration</h3>
-<div class="outline-text-3" id="text-12-2">
+<div id="outline-container-orgd48ab70" class="outline-3">
+<h3 id="orgd48ab70"><span class="section-number-3">4.2</span> Main natural language declaration</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 The natural language in which most of the Data Story will be written
 is declared in the <code>lang</code> attribute of the outer <code>html</code> tag:
@@ -1563,9 +1626,9 @@ main natural language must declare this on the corresponding tag.
 </div>
 </div>
 
-<div id="outline-container-org47a7a6c" class="outline-3">
-<h3 id="org47a7a6c"><span class="section-number-3">12.3</span> Encoding declaration</h3>
-<div class="outline-text-3" id="text-12-3">
+<div id="outline-container-org0ae8a14" class="outline-3">
+<h3 id="org0ae8a14"><span class="section-number-3">4.3</span> Encoding declaration</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 Since Data Stories are encoded in UTF-8, this is declared at the
 beginning of the <code>head</code> content:
@@ -1588,9 +1651,9 @@ content may result in some User Agents not detecting it.
 </div>
 </div>
 
-<div id="outline-container-orgb31d049" class="outline-3">
-<h3 id="orgb31d049"><span class="section-number-3">12.4</span> Metadata</h3>
-<div class="outline-text-3" id="text-12-4">
+<div id="outline-container-orgeb7a076" class="outline-3">
+<h3 id="orgeb7a076"><span class="section-number-3">4.4</span> Metadata</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
 The <code>author</code> and <code>description</code> meta tags must both be supplied as
 children of the <code>head</code> tag, and their content must be structured
@@ -1611,9 +1674,9 @@ content as the <code>description</code> meta tag.
 </div>
 </div>
 
-<div id="outline-container-org4e72262" class="outline-3">
-<h3 id="org4e72262"><span class="section-number-3">12.5</span> Navigation bar</h3>
-<div class="outline-text-3" id="text-12-5">
+<div id="outline-container-org6adce90" class="outline-3">
+<h3 id="org6adce90"><span class="section-number-3">4.5</span> Navigation bar</h3>
+<div class="outline-text-3" id="text-4-5">
 <p>
 Data Stories contain a navigation bar that allows users to return to
 the Data Stories overview page.
@@ -1640,9 +1703,9 @@ the Data Stories overview page.
 </div>
 </div>
 
-<div id="outline-container-orga2d2b98" class="outline-3">
-<h3 id="orga2d2b98"><span class="section-number-3">12.6</span> External links</h3>
-<div class="outline-text-3" id="text-12-6">
+<div id="outline-container-org4109a68" class="outline-3">
+<h3 id="org4109a68"><span class="section-number-3">4.6</span> External links</h3>
+<div class="outline-text-3" id="text-4-6">
 <p>
 Links that appear in the Data Story and that link to other web pages
 must be specified in the following way:
@@ -1672,9 +1735,9 @@ being sent.
 </div>
 </div>
 
-<div id="outline-container-org663ae5a" class="outline-3">
-<h3 id="org663ae5a"><span class="section-number-3">12.7</span> HTML elements</h3>
-<div class="outline-text-3" id="text-12-7">
+<div id="outline-container-org59ba795" class="outline-3">
+<h3 id="org59ba795"><span class="section-number-3">4.7</span> HTML elements</h3>
+<div class="outline-text-3" id="text-4-7">
 <p>
 Data Stories defines the following two HTML elements:
 </p>
@@ -1688,9 +1751,9 @@ Story.</dd>
 </dl>
 </div>
 
-<div id="outline-container-org0554b08" class="outline-4">
-<h4 id="org0554b08"><span class="section-number-4">12.7.1</span> story element</h4>
-<div class="outline-text-4" id="text-12-7-1">
+<div id="outline-container-org0b8ce89" class="outline-4">
+<h4 id="org0b8ce89"><span class="section-number-4">4.7.1</span> story element</h4>
+<div class="outline-text-4" id="text-4-7-1">
 <p>
 The following attributes are defined on a <code>&lt;div class="story"&gt;</code>
 element:
@@ -1732,9 +1795,9 @@ the default value.</dd>
 </div>
 </div>
 
-<div id="outline-container-org533849a" class="outline-4">
-<h4 id="org533849a"><span class="section-number-4">12.7.2</span> query element</h4>
-<div class="outline-text-4" id="text-12-7-2">
+<div id="outline-container-org028ff52" class="outline-4">
+<h4 id="org028ff52"><span class="section-number-4">4.7.2</span> query element</h4>
+<div class="outline-text-4" id="text-4-7-2">
 <p>
 The following attributes are defined on the <code>query</code> element:
 </p>
@@ -1765,10 +1828,335 @@ this attribute is present, the query editor is shown.</dd>
 </div>
 </div>
 </div>
+<div id="outline-container-orgbdd4e8f" class="outline-2">
+<h2 id="orgbdd4e8f"><span class="section-number-2">5</span> Text search</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgcf1e148" class="outline-3">
+<h3 id="orgcf1e148"><span class="section-number-3">5.1</span> Text search GUI</h3>
+</div>
+<div id="outline-container-org59768bd" class="outline-3">
+<h3 id="org59768bd"><span class="section-number-3">5.2</span> Text search API</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+The text search API returns a list of Linked Data entities based on a
+supplied text string.  The text string is matched against the text in
+literals and IRIs that appear in the Linked Data description of the
+returned entities.
+</p>
+
+<p>
+The text search API is only available for a dataset after an
+ElasticSearch service has been created for that dataset.
+</p>
+</div>
+
+<div id="outline-container-org12c19de" class="outline-4">
+<h4 id="org12c19de"><span class="section-number-4">5.2.1</span> URI path</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+Text search requests are sent to the following URI path:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.INSTANCE/datasets/ACCOUNT/DATASET/services/SERVICE/search
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b6542c" class="outline-4">
+<h4 id="org2b6542c"><span class="section-number-4">5.2.2</span> Reply format</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+The reply format is a JSON object.  Search results are returned in the
+JSON array that is stored under key sequence <code>"hits"/"hits"</code>.  The
+order in which search results appear in the array is meaningful:
+better matches appear earlier.
+</p>
+
+<p>
+Every search result is represented by a JSON object.  The name of the
+Linked Data entity is specified under key sequence <code>"_id"</code>.
+Properties of the Linked Data entity are stored as IRI keys.  The
+values of these properties appear in a JSON array in order to allow
+more than one object term per predicate term (as is often the case in
+Linked Data).
+</p>
+
+<p>
+The following code snippet shows part of the reply for the below
+example request.  The reply includes two results for search string
+“mew”, returning the Pokémon Mew (higher ranked result) and Mewtwo
+(lower ranked result).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  <span style="color: #0000FF;">"hits"</span>: {
+    <span style="color: #0000FF;">"hits"</span>: [
+      {
+        <span style="color: #0000FF;">"_id"</span>: <span style="color: #008000;">"https://triply.cc/academy/pokemon/id/pokemon/mew"</span>,
+        <span style="color: #0000FF;">"http://open vocab org/terms/canonicalUri"</span>: [ <span style="color: #008000;">"http://pokedex.dataincubator.org/pokemon/151"</span> ],
+        <span style="color: #0000FF;">"https://triply cc/academy/pokemon/def/baseAttack"</span>: [ <span style="color: #D0372D;">100</span> ],
+        <span style="color: #0000FF;">"https://triply cc/academy/pokemon/def/name"</span>: [ <span style="color: #008000;">"MEW"</span>, <span style="color: #008000;">"MEW"</span>, <span style="color: #008000;">"MEW"</span>, <span style="color: #008000;">"MEW"</span>, <span style="color: #008000;">"MEW"</span>, <span style="color: #008000;">"&#12511;&#12517;&#12454;"</span> ],
+        &#8230;
+      },
+      {
+        <span style="color: #0000FF;">"_id"</span>: <span style="color: #008000;">"https://triply.cc/academy/pokemon/id/pokemon/mewtwo"</span>,
+        <span style="color: #0000FF;">"http://open vocab org/terms/canonicalUri"</span>: [ <span style="color: #008000;">"http://pokedex.dataincubator.org/pokemon/150"</span> ],
+        <span style="color: #0000FF;">"https://triply cc/academy/pokemon/def/baseAttack"</span>: [ <span style="color: #D0372D;">110</span> ],
+        <span style="color: #0000FF;">"https://triply cc/academy/pokemon/def/name"</span>: [ <span style="color: #008000;">"MEWTU"</span>, <span style="color: #008000;">"MEWTWO"</span>, <span style="color: #008000;">"MEWTWO"</span>, <span style="color: #008000;">"MEWTWO"</span>, <span style="color: #008000;">"MEWTWO"</span>, <span style="color: #008000;">"&#12511;&#12517;&#12454;&#12484;&#12540;"</span> ],
+        &#8230;
+      }
+    ]
+  },
+  &#8230;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d209aa" class="outline-4">
+<h4 id="org8d209aa"><span class="section-number-4">5.2.3</span> Example</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">$ curl <span style="color: #008000;">'https://api.demo.triply.cc/datasets/academy/pokemon/services/text/search?query=mew'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga94b5d8" class="outline-2">
+<h2 id="orga94b5d8"><span class="section-number-2">6</span> REST API</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org0d30cc5" class="outline-3">
+<h3 id="org0d30cc5"><span class="section-number-3">6.1</span> Datasets</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Triply API requests are always directed towards a specific URI path.
+URI paths will often have the following form:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.INSTANCE/datasets/ACCOUNT/DATATSET/
+</pre>
+</div>
+
+<p>
+Upper-case letter words must be replaced by the following values:
+</p>
+
+<dl class="org-dl">
+<dt><code>INSTANCE</code></dt><dd>The host name of the TriplyDB instance that you want
+to use.</dd>
+<dt><code>ACCOUNT</code></dt><dd>The name of a specific user or a specific
+organization.</dd>
+<dt><code>DATASET</code></dt><dd>The name of a specific dataset.</dd>
+</dl>
+
+<p>
+Here is an example of an URI path that points to the Triply API for
+the Pokémon dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.demo.triply.cc/datasets/academy/pokemon/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4555505" class="outline-3">
+<h3 id="org4555505"><span class="section-number-3">6.2</span> Services</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Some API requests require the availability of a specific service over
+the dataset.  These requests are directed towards an URI path of the
+following form:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.INSTANCE/datasets/ACCOUNT/DATASET/services/SERVICE/
+</pre>
+</div>
+
+<p>
+Upper-case letter words must be replaced by the following values:
+</p>
+
+<dl class="org-dl">
+<dt><code>SERVICE</code></dt><dd>The name of a specific service that has been started
+for the corresponding dataset.</dd>
+
+<dt>(no term)</dt><dd>See the previous section for <a href="#org0d30cc5">6.1</a> to learn the meaning of
+<code>INSTANCE</code>, <code>ACCOUTN</code>, and <code>DATASET</code>.</dd>
+</dl>
+
+<p>
+Here is an example of an URI path that points to an SPARQL endpoint
+over the Pokémon dataset:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-uri">https://api.demo.triply.cc/datasets/academy/pokemon/services/pokemon/sparql
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb7de1c" class="outline-3">
+<h3 id="orgdb7de1c"><span class="section-number-3">6.3</span> Authentication</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+When a dataset is published publicly, most of the read operation on
+that dataset can be performed without authentication.
+</p>
+
+<p>
+Write operations and read operations on datasets that are published
+internally or privately require authentication.
+</p>
+</div>
+
+<div id="outline-container-org9d7d632" class="outline-4">
+<h4 id="org9d7d632"><span class="section-number-4">6.3.1</span> Creating an API token</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+Authentication is implemented through API tokens.  An API token can be
+created within the TriplyDB UI in the following way:
+</p>
+
+<ol class="org-ol">
+<li>Log into your TriplyDB instance.</li>
+<li>Click on the user menu in the top-right corner and click on “User settings”.</li>
+<li>Go to the “API tokens” tab.</li>
+<li>Click the “Create token” button, enter a description for the
+token (e.g., “test-token”) and select the appropriate access
+rights.</li>
+<li>Click on “Create” and copy the created API token (a lengthy
+string of characters).  This string is only shown once, upon
+creation, and must not be shared with others.  (Other users
+can create their own token in the here described way.)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf053d5b" class="outline-4">
+<h4 id="orgf053d5b"><span class="section-number-4">6.3.2</span> Using the API token</h4>
+<div class="outline-text-4" id="text-6-3-2">
+<p>
+API tokens are used by specifying them in an HTTP request header as
+follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-http"><span style="color: #BA36A5;">Authorization</span><span style="color: #8D8D84; font-style: italic;">:</span> <span style="color: #008000;">Bearer TOKEN</span>
+</pre>
+</div>
+
+<p>
+In the above, <code>TOKEN</code> should be replaced by your personal API token (a
+lengthy sequence of characters).  See <a href="#org9d7d632">6.3.1</a> for
+information on how to create an API token.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe6aa23" class="outline-2">
+<h2 id="orgfe6aa23"><span class="section-number-2">7</span> Admin tasks</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Admin tasks are performed within the admin settings page.  The
+following steps bring up the admin settings page:
+</p>
+
+<ol class="org-ol">
+<li>In order to perform admin tasks, a user with admin credentials
+must be logged into TriplyDB.  See <a href="#orga2a50f5">No description for this link</a> for how to log into
+TriplyDB.</li>
+
+<li>Once an admin is logged in, the admin settings are accessed by
+clicking on the user menu in top-right corner and selecting the
+“Admin settings” menu item.</li>
+</ol>
+
+<p>
+This brings up the following admin settings page from which admin
+tasks can be performed:
+</p>
+
+
+<div id="orgd514d03" class="figure">
+<p><img src="https://wouterbeek.github.io/resource/img/triply/admin-settings.png" alt="admin-settings.png" />
+</p>
+<p><span class="figure-number">Figure 10: </span>Screenshot of the admin settings page.</p>
+</div>
+</div>
+
+<div id="outline-container-org1dffe95" class="outline-3">
+<h3 id="org1dffe95"><span class="section-number-3">7.1</span> Create a new user</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+New users can only be created by administrators by performing the
+following steps:
+</p>
+
+<ol class="org-ol">
+<li>Log in as an administrator, click on the “Admin settings” link in
+the user menu (top-right corner) and click the “Accounts” tab.
+This brings up an overview of all users and organizations on the
+TriplyDB instance.</li>
+
+<li>Click the “Add user” button.</li>
+
+<li>Fill in the user name and email address of the prospective user.
+The user name must consist of alphanumeric characters (<code>A-Za-z</code>)
+and hyphens (<code>-</code>).</li>
+
+<li>Click the “Add user” button.  This sends an account creation
+email to the prospective user, containing a link that allows them
+to log in.</li>
+</ol>
+
+<p>
+In addition to the above default procedure, the following two options
+are provided for user account creation:
+</p>
+
+<dl class="org-dl">
+<dt>Temporary account</dt><dd>By default, user accounts do not expire.
+Sometimes it is useful to create a temporary account by specifying
+a concrete data in the “Account expiration date” widget.</dd>
+
+<dt>Preset password</dt><dd>By default, a user can set her password after
+logging in for the first time by clicking on the link in the
+account creation email.  When a password is entered in the
+“Password” field, the user must enter this password in order to
+log in for the first time.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgfbfdff3" class="outline-3">
+<h3 id="orgfbfdff3"><span class="section-number-3">7.2</span> Account overview</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Go to the “Accounts tab” to receive an overview of all accounts on the
+TriplyDB instance.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2019-05-07 Tue 09:55</p>
+<p class="date">Created: 2019-05-07 Tue 10:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

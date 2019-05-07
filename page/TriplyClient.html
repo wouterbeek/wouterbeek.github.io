@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-06 Mon 13:30 -->
+<!-- 2019-05-07 Tue 10:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Triply Client</title>
@@ -253,71 +253,71 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgab3e491">1. Getting started</a>
+<li><a href="#org5f9492f">1. Getting started</a>
 <ul>
-<li><a href="#org299a345">1.1. Installation</a></li>
-<li><a href="#org4604cae">1.2. Setting up a Triply Client project</a></li>
-<li><a href="#orga780ad0">1.3. Create your first script</a></li>
-<li><a href="#org2f8bd99">1.4. Using the Atom text editor (optional)</a></li>
+<li><a href="#orgbe0a0de">1.1. Installation</a></li>
+<li><a href="#org1be815e">1.2. Setting up a Triply Client project</a></li>
+<li><a href="#org18c6e63">1.3. Create your first script</a></li>
+<li><a href="#org1ad4c5c">1.4. Using the Atom text editor (optional)</a></li>
 </ul>
 </li>
-<li><a href="#org646d33c">2. Reference</a>
+<li><a href="#orga973b20">2. Reference</a>
 <ul>
-<li><a href="#org5d5037d">2.1. Code examples</a></li>
-<li><a href="#org044398b">2.2. <code>Client</code></a>
+<li><a href="#org6560df8">2.1. Code examples</a></li>
+<li><a href="#orgac4782e">2.2. <code>Client</code></a>
 <ul>
-<li><a href="#org47a39ba">2.2.1. <code>getAccount()</code></a></li>
-<li><a href="#org52c2637">2.2.2. <code>getAccount(accountName: string)</code></a></li>
+<li><a href="#org4eb0714">2.2.1. <code>getAccount()</code></a></li>
+<li><a href="#org8673d78">2.2.2. <code>getAccount(accountName: string)</code></a></li>
 </ul>
 </li>
-<li><a href="#org35c9105">2.3. <code>Account</code></a>
+<li><a href="#orgc46a349">2.3. <code>Account</code></a>
 <ul>
-<li><a href="#orgde3c3d1">2.3.1. <code>addDataset(settings: object)</code></a></li>
-<li><a href="#org6a7e214">2.3.2. <code>datasets()</code></a></li>
-<li><a href="#orgec5e8f7">2.3.3. <code>getDataset(datasetName: string)</code></a></li>
-<li><a href="#org34428d8">2.3.4. <code>info()</code></a></li>
-<li><a href="#org148957b">2.3.5. <code>name()</code></a></li>
-<li><a href="#orgdaee56d">2.3.6. <code>rename(newName: string)</code></a></li>
+<li><a href="#org5e07f75">2.3.1. <code>addDataset(settings: object)</code></a></li>
+<li><a href="#org9a19600">2.3.2. <code>datasets()</code></a></li>
+<li><a href="#org3ef3cec">2.3.3. <code>getDataset(datasetName: string)</code></a></li>
+<li><a href="#org7cc83ca">2.3.4. <code>info()</code></a></li>
+<li><a href="#org12d02e0">2.3.5. <code>name()</code></a></li>
+<li><a href="#orge23b511">2.3.6. <code>rename(newName: string)</code></a></li>
 </ul>
 </li>
-<li><a href="#org39225b5">2.4. <code>Dataset</code></a>
+<li><a href="#org39b8417">2.4. <code>Dataset</code></a>
 <ul>
-<li><a href="#org2f2ce29">2.4.1. <code>addService(serviceType: oneof("sparql"), name: string)</code></a></li>
-<li><a href="#org0c0e348">2.4.2. <code>assets()</code></a></li>
-<li><a href="#orgf01d381">2.4.3. <code>delete()</code></a></li>
-<li><a href="#orgd497253">2.4.4. <code>deleteGraph(graphName: string)</code></a></li>
-<li><a href="#orgb5fc72c">2.4.5. <code>getServices()</code></a></li>
-<li><a href="#orga2b52d0">2.4.6. <code>graphs()</code></a></li>
-<li><a href="#org8ef90f6">2.4.7. <code>import(fromDataset: Dataset, graphs: mapping)</code></a></li>
-<li><a href="#orga4a3944">2.4.8. <code>importedGraphs()</code></a></li>
-<li><a href="#org1b22701">2.4.9. <code>query()</code></a></li>
-<li><a href="#org3ee1828">2.4.10. <code>removeAllGraphs()</code></a></li>
-<li><a href="#org70c7c83">2.4.11. <code>rename(newName: string)</code></a></li>
-<li><a href="#org7231922">2.4.12. <code>renameGraph(fromGraphName: string, toGraphName: string)</code></a></li>
-<li><a href="#org0a370c8">2.4.13. <code>upload(filePaths: string[])</code></a></li>
-<li><a href="#org44f205a">2.4.14. <code>uploadAsset(assetName: string, filePath: string)</code></a></li>
+<li><a href="#org1cd12e4">2.4.1. <code>addService(serviceType: oneof("sparql"), name: string)</code></a></li>
+<li><a href="#org342f9e8">2.4.2. <code>assets()</code></a></li>
+<li><a href="#org6375064">2.4.3. <code>delete()</code></a></li>
+<li><a href="#org2d52115">2.4.4. <code>deleteGraph(graphName: string)</code></a></li>
+<li><a href="#org273ac5c">2.4.5. <code>getServices()</code></a></li>
+<li><a href="#orgd06aa3a">2.4.6. <code>graphs()</code></a></li>
+<li><a href="#orgbdcd295">2.4.7. <code>import(fromDataset: Dataset, graphs: mapping)</code></a></li>
+<li><a href="#orga61a22a">2.4.8. <code>importedGraphs()</code></a></li>
+<li><a href="#org2c11c64">2.4.9. <code>query()</code></a></li>
+<li><a href="#orge6d371f">2.4.10. <code>removeAllGraphs()</code></a></li>
+<li><a href="#org66056fa">2.4.11. <code>rename(newName: string)</code></a></li>
+<li><a href="#orgfdaa2c4">2.4.12. <code>renameGraph(fromGraphName: string, toGraphName: string)</code></a></li>
+<li><a href="#org8d24e90">2.4.13. <code>upload(filePaths: string[])</code></a></li>
+<li><a href="#org3169c9e">2.4.14. <code>uploadAsset(assetName: string, filePath: string)</code></a></li>
 </ul>
 </li>
-<li><a href="#orga85935d">2.5. <code>Query</code></a></li>
-<li><a href="#org4667cd7">2.6. <code>Service</code></a>
+<li><a href="#org03ddcc2">2.5. <code>Query</code></a></li>
+<li><a href="#orgf841724">2.6. <code>Service</code></a>
 <ul>
-<li><a href="#org7905d0d">2.6.1. <code>create()</code></a></li>
-<li><a href="#orga58cabd">2.6.2. <code>getStatus()</code></a></li>
-<li><a href="#orgff2c271">2.6.3. <code>info()</code></a></li>
-<li><a href="#org8efa9d9">2.6.4. <code>isUpToDate()</code></a></li>
-<li><a href="#org1933cea">2.6.5. <code>restart()</code></a></li>
+<li><a href="#org7237f3d">2.6.1. <code>create()</code></a></li>
+<li><a href="#org3d01e11">2.6.2. <code>getStatus()</code></a></li>
+<li><a href="#orgb69ad96">2.6.3. <code>info()</code></a></li>
+<li><a href="#orgdd6e019">2.6.4. <code>isUpToDate()</code></a></li>
+<li><a href="#org5129517">2.6.5. <code>restart()</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org42f6716">3. FAQ</a>
+<li><a href="#org3c67651">3. FAQ</a>
 <ul>
-<li><a href="#org4bb378a">3.1. How to perform a SPARQL query?</a></li>
-<li><a href="#org767c55a">3.2. What to do when the following error appears?</a>
+<li><a href="#org64c2830">3.1. How to perform a SPARQL query?</a></li>
+<li><a href="#org06a5e7b">3.2. What to do when the following error appears?</a>
 <ul>
-<li><a href="#orgda7d36f">3.2.1. Why must I set environment variable <code>TRIPLY_API_TOKEN</code>?</a></li>
-<li><a href="#orgcba458e">3.2.2. Error: Unauthorized</a></li>
-<li><a href="#orgfe9fb1a">3.2.3. "No domain specified in configuration"</a></li>
+<li><a href="#org340ee17">3.2.1. Why must I set environment variable <code>TRIPLY_API_TOKEN</code>?</a></li>
+<li><a href="#orgbb3e955">3.2.2. Error: Unauthorized</a></li>
+<li><a href="#orgfbc0fa9">3.2.3. "No domain specified in configuration"</a></li>
 </ul>
 </li>
 </ul>
@@ -337,8 +337,8 @@ This document is a work in progress.  Please contact <a href="mailto:support@tri
 for more information.
 </p>
 
-<div id="outline-container-orgab3e491" class="outline-2">
-<h2 id="orgab3e491"><span class="section-number-2">1</span> Getting started</h2>
+<div id="outline-container-org5f9492f" class="outline-2">
+<h2 id="org5f9492f"><span class="section-number-2">1</span> Getting started</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This section gets you up and running with the Triply Client by setting
@@ -347,8 +347,8 @@ interact with a specific TriplyDB instance.
 </p>
 </div>
 
-<div id="outline-container-org299a345" class="outline-3">
-<h3 id="org299a345"><span class="section-number-3">1.1</span> Installation</h3>
+<div id="outline-container-orgbe0a0de" class="outline-3">
+<h3 id="orgbe0a0de"><span class="section-number-3">1.1</span> Installation</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 The following steps are needed in order to install Triply Client:
@@ -390,8 +390,8 @@ add these environment variables to every future terminal session.
 </div>
 </div>
 
-<div id="outline-container-org4604cae" class="outline-3">
-<h3 id="org4604cae"><span class="section-number-3">1.2</span> Setting up a Triply Client project</h3>
+<div id="outline-container-org1be815e" class="outline-3">
+<h3 id="org1be815e"><span class="section-number-3">1.2</span> Setting up a Triply Client project</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The following steps are needed in order to setup a TypeScript project
@@ -434,8 +434,8 @@ the <code>my_script</code> directory:
 </div>
 </div>
 
-<div id="outline-container-orga780ad0" class="outline-3">
-<h3 id="orga780ad0"><span class="section-number-3">1.3</span> Create your first script</h3>
+<div id="outline-container-org18c6e63" class="outline-3">
+<h3 id="org18c6e63"><span class="section-number-3">1.3</span> Create your first script</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Once you have performed the installation and project setup, perform
@@ -501,8 +501,8 @@ The current user is determined by the API Token that was set in the
 </div>
 </div>
 
-<div id="outline-container-org2f8bd99" class="outline-3">
-<h3 id="org2f8bd99"><span class="section-number-3">1.4</span> Using the Atom text editor (optional)</h3>
+<div id="outline-container-org1ad4c5c" class="outline-3">
+<h3 id="org1ad4c5c"><span class="section-number-3">1.4</span> Using the Atom text editor (optional)</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 The Atom text editor provides advanced support for programming in
@@ -545,16 +545,18 @@ command from your <code>my_project</code> directory:
 </div>
 </div>
 
-<div id="outline-container-org646d33c" class="outline-2">
-<h2 id="org646d33c"><span class="section-number-2">2</span> Reference</h2>
+<div id="outline-container-orga973b20" class="outline-2">
+<h2 id="orga973b20"><span class="section-number-2">2</span> Reference</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-This section 
+This section documents all methods that are currently available in
+Triply Client.  Methods are grouped together for each object type to
+which they apply.
 </p>
 </div>
 
-<div id="outline-container-org5d5037d" class="outline-3">
-<h3 id="org5d5037d"><span class="section-number-3">2.1</span> Code examples</h3>
+<div id="outline-container-org6560df8" class="outline-3">
+<h3 id="org6560df8"><span class="section-number-3">2.1</span> Code examples</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Every function in this reference section comes with at least one code
@@ -587,19 +589,19 @@ functions.
 </div>
 </div>
 
-<div id="outline-container-org044398b" class="outline-3">
-<h3 id="org044398b"><span class="section-number-3">2.2</span> <code>Client</code></h3>
+<div id="outline-container-orgac4782e" class="outline-3">
+<h3 id="orgac4782e"><span class="section-number-3">2.2</span> <code>Client</code></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-<a id="orgdc7eed7"></a>
+<a id="orge3dc85e"></a>
 </p>
 </div>
 
-<div id="outline-container-org47a39ba" class="outline-4">
-<h4 id="org47a39ba"><span class="section-number-4">2.2.1</span> <code>getAccount()</code></h4>
+<div id="outline-container-org4eb0714" class="outline-4">
+<h4 id="org4eb0714"><span class="section-number-4">2.2.1</span> <code>getAccount()</code></h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
-<a id="orgf06813f"></a>
+<a id="org4af06ef"></a>
 </p>
 
 <p>
@@ -608,7 +610,7 @@ Returns the account associated with the current Triply API Token.
 </div>
 
 <ol class="org-ol">
-<li><a id="org45a1424"></a>Example<br />
+<li><a id="org35b5121"></a>Example<br />
 <div class="outline-text-5" id="text-2-2-1-1">
 <p>
 The following example code returns the account associated with the
@@ -621,7 +623,7 @@ current Triply API Token:
 </div>
 
 <p>
-See section <a href="#org46ad1d1">2.3</a> for an overview of the methods that can be used
+See section <a href="#orgc032765">2.3</a> for an overview of the methods that can be used
 with account objects.
 </p>
 </div>
@@ -629,11 +631,11 @@ with account objects.
 </ol>
 </div>
 
-<div id="outline-container-org52c2637" class="outline-4">
-<h4 id="org52c2637"><span class="section-number-4">2.2.2</span> <code>getAccount(accountName: string)</code></h4>
+<div id="outline-container-org8673d78" class="outline-4">
+<h4 id="org8673d78"><span class="section-number-4">2.2.2</span> <code>getAccount(accountName: string)</code></h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
-<a id="org6d369ff"></a>
+<a id="orgb97571a"></a>
 </p>
 
 <p>
@@ -642,7 +644,7 @@ Returns the account with the given <code>accountName</code>.
 </div>
 
 <ol class="org-ol">
-<li><a id="org4b92ea5"></a>Example<br />
+<li><a id="org8389cb2"></a>Example<br />
 <div class="outline-text-5" id="text-2-2-2-1">
 <p>
 The following example code returns a specific account called
@@ -655,7 +657,7 @@ The following example code returns a specific account called
 </div>
 
 <p>
-See section <a href="#org46ad1d1">2.3</a> for an overview of the methods that can be used
+See section <a href="#orgc032765">2.3</a> for an overview of the methods that can be used
 with account objects.
 </p>
 </div>
@@ -664,11 +666,11 @@ with account objects.
 </div>
 </div>
 
-<div id="outline-container-org35c9105" class="outline-3">
-<h3 id="org35c9105"><span class="section-number-3">2.3</span> <code>Account</code></h3>
+<div id="outline-container-orgc46a349" class="outline-3">
+<h3 id="orgc46a349"><span class="section-number-3">2.3</span> <code>Account</code></h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-<a id="org46ad1d1"></a>
+<a id="orgc032765"></a>
 </p>
 
 <p>
@@ -683,11 +685,11 @@ accounts (users and organizations) through the web-based GUI.
 </p>
 </div>
 
-<div id="outline-container-orgde3c3d1" class="outline-4">
-<h4 id="orgde3c3d1"><span class="section-number-4">2.3.1</span> <code>addDataset(settings: object)</code></h4>
+<div id="outline-container-org5e07f75" class="outline-4">
+<h4 id="org5e07f75"><span class="section-number-4">2.3.1</span> <code>addDataset(settings: object)</code></h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-<a id="org07751a9"></a>
+<a id="orgb29fa52"></a>
 </p>
 
 <p>
@@ -728,7 +730,7 @@ license strings are currently supported:
 </div>
 
 <ol class="org-ol">
-<li><a id="orgd3d37c8"></a>Example<br />
+<li><a id="org7e11478"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-1-1">
 <p>
 The following code example creates a new dataset (called
@@ -745,11 +747,11 @@ The following code example creates a new dataset (called
 </ol>
 </div>
 
-<div id="outline-container-org6a7e214" class="outline-4">
-<h4 id="org6a7e214"><span class="section-number-4">2.3.2</span> <code>datasets()</code></h4>
+<div id="outline-container-org9a19600" class="outline-4">
+<h4 id="org9a19600"><span class="section-number-4">2.3.2</span> <code>datasets()</code></h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
-<a id="orga537eac"></a>
+<a id="orgcf5072b"></a>
 </p>
 
 <p>
@@ -759,7 +761,7 @@ the user associated with the given Triply Token.
 </div>
 
 <ol class="org-ol">
-<li><a id="orgf1dc90e"></a>Example<br />
+<li><a id="org132b094"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-2-1">
 <p>
 The following example code prints the list of datasets that belong to
@@ -776,11 +778,11 @@ the specific account called <code>some-account</code>:
 </ol>
 </div>
 
-<div id="outline-container-orgec5e8f7" class="outline-4">
-<h4 id="orgec5e8f7"><span class="section-number-4">2.3.3</span> <code>getDataset(datasetName: string)</code></h4>
+<div id="outline-container-org3ef3cec" class="outline-4">
+<h4 id="org3ef3cec"><span class="section-number-4">2.3.3</span> <code>getDataset(datasetName: string)</code></h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
-<a id="org0a08f43"></a>
+<a id="orge5c9fa9"></a>
 </p>
 
 <p>
@@ -789,13 +791,13 @@ Returns the dataset with the given <code>datasetName</code>.
 
 <p>
 This function returns an object of type <code>Dataset</code>.  See section
-<a href="#orgfc133de">2.4</a> for an overview of the methods that can be used with dataset
+<a href="#org5ae5128">2.4</a> for an overview of the methods that can be used with dataset
 objects.
 </p>
 </div>
 
 <ol class="org-ol">
-<li><a id="orgc82b6a7"></a>Example<br />
+<li><a id="org859c9f6"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-3-1">
 <p>
 The following example code prints a specific dataset object:
@@ -811,11 +813,11 @@ The following example code prints a specific dataset object:
 </ol>
 </div>
 
-<div id="outline-container-org34428d8" class="outline-4">
-<h4 id="org34428d8"><span class="section-number-4">2.3.4</span> <code>info()</code></h4>
+<div id="outline-container-org7cc83ca" class="outline-4">
+<h4 id="org7cc83ca"><span class="section-number-4">2.3.4</span> <code>info()</code></h4>
 <div class="outline-text-4" id="text-2-3-4">
 <p>
-<a id="org78816a2"></a>
+<a id="org4e5b041"></a>
 </p>
 
 <p>
@@ -824,7 +826,7 @@ Returns information about the account.
 </div>
 
 <ol class="org-ol">
-<li><a id="org5f3bbd8"></a>Example<br />
+<li><a id="orge694bf7"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-4-1">
 <p>
 The following example code prints information about the account
@@ -863,11 +865,11 @@ Example output for running the above code:
 </ol>
 </div>
 
-<div id="outline-container-org148957b" class="outline-4">
-<h4 id="org148957b"><span class="section-number-4">2.3.5</span> <code>name()</code></h4>
+<div id="outline-container-org12d02e0" class="outline-4">
+<h4 id="org12d02e0"><span class="section-number-4">2.3.5</span> <code>name()</code></h4>
 <div class="outline-text-4" id="text-2-3-5">
 <p>
-<a id="orgd376240"></a>
+<a id="org3839452"></a>
 </p>
 
 <p>
@@ -876,7 +878,7 @@ Returns the name of the account.
 </div>
 
 <ol class="org-ol">
-<li><a id="orge66c835"></a>Example<br />
+<li><a id="org24cf6d8"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-5-1">
 <p>
 The following example code prints the name of the account associated
@@ -892,11 +894,11 @@ with the current Triply API Token:
 </ol>
 </div>
 
-<div id="outline-container-orgdaee56d" class="outline-4">
-<h4 id="orgdaee56d"><span class="section-number-4">2.3.6</span> <code>rename(newName: string)</code></h4>
+<div id="outline-container-orge23b511" class="outline-4">
+<h4 id="orge23b511"><span class="section-number-4">2.3.6</span> <code>rename(newName: string)</code></h4>
 <div class="outline-text-4" id="text-2-3-6">
 <p>
-<a id="org35fae35"></a>
+<a id="org52a8527"></a>
 </p>
 
 <p>
@@ -906,7 +908,7 @@ Renames the account from its current name to the specified new name
 </div>
 
 <ol class="org-ol">
-<li><a id="orgee82ba7"></a>Example<br />
+<li><a id="org58428f7"></a>Example<br />
 <div class="outline-text-5" id="text-2-3-6-1">
 <p>
 The following example code renames a specific dataset from
@@ -924,11 +926,11 @@ The following example code renames a specific dataset from
 </div>
 </div>
 
-<div id="outline-container-org39225b5" class="outline-3">
-<h3 id="org39225b5"><span class="section-number-3">2.4</span> <code>Dataset</code></h3>
+<div id="outline-container-org39b8417" class="outline-3">
+<h3 id="org39b8417"><span class="section-number-3">2.4</span> <code>Dataset</code></h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<a id="orgfc133de"></a>
+<a id="org5ae5128"></a>
 </p>
 
 <p>
@@ -936,11 +938,11 @@ The <code>Dataset</code> class represents a TriplyDB dataset.
 </p>
 </div>
 
-<div id="outline-container-org2f2ce29" class="outline-4">
-<h4 id="org2f2ce29"><span class="section-number-4">2.4.1</span> <code>addService(serviceType: oneof("sparql"), name: string)</code></h4>
+<div id="outline-container-org1cd12e4" class="outline-4">
+<h4 id="org1cd12e4"><span class="section-number-4">2.4.1</span> <code>addService(serviceType: oneof("sparql"), name: string)</code></h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
-<a id="org818dac4"></a>
+<a id="org9e7214c"></a>
 </p>
 
 <p>
@@ -962,13 +964,13 @@ endpoints over the same dataset that are used for different tasks.
 </p>
 
 <p>
-See section <a href="#org6429a8c">Service</a> for an overview of the methods that can be used
+See section <a href="#orgbc81a61">Service</a> for an overview of the methods that can be used
 with service objects.
 </p>
 </div>
 
 <ol class="org-ol">
-<li><a id="org3d78da9"></a>Example<br />
+<li><a id="org5eccf0e"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-1-1">
 <p>
 The following example code starts two SPARQL endpoints over a specific
@@ -988,11 +990,11 @@ while the other endpoint will be used in the production system.
 </ol>
 </div>
 
-<div id="outline-container-org0c0e348" class="outline-4">
-<h4 id="org0c0e348"><span class="section-number-4">2.4.2</span> <code>assets()</code></h4>
+<div id="outline-container-org342f9e8" class="outline-4">
+<h4 id="org342f9e8"><span class="section-number-4">2.4.2</span> <code>assets()</code></h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
-<a id="orgce4974e"></a>
+<a id="org525bf30"></a>
 </p>
 
 <p>
@@ -1002,7 +1004,7 @@ this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="orga6d427c"></a>Example<br />
+<li><a id="org9c1aa47"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-2-1">
 <p>
 The following example code retrieves the assets for a specific
@@ -1020,11 +1022,11 @@ dataset:
 </ol>
 </div>
 
-<div id="outline-container-orgf01d381" class="outline-4">
-<h4 id="orgf01d381"><span class="section-number-4">2.4.3</span> <code>delete()</code></h4>
+<div id="outline-container-org6375064" class="outline-4">
+<h4 id="org6375064"><span class="section-number-4">2.4.3</span> <code>delete()</code></h4>
 <div class="outline-text-4" id="text-2-4-3">
 <p>
-<a id="orgb4167f4"></a>
+<a id="orgfece285"></a>
 </p>
 
 <p>
@@ -1038,13 +1040,13 @@ dataset metadata and assets:
 </p>
 
 <ul class="org-ul">
-<li><a href="#org45ebbc9"><code>deleteGraph(graphName: string)</code></a></li>
-<li><a href="#org0a49e94"><code>removeAllGraphs()</code></a></li>
+<li><a href="#org4afee4d"><code>deleteGraph(graphName: string)</code></a></li>
+<li><a href="#org3a43903"><code>removeAllGraphs()</code></a></li>
 </ul>
 </div>
 
 <ol class="org-ol">
-<li><a id="org3759da5"></a>Example 1<br />
+<li><a id="orgcb60201"></a>Example 1<br />
 <div class="outline-text-5" id="text-2-4-3-1">
 <p>
 The following example code deletes a specific dataset that is part of
@@ -1060,7 +1062,7 @@ the account associated with the current Triply API Token:
 </div>
 </li>
 
-<li><a id="org01a990b"></a>Example 2<br />
+<li><a id="org4681304"></a>Example 2<br />
 <div class="outline-text-5" id="text-2-4-3-2">
 <p>
 The following example code only deletes a specific dataset if it
@@ -1078,11 +1080,11 @@ exists (notice the use of <code>try</code> and <code>catch</code>):
 </ol>
 </div>
 
-<div id="outline-container-orgd497253" class="outline-4">
-<h4 id="orgd497253"><span class="section-number-4">2.4.4</span> <code>deleteGraph(graphName: string)</code></h4>
+<div id="outline-container-org2d52115" class="outline-4">
+<h4 id="org2d52115"><span class="section-number-4">2.4.4</span> <code>deleteGraph(graphName: string)</code></h4>
 <div class="outline-text-4" id="text-2-4-4">
 <p>
-<a id="org45ebbc9"></a>
+<a id="org4afee4d"></a>
 </p>
 
 <p>
@@ -1091,7 +1093,7 @@ Deletes a specific graph that belongs to this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org3653f95"></a>Example<br />
+<li><a id="org8ed7126"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-4-1">
 <p>
 The following example code deletes a specific graph from a specific
@@ -1109,11 +1111,11 @@ dataset:
 </ol>
 </div>
 
-<div id="outline-container-orgb5fc72c" class="outline-4">
-<h4 id="orgb5fc72c"><span class="section-number-4">2.4.5</span> <code>getServices()</code></h4>
+<div id="outline-container-org273ac5c" class="outline-4">
+<h4 id="org273ac5c"><span class="section-number-4">2.4.5</span> <code>getServices()</code></h4>
 <div class="outline-text-4" id="text-2-4-5">
 <p>
-<a id="org53dff5f"></a>
+<a id="orgb8beb56"></a>
 </p>
 
 <p>
@@ -1122,7 +1124,7 @@ Returns an array of objects that represent TriplyDB services.
 </div>
 
 <ol class="org-ol">
-<li><a id="org3a3dbe1"></a>Example<br />
+<li><a id="org841e5d4"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-5-1">
 <p>
 The following example code emits the services that are enabled for a
@@ -1140,11 +1142,11 @@ specific dataset:
 </ol>
 </div>
 
-<div id="outline-container-orga2b52d0" class="outline-4">
-<h4 id="orga2b52d0"><span class="section-number-4">2.4.6</span> <code>graphs()</code></h4>
+<div id="outline-container-orgd06aa3a" class="outline-4">
+<h4 id="orgd06aa3a"><span class="section-number-4">2.4.6</span> <code>graphs()</code></h4>
 <div class="outline-text-4" id="text-2-4-6">
 <p>
-<a id="org4a1fca8"></a>
+<a id="orge94cf6a"></a>
 </p>
 
 <p>
@@ -1154,7 +1156,7 @@ this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org3877752"></a>Example<br />
+<li><a id="org951e22b"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-6-1">
 <p>
 The following example code retrieves the graphs for a specific
@@ -1172,11 +1174,11 @@ dataset:
 </ol>
 </div>
 
-<div id="outline-container-org8ef90f6" class="outline-4">
-<h4 id="org8ef90f6"><span class="section-number-4">2.4.7</span> <code>import(fromDataset: Dataset, graphs: mapping)</code></h4>
+<div id="outline-container-orgbdcd295" class="outline-4">
+<h4 id="orgbdcd295"><span class="section-number-4">2.4.7</span> <code>import(fromDataset: Dataset, graphs: mapping)</code></h4>
 <div class="outline-text-4" id="text-2-4-7">
 <p>
-<a id="org9d058ab"></a>
+<a id="orgc314b49"></a>
 </p>
 
 <p>
@@ -1187,7 +1189,7 @@ current/target dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org99cc773"></a>Example<br />
+<li><a id="orgb09540a"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-7-1">
 <p>
 The following code example creates a new dataset “d2” and imports one
@@ -1210,11 +1212,11 @@ renamed as part of the import.
 </ol>
 </div>
 
-<div id="outline-container-orga4a3944" class="outline-4">
-<h4 id="orga4a3944"><span class="section-number-4">2.4.8</span> <code>importedGraphs()</code></h4>
+<div id="outline-container-orga61a22a" class="outline-4">
+<h4 id="orga61a22a"><span class="section-number-4">2.4.8</span> <code>importedGraphs()</code></h4>
 <div class="outline-text-4" id="text-2-4-8">
 <p>
-<a id="org1effaf0"></a>
+<a id="org806f60d"></a>
 </p>
 
 <p>
@@ -1224,7 +1226,7 @@ belong to this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org91b66d1"></a>Example<br />
+<li><a id="org01065e8"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-8-1">
 <p>
 The following example code retrieves the imported graphs for a
@@ -1242,11 +1244,11 @@ specific dataset:
 </ol>
 </div>
 
-<div id="outline-container-org1b22701" class="outline-4">
-<h4 id="org1b22701"><span class="section-number-4">2.4.9</span> <code>query()</code></h4>
+<div id="outline-container-org2c11c64" class="outline-4">
+<h4 id="org2c11c64"><span class="section-number-4">2.4.9</span> <code>query()</code></h4>
 <div class="outline-text-4" id="text-2-4-9">
 <p>
-<a id="org85cef7c"></a>
+<a id="org4587b32"></a>
 </p>
 
 <p>
@@ -1254,13 +1256,13 @@ Retrieves the query object for this dataset.
 </p>
 
 <p>
-See section <a href="#orge761e21">Query</a> for an overview of the methods that can be used with
+See section <a href="#orgcc475cf">Query</a> for an overview of the methods that can be used with
 query objects.
 </p>
 </div>
 
 <ol class="org-ol">
-<li><a id="org5d5c97e"></a>Example<br />
+<li><a id="orgce7f4cf"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-9-1">
 <p>
 The following code example retrieves the query object of a specific
@@ -1278,11 +1280,11 @@ dataset:
 </ol>
 </div>
 
-<div id="outline-container-org3ee1828" class="outline-4">
-<h4 id="org3ee1828"><span class="section-number-4">2.4.10</span> <code>removeAllGraphs()</code></h4>
+<div id="outline-container-orge6d371f" class="outline-4">
+<h4 id="orge6d371f"><span class="section-number-4">2.4.10</span> <code>removeAllGraphs()</code></h4>
 <div class="outline-text-4" id="text-2-4-10">
 <p>
-<a id="org0a49e94"></a>
+<a id="org3a43903"></a>
 </p>
 
 <p>
@@ -1291,7 +1293,7 @@ Removes all graphs from this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org871fdc6"></a>Example<br />
+<li><a id="org70df377"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-10-1">
 <p>
 The following code example removed all graphs from a specific dataset:
@@ -1308,11 +1310,11 @@ The following code example removed all graphs from a specific dataset:
 </ol>
 </div>
 
-<div id="outline-container-org70c7c83" class="outline-4">
-<h4 id="org70c7c83"><span class="section-number-4">2.4.11</span> <code>rename(newName: string)</code></h4>
+<div id="outline-container-org66056fa" class="outline-4">
+<h4 id="org66056fa"><span class="section-number-4">2.4.11</span> <code>rename(newName: string)</code></h4>
 <div class="outline-text-4" id="text-2-4-11">
 <p>
-<a id="orgda21ebe"></a>
+<a id="org725e499"></a>
 </p>
 
 <p>
@@ -1322,7 +1324,7 @@ Renames the dataset from its current name to the name specified with
 </div>
 
 <ol class="org-ol">
-<li><a id="orgc325f52"></a>Example<br />
+<li><a id="orgbe9783b"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-11-1">
 <p>
 The following example code renames a specific dataset from
@@ -1340,11 +1342,11 @@ The following example code renames a specific dataset from
 </ol>
 </div>
 
-<div id="outline-container-org7231922" class="outline-4">
-<h4 id="org7231922"><span class="section-number-4">2.4.12</span> <code>renameGraph(fromGraphName: string, toGraphName: string)</code></h4>
+<div id="outline-container-orgfdaa2c4" class="outline-4">
+<h4 id="orgfdaa2c4"><span class="section-number-4">2.4.12</span> <code>renameGraph(fromGraphName: string, toGraphName: string)</code></h4>
 <div class="outline-text-4" id="text-2-4-12">
 <p>
-<a id="orgd84fff4"></a>
+<a id="orge0b499c"></a>
 </p>
 
 <p>
@@ -1357,7 +1359,7 @@ Renames a graph of this dataset.
 </div>
 
 <ol class="org-ol">
-<li><a id="org0abc17c"></a>Example<br />
+<li><a id="org2a42d3a"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-12-1">
 <p>
 The following example code renames a specific graph of a specific
@@ -1376,11 +1378,11 @@ dataset:
 </ol>
 </div>
 
-<div id="outline-container-org0a370c8" class="outline-4">
-<h4 id="org0a370c8"><span class="section-number-4">2.4.13</span> <code>upload(filePaths: string[])</code></h4>
+<div id="outline-container-org8d24e90" class="outline-4">
+<h4 id="org8d24e90"><span class="section-number-4">2.4.13</span> <code>upload(filePaths: string[])</code></h4>
 <div class="outline-text-4" id="text-2-4-13">
 <p>
-<a id="orge27f2f7"></a>
+<a id="orgc6e3cc5"></a>
 </p>
 
 <p>
@@ -1394,7 +1396,7 @@ TriG, Turtle.
 </p>
 
 <p>
-Use function <a href="#org1d0d49b"><code>uploadAsset</code></a> in order to upload files that do not
+Use function <a href="#org692cd61"><code>uploadAsset</code></a> in order to upload files that do not
 contain RDF data.
 </p>
 
@@ -1406,7 +1408,7 @@ following example).
 </div>
 
 <ol class="org-ol">
-<li><a id="orgf3b4166"></a>Example<br />
+<li><a id="org2e3915e"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-13-1">
 <p>
 The following example code adds four RDF document to the current
@@ -1429,11 +1431,11 @@ afterwards.
 </ol>
 </div>
 
-<div id="outline-container-org44f205a" class="outline-4">
-<h4 id="org44f205a"><span class="section-number-4">2.4.14</span> <code>uploadAsset(assetName: string, filePath: string)</code></h4>
+<div id="outline-container-org3169c9e" class="outline-4">
+<h4 id="org3169c9e"><span class="section-number-4">2.4.14</span> <code>uploadAsset(assetName: string, filePath: string)</code></h4>
 <div class="outline-text-4" id="text-2-4-14">
 <p>
-<a id="org1d0d49b"></a>
+<a id="org692cd61"></a>
 </p>
 
 <p>
@@ -1448,7 +1450,7 @@ documentation files describing the dataset, or media files
 </div>
 
 <ol class="org-ol">
-<li><a id="orgdcf75bc"></a>Example<br />
+<li><a id="org745e197"></a>Example<br />
 <div class="outline-text-5" id="text-2-4-14-1">
 <p>
 The following example code uploads a PDF file documenting the
@@ -1468,11 +1470,11 @@ corresponding dataset:
 </div>
 </div>
 
-<div id="outline-container-orga85935d" class="outline-3">
-<h3 id="orga85935d"><span class="section-number-3">2.5</span> <code>Query</code></h3>
+<div id="outline-container-org03ddcc2" class="outline-3">
+<h3 id="org03ddcc2"><span class="section-number-3">2.5</span> <code>Query</code></h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
-<a id="orge761e21"></a>
+<a id="orgcc475cf"></a>
 </p>
 
 <p>
@@ -1499,11 +1501,11 @@ from a specific dataset:
 </div>
 </div>
 
-<div id="outline-container-org4667cd7" class="outline-3">
-<h3 id="org4667cd7"><span class="section-number-3">2.6</span> <code>Service</code></h3>
+<div id="outline-container-orgf841724" class="outline-3">
+<h3 id="orgf841724"><span class="section-number-3">2.6</span> <code>Service</code></h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
-<a id="org6429a8c"></a>
+<a id="orgbc81a61"></a>
 </p>
 
 <p>
@@ -1512,16 +1514,16 @@ stopped, and restarted over datasets in TriplyDB.
 </p>
 
 <p>
-Service objects are obtained through the <a href="#org818dac4">addService</a> and <a href="#org53dff5f">getServices</a>
+Service objects are obtained through the <a href="#org9e7214c">addService</a> and <a href="#orgb8beb56">getServices</a>
 functions.
 </p>
 </div>
 
-<div id="outline-container-org7905d0d" class="outline-4">
-<h4 id="org7905d0d"><span class="section-number-4">2.6.1</span> <code>create()</code></h4>
+<div id="outline-container-org7237f3d" class="outline-4">
+<h4 id="org7237f3d"><span class="section-number-4">2.6.1</span> <code>create()</code></h4>
 <div class="outline-text-4" id="text-2-6-1">
 <p>
-<a id="org44500e9"></a>
+<a id="org2511bbc"></a>
 </p>
 
 <p>
@@ -1530,7 +1532,7 @@ Starts this service.
 </div>
 
 <ol class="org-ol">
-<li><a id="orgdedfe2e"></a>Example<br />
+<li><a id="org772c3e7"></a>Example<br />
 <div class="outline-text-5" id="text-2-6-1-1">
 <p>
 The following code example starts a specific service:
@@ -1548,11 +1550,11 @@ The following code example starts a specific service:
 </ol>
 </div>
 
-<div id="outline-container-orga58cabd" class="outline-4">
-<h4 id="orga58cabd"><span class="section-number-4">2.6.2</span> <code>getStatus()</code></h4>
+<div id="outline-container-org3d01e11" class="outline-4">
+<h4 id="org3d01e11"><span class="section-number-4">2.6.2</span> <code>getStatus()</code></h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
-<a id="orga06160c"></a>
+<a id="org3ef76b1"></a>
 </p>
 
 <p>
@@ -1573,7 +1575,7 @@ The following service statuses are defined:
 </div>
 
 <ol class="org-ol">
-<li><a id="org559ee55"></a>Example<br />
+<li><a id="org2a69980"></a>Example<br />
 <div class="outline-text-5" id="text-2-6-2-1">
 <p>
 The following example code prints the status of a specific service:
@@ -1591,11 +1593,11 @@ console.log(service.getStatus());
 </ol>
 </div>
 
-<div id="outline-container-orgff2c271" class="outline-4">
-<h4 id="orgff2c271"><span class="section-number-4">2.6.3</span> <code>info()</code></h4>
+<div id="outline-container-orgb69ad96" class="outline-4">
+<h4 id="orgb69ad96"><span class="section-number-4">2.6.3</span> <code>info()</code></h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
-<a id="orgab37855"></a>
+<a id="orgecd1f94"></a>
 </p>
 
 <p>
@@ -1604,7 +1606,7 @@ Returns information about this service.
 </div>
 
 <ol class="org-ol">
-<li><a id="org4f22c4f"></a>Example<br />
+<li><a id="orgeb9a023"></a>Example<br />
 <div class="outline-text-5" id="text-2-6-3-1">
 <p>
 The following example code prints information about a newly created
@@ -1623,11 +1625,11 @@ console.log(service.info());
 </ol>
 </div>
 
-<div id="outline-container-org8efa9d9" class="outline-4">
-<h4 id="org8efa9d9"><span class="section-number-4">2.6.4</span> <code>isUpToDate()</code></h4>
+<div id="outline-container-orgdd6e019" class="outline-4">
+<h4 id="orgdd6e019"><span class="section-number-4">2.6.4</span> <code>isUpToDate()</code></h4>
 <div class="outline-text-4" id="text-2-6-4">
 <p>
-<a id="org64ffa9f"></a>
+<a id="org783db62"></a>
 </p>
 
 <p>
@@ -1657,7 +1659,7 @@ limited number of older users wants to use the legacy version.</li>
 </div>
 
 <ol class="org-ol">
-<li><a id="org7bc95af"></a>Example<br />
+<li><a id="orge9d68c5"></a>Example<br />
 <div class="outline-text-5" id="text-2-6-4-1">
 <p>
 The following example code checks whether a specific service is
@@ -1676,11 +1678,11 @@ console.log(service.isUpToDate());
 </ol>
 </div>
 
-<div id="outline-container-org1933cea" class="outline-4">
-<h4 id="org1933cea"><span class="section-number-4">2.6.5</span> <code>restart()</code></h4>
+<div id="outline-container-org5129517" class="outline-4">
+<h4 id="org5129517"><span class="section-number-4">2.6.5</span> <code>restart()</code></h4>
 <div class="outline-text-4" id="text-2-6-5">
 <p>
-<a id="org59f0f28"></a>
+<a id="orgea0c80b"></a>
 </p>
 
 <p>
@@ -1689,7 +1691,7 @@ Restarts this service.
 </div>
 
 <ol class="org-ol">
-<li><a id="org1e087ac"></a>Example<br />
+<li><a id="org575baa5"></a>Example<br />
 <div class="outline-text-5" id="text-2-6-5-1">
 <p>
 The following code example restarts a specific service:
@@ -1709,8 +1711,8 @@ The following code example restarts a specific service:
 </div>
 </div>
 
-<div id="outline-container-org42f6716" class="outline-2">
-<h2 id="org42f6716"><span class="section-number-2">3</span> FAQ</h2>
+<div id="outline-container-org3c67651" class="outline-2">
+<h2 id="org3c67651"><span class="section-number-2">3</span> FAQ</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 This section includes answers to frequently asked questions.  Please
@@ -1719,8 +1721,8 @@ this list.
 </p>
 </div>
 
-<div id="outline-container-org4bb378a" class="outline-3">
-<h3 id="org4bb378a"><span class="section-number-3">3.1</span> How to perform a SPARQL query?</h3>
+<div id="outline-container-org64c2830" class="outline-3">
+<h3 id="org64c2830"><span class="section-number-3">3.1</span> How to perform a SPARQL query?</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The SPARQL 1.1 Protocol standard specifies a native HTTP API for
@@ -1743,12 +1745,12 @@ library:
 </div>
 </div>
 
-<div id="outline-container-org767c55a" class="outline-3">
-<h3 id="org767c55a"><span class="section-number-3">3.2</span> What to do when the following error appears?</h3>
+<div id="outline-container-org06a5e7b" class="outline-3">
+<h3 id="org06a5e7b"><span class="section-number-3">3.2</span> What to do when the following error appears?</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-orgda7d36f" class="outline-4">
-<h4 id="orgda7d36f"><span class="section-number-4">3.2.1</span> Why must I set environment variable <code>TRIPLY_API_TOKEN</code>?</h4>
+<div id="outline-container-org340ee17" class="outline-4">
+<h4 id="org340ee17"><span class="section-number-4">3.2.1</span> Why must I set environment variable <code>TRIPLY_API_TOKEN</code>?</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 It is common for scripts to be shared with others and/or get published
@@ -1758,8 +1760,8 @@ private, it must never be used in the TypeScript script file directly.
 </div>
 </div>
 
-<div id="outline-container-orgcba458e" class="outline-4">
-<h4 id="orgcba458e"><span class="section-number-4">3.2.2</span> Error: Unauthorized</h4>
+<div id="outline-container-orgbb3e955" class="outline-4">
+<h4 id="orgbb3e955"><span class="section-number-4">3.2.2</span> Error: Unauthorized</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 This error appears whenever an operation is performed for which the
@@ -1783,8 +1785,8 @@ the following command:
 </div>
 </div>
 
-<div id="outline-container-orgfe9fb1a" class="outline-4">
-<h4 id="orgfe9fb1a"><span class="section-number-4">3.2.3</span> "No domain specified in configuration"</h4>
+<div id="outline-container-orgfbc0fa9" class="outline-4">
+<h4 id="orgfbc0fa9"><span class="section-number-4">3.2.3</span> "No domain specified in configuration"</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 This error indicates that the <code>TRIPLY_API_URL</code> environment variable
@@ -1807,7 +1809,7 @@ the following command:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Wouter Beek</p>
-<p class="date">Created: 2019-05-06 Mon 13:30</p>
+<p class="date">Created: 2019-05-07 Tue 10:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
