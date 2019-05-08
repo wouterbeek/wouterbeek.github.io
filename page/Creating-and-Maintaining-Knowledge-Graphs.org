@@ -1,0 +1,683 @@
+# -*- mode: org; -*-
+#+title: Creating & Maintaining Knowledge Graphs
+#+author: Wouter Beek
+#+email: (concat "wouter" at-sign "triply.cc")
+#+language: en-us
+#+setupfile: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+
+* Introduction
+
+How do humans encode information?
+
+This document uses natural language, together with images, tables, and
+code snippets in order to convey information.  These are widely used
+and successful ways of encoding and communicating information.
+
+In recent years it has become popular to encode information in a new
+and innovative way: as /Knowledge Graphs/.  This document is about why
+one would like to create such Knowledge Graphs in the first place, how
+to go about creating such graph, and to ensure that they can be
+maintained and used by the organization that relies on the information
+which it encodes.
+
+While there are several ways in which Knowledge Graphs can be created,
+this document focusses on the use of open standards such a Linked Data
+and Semantic Web in order to do so.
+
+** About this document
+
+This document explains the use of Linked Data in order to create and
+maintain complex Knowledge Graphs.  It incorporates open standards and
+recent best practices in combination with experience gained from
+employing Linked Data Knowledge Graphs in many real-world use cases.
+
+This document describes how to deal with common legacy approaches as
+well as common incorrect approaches.  However, we will only describe
+such outdated and/or incorrect approaches in order to prepare the
+reader for data that she may reasonably encounter which working with
+Linked Data published by others.  However, when it comes to explaining
+the prefered approach, i.e., the one that we believe the reader should
+use, we will always resort to arppoaches that are secure, that scale,
+that are maintainable, and that ― in short ― can be relied upon in
+production systems.
+
+An important reason why Linked Data is sometimes considered to have a
+bad reputation is that some ‘experts’ believe they know what Linked
+Data is, but are unaware of technological hurdles and nuances, which
+results in many Linked Datasets being incorrect, unusable, or
+suffering from bad performance when used in most situations.
+
+This document will occasionally dive into detailed and complex
+material in order to point out technological difficulties and
+organizational nuances.  If your goal is to publish ‘Linked Data’ that
+is only half-correct, does not scale in real-world applications, and
+will never be used by anybody else, then this document is not for you.
+There are far easier approaches toward publishing incorrect data on
+the web than reading this document.
+
+To our knowledge, this is the first introduction into Linked Data
+Knowledge Graphs that is entirely based based on real-world use cases,
+observed by us in various application domains, including multiple
+large-scale use cases.
+
+* Why use a Linked Data Knowledge Graph?
+
+** The problem of ambiguity
+
+In 1999 NASA lost a Mars orbiter that cost $125,000,000 due to a
+problem with ambiguity.  Half of the NASA project staff were using the
+imperial system in order to express distances.  So when a person from
+this group would write the number ‘40’ in Mars orbiter code, he would
+mean “a distance of 40 feet”.  However, the other half od the NASA
+project staff were using the metric system in order to express
+distances.  So when a person from that group would write the number
+‘40’ in Mars orbiter code, she would mean “a distance of 40 meters”.
+So when it became time for the Mars orbiter to land on Mars, it was
+given the instruction to move down by a distance of ‘40’ in order to
+gently land on Mars' surface.  Unfortunately, the distance to the Mars
+surface was 40 feet, but the Mars orbiter was moving down 40 meters,
+crashing itself into Mars' surface, never to be heard from again.
+
+In contemporary computing, ambiguity is everywhere.  Think about large
+research fields, like climate science or biochemistry, and think about
+large commercial endeavors like operating an oil platform or
+optimizing a car manufacturing pipeline.  In these settings a large
+number of people uses a large number of information systems in order
+to exchange enormous amounts of data.  In such a setting, every
+ambiguity is a potential cause for bugs (as in NASA's Mars orbiter),
+and when there are too many ambiguities, some questions cannot be
+asked at all, and certain optimization cannot be achieved.
+
+** Data quality
+
+** Lack of semantics
+
+** Conclusion
+
+This section has described the enormous risks and limitations that are
+caused by the fact that almost all data that is used in the world
+today is ambiguous, has low quality, and lacks semantics.  We want to
+close this chapter by emphasizing that the abundance of ambiguity and
+the lack of quality and semantics are not accidental properties of
+contemporary systems.  Instead, they are inherent properies of the
+current conceptual framework for storing, retrieving, and transmitting
+data.  We will give two examples:
+
+  1. Spreadsheet programs almost always allow arbitrary strings to be
+     entered as ‘values’ into cells, with very few ― if any ― checks
+     in place.  The headers in spreadsheets are almost always
+     ‘defined’ by the arbitrary string content that appears in cells
+     on the first line.  (In fact, very many spreadsheets do not
+     contain a first row of header cells, in which case the meaning of
+     a column must be deduced from the arbitrary string content of the
+     ‘value’ cells in that column!)
+
+  2. Relational database schemas are almost never created to reflect
+     the conceptual structure of domain knowledge.  Instead,
+     relational schemas are almost always chosen to reflect the way in
+     which one specific application needs to acquire a specific
+     collection of data in order to satisfy a specific use case.  This
+     means that it has been specifically made unpractical ― if not
+     downright impossible ― to reuse the same data reusable in a
+     different application, possible operating within a different
+     context.  Even if the organization operating the database does
+     not care about reuse, and only cares about the one application
+     this relational database was constructed for, the data in this
+     database will no longer be interpretable once the person who
+     created the original schema moves on to a different job.
+
+These are only two examples.  Everyone who has worked with data knows
+that ambiguity, low data quality, and lack of data semantics are
+inherent properties of the current state of the art.  As such, Linked
+Data Knowledge Graphs provide a strong departure from the current
+state-of-the-art in data systems, by providing conceptual solutions
+for the three core problems that are not even addressed by other data
+paradigms.
+
+* Terms
+** Names
+*** IRIs
+
+RDF uses IRIs as its globally unique and unambiguous names.  IRIs are
+an extension of URIs, allowing non-ASCII Unicode characters to appear
+in most places.  URIs are the standardized format for web locations.
+
+| *Abbreviation* | *Expansion*                       | *Description*                                            |
+|----------------+-----------------------------------+----------------------------------------------------------|
+| URL            | Universal Resource Locator        | Unofficial term, used as a synonym for URI.              |
+| URI            | Universal Resource Identifier     | Standardized format for web locations, used in HTTP.     |
+| IRI            | International Resource Identifier | Extension of URI, allowing non-ASCII Unicode characters. |
+
+**** IRI components
+
+ HTTP(S) IRIs can be subdivided into the following five components:
+
+   - *Scheme* :: The scheme that is used by the rest of the IRI.
+   - *Authority* :: The name that identifies the physical machine from
+                    which the IRI is hosted.
+   - *Path* :: A hierarchic sequence of segments, separated by forward
+               slashes (~/~).
+   - *Query* :: The part after the last question mark (~?~).
+   - *Fragment* :: The part after the last hash character (~#~).
+
+ The following conventional restrictions that apply to all components
+ are put on HTTP(S) IRIs that are used in RDF data:
+
+   - Do not use unnecessary percent encoding.  For example, use
+     ~https://example.com/π~ instead of ~https://example.com/%CF%80~.
+   - Do not use lowercase letters to denote hexadecimal digits.  For
+     example, use ~https://example.com/%5C~ instead of
+     ~https://example.com/%5c~.
+   - IRIs should be in Unicode Normalization Forms C (NFC).
+
+ We will use the example IRI [[pikachu-iri]] to discuss the five IRI
+ components in more detail.
+
+ #+begin_src iri
+ <https://demo.triply.cc/academy/pokemon/id/>
+ #+end_src
+
+***** Scheme
+
+The RDF standard allows the use of IRIs for each of the /schemes/ that
+are registered with the Internet Assigned Numbers Authority (IANA).
+At the moment of writing, the most commonly used scheme for RDF data
+is HTTP, the insecure predecessor to HTTPS.  We will only mint IRIs
+with the HTTPS scheme, but you will encounter legacy datasets that
+still use the ~http~ scheme.
+
+ This component identifies how the rest of the IRI should be
+ interpreted.
+
+ As indicated, we will only mint IRIs with scheme component ~https~.
+ However, since the majority of existing Linked Data uses the insecure
+ HTTP scheme, so will often be forced to use IRIs with scheme component
+ ~http~ as well.
+
+ By convention, scheme components are written in lowercase.  For
+ example, we will not write ~HTTP~ or ~HttP~, but always ~http~.
+
+***** Authority
+
+ The authority component identifies the physical machine from which the IRI
+ is hosted.  Visiting the IRI in a web browser or other
+ HTTP(S)-compliant tool like cURL will try to retrieve a representation
+ of that IRI from this physical machine.
+
+ The authority components is itself divided into the following three
+ subcomponents:
+
+   - *User* :: The name of the user requesting access.
+   - *Host* :: The IP location or registered name of the physical
+               machine form which the IRI is hosted.
+   - *Port* :: The post number from which the IRI is hosted.
+
+ We will never use the user or port component in IRIs we mint.  We will
+ also never use IP locations (sequences of numbers) as the host name,
+ by will always use registered names.  These components are used
+ infrequently by other as well, but you may come across IRIs like
+ ~http://joe@example.com:8080/~ once in a while.
+
+ The registered name variant of the host subcomponent provides an
+ important grounding of IRIs ― mere sequences of characters ― in
+ physical reality.  RDF data is located on physical machines that are
+ registered through the Domain Name System (DNS).  This means that
+ every registered name, and thus the vast majority of RDF IRIs, can be
+ traced to a specific registered person or organization.
+
+ In our example IRI [[pikachu-iri]], the authority component only consists
+ of the host subcomponent, which is the registered name
+ ~demo.triply.cc~.  This indicates that the IRI denoting Pikachu is
+ hosted from a physical machine that is owned and operated by [[https://triply.cc][Triply]].
+
+ The following conventional restritions are put on HTTP(S) IRIs that
+ are used in RDF data:
+
+   - Leave out the port component in case it is the default port.  The
+     default port for HTTP is 80; the default port for HTTPS is 443.
+     For example, use ~https://example.com/~ instead of
+     ~https://example.com:443/~.
+   - Do not use upper-case letters.  For example, use
+     ~https://example.com/~ instead of ~hTtPs://example.com/~.
+   - Do not use Punycode-encoding for host names.
+
+***** Path
+
+ The path is a sequence of segments separated by forward slashes (~/~).
+ These segments are intended to be read hierarchically from more
+ generic (left) to more specific (right).
+
+ In order example IRI [[pikachu-iri]] the segments are as follows (from
+ generic to specific):
+
+   - ~academy~ :: The name of the organization account that has
+                  published the Pokémon dataset.
+   - ~pokemon~ :: The name of the Pokémon dataset, published within the
+                  Triply Academy organization account.
+   - ~id~ :: Indicating that this IRI denotes an individual or
+             instances, rather than a concept or definition.
+   - ~pikachu~ :: Indicating the specific individual denoted by this
+                  IRI.
+
+ The following conventional restrictions are put on HTTP(S) IRIs that
+ are used in RDF data:
+
+   - Do not use a completely empty path.  For example, use
+     ~https://example.com/~ instead of ~https://example.com~.
+   - Do not include dot segments (~/./~) and/or double-dot segments
+     (~/../~).  For example, use ~https://example.com/b~ instead of
+     ~https://example.com/a/../b~.
+
+***** Query
+
+ We never use the query component in IRIs we mint, but we may come
+ across query components in IRIs minted by others.
+
+***** Fragment
+
+ We never use the fragment component in IRIs we mint.
+
+ However, fragment components are commonly used in older vocabularies.
+ The reason for this is that (1) vocabularies are often relatively
+ small, so that they can be disseminated in their entirety in one
+ relatively small file, and (2) hosting one file is sometimes
+ considered easier or cheaper than hosting multiple files.  Whenever a
+ specific term that uses a fragment component is requested, the file
+ containing the full vocabulary is downloaded.  Since the cost of
+ hosting Linked Data is so low when modern hosting solutions are used,
+ we believe that the use of fragment components is no longer necessary
+ and would only over-complicate things.
+
+**** Real-world experience
+These are our best practices for minting IRIs:
+
+  - Always use HTTPS IRIs and never use HTTP IRIs.  HTTPS is the
+    successor to the less secute HTTP.  Since all professional web
+    sites and APIs should be using HTTPS by now, looking up an HTTP
+    URI should result in a redirect to its related HTTPS URI,
+    resulting in an unnecessary additional lookup.
+  - Give all your instance-denoting IRIs the same IRI prefix.  This
+    makes it easy to formulate server-side rules that run specific
+    services for these IRIs.  For example, a single server-side rule
+    suffices to let these IRIs dereference in one and the same way.
+  - Give all your definition-denoting IRIs the same IRI prefix.
+  - Let the local name of class-denoting IRIs start with an uppercase
+    letter.
+  - Let the local name of property- and instance-denoting IRIs start
+    with a lowercase letter.
+  - While IRIs should not be unnecessarily long in general, never mint
+    IRI whose URI translation exceeds 2,048 characters.  URIs that are
+    longer than this number of character are known to be cut off by
+    some proxies and by several commonly used applications (including
+    Edge, Interney Explorer 11, and Google Documents).
+  - Follow all the conventions that are described in the previous
+    section.
+
+Whenever a Linked Data project involves creating data that requires
+the minting of new IRIs, very long discussions take place about how
+those IRIs must be structured and written down.  This is not
+necessarily a bad thing: an organization must think about how it wants
+it data to look like when used by others on the Internet.
+
+Such discussions are not specific to the use of Linked Data, and are
+in fact similar discussions about which URI to use for an
+organization's API, or for a corporate web site.
+
+The various restrictions, conventions, and best practices that were
+have outlined in this and previous sections may seem petty at times,
+but they do restrict the number of ‘strange things’ an organization
+might mistakingly agree on putting into their use of IRI for RDF data.
+It is very important to communicate these restrictions, conventions,
+and best practices in an early stage in order to steer such
+discussions into the right direction, resulting in IRIs that are
+at the very least correct, but preferably are also conventional.
+
+** Prefix declarations
+
+* Triples
+
+The previous chapter introduced Linked Data /terms/.  In this chapter
+we will introduce Linked Data /triples/, that are composed of terms.
+
+** Natural language sentences
+
+Triples are very similar to simple natural language sentences.  For
+example, the natural language sentence [[natural-language-sentence-1]]
+expresses a simple fact about two Pokémon.
+
+#+caption: A natural language sentence expressing a simple fact.
+#+name: natural-language-sentence-1
+#+begin_example
+Pikachu fights Mew.
+#+end_example
+
+This sentence contains three words.  Grammatically speaking, the first
+and last term are /nouns/ (‘Pikachu’ and ‘Mew’.).  In this particular
+case they are /proper nouns/ that denote specific individuals (Pikachu
+and Mew).  The second term is a /binary verb/ (‘fights’).  Binary
+verbs denote relationships between two entities.  In this particular
+case the binary verb denotes the act of one entity fighting another
+entity.
+
+Notice that the proper noun ‘Pikachu’ plays a somewhat different role
+than the proper noun ‘Mew’: Pikachu is the active /subject/ of the
+described act of fighting, while Mew is the passive /object/.  This
+can be easily observed by contrasting natural language sentence
+[[natural-language-sentence-1]] with natural language sentence
+[[natural-language-sentence-2]], in which Mew is the active subject and
+Pikachu is the passive object.
+
+#+name: natural-language-sentence-2
+#+begin_example
+Mew fights Pikachu.
+#+end_example
+
+** Formal triple notation
+
+Chapter [[Terms]] made us familiar with how to formally encode Linked Data
+terms.  We will now use these terms in order to formally encode
+triples.
+
+Remember that Pikachu is denoted by IRI [[pikachu-iri]], the relationship
+of one entity fighting another entity is denoted by IRI [[fights-iri]],
+and Mew is denoted by IRI [[mew-iri]]
+
+#+name: pikachu-iri
+#+begin_src ttl
+https://triply.cc/academy/pokemon/id/pikachu
+#+end_src
+
+#+name: fights-iri
+#+begin_src ttl
+https://triply.cc/academy/pokemon/def/fights
+#+end_src
+
+#+name: mew-iri
+#+begin_src ttl
+https://triply.cc/academy/pokemon/id/mew
+#+end_src
+
+In order to create a triple, we only need to write these three terms
+after one another (in the correct order).  We add (optional) spaces in
+between the three term, and write a (required) dot at the end.  This
+gives us our first triple [[triple-1]].  This triple encodes the same
+simple fact as the natural language sentence
+[[natural-language-sentence-1]].
+
+#+name: triple-1
+#+begin_src ttl
+<https://triply.cc/academy/pokemon/id/pikachu> <https://example.com/fights> <https://triply.cc/academy/pokemon/id/mew>.
+#+end_src
+
+As with natural language sentences, the order in which the terms
+appear matters.  For example, triple [[triple-2]] encodes the same fact as
+natural language [[natural-language-sentence-2]], which is different from
+the fact encoded by [[triple-1]].
+
+#+name: triple-2
+#+begin_src ttl
+<https://triply.cc/academy/pokemon/id/mew> <https://example.com/fights> <https://triply.cc/academy/pokemon/id/pikachu>.
+#+end_src
+
+Remember that we could distinguish different kinds of words in natural
+language sentences like [[natural-language-sentence-1]] and
+[[natural-language-sentence-2]].  Specifically, we could distinguish nouns
+from verbs, and we could distinguish subjects from objects.  We make
+the same distinctions with respect to the terms in a triple:
+
+  - *Subject* :: The first term in a triple.  Denotes the active
+                 entity involved in the described relationship.
+  - *Predicate* :: The second term in a triple.  Denotes the
+                   relationship between the entity denoted by the
+                   subject term and the entity denoted by the object
+                   term, /in that order/.
+  - *Object* :: The third term in a triple.  Denotes the passive
+                entity involved of the described relationship.
+
+*** Abbreviated triple notation
+
+Since triples like [[triple-1]] can become quite lengthy, prefix
+declarations (Section [[Prefix declarations]]) are often used when writing
+triples.  Example [[triple-3]] shows triple [[triple-1]] using prefix
+notation.  The use of prefix notation is always optional.
+
+#+name: triple-3
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/> 
+prefix id: <https://triply.cc/academy/pokemon/id/> 
+
+id:pikachu def:fights id:mew.
+#+end_src
+
+** Relationship to graphs
+
+As mentioned in Section [[Introduction]], RDF encodes data in a graph
+model.  But the previous two sections have related triples to simple
+natural language sentences, not graphs.  However, there is a direct
+parallel between a /triple/ and an /arc/.  And arcs are what graphs
+are composed of.
+
+An arc, typically represented by an arrow, encodes a relationship
+between two entities.  For example, figure [[arc-1]] shows an arc
+representation that encodes the same fact as
+[[natural-language-sentence-1]] and [[triple-1]].
+
+#+begin_src dot :file ../img/arc-1.png
+digraph g {
+  node [label="",shape="none"];
+  {
+    rank=same
+    mew [image="../img/mew.png"];
+    pikachu [image="../img/pikachu.png"];
+  }
+  pikachu -> mew [label=<fights>];
+}
+#+end_src
+
+#+caption: Arc representation of the sentence “Pikachu fights Mew”.
+#+name: arc-1
+#+results:
+[[file:../img/arc-1.png]]
+
+Notice that the subtle distinction between the roles of Pikachu and
+Mew is also encoded: the arrow head encodes the /directedness/ of the
+arc.
+
+Just as sentence [[natural-language-sentence-2]] has a meaning that is
+different from sentence [[natural-language-sentence-1]], we can see that
+the graph in figure [[arc-2]] encodes a different meaning than the graph
+in figure [[arc-1]].
+
+#+begin_src dot :file ../img/arc-2.png
+digraph g {
+  node [label="",shape="none"];
+  {
+    rank=same
+    mew [image="../img/mew.png"];
+    pikachu [image="../img/pikachu.png"];
+  }
+  mew -> pikachu [label=<fights>];
+}
+#+end_src
+
+#+caption: Arc representation of the sentence “Mew fights Pikachu”.
+#+name: arc-2
+#+results:
+[[file:../img/arc-2.png]]
+
+There is a strong correspondence between natural language sentences
+(like [[natural-language-sentence-1]]), triples (like [[triple-1]]), and arcs
+(like [[arc-1]]).  Table [[table-1]] gives an overview of this correspondence.
+
+#+name: table-1
+| *sentence*  | *triple*       | *arc*       |
+|-------------+----------------+-------------|
+| noun        | subject term   | ‘from’ node |
+| binary verb | predicate term | arrow       |
+| noun        | object term    | ‘to’ node   |
+
+** Conclusion
+
+RDF is an open standard for encoding triples.  While triples
+correspond to seemingly simple natural language sentences, this
+restriction to sequences of three terms ensures the correspondence
+between triples and arcs.  And the correspondence between triples and
+arcs is what allows RDF to encode knowledge graphs.
+
+Whenever somebody complains that Linked Data is too difficult,
+remember that triples are very similar to natural languages that
+people use all day.  **A triple is a sequence of three terms: a
+subject, predicate, and object term.** That's it!
+
+* Graphs
+
+Now that we understand what a triple is (chapter [[Triples]]), we can
+introduce the notion of a graph.  **A graph is a set of triples.**
+Because we already established the similarity between a triple and an
+arc in Chapter [[Triples]], we are no longer surprised that a graph is
+simply a bunch of triples.
+
+We specifically say that a graph is a /set/ of triples, this means
+that a graph cannot contain the same triple more than once.  For
+example, the graph encoded in [[graph-1]] is exactly the same as the graph
+encoded in [[graph-2]].
+
+#+name: graph-1
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/> 
+prefix id: <https://triply.cc/academy/pokemon/id/> 
+
+id:pikachu def:fights id:mew
+#+end_src
+
+#+name: graph-2
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/> 
+prefix id: <https://triply.cc/academy/pokemon/id/> 
+
+id:pikachu def:fights id:mew
+id:pikachu def:fights id:mew
+#+end_src
+
+Since a set can also contain zero elements, a file that is completely
+empty also encodes a graph: the empty graph.
+
+** An example graph
+
+Now that we know what a triple is, and we know that a graph is simply
+a set of triples, we can write down graph [[graph-3]] which consists of
+multiple triples that describe various properties of Pikachu.
+
+Notice that we follow the convention according to which concepts are
+written with a capital letter.  For example, we write ~id:pikachu~
+(small letter ‘p’), but ~def:Pokemon~ (capital letter ‘P’).
+
+Also notice that we use abbreviated notation for numeric literals.
+For example, we write ~60~ instead of the longer by identical
+~"60"^^xsd:integer~, or the even longer but still identical
+~"60"^^<http://www.w3.org/2001/XMLSchema#integer>~.
+
+#+name: graph-3
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/>
+prefix id: <https://triply.cc/academy/pokemon/id/>
+
+id:pikachu def:fights id:bobasnow.
+id:pikachu def:fights id:mew.
+id:pikachu def:name   "ピカチュウ"@ja.
+id:pikachu def:weight "60".
+#+end_src
+
+** Abbreviated notation for graphs
+
+Graph [[graph-3]] already uses the abbreviations for terms that were
+introduced in Chapter [[Terms]].  However, there are additional
+abbreviates that specifically apply to graphs.
+
+When consecutive triples have the same subject term, we only need to
+write the first subject term, as long as we end each triple with a
+semicolon (~;~) instead of a dot.
+
+For example, if we apply this abbreviation to Graph [[graph-3]], we only
+need to write the subject term ~id:pikachu~ once, resulting in Graph
+[[graph-4]].  Notice that we use a dot to end the last triple in such an
+abbreviated sequence.
+
+#+caption: Graph [[graph-3]] with abbreviated notation for repeated subject terms applied.
+#+name: graph-4
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/>
+prefix id: <https://triply.cc/academy/pokemon/id/>
+
+id:pikachu
+  def:fights id:bobasnow;
+  def:fights id:mew;
+  def:name "ピカチュウ"@ja;
+  def:weight "60".
+#+end_src
+
+In addition to the abbreviated notation for repeating subject terms,
+we can also use abbreviated notation for repeated subject/predicate
+pairs, as long as we use a comma (~,~) instead of a semicolon or dot
+to end the abbreviated triple.
+
+For example, if we apply this abbreviation to Graph [[graph-4]], we only
+need to write the predicate term ~def:fights~ once, resultig in Graph
+[[graph-5]].  Notice that we write a semicolon at the end of the last
+triple where abbreviated subject/predicate pair notation is used, and
+a dot at the end of the last triple where abbreviated subject term
+notation is used.
+
+#+caption: Graph [[graph-4]] with abbreviated notation for repeated subject/predicate pairs applied.
+#+name: graph-5
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/>
+prefix ex: <https://example.com/>
+prefix id: <https://triply.cc/academy/pokemon/id/>
+
+id:pikachu
+  ex:fights id:bobasnow, id:mew;
+  def:name "ピカチュウ"@ja;
+  def:weight 60.
+#+end_src
+
+** Conclusion
+
+Even though natural language sentences and knowledge graphs seem to be
+quite different beasts, we will show that they are actually
+conceptually related.  Moreover, we will show that the ability of
+natural language sentences to encode knowledge is mirrored by the
+ability of knowledge graphs to encode the same knowledge.
+
+* Datasets
+
+* Comparing TriG to JSON
+
+#+begin_src json
+{
+  "fights": ["bobasnow", "mew"],
+  "name": {
+    "lexical-form": "ピカチュウ",
+    "language-tag": "ja"
+  },
+  "weight": 60
+}
+#+end_src
+
+
+* Units of measure
+
+#+begin_src ttl
+prefix def: <https://triply.cc/academy/pokemon/def/>
+prefix ex: <https://example.com/>
+prefix id: <https://triply.cc/academy/pokemon/id/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+id:pikachu a def:Pokemon;
+  ex:fights id:bobasnow, id:mew;
+  def:name "ピカチュウ"@ja;
+  def:weight [
+    ex:unit ex:kilogram;
+    rdf:value 60
+  ].
+#+end_src

@@ -1,0 +1,367 @@
+#+title: How to Write SPARQL?
+
+Existing approaches for writing SPARQL queries focus on the relational
+algebra and other technical aspects of performing graph matching.
+While familiarity with these technical aspects is an essential
+prerequisite for writing queries, existing approaches do not pay much
+attention to how data is visualized or otherwise presented to the
+user.
+
+* Preliminaries
+** SPARQL templates
+We sometimes write SPARQL queries with a variable that is supposed to
+be bound to some specific value, e.g., a value obtained from running a
+previous SPARQL query.  Such <<template variable>>s are written as
+~{{x}}~.  We call such ‘queries’ <<SPARQL template>>s, to distinguish
+them from proper SPARQL queries that can be run without substituting
+values for template variables.
+
+** Variable names
+In general, SPARQL variables should provide extra information about
+the role the variable plays within the query, ~?building~ for an IRI
+that denotes a building, and ~?address~ for a literal that denotes a
+building's address.
+
+The following variable names are always used to communicate the same,
+commonly recurring, thing:
+
+| *Variable name* | *Meaning*                                                           |
+|-----------------+---------------------------------------------------------------------|
+| ~?c~            | An arbitrary class-denoting term.                                   |
+| ~?d~            | An arbitrary datatype IRI.                                          |
+| ~?g~            | An arbitrary graph-denoting IRI.                                    |
+| ~?i~            | An arbitrary instance-denoting term.                                |
+| ~?lex~          | An arbitrary lexical form.                                          |
+| ~?ltag~         | An arbitrary language-tag.                                          |
+| ~?n~            | An arbitrary number.                                                |
+| ~?o~            | An arbitray object term.                                            |
+| ~?p~            | An arbitray predicate term, or an arbitrary property-denoting term. |
+| ~?s~            | An arbitray subject term.                                           |
+| ~?shape~        | An arbitrary shape-denoting literal (either GML or WKT).            |
+| ~?shapeColor~   | The color of the shape bound to ~?shape~.                           |
+| ~?shapeHeight~  | The height (in meters) of the shape bound to ~?shape~.              |
+| ~?shapeLabel~   | The HTML label of the shape bound to ~?shape~.                      |
+| ~?widget~       | A string containing an HTML widget.                                 |
+
+* Obtaining an overview
+One of the most common problems when using a SPARQL endpoint for the
+first time is figuring out what data is stored in it and, based on
+that, which kinds of questions can be asked.  Unfortunately, there are
+no common approaches for obtaining an overview of the contents of a
+SPARQL endpoint.  This section provides a collection of SPARQL queries
+that may be used in order to obtain such an overview.
+
+** Graph overview
+It is useful to obtain an overview of how the data in an endpoint is
+partitioned over graphs.
+
+#+begin_src sparql
+# The outer select introduces thousands separator for readability.
+select ?g (replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?n) {
+{
+ # Named graphs
+ select ?g (count(*) as ?n) {
+   graph ?g {
+     ?s ?p ?o.
+   }
+ }
+ group by ?g
+ order by desc(?n)
+} union {
+ # Default graph
+ bind("default" as ?g)
+ # Count the number of statements that occurs in the dataset,
+ # but not in any named graph.
+ select (count(*) as ?n) {
+   ?s ?p ?o.
+   filter not exists {
+     graph ?g {
+       ?s ?p ?o.
+     }
+   }
+ }
+}
+}
+#+end_src
+
+** Class histogram
+
+#+begin_src sparql
+select ?c (count(?i) as ?n) {
+?i a ?c.
+}
+group by ?c
+order by desc(?n)
+#+end_src
+
+#+begin_src sparql
+# The outer select introduces thousands separator for readability.
+select ?c (replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?n) {
+{
+ select ?c (count(?i) as ?n) {
+   ?i a ?c.
+ }
+ group by ?c
+ order by desc(?n)
+}
+}
+#+end_src
+
+When named graphs partition the dataset in a meaningful way, it can be
+useful to generate the class histogram on a per graph basis.
+
+** Predicate histogram
+Based on the class histogram, the main classes of interest can be
+identified, and for these the corresponding predicate histogram can be
+calculated as follows:
+
+#+begin_src sparql
+select ?p (count(*) as ?n) {
+?i a {{c}};
+  ?p ?o.
+}
+group by ?p
+order by desc(?n)
+#+end_src
+
+#+begin_src sparql
+# The outer select introduces thousands separator for readability.
+select ?p (replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?n) {
+{
+ select ?p (count(*) as ?n) {
+   ?i a {{c}};
+      ?p ?o.
+ }
+ group by ?p
+ order by desc(?n)
+}
+}
+#+end_src
+
+* Working with idiosyncratic data
+** IRI local names as alternative labels
+More often than we would like, Linked Data IRIs are not assigned a
+human-readable label in the data.  If this is the case, the last
+segments of the IRI's path component often provides an acceptable
+fallback option.  It can be extraced with the following regular
+expression:
+
+#+begin_src sparql
+replace(str(?iri), ".*[\\/#]", "")
+#+end_src
+
+The following extracts the last IRI path segment and binds it to the
+~?label~ variable in case no ~rdfs:label~ appears in the data:
+
+#+begin_src sparql
+...
+optional { ?s rdfs:label ?_label. }
+bind(if(bound(?_label),?_label,replace(str(?s), ".*[\\/#]", "") as ?label)
+#+end_src
+
+** Object terms that are sometimes literals and sometimes IRIs
+Some properties occur with both literals and IRIs.  E.g., observe the
+following data snippet:
+
+#+begin_src ttl
+ex:image1 ex:location "Amsterdam"@en.
+ex:image2 ex:location [ a ex:Location; rdfs:label "Berlin"@en ].
+#+end_src
+
+We can find a human-readable label for every image with the following
+query using the ~union~ operator:
+
+#+begin_src sparql
+select ?image ?label {
+{
+ ?image ex:location ?label.
+ filter(isLiteral(?label))
+} union {
+ ?image ex:location/rdfs:label ?label.
+}
+}
+#+end_src
+
+Notice that the ~filter~ clause is required to prevent IRIs from being
+bound to variable ~?label~.
+
+Alternatively, we can make use of the ~optional~ operator to achieve
+the same result:
+
+#+begin_src sparql
+select ?image ?label {
+?image ex:location ?location.
+optional { ?location rdfs:label ?_label. }
+bind(if(bound(?_label),?_label,?location) as ?label)
+}
+#+end_src
+
+* Enhancing result set presentation
+** HTML widgets
+For visualization purposes it is useful to bind HTML snippets to
+SPARQL variables.  E.g., in SPARQL Gallery it is possible to use the
+~?widget~ variable, and in SPARQL 2D and SPARQL 3D each variable ~?x~
+with a geospatial binding can be matched with a variable ~?xLabel~
+with an HTML snippet bound to it.
+
+The following example retrieves energy labels for addresses.  In its
+simplest form, the query would return a column with polygons of
+buildings, a columns with letters ‘A’ through ‘G’ denoting energy
+labels, a column with detes of measurements, etc.  With the below use
+of HTML snippets and colors, polygons can be drawn on a 2D map and can
+be assigned colors that correspond to each of the energy labels.  When
+a polygon is clicked, a popup with additional information shows up.
+
+#+begin_src sparql
+select ?shape ?shapeColor ?shapeLabel {
+  ?address geo:hasGeometry/geo:asWKT ?shape
+  # Not all addresses have an energylabel yet.
+  optional { ?address ex:energylabel ?energylabel }
+  bind(# Some appartments do not (yet) have an energy label.
+       if(!(bound(?energylabel)),'grey',
+       # Energy labels ‘A’ and ‘A+’ are assigned the same color.
+       if(strstarts(?energylabel,'A'),'#22b14c',
+       if(?energylabel='B','#8ff334',
+       if(?energylabel='C','#bdfc2c',
+       if(?energylabel='D','#fff200',
+       if(?energylabel='E','#ff9a35',
+       if(?energylabel='F','#ff7f27',
+       if(?energylabel='G','#ed1c24',
+       # This should not occur.  Use a noticeable color to recognize this erroneous condition.
+       'purple')))))))) as ?shapeColor)
+  bind('''<h3><svg height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" fill="{{shapeColor}}" r="10"/></svg> Energy label information:</h3>
+          <ul><li>Energy label: {{energylabel}}</li>
+          <li>EP: {{ep}}</li>
+          <li>Date of measurement: {{measurementDate}}</li>
+          <li>Date of registration: {{registrationDate}}</li></ul>'''^^rdf:HTML as ?shapeLabel)
+}
+#+end_src
+
+** Pretty-printing integers
+Integers larger than 1,000 are difficult to read when the thousands
+separator is absent.  (E.g., ~2,436,023~ is significantly easier to
+read than ~2436023~.)
+
+Thousand separators can be automatically applied to arbitrary integers
+with the following regular expression:
+
+#+begin_src sparql
+replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.')
+#+end_src
+
+Since the thousand separator is only useful in user-facing output, and
+does not serve a purpose inside the query body, it often makes sense
+to introduce the separator in the projection:
+
+#+begin_src sparql
+select (replace(?n,'[0-9](?=(?:[0-9]{3})+(?![0-9]))','$0.') as ?n) {
+  …
+}
+#+end_src
+
+Notice that different languages/countries use different thousand
+separators.  Change ~'$0.'~ to use a different separator character.
+
+** Pretty-printing dates
+When XML Schema dates (i.e., literals with datatype IRI ~xsd:date~)
+are directly printed, the result is not very readable for people who
+are unfamiliar with technical notation for dates (e.g., ~2018-04-09~).
+
+Furthermore, notice that the order in which the date components are
+printed (year, month, day) is common in the U.S., but not in other
+countries, including The Netherlands.  The below SPARQL snippet
+presumes that variable ~?date~ is bound to a legal lexical form for
+datatype IRI ~xsd:date~.  The date is shown as follows: “9 april
+2018” (Dutch notation).
+
+#+begin_src sparql
+bind(month(?date) as ?month)
+bind(if(?month=1,'januari',
+     if(?month=2,'februari',
+     if(?month=3,'maart',
+     if(?month=4,'april',
+     if(?month=5,'mei',
+     if(?month=6,'juni',
+     if(?month=7,'juli',
+     if(?month=8,'augustus',
+     if(?month=9,'september',
+     if(?month=10,'oktober',
+     if(?month=11,'november','december'))))))))))) as ?monthLabel)
+bind(concat(str(day(?begin)),' ',str(?monthLabel),' ',str(year(?begin))) as ?dateLabel)
+#+end_src
+
+* Geospatial
+** Calculating the surface of a polygon
+Unfortunately, GeoSPARQL does not have a function for calculating the
+surface of a given polygon.  At the same time, when working with
+geospatial data it is often useful to be able to calculate the
+surface.  Luckily, the surface function can be approximated by using
+regular expressions that are supported by SPARQL:
+
+#+begin_src sparql
+bind(geof:envelope(?shape) as ?boundingBox)
+bind('^POLYGON\\s\\(\\(([0-9]*\\.[0-9]*)\\s([0-9]*\\.[0-9]*)\\,\\s([0-9]*\\.[0-9]*)\\s([0-9]*\\.[0-9]*)\\,\\s([0-9]*\\.[0-9]*)\\s([0-9]*\\.[0-9]*)\\,\\s([0-9]*\\.[0-9]*)\\s([0-9]*\\.[0-9]*).*\\)\\)$' as ?regex)
+bind(replace(str(?boundingBox), ?regex, '$1') as ?x1)
+bind(replace(str(?boundingBox), ?regex, '$2') as ?y1)
+bind(replace(str(?boundingBox), ?regex, '$5') as ?x2)
+bind(replace(str(?boundingBox), ?regex, '$4') as ?y2)
+bind(geof:distance(strdt(concat('Point(',str(?x1),' ',str(?y1),')'), geo:wktLiteral),
+                strdt(concat('Point(',str(?x2),' ',str(?y1),')'), geo:wktLiteral),
+                uom:metre) as ?x)
+bind(geof:distance(strdt(concat('Point(',str(?x1),' ',str(?y1),')'), geo:wktLiteral),
+                strdt(concat('Point(',str(?x1),' ',str(?y2),')'), geo:wktLiteral),
+                uom:metre) as ?y)
+bind(?x*?y as ?surface)
+#+end_src
+
+* Two dialects: Ugly SPARQL & Pretty SPARQL
+Generalizing things a bit, there are two dialects of SPARQL: Ugly
+SPARQL and Pretty SPARQL.  These two dialects do not differ in terms
+of their semantics, i.e., they both describe the same algebraïc
+operations.  They only differ in syntactic ways.  Here is the same
+query, first in the Ugly SPARQL dialect, and then in the Pretty SPARQL
+dialect:
+
+#+begin_src sparql
+SELECT DISTINCT ?Machine ?SensorName ?Data
+WHERE {
+    ?Machine :hasSensor ?Sensor .
+    ?Machine a :Machine .
+    ?Machine :isConnectedWith ?otherMachine .
+    ?otherMachine :machineName ?otherMachineName .
+    ?Sensor :measures ? Data .
+    ?Sensor :name ?SensorName .
+    FILTER ( ?otherMachineName="EJQ3")
+}
+#+end_src
+
+#+begin_src sparql
+select distinct ?machine ?sensorName ?data {
+  ?machine a :Machine;
+    :isConnectedWith/:machineName 'EJQ3';
+    :hasSensor [ :measures ?data; :name ?sensorName ]
+}
+#+end_src
+
+Notice the following differences:
+
+- Like programming languages from the 1960's, ugly SPARQL writes
+  *keywords* in uppercase.  Non-ugly SPARQL writes keywords in
+  lowercase, similar to programming languages from the 1990's.
+- Ugly SPARQL includes *optional keywords* like ~WHERE~ and puts them
+  on a separate line, to signify that they are not important.
+  Non-ugly SPARQL leaves out optional keywords, to provide maximal
+  focus on the meaningful aspects of the query.
+- Ugly SPARQL tries to spread out Triple Patterns that are about the
+  same thing as much as possible.  E.g., ~?Sensor~ ocurs in the first
+  and the last Triple Pattern, with Triple Patterns that are not about
+  ~?Sensor~ appearing in between.  Non-ugly SPARQL tries to put
+  conceptually related Triple Patterns together.  It uses Property
+  Path notation ~/~ and abbreviated blank node notation ~[…]~ in order
+  to hide unimportant details (e.g., variables ~?otherMachine~ and
+  ~?Sensor~ are not needed).  Because of this, Pretty SPARQL is able
+  to highlight aspects that are important (e.g., variables ~?machine~,
+  ~?sensorName~, and ~?data~ that are returned in the projection).
+- Ugly SPARQL uses ~filter~ clauses for regular bindings, whereas
+  non-ugly SPARQL writes regular bindings into Graph Patterns
+  directly.
