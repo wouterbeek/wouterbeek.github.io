@@ -27,24 +27,162 @@
         <section>
           <h1>Empirical Semantics</h1>
           <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
-            (<a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a>)</p>
+            (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>),<br>
+            <a href="https://www.cs.vu.nl/~frank.van.harmelen/" target="_blank">Frank van Harmelen</a>
+            (<a href="mailto:Frank.van.Harmelen@vu.nl">Frank.van.Harmelen@vu.nl</a>)</p>
           <a href="https://krr.cs.vu.nl/" target="_blank">
             <img src="/resource/img/logo/krr.png" height="100">
           </a>
         </section>
 
         <section>
-          <h2>What is Empirial Semantics?</h2>
-          <p>
-            The empirical (i.e., non-analytic) analysis of meaning.
-          </p>
-          <p class="size-80">
-            (We still use model theory and other formalisms in order
-            to <em>describe</em> the outcomes of our analyses.  But we
-            do use formalisms in order to <em>prescribe</em> what a
-            given expressions should mean.)
-          </p>
+          <h3>2 notions of meaning</h3>
+          <div class="left">
+            <h4>What formal semantics prescribes</h4>
+            <figure>
+              <a href="/resource/img/empirical-semantics/barad-dur.jpg" target="_blank">
+                <img src="/resource/img/empirical-semantics/barad-dur.jpg">
+              </a>
+            </figure>
+          </div>
+          <div class="right">
+            <h4>What people do with it in practice</h4>
+            <figure>
+              <a href="/resource/img/empirical-semantics/babel.png" target="_blank">
+                <img src="/resource/img/empirical-semantics/babel.png">
+              </a>
+            </figure>
+          </div>
+          <div style="clear: left;">
+            <p class="size-80">Jim Hendler, <a href="https://www.slideshare.net/jahendler/wither-owl" target="_blank">ESWC 2016</a></p>
+          </div>
         </section>
+
+        <section>
+          <h2>What is Empirial Semantics?</h2>
+          <p>The empirical (i.e., non-analytic) analysis of meaning.</p>
+          <p class="size-80">(We still use model theory and other
+            formalisms in order to <em>describe</em> the outcomes of
+            our analyses, but we do not use formalisms in order
+            to <em>prescribe</em> what a given expressions ought to
+            mean.)</p>
+        </section>
+
+        <section>
+          <section>
+            <h3>Why is Empirical Semantics needed? (1/2)</h3>
+            <p>Some aspects of meaning <em>cannot</em> be captured by
+              formal meaning, but we still want to study them.</p>
+            <p>(We must observe these non-formal aspects of meaning
+              empirically.)</p>
+          </section>
+
+          <section>
+            <h3>Formal semantics cannot capture all aspects of meaning</h3>
+            <h4>Graph G₁</h4>
+            <pre><code class="ttl" data-noescape data-trim>id:store def:sells id:tent.
+id:tent  def:costs "¥150,000".
+id:tent  rdf:type  id:Product.</code></pre>
+            <h4>Graph G₂</h4>
+            <pre><code data-noescape data-trim>fy:aHup   pe:ko9sap_ fy:jufn12.
+fy:jufn12 pe:oao9_   "Ufou".
+fy:jufn12 rdf:type   fyufnt:tmffqt.</code></pre>
+            <p>Graphs G₁ and G₂ are true in the same models.</p>
+          </section>
+
+          <section>
+            <h3>Social Meaning</h3>
+            <p>In the early days of the Semantic Web (2003) the
+              non-formal aspects of meaning were actively
+              discussed: <a href="https://www.w3.org/TR/2003/WD-rdf-concepts-20030123/#section-Meaning"
+                            target="_blank">link</a>.</p>
+            <hr>
+            <blockquote class="size-70">
+              “An RDF graph may contain "defining information" that is
+              opaque to logical reasoners.  This information may be
+              used by human interpreters of RDF information.”
+            </blockquote>
+            <blockquote class="size-70">
+              “Human publishers of RDF content commit themselves to
+              the mechanically-inferred social obligations.”
+            </blockquote>
+            <blockquote class="size-70">
+              “The meaning of an RDF document includes the social
+              meaning, the formal meaning, and the social meaning of
+              the formal entailments.”
+            </blockquote>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>Why is Empirical Semantics needed? (2/2)</h3>
+            <p>Some aspects of meaning <em>could</em> (theoretically)
+              have been captured by formal meaning, but are observed
+              to not be captured as such in common practice.</p>
+            <p>(We must observe what ‘common practice’ is
+              empirically.)</p>
+          </section>
+
+          <section>
+            <h3>Formally incorrect, but not meaningless</h3>
+            <br>
+            <figure>
+              <pre><code class="ttl" data-noescape data-trim>bpo:has_event rdfs:domain bpo:person.
+bpo:has_event rdfs:domain bpo:event.
+bpo:has_event rdfs:domain bpo:disease.</code></pre>
+              <figcaption class="size-80">
+                Examples from <a href="https://bioportal.bioontology.org/" target="_blank">BioPortal</a>.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Empirical research fields require infra</h2>
+            <p>Like other empirical research fields, Empirical
+              Semantics requires a serious investment in
+              infrastructure.</p>
+            <p>LOD Observatories are needed to observe and analyse the
+              large-scale use of Knowledge Graphs in practice.</p>
+          </section>
+
+          <section>
+            <h2><a href="http://lodlaundromat.org" target="_blank">LOD Laundromat</a></h2>
+	          <a href="http://lodlaundromat.org/basket">
+	            <img src="/resource/img/lod-laundromat/basket.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org">
+	            <img src="/resource/img/lod-laundromat/laundry.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/wardrobe">
+	            <img src="/resource/img/lod-laundromat/lod-wardrobe.png" width="200">
+	          </a>
+            <br>
+	          <a href="http://lodlaundromat.org/visualizations/">
+	            <img src="/resource/img/lod-laundromat/analysis.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/sparql/?query=PREFIX+llo%3A+%3Chttp%3A%2F%2Flodlaundromat.org%2Fontology%2F%3E%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0ASELECT+DISTINCT+((%3Fdups+%2F+xsd%3Adouble(%3Fdups+%2B+%3Ftriples))+AS+%3FrelDups)+%3Furl%0AWHERE+%7B%0A++%3Fdataset+llo%3Aduplicates+%3Fdups+%3B%0A++++llo%3Atriples+%3Ftriples+%3B%0A++++llo%3Aurl+%3Furl+.%0A++FILTER(%3Ftriples+%3E+0)%0A%7D%0AORDER+BY+DESC(%3FrelDups)+LIMIT+50%0A">
+	            <img src="/resource/img/lod-laundromat/labels.png" width="200">
+	          </a>
+	          <a href="http://lodlaundromat.org/about/">
+	            <img src="/resource/img/lod-laundromat/laundry-line.png" width="200">
+	          </a>
+	        </section>
+
+          <section>
+            <h2>Published at DANS</h2>
+            <img src="/resource/img/logo/dans.jpg" height="180">
+            <img src="/resource/img/lod-laundromat/lod-washing-machine.svg" height="180">
+            <p>
+              <a href="https://doi.org/10.17026/dans-znh-bcg3" target="_blank">
+                https://doi.org/10.17026/dans-znh-bcg3
+              </a>
+            </p>
+            <p>&gt;65K datasets, &gt;38B facts</p>
+          </section>
+	      </section>
 
         <section>
 	        <section>
@@ -52,15 +190,14 @@
           </section>
 
           <section>
+            <p>AAA:</p>
 	          <blockquote>
-              Anyone can say anything about anything.
+              “Anyone can say anything about anything.”
             </blockquote>
+            <p>AAA adapted for identity:</p>
 	          <blockquote>
               Anyone can say that anything is identical to anything
 	            (and they do).
-            </blockquote>
-	          <blockquote>
-              Anyone can say anything, but not everyone is a logician.
             </blockquote>
 	        </section>
 
@@ -109,94 +246,44 @@
 	        </section>
 
           <section>
-            <h3>Identity does not hold across modal contexts</h3>
-            <blockquote>
-              Lois Lane was rescued by Superman<br>
-              Superman is Clark Kent<hr>
-              ⊨ Lois Lane was rescued by Clark Kent
-            </blockquote>
-            <blockquote>
-              Lois Lane believes that she was rescued by Superman<br>
-              Superman is Clark Kent<hr>
-              ⊭ Lois Lane believes that she was rescued by Clark Kent
-            </blockquote>
-          </section>
-          <section>
-            <h3>Indentity is context-dependent</h3>
+            <h3>‘Barack Obama’ in LOD</h3>
             <figure>
-              <a href="/resource/img/identity/identity-graph.png" target="_blank">
-                <img src="/resource/img/identity/identity-graph.png">
-              </a>
-              <figcaption>
-                Baspirin™ is the same as Caspirin™<br>
-                Baspirin™ is <em>not</em> the same as Caspirin™
-              </figcaption>
-            </figure>
-          </section>
-
-          <section>
-            <h3>Identity over time</h3>
-            <p>TODO</p>
-          </section>
-
-          <section>
-            <h3>Identity under counterfactual assertion</h3>
-            <p>
-              Any property ascribed can be negated in a
-              counterfactual.
-            </p>
-            <h4>Example</h4>
-            <p class="size-80">
-              “If my parents would not have met then I would not have been born.”
-            </p>
-          </section>
-
-          <section>
-            <figure>
-              <a href="/resource/img/identity/identity-crisis1.svg" target="_blank">
-                <img src="/resource/img/identity/identity-crisis1.svg">
+              <a href="/resource/img/identity/obama-1.png" target="_blank">
+                <img src="/resource/img/identity/obama-1.png">
               </a>
             </figure>
           </section>
 
           <section>
-            <figure>
-              <a href="/resource/img/identity/identity-crisis2.svg" target="_blank">
-                <img src="/resource/img/identity/identity-crisis2.svg">
-              </a>
-            </figure>
+            <h3>But are these links correct?</h3>
+            <pre><code class="text" data-noescape data-trim>http://als.dbpedia.org/resource/Barack_Obama
+http://am.dbpedia.org/resource/ባራክ_ኦባማ
+http://data.nytimes.com/obama_barack_per
+http://viaf.org/viaf/52010985
+http://yago-knowledge.org/resource/Barack_Obama
+http://rdf.freebase.com/ns/m.02mjmr</code></pre>
+            <pre><code class="text" data-noescape data-trim>http://dbpedia.org/resource/Administration_of_Barack_Obama
+http://dbpedia.org/resource/Barack_Obama_Cabinet
+http://dbpedia.org/resource/Barack_Obama_presidency
+http://yago-knowledge.org/resource/Presidency_of_Barack_Obama
+http://rdf.freebase.com/ns/m.05b6w1g</code></pre>
           </section>
 
           <section>
-            <figure>
-              <a href="/resource/img/identity/identity-crisis3.svg" target="_blank">
-                <img src="/resource/img/identity/identity-crisis3.svg">
+            <h3>Cluster detection for ‘Barack Obama’</h3>
+            <figure style="float: left; width: 65%;">
+              <a href="/resource/img/identity/obama-2-labels.svg" target="_blank">
+                <img src="/resource/img/identity/obama-2.png">
               </a>
             </figure>
-          </section>
-
-          <section>
-            <figure>
-              <a href="/resource/img/identity/identity-crisis4.svg" target="_blank">
-                <img src="/resource/img/identity/identity-crisis4.svg">
-              </a>
-            </figure>
-          </section>
-
-          <section>
-            <h3>Existing ‘solutions’</h3>
-            <dl>
-              <dt>weaker alternatives<br>(e.g. relatedness)</dt>
-              <dd>Everything is related to everything.</dd>
-              <dt>domain-specific identity</dt>
-              <dd>“the same chemical” or “the same product”</dd>
-              <dt>Mutual agreement</dt>
-              <dd>Adding an <code>owl:sameAs</code> link requires
-                approval from the authority that is being linked
-                to.</dd>
-              <dt>Naming authority</dt>
-              <dd>Enforce the Unique Name Assumption (UNA).</dd>
-            </dl>
+            <div style="float: right; width: 35%;">
+              <ul>
+                <li style="color: purple;">person</li>
+                <li style="color: darkturquoise;">senator</li>
+                <li style="color: green;">president</li>
+                <li style="color: orangered;">government</li>
+              </ul>
+            </div>
           </section>
         </section>
 
@@ -206,81 +293,82 @@
           </section>
 
           <section>
-            <h3>Empirical Semantics: Approach</h3>
-            <p>
-              Take a meta-assertion from Analytic Semantics and
-              evaluate them empirically WRT Big Data on the Web.
+            <h2>Empirical Semantics Approach</h2>
+            <p>Take a meta-assertion from Analytic Semantics and
+              evaluate it as an empirical hypothesis.
             </p>
-            <h4>Example</h4>
+          </section>
+          <section>
+            <h2>Our semantic meta-assertion / hypothesis for naming</h2>
             <blockquote>
-              Names are chosen arbitrarily and have no meaning.
+              “Names are chosen arbitrarily and have no meaning.”
             </blockquote>
           </section>
 
           <section>
             <h3>Names on the Web</h3>
-            <a href="/resource/img/empirical-semantics/iri-longtail.svg" target="_blank">
-              <img src="/resource/img/empirical-semantics/iri-longtail.svg">
-            </a>
-          <!-- Op bijgevoegde kerstkaart zien we voor 3,543,226,266
-               unieke IRIs het aantal documenten waarin ze
-               voorkomen. Helemaal links op de kerstkaart zien we de
-               IRI ‘rdf:type’ die in de meeste (639,478) documenten
-               voorkomt.  Daarna volgen schema termen die voor
-               sensor observaties gebruikt worden (bijvoorbeeld
-               http://www.w3.org/2006/time#Interval en
-               http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom)
-               en die in de meeste andere analyses van de LOD Cloud
-               niet voorkomen (vanwege de gebruikelijke focus op
-               declaratieve kennis, waarvan nu eenmaal minder
-               beschikbaar is).
+            <figure>
+              <a href="/resource/img/empirical-semantics/iri-longtail.svg" target="_blank">
+                <img src="/resource/img/empirical-semantics/iri-longtail.svg">
+              </a>
+              <figcaption class="size-60">
+                3,543,226,266 unique IRIs (names) on the logarithmic
+                X-axis; the corresponding number of documets in which
+                each IRI occurs on the logarithmic Y-axis.
+              </figcaption>
+            </figure>
+            <!-- Op bijgevoegde kerstkaart zien we voor 3,543,226,266
+                 unieke IRIs het aantal documenten waarin ze
+                 voorkomen. Helemaal links op de kerstkaart zien we de
+                 IRI ‘rdf:type’ die in de meeste (639,478) documenten
+                 voorkomt.  Daarna volgen schema termen die voor
+                 sensor observaties gebruikt worden (bijvoorbeeld
+                 http://www.w3.org/2006/time#Interval en
+                 http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom)
+                 en die in de meeste andere analyses van de LOD Cloud
+                 niet voorkomen (vanwege de gebruikelijke focus op
+                 declaratieve kennis, waarvan nu eenmaal minder
+                 beschikbaar is).
 
-               Het plateau tussen ongeveer 100 en 10K IRIs wordt
-               veroorzaakt door Eionet (European Environment
-               Information and Observation Network) waarvan heel
-               veel documenten in de LOD Laundromat zitten.
+                 Het plateau tussen ongeveer 100 en 10K IRIs wordt
+                 veroorzaakt door Eionet (European Environment
+                 Information and Observation Network) waarvan heel
+                 veel documenten in de LOD Laundromat zitten.
 
-               Daarna gaat het vrijwel lineair omlaag in een
-               longtail.  De meeste IRIs (2,981,438,990) komen in
-               precies 1 document voor.
+                 Daarna gaat het vrijwel lineair omlaag in een
+                 longtail.  De meeste IRIs (2,981,438,990) komen in
+                 precies 1 document voor.
 
-               Dit komt overeen met andere LOD Observatories
-               (bv. Bizer) die stellen dat IRIs niet vaak
-               hergebruikt worden, maar ik denk zelf dat dit een
-               premature conclusie is:
+                 Dit komt overeen met andere LOD Observatories
+                 (bv. Bizer) die stellen dat IRIs niet vaak
+                 hergebruikt worden, maar ik denk zelf dat dit een
+                 premature conclusie is:
 
-               - De unieke IRIs zouden nog gesloten moeten worden
-               onder _syntactische equivalentie_: we weten dat
-               overbodige percent-encoding in de praktijk heel
-               vaak voorkomt waardoor IRIs die hetzelfde zijn niet
-               zo worden ge\"identificeerd.
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                 onder _syntactische equivalentie_: we weten dat
+                 overbodige percent-encoding in de praktijk heel
+                 vaak voorkomt waardoor IRIs die hetzelfde zijn niet
+                 zo worden ge\"identificeerd.
 
-               - De unieke IRIs zouden nog gesloten moeten worden
-               onder _semantische equivalentie_: we hebben
-               >900,000,000 unieke owl:sameAs statements die nu
-               nog niet zijn meegenomen.
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                 onder _semantische equivalentie_: we hebben
+                 >900,000,000 unieke owl:sameAs statements die nu
+                 nog niet zijn meegenomen.
 
-               - De unieke IRIs zouden nog gesloten moeten worden
-               onder _pragmatische equivalentie_: in de praktijk
-               denoteren IRIs met schema HTTP en schema HTTPS
-               dezelfde resource.
+                 - De unieke IRIs zouden nog gesloten moeten worden
+                 onder _pragmatische equivalentie_: in de praktijk
+                 denoteren IRIs met schema HTTP en schema HTTPS
+                 dezelfde resource.
 
-               - We hebben nog steeds maar een heel klein deel van
-               de LOD Cloud bestudeerd.-->
+                 - We hebben nog steeds maar een heel klein deel van
+                 de LOD Cloud bestudeerd.-->
           </section>
+
           <section>
             <h3>Quantifying the meaning of names</h3>
-            <div class="circle one">
-              <div class="inner" style="padding-top: 38%;">FORMAL<br>MEANING</div>
-            </div>
-            <div class="circle two">
-              <div class="inner" style="padding-top: 45%;">NAMES</div>
-            </div>
-            <div>
-              <p class="fragment">encode(FORMAL_MEANING) + encode(NAMES)</p>
-              <p class="fragment">- encode(FORMAL_MEANING + NAMES)</p>
-              <p class="fragment">= Mutual Information</p>
-            </div>
+            <pre><code>Mutual Information = encode(FORMAL_MEANING) +
+                     encode(NAMES) -
+                     encode(FORMAL_MEANING + NAMES)</code></pre>
           </section>
 
           <section>
@@ -294,7 +382,7 @@
           </section>
 
           <section>
-            <h3>Evaluated over 600,000 datasets</h3>
+            <h3>Evaluated over ≥600,000 datasets</h3>
             <figure>
               <a href="/resource/img/naming/plot.png" target="_blank">
                 <img src="/resource/img/naming/plot.png">
@@ -312,7 +400,9 @@
 
         <section>
           <section>
-            <h2>Semantics &amp; Graph Structure</h2>
+            <h2>Network Structure as a Proxy for Meaning</h2>
+            <p>Network structure visually corresponds to aspects of
+              meaning.</p>
           </section>
 
           <section>
@@ -362,106 +452,100 @@
 
         <section>
           <section>
-            <h2>Social Meaning</h2>
+            <h2>Thank you for your attention!</h2>
+            <p><a href="http://wouterbeek.com" target="_blank">Wouter Beek</a>
+              (<a href="mailto:wouter@triply.cc">wouter@triply.cc</a>),<br>
+              <a href="https://www.cs.vu.nl/~frank.van.harmelen/" target="_blank">Frank van Harmelen</a>
+              (<a href="mailto:Frank.van.Harmelen@vu.nl">Frank.van.Harmelen@vu.nl</a>)</p>
+            <a href="https://krr.cs.vu.nl/" target="_blank">
+              <img src="/resource/img/logo/krr.png" height="100">
+            </a>
+            <a href="http://lodlaundromat.org" target="_blank">
+              <img src="/resource/img/lod-laundromat/lod-washing-machine.png" height="100">
+            </a>
           </section>
 
           <section>
-            <h3>Formal semantics cannot capture all meaning</h3>
-            <h4>Graph G₁</h4>
-            <pre><code class="ttl" data-noescape data-trim>id:store def:sells id:tent.
-id:tent  def:costs "¥150,000".
-id:tent  rdf:type  id:Product.</code></pre>
-            <h4>Graph G₂</h4>
-            <pre><code data-noescape data-trim>fy:aHup   pe:ko9sap_ fy:jufn12.
-fy:jufn12 pe:oao9_   "Ufou".
-fy:jufn12 rdf:type   fyufnt:tmffqt.</code></pre>
-            <p>
-              Graphs G₁ and G₂ are true in the same models.
-            </p>
+            <h2>Further reading</h2>
+            <dl class="size-70">
+              <dt>Reproducible research</dt>
+              <dd class="size-60">
+                <ul>
+                  <li>
+                    L. Rietveld, W. Beek &amp; S. Schlobach, 2015.
+                    “LOD Lab: Experiments at LOD Scale”, ISWC 2015.
+                    <b>Best Paper Award</b>.
+                  </li>
+                </ul>
+              </dd>
+              <dt>Large-scale data cleaning</dt>
+              <dd class="size-60">
+                <ul>
+                  <li>
+                    W. Beek, F. Ilievski, J. Debattista, S. Schlobach
+                    &amp; J. Wielemaker, “Literally better: Analyzing
+                    and Improving the Quality of Literals”, Semantic
+                    Web Journal 2017.
+                  </li>
+                </ul>
+              </dd>
+              <dt>Semantic search engines</dt>
+              <dd class="size-60">
+                <ul>
+                  <li>
+                    F. Ilievski, W. Beek, M. Van Erp, L. Rietveld
+                    &amp; S. Schlobach, “LOTUS: Adaptive Text Search
+                    for Big Linked Data”, ESWC 2016. <b>Best LOD
+                      Application Award</b>.
+                  </li>
+                </ul>
+              </dd>
+              <dt>Large-scale querying</dt>
+              <dd class="size-60">
+                <ul>
+                  <li>
+                    J. Fernández, W. Beek, M. Martínez-Prieto &amp;
+                    M. Arias, “LOD-a-lot: A Queryable Dump of the LOD
+                    Cloud”, ISWC 2017.
+                  </li>
+                  <li>
+                    W. Beek, J. Fernández &amp; R. Verborgh,
+                    “LOD-a-lot: A Single-file Enabler for Data
+                    Science”, 13th Int. Conf. on Semantic Systems
+                    2017.
+                  </li>
+                  <li>
+                    W. Beek, L. Rietveld, S. Schlobach &amp; F. Van
+                    Harmelen, “LOD Laundromat: Why the Semantic Web
+                    Needs Centralization (Even If We Don't Like It)”,
+                    IEEE Internet Computing 2016.
+                  </li>
+                  <li>
+                    L. Rietveld, R. Verborgh, W. Beek, M. Vander Sande
+                    &amp; S. Schlobach.  2015.  “Linked
+                    Data-as-a-Service: The Semantic Web Redeployed”,
+                    ESWC 2015.
+                  </li>
+                </ul>
+              </dd>
+              <dt>Erroneous link detection</dt>
+              <dd class="size-60">
+                <ul>
+                  <li>
+                    W. Beek, J. Raad, J. Wielemaker &amp; F. van
+                    Harmelen “sameAs.cc: The Closure of 500M
+                    owl:sameAs Statements”, ESWC 2018.  <b>Best
+                      Resource Paper Award</b>.
+                  </li>
+                  <li>
+                    J. Raad, W. Beek, F. Van Harmelen, N.  Pernelle
+                    &amp; F. Saïs, “Detecting Erroneous Identity Links
+                    on the Web using Network Metrics”, ISWC 2018.
+                  </li>
+                </ul>
+              </dd>
+            </dl>
           </section>
-
-          <section>
-            <h3>Social Meaning</h3>
-            <figure>
-              <blockquote>
-                “An RDF graph may contain "defining information" that
-                is opaque to logical reasoners.  This information may
-                be used by human interpreters of RDF information.”
-              </blockquote>
-              <blockquote>
-                “Human publishers of RDF content commit themselves to
-                the mechanically-inferred social obligations.”
-              </blockquote>
-              <blockquote>
-                “The meaning of an RDF document includes the social
-                meaning, the formal meaning, and the social meaning of
-                the formal entailments.”
-              </blockquote>
-              <figcaption class="size-80">
-                Part of an early working version of the RDF standard
-                (<a href="https://www.w3.org/TR/2003/WD-rdf-concepts-20030123/#section-Meaning">link</a>).
-              </figcaption>
-            </figure>
-          </section>
-
-          <section>
-            <h3>2 notions of meaning</h3>
-            <div class="left">
-              <h4>Formal meaning</h4>
-              <figure>
-                <a href="/resource/img/empirical-semantics/barad-dur.jpg" target="_blank">
-                  <img src="/resource/img/empirical-semantics/barad-dur.jpg">
-                </a>
-              </figure>
-            </div>
-            <div class="right">
-              <h4>Social meaning</h4>
-              <figure>
-                <a href="/resource/img/empirical-semantics/babel.png" target="_blank">
-                  <img src="/resource/img/empirical-semantics/babel.png">
-                </a>
-              </figure>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Domain &amp; range</h2>
-          </section>
-
-          <section>
-            <h3>Examples drawn from BioPortal</h3>
-            <pre><code class="ttl" data-noescape data-trim>bpo:has_event rdfs:domain bpo:person.
-bpo:has_event rdfs:domain bpo:event.
-bpo:has_event rdfs:domain bpo:disease.</code></pre>
-            <ul>
-              <li>What is the formal meaning?</li>
-              <li>What is the intended meaning?</li>
-              <li>How is this related to the OWA?</li>
-            </ul>
-          </section>
-        </section>
-
-        <section>
-          <h2>Thank you for your attention!</h2>
-          <ul>
-            <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
-            <li>WWW: <a href="http://lodlaundromat.org">lodlaundromat.org</a></li>
-            <li>Email: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></li>
-            <li>Email: <a href="mailto:wouter@triply.cc">wouter@triply.cc</a></li>
-            <li>Twitter: <a href="https://twitter/WGJBeek"><code>@WGJBeek</code></a></li>
-          </ul>
-          <br>
-          <a href="https://krr.cs.vu.nl/" target="_blank">
-            <img src="/resource/img/logo/krr.png" height="100">
-          </a>
-          <a href="http://lodlaundromat.org" target="_blank">
-            <img src="/resource/img/lod-laundromat/lod-washing-machine.png" height="200">
-          </a>
-          <a href="https://triply.cc" target="_blank">
-            <img src="/resource/img/triply/logo.svg" height="200">
-          </a>
         </section>
 
       </div>

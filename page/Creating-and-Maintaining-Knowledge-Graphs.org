@@ -163,13 +163,6 @@ in most places.  URIs are the standardized format for web locations.
  The following conventional restrictions that apply to all components
  are put on HTTP(S) IRIs that are used in RDF data:
 
-   - Do not use unnecessary percent encoding.  For example, use
-     ~https://example.com/π~ instead of ~https://example.com/%CF%80~.
-   - Do not use lowercase letters to denote hexadecimal digits.  For
-     example, use ~https://example.com/%5C~ instead of
-     ~https://example.com/%5c~.
-   - IRIs should be in Unicode Normalization Forms C (NFC).
-
  We will use the example IRI [[pikachu-iri]] to discuss the five IRI
  components in more detail.
 
@@ -230,17 +223,6 @@ still use the ~http~ scheme.
  ~demo.triply.cc~.  This indicates that the IRI denoting Pikachu is
  hosted from a physical machine that is owned and operated by [[https://triply.cc][Triply]].
 
- The following conventional restritions are put on HTTP(S) IRIs that
- are used in RDF data:
-
-   - Leave out the port component in case it is the default port.  The
-     default port for HTTP is 80; the default port for HTTPS is 443.
-     For example, use ~https://example.com/~ instead of
-     ~https://example.com:443/~.
-   - Do not use upper-case letters.  For example, use
-     ~https://example.com/~ instead of ~hTtPs://example.com/~.
-   - Do not use Punycode-encoding for host names.
-
 ***** Path
 
  The path is a sequence of segments separated by forward slashes (~/~).
@@ -289,30 +271,6 @@ still use the ~http~ scheme.
  and would only over-complicate things.
 
 **** Real-world experience
-These are our best practices for minting IRIs:
-
-  - Always use HTTPS IRIs and never use HTTP IRIs.  HTTPS is the
-    successor to the less secute HTTP.  Since all professional web
-    sites and APIs should be using HTTPS by now, looking up an HTTP
-    URI should result in a redirect to its related HTTPS URI,
-    resulting in an unnecessary additional lookup.
-  - Give all your instance-denoting IRIs the same IRI prefix.  This
-    makes it easy to formulate server-side rules that run specific
-    services for these IRIs.  For example, a single server-side rule
-    suffices to let these IRIs dereference in one and the same way.
-  - Give all your definition-denoting IRIs the same IRI prefix.
-  - Let the local name of class-denoting IRIs start with an uppercase
-    letter.
-  - Let the local name of property- and instance-denoting IRIs start
-    with a lowercase letter.
-  - While IRIs should not be unnecessarily long in general, never mint
-    IRI whose URI translation exceeds 2,048 characters.  URIs that are
-    longer than this number of character are known to be cut off by
-    some proxies and by several commonly used applications (including
-    Edge, Interney Explorer 11, and Google Documents).
-  - Follow all the conventions that are described in the previous
-    section.
-
 Whenever a Linked Data project involves creating data that requires
 the minting of new IRIs, very long discussions take place about how
 those IRIs must be structured and written down.  This is not
@@ -663,7 +621,6 @@ ability of knowledge graphs to encode the same knowledge.
   "weight": 60
 }
 #+end_src
-
 
 * Units of measure
 
