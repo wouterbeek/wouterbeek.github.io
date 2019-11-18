@@ -71,7 +71,7 @@
               <pre><code class="size-80" data-noescape data-trim>louvre:monaLisa
   dc:created "1503"^^xsd:gYear;
   dc:creator "Da Vinci".</code></pre>
-              <pre><code class="fragment" data-noescape data-trim>louvre:monaLisa owl:sameAs sothebys:somePainting.</code></pre>
+              <pre><code data-noescape data-trim>louvre:monaLisa owl:sameAs sothebys:somePainting.</code></pre>
               <pre><code class="size-80" data-noescape data-trim>sothebys:somePainting
   sothebys:auctionDate "2018-06-07"^^xsd:date;
   sothebys:price "€1.000,-";
@@ -104,9 +104,9 @@
               The only thing worse than <code>owl:sameAs</code> is
               ‘clever’ replacements for <code>owl:sameAs</code>.
             </h3>
-            <pre><code class="fragment" data-noescape data-trim>lexvo:nearlySameAs lexvo:somewhatSameAs owl:sameAs.</code></pre>
-            <pre><code class="fragment" data-noescape data-trim>lexvo:nearlySameAs lexvo:nearlySameAs lexvo:somewhatSameAs?</code></pre>
-            <pre><code class="fragment" data-noescape data-trim>owl:sameAs lexvo:somewhatSameAs bbc:sameAs?</code></pre>
+            <pre><code data-noescape data-trim>lexvo:nearlySameAs lexvo:somewhatSameAs owl:sameAs.</code></pre>
+            <pre><code data-noescape data-trim>lexvo:nearlySameAs lexvo:nearlySameAs lexvo:somewhatSameAs?</code></pre>
+            <pre><code data-noescape data-trim>owl:sameAs lexvo:somewhatSameAs bbc:sameAs?</code></pre>
           </section>
 
           <section>
@@ -122,14 +122,14 @@
           <section>
             <p>We need an enabler for <u>empirical</u> research into
               how <code>owl:sameAs</code> is actually being used.</p>
-            <p class="fragment">The <u>analytic</u> approach: “people
+            <p>The <u>analytic</u> approach: “people
               make mistakes” / “it's just noise” is not enough.</p>
           </section>
 
           <section>
             <table>
               <thead>
-                <tr><th></th><th>sameas.org</th><th>sameas.cc</th></tr>
+                <tr><th></th><th>sameas.org</th><th>www.sameas.cc</th></tr>
               </thead>
               <tbody>
                 <tr><td>№ terms</td><td>203M</td><td>180M</td></tr>
@@ -141,20 +141,20 @@
 
           <section>
             <h3>
-              <a href="https://sameAs.cc"
-                 target="_blank"><code>sameAs.cc</code></a>
+              <a href="https://www.sameAs.cc"
+                 target="_blank"><code>www.sameAs.cc</code></a>
                  requirements
             </h3>
             <ul>
               <li>A performant and cost-effective solution for
                 determining whether two things are (claimed to be) the
                 same.</li>
-              <li class="fragment">This solution must scale to the LOD
+              <li>This solution must scale to the LOD
                 Cloud.</li>
-              <li class="fragment">This solution must be formally
+              <li>This solution must be formally
                 interpretable
                 (no <code>skos:exactMatch</code>, <code>rdfs:seeAlso</code>).</li>
-              <li class="fragment">It must be calculated
+              <li>It must be calculated
                 incrementally.</li>
             </ul>
           </section>
@@ -185,7 +185,7 @@
             <div class="right">
               <pre><code data-noescape data-trim>:d owl:sameAs :b.</code></pre>
             </div>
-            <div class="fragment">
+            <div>
               <h4>Corresponding implicit identity relation</h4>
               <div class="left">
                 <pre><code data-noescape data-trim class="size-80">:a owl:sameAs :a.
@@ -205,8 +205,16 @@
           </section>
           <section class="white"
                    data-background-image="/resource/img/lod-a-lot/observatory.jpg">
-            <h3>Obtain the explicit identity relation</h3>
-            <p><a href="http://lod-a-lot.lod.labs.vu.nl" target="_blank">LOD-a-lot</a></p>
+            <h3 style="color: white;">Obtain the explicit identity relation</h3>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p><a href="http://lod-a-lot.lod.labs.vu.nl" style="color: white;" target="_blank">http://lod-a-lot.lod.labs.vu.nl</a></p>
             <p class="size-80">Fernández et al. 2017</p>
           </section>
           <section>
@@ -251,25 +259,25 @@ construct {
               <li>val : N ↦ ID</li>
               <li>Identity closure for x : key(val(x))</li>
             </ul>
-            <div class="fragment">
+            <div>
               <h4>Add an explicit identity pair (x,y)</h4>
               <dl class="size-80">
-                <div class="fragment">
+                <div>
                   <dt>X and y are new</dt>
                   <dd>x ↦ id, y ↦ id, id ↦ {x,y}</dd>
                 </div>
-                <div class="fragment">
+                <div>
                   <dt>Only x is new (only y is new)</dt>
                   <dd>x ↦ val(y), val(y) ↦ key(val(y)) ∪ {x}</dd>
                 </div>
-                <div class="fragment">
+                <div>
                   <dt>x and y are old</dt>
                   <dd>val(x) ↦ key(val(x)) ∪ key(val(y)), ∀
                     y'∈key(val(y)) . y' ↦ val(x)</dd>
                 </div>
               </dl>
             </div>
-            <p class="fragment">Run time: 5 hours (2 CPU cores); 9.3GB
+            <p>Run time: 5 hours (2 CPU cores); 9.3GB
               disk (RocksDB)</p>
           </section>
         </section>
@@ -300,8 +308,8 @@ construct {
           <section>
             <h3>Aggregation by namespace</h3>
             <figure class="left small">
-              <a href="https://sameas.cc/explicit/img" target="_blank">
-                <img src="https://sameas.cc/explicit/img">
+              <a href="https://www.sameas.cc/explicit/img" target="_blank">
+                <img src="https://www.sameas.cc/explicit/img">
               </a>
               <figcaption>
                 2,618 namespaces, 10,791 edges, and 142
@@ -476,15 +484,15 @@ http://rdf.freebase.com/ns/m.05b6w1g</code></pre>
         </section>
 
         <section>
-          <h2>Thank you for your attention!</h2>
+          <h3>Thank you for your attention!</h3>
           <figure class="left">
             <a href="/resource/img/kr/shield-of-the-holy-trinity.jpg" target="_blank">
-              <img src="/resource/img/kr/shield-of-the-holy-trinity.jpg">
+              <img src="/resource/img/kr/shield-of-the-holy-trinity.jpg" height="300">
             </a>
           </figure>
-          <div class="right">
+          <div class="right size-80">
             <ul>
-              <li>WWW: <a href="https://sameas.cc" target="_blank">https://sameAs.cc</a>
+              <li>WWW: <a href="https://www.sameas.cc" target="_blank">https://www.sameAs.cc</a>
               <li>WWW: <a href="http://wouterbeek.com">wouterbeek.com</a></li>
               <li>Email: <a href="mailto:w.g.j.beek@vu.nl">w.g.j.beek@vu.nl</a></li>
               <li>Email: <a href="mailto:joe.raad@agroparistech.fr">joe.raad@agroparistech.fr</a></li>
