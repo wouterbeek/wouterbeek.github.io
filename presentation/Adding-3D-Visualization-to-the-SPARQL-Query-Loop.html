@@ -8,14 +8,14 @@
     <meta name="description" content="Adding 3D Visualization to the SPARQL Query Loop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="/resource/css/presentation.css">
-    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/reveal.css">
-    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/css/theme/simple.css" id="theme">
-    <link rel="stylesheet" href="/resource/reveal.js-3.7.0/lib/css/default.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.8.0/css/reveal.css">
+    <link rel="stylesheet" href="/resource/reveal.js-3.8.0/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="/resource/reveal.js-3.8.0/lib/css/default.css">
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.7.0/css/print/pdf.css' : '/resource/reveal.js-3.7.0/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '/resource/reveal.js-3.8.0/css/print/pdf.css' : '/resource/reveal.js-3.8.0/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <title>Adding 3D Visualization to the SPARQL Query Loop</title>
@@ -200,7 +200,7 @@
 
           <section>
             <h3>3D rooftops</h3>
-            <p><a href="https://nightly.yasgui.triply.cc/#query=prefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%20%0Aselect%20%3Fwkt%20%3FwktZ%20%7B%0A%20%20bind%20(-42.67%20as%20%3FwktZ)%0A%20%20bind%20(strdt(%22MULTIPOLYGON%20(((6.0909979%2052.5166834%2049.1174236%2C6.0915828%2052.5167363%2049.1172663%2C6.091599%2052.5166689%2050.932793%2C6.0910143%2052.516616%2050.9329502%2C6.0909979%2052.5166834%2049.1174236))%2C((6.0910143%2052.516616%2050.9329502%2C6.091599%2052.5166689%2050.932793%2C6.0916128%2052.5166111%2049.374989%2C6.0916151%2052.5166016%2049.1175049%2C6.0910307%2052.5165486%2049.117562%2C6.0910143%2052.516616%2050.9329502))%2C((6.0915828%2052.5167363%2044.2873466%2C6.0915828%2052.5167363%2049.1172663%2C6.0909979%2052.5166834%2049.1174236%2C6.0909979%2052.5166834%2044.2875039%2C6.0915828%2052.5167363%2044.2873466))%2C((6.0916151%2052.5166016%2044.2875852%2C6.0916151%2052.5166016%2049.1175049%2C6.0916128%2052.5166111%2049.374989%2C6.0916128%2052.5166111%2044.2875683%2C6.0916151%2052.5166016%2044.2875852))%2C((6.0910307%2052.5165486%2044.2877424%2C6.0910307%2052.5165486%2049.117562%2C6.0916151%2052.5166016%2049.1175049%2C6.0916151%2052.5166016%2044.2875852%2C6.0910307%2052.5165486%2044.2877424))%2C((6.0909979%2052.5166834%2044.2875039%2C6.0909979%2052.5166834%2049.1174236%2C6.0910143%2052.516616%2050.9329502%2C6.0910307%2052.5165486%2049.117562%2C6.0910307%2052.5165486%2044.2877424%2C6.0909979%2052.5166834%2044.2875039))%2C((6.0916128%2052.5166111%2044.2875683%2C6.0916128%2052.5166111%2049.374989%2C6.091599%2052.5166689%2050.932793%2C6.0915828%2052.5167363%2049.1172663%2C6.0915828%2052.5167363%2044.2873466%2C6.0916128%2052.5166111%2044.2875683))%2C((6.0909979%2052.5166834%2044.2875039%2C6.0910307%2052.5165486%2044.2877424%2C6.0916151%2052.5166016%2044.2875852%2C6.0916128%2052.5166111%2044.2875683%2C6.0915828%2052.5167363%2044.2873466%2C6.0909979%2052.5166834%2044.2875039)))%22%2Cgeo%3AwktLiteral)%20as%20%3Fwkt)%0A%7D%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=LOD2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3gd" target="_blank">LOD2 (Level of Detail)</a></p>
+            <p><a href="https://nightly.yasgui.triply.cc/#query=prefix%20geo%3A%20%3Chttp%3A%2F%2Fwww.opengis.net%2Font%2Fgeosparql%23%3E%20%0Aselect%20%3Fwkt%20%3FwktZ%20%7B%0A%20%20bind%20(-42.67%20as%20%3FwktZ)%0A%20%20bind%20(strdt(%22MULTIPOLYGON%20(((6.0909979%2052.5166834%2049.1174236%2C6.0915828%2052.5167363%2049.1172663%2C6.091599%2052.5166689%2050.93.893%2C6.0910143%2052.516616%2050.9329502%2C6.0909979%2052.5166834%2049.1174236))%2C((6.0910143%2052.516616%2050.9329502%2C6.091599%2052.5166689%2050.93.893%2C6.0916128%2052.5166111%2049.374989%2C6.0916151%2052.5166016%2049.1175049%2C6.09103.8%2052.5165486%2049.117562%2C6.0910143%2052.516616%2050.9329502))%2C((6.0915828%2052.5167363%2044.2873466%2C6.0915828%2052.5167363%2049.1172663%2C6.0909979%2052.5166834%2049.1174236%2C6.0909979%2052.5166834%2044.2875039%2C6.0915828%2052.5167363%2044.2873466))%2C((6.0916151%2052.5166016%2044.2875852%2C6.0916151%2052.5166016%2049.1175049%2C6.0916128%2052.5166111%2049.374989%2C6.0916128%2052.5166111%2044.2875683%2C6.0916151%2052.5166016%2044.2875852))%2C((6.09103.8%2052.5165486%2044.2877424%2C6.09103.8%2052.5165486%2049.117562%2C6.0916151%2052.5166016%2049.1175049%2C6.0916151%2052.5166016%2044.2875852%2C6.09103.8%2052.5165486%2044.2877424))%2C((6.0909979%2052.5166834%2044.2875039%2C6.0909979%2052.5166834%2049.1174236%2C6.0910143%2052.516616%2050.9329502%2C6.09103.8%2052.5165486%2049.117562%2C6.09103.8%2052.5165486%2044.2877424%2C6.0909979%2052.5166834%2044.2875039))%2C((6.0916128%2052.5166111%2044.2875683%2C6.0916128%2052.5166111%2049.374989%2C6.091599%2052.5166689%2050.93.893%2C6.0915828%2052.5167363%2049.1172663%2C6.0915828%2052.5167363%2044.2873466%2C6.0916128%2052.5166111%2044.2875683))%2C((6.0909979%2052.5166834%2044.2875039%2C6.09103.8%2052.5165486%2044.2877424%2C6.0916151%2052.5166016%2044.2875852%2C6.0916128%2052.5166111%2044.2875683%2C6.0915828%2052.5167363%2044.2873466%2C6.0909979%2052.5166834%2044.2875039)))%22%2Cgeo%3AwktLiteral)%20as%20%3Fwkt)%0A%7D%0A&endpoint=https%3A%2F%2Fdata.labs.pdok.nl%2Fsparql&requestMethod=POST&tabTitle=LOD2&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=geo3gd" target="_blank">LOD2 (Level of Detail)</a></p>
           </section>
 
           <section>
@@ -250,8 +250,8 @@
 
       </div>
     </div>
-    <script src="/resource/reveal.js-3.7.0/lib/js/head.min.js"></script>
-    <script src="/resource/reveal.js-3.7.0/js/reveal.js"></script>
+    <script src="/resource/reveal.js-3.8.0/lib/js/head.min.js"></script>
+    <script src="/resource/reveal.js-3.8.0/js/reveal.js"></script>
     <script>
 			// More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
@@ -263,18 +263,18 @@
 				// More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
           // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
-		      { src: '/resource/reveal.js-3.7.0/js/classList.js', condition: function() { return !document.body.classList; } },
+		      { src: '/resource/reveal.js-3.8.0/js/classList.js', condition: function() { return !document.body.classList; } },
 		      // Interpret Markdown in <section> elements
-		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		      { src: '/resource/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.8.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		      { src: '/resource/reveal.js-3.8.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 		      // Syntax highlight for <code> elements
-		      { src: '/resource/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		      { src: '/resource/reveal.js-3.8.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 		      // Zoom in and out with Alt+click
-		      { src: '/resource/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+		      { src: '/resource/reveal.js-3.8.0/plugin/zoom-js/zoom.js', async: true },
 		      // Speaker notes
-		      { src: '/resource/reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+		      { src: '/resource/reveal.js-3.8.0/plugin/notes/notes.js', async: true },
 		      // MathJax
-		      { src: '/resource/reveal.js-3.7.0/plugin/math/math.js', async: true }
+		      { src: '/resource/reveal.js-3.8.0/plugin/math/math.js', async: true }
         ]
       });
     </script>
