@@ -2,6 +2,7 @@
 For some reason, textual content in <code> tags is always displayed
 larger.  We therefore reduce the font size inside all <code> tags.
 */
+* { font-size: 95%; }
 code { font-size: 80% !important; }
 pre code { font-size: 100% !important; }
 
